@@ -1,0 +1,2103 @@
+{
+  "category": "markdown_converter",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:18:08Z",
+  "examples": {
+    "add_command_line_option_specify_custom_pdf_save_options_json_file_overriding_default_pdf_conversion_settings": {
+      "title": "Add Command Line Option Specify Custom Pdf Save Options Json File Overriding Default Pdf Conversion Settings",
+      "filename": "add_command_line_option_specify_custom_pdf_save_options_json_file_overriding_default_pdf_conversion_settings.cs",
+      "description": "Adds a command‑line option to specify a custom PdfSaveOptions JSON file that overrides the default PDF conversion settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "pdf",
+        "saving-options",
+        "drawing",
+        "html",
+        "jpeg"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "ColorTranslator.FromHtml",
+        "Converter.ConvertHTML",
+        "Error.WriteLine",
+        "File.Exists",
+        "File.ReadAllText",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "add_configuration_flag_enable_disable_intermediate_html_file_generation_conversion_pipelines": {
+      "title": "Add Configuration Flag Enable Disable Intermediate Html File Generation Conversion Pipelines",
+      "filename": "add_configuration_flag_enable_disable_intermediate_html_file_generation_conversion_pipelines.cs",
+      "description": "Adds a configuration flag to enable or disable intermediate HTML file generation during conversion pipelines.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "pdf",
+        "saving-options",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "add_support_for_converting_markdown_files_in_subfolders_by_recursively_scanning_directories_during_batch_processing": {
+      "title": "Add Support For Converting Markdown Files In Subfolders By Recursively Scanning Directories During Batch Processing",
+      "filename": "add_support_for_converting_markdown_files_in_subfolders_by_recursively_scanning_directories_during_batch_processing.cs",
+      "description": "Adds support for converting Markdown files located in subfolders by recursively scanning directories during batch processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "drawing",
+        "forms",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetRelativePath"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "apply_custom_color_palette_in_imagesaveoptions_when_converting_markdown_to_gif": {
+      "title": "Apply Custom Color Palette In Imagesaveoptions When Converting Markdown To Gif",
+      "filename": "apply_custom_color_palette_in_imagesaveoptions_when_converting_markdown_to_gif.cs",
+      "description": "Applies a custom color palette in ImageSaveOptions when converting Markdown to GIF format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Color.FromArgb",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "apply_custom_pdf_metadata_author_title_using_pdfsaveoptions_before_conversion": {
+      "title": "Apply Custom Pdf Metadata Author Title Using Pdfsaveoptions Before Conversion",
+      "filename": "apply_custom_pdf_metadata_author_title_using_pdfsaveoptions_before_conversion.cs",
+      "description": "Applies custom PDF metadata such as author and title using PdfSaveOptions before conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "metadata",
+        "pdf",
+        "saving-options",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.HTMLDocument",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "apply_custom_resolution_setting_in_imagesaveoptions_when_converting_markdown_to_gif_images": {
+      "title": "Apply Custom Resolution Setting In Imagesaveoptions When Converting Markdown To Gif Images",
+      "filename": "apply_custom_resolution_setting_in_imagesaveoptions_when_converting_markdown_to_gif_images.cs",
+      "description": "Applies a custom resolution setting in ImageSaveOptions when converting Markdown to GIF images.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Aspose.Html.Saving.ImageSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Saving.ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "apply_imagesaveoptions_specify_background_color_when_converting_markdown_to_bmp_image": {
+      "title": "Apply Imagesaveoptions Specify Background Color When Converting Markdown To Bmp Image",
+      "filename": "apply_imagesaveoptions_specify_background_color_when_converting_markdown_to_bmp_image.cs",
+      "description": "Applies ImageSaveOptions to specify background color when converting Markdown to a BMP image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "batch_conversion_markdown_files_to_docx_individual_docsaveoptions_per_file": {
+      "title": "Batch Conversion Markdown Files To Docx Individual Docsaveoptions Per File",
+      "filename": "batch_conversion_markdown_files_to_docx_individual_docsaveoptions_per_file.cs",
+      "description": "Implements batch conversion of Markdown files to DOCX with individual DocSaveOptions for each file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "saving-options",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "DocSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "batch_conversion_of_all_markdown_files_in_folder_to_pdf_using_foreach_loop": {
+      "title": "Batch Conversion Of All Markdown Files In Folder To Pdf Using Foreach Loop",
+      "filename": "batch_conversion_of_all_markdown_files_in_folder_to_pdf_using_foreach_loop.cs",
+      "description": "Performs batch conversion of all Markdown files in a folder to PDF using a foreach loop.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "markdown",
+        "pdf",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "batch_convert_all_markdown_files_in_folder_to_jpeg_images_uniform_quality_level": {
+      "title": "Batch Convert All Markdown Files In Folder To Jpeg Images Uniform Quality Level",
+      "filename": "batch_convert_all_markdown_files_in_folder_to_jpeg_images_uniform_quality_level.cs",
+      "description": "Batch converts all Markdown files in a folder to JPEG images applying a uniform quality level.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "batch_convert_markdown_files_to_xps_while_preserving_original_file_timestamps_in_output": {
+      "title": "Batch Convert Markdown Files To Xps While Preserving Original File Timestamps In Output",
+      "filename": "batch_convert_markdown_files_to_xps_while_preserving_original_file_timestamps_in_output.cs",
+      "description": "Batch converts Markdown files to XPS while preserving original file timestamps in the output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Aspose.Html.Saving.XpsSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.GetCreationTime",
+        "File.GetLastWriteTime",
+        "File.SetCreationTime",
+        "File.SetLastWriteTime",
+        "Path.ChangeExtension",
+        "Saving.XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "batch_process_markdown_files_convert_to_tiff_lossless_compression_enabled": {
+      "title": "Batch Process Markdown Files Convert To Tiff Lossless Compression Enabled",
+      "filename": "batch_process_markdown_files_convert_to_tiff_lossless_compression_enabled.cs",
+      "description": "Batch processes a set of Markdown files, converting each to TIFF with lossless compression enabled.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "configure_docsaveoptions_embed_fonts_docx_output_consistent_rendering_across_platforms": {
+      "title": "Configure Docsaveoptions Embed Fonts Docx Output Consistent Rendering Across Platforms",
+      "filename": "configure_docsaveoptions_embed_fonts_docx_output_consistent_rendering_across_platforms.cs",
+      "description": "Configures DocSaveOptions to embed fonts in the DOCX output for consistent rendering across platforms.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "saving-options",
+        "drawing",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "DocSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_jpeg_output_convert_html_document_to_image": {
+      "title": "Configure Imagesaveoptions Jpeg Output Convert Html Document To Image",
+      "filename": "configure_imagesaveoptions_jpeg_output_convert_html_document_to_image.cs",
+      "description": "Configures ImageSaveOptions for JPEG output and converts an HTML document to an image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "saving-options",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.ImageSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.HTMLDocument",
+        "Saving.ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "configure_pdf_encryption_password_to_protect_generated_pdf_from_unauthorized_access": {
+      "title": "Configure Pdf Encryption Password To Protect Generated Pdf From Unauthorized Access",
+      "filename": "configure_pdf_encryption_password_to_protect_generated_pdf_from_unauthorized_access.cs",
+      "description": "Configures PDF encryption password via PdfSaveOptions.Password to protect the generated PDF from unauthorized access.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "extraction",
+        "html",
+        "pdf",
+        "saving-options",
+        "rendering",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfEncryptionInfo",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_html_content_to_svg_using_svgsaveoptions": {
+      "title": "Convert Html Content To Svg Using Svgsaveoptions",
+      "filename": "convert_html_content_to_svg_using_svgsaveoptions.cs",
+      "description": "Converts HTML content to SVG using SvgSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "dom",
+        "html",
+        "saving-options",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "SVGDocument",
+        "SVGSaveOptions",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_large_markdown_to_bmp_using_streaming_avoid_high_memory_consumption": {
+      "title": "Convert Large Markdown To Bmp Using Streaming Avoid High Memory Consumption",
+      "filename": "convert_large_markdown_to_bmp_using_streaming_avoid_high_memory_consumption.cs",
+      "description": "Converts a large Markdown file to BMP format using streaming to avoid high memory consumption.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Error.WriteLine",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_document_to_html_and_save_result_to_memory_stream_for_further_processing": {
+      "title": "Convert Markdown Document To Html And Save Result To Memory Stream For Further Processing",
+      "filename": "convert_markdown_document_to_html_and_save_result_to_memory_stream_for_further_processing.cs",
+      "description": "Converts a Markdown document to HTML and saves the result to a memory stream for further processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "stream",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "MemoryStream",
+        "StreamReader",
+        "StreamWriter",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_document_with_code_blocks_to_html_preserving_syntax_highlighting": {
+      "title": "Convert Markdown Document With Code Blocks To Html Preserving Syntax Highlighting",
+      "filename": "convert_markdown_document_with_code_blocks_to_html_preserving_syntax_highlighting.cs",
+      "description": "Converts a Markdown document containing code blocks to an HTML file preserving syntax highlighting.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "css",
+        "dom",
+        "html",
+        "markdown",
+        "stream",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "DocumentElement.AppendChild",
+        "File.ReadAllText",
+        "MemoryStream",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_string_directly_to_html_using_argument": {
+      "title": "Convert Markdown String Directly To Html Using Argument",
+      "filename": "convert_markdown_string_directly_to_html_using_argument.cs",
+      "description": "Converts a Markdown string directly to HTML by calling ConvertMarkdown with the string argument.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "stream",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "MemoryStream",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_string_to_html_and_export_as_tiff_with_compression": {
+      "title": "Convert Markdown String To Html And Export As Tiff With Compression",
+      "filename": "convert_markdown_string_to_html_and_export_as_tiff_with_compression.cs",
+      "description": "Converts a Markdown string to HTML and then exports the result as a TIFF file with compression.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllText",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_strings_to_individual_png_files_parallel_processing": {
+      "title": "Convert Markdown Strings To Individual Png Files Parallel Processing",
+      "filename": "convert_markdown_strings_to_individual_png_files_parallel_processing.cs",
+      "description": "Converts a collection of Markdown strings to individual PNG files using parallel processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Aspose.Html.Saving.ImageSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "File.WriteAllText",
+        "Parallel.ForEach",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "Saving.ImageSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_to_docx_with_page_size_and_orientation_using_docsaveoptions_pagesetup": {
+      "title": "Convert Markdown To Docx With Page Size And Orientation Using Docsaveoptions Pagesetup",
+      "filename": "convert_markdown_to_docx_with_page_size_and_orientation_using_docsaveoptions_pagesetup.cs",
+      "description": "Converts Markdown to DOCX while setting page size and orientation via DocSaveOptions PageSetup.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "markdown",
+        "saving-options",
+        "forms",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "DocSaveOptions",
+        "Margin",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_to_gif_with_limited_animation_frame_rate_image_save_options": {
+      "title": "Convert Markdown To Gif With Limited Animation Frame Rate Image Save Options",
+      "filename": "convert_markdown_to_gif_with_limited_animation_frame_rate_image_save_options.cs",
+      "description": "Converts a Markdown file to GIF format while limiting the animation frame rate using ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_to_html_and_render_with_htmldocument_api_to_bmp_image": {
+      "title": "Convert Markdown To Html And Render With Htmldocument Api To Bmp Image",
+      "filename": "convert_markdown_to_html_and_render_with_htmldocument_api_to_bmp_image.cs",
+      "description": "Converts Markdown to HTML and then uses the HTMLDocument API to render it as a BMP image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllText",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_to_html_apply_css_styling_save_output_png_image": {
+      "title": "Convert Markdown To Html Apply Css Styling Save Output Png Image",
+      "filename": "convert_markdown_to_html_apply_css_styling_save_output_png_image.cs",
+      "description": "Converts Markdown to HTML, applies CSS styling, and saves the output as a PNG image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "css",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "DocumentElement.AppendChild",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "convert_markdown_to_png_transparent_background_configure_imagesaveoptions": {
+      "title": "Convert Markdown To Png Transparent Background Configure Imagesaveoptions",
+      "filename": "convert_markdown_to_png_transparent_background_configure_imagesaveoptions.cs",
+      "description": "Converts Markdown to PNG with transparent background by configuring ImageSaveOptions appropriately.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_command_line_tool_accepts_input_markdown_path_output_format_arguments_conversion": {
+      "title": "Create Command Line Tool Accepts Input Markdown Path Output Format Arguments Conversion",
+      "filename": "create_command_line_tool_accepts_input_markdown_path_output_format_arguments_conversion.cs",
+      "description": "Creates a command‑line tool that accepts input Markdown path and output format arguments for conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "DocSaveOptions",
+        "Error.WriteLine",
+        "ImageSaveOptions",
+        "NotSupportedException",
+        "Path.ChangeExtension",
+        "System.IO.Path.ChangeExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_console_application_watching_directory_converts_new_markdown_to_jpeg_automatically": {
+      "title": "Create Console Application Watching Directory Converts New Markdown To Jpeg Automatically",
+      "filename": "create_console_application_watching_directory_converts_new_markdown_to_jpeg_automatically.cs",
+      "description": "Creates a console application that watches a directory and converts new Markdown files to JPEG automatically.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.ReadLine",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "FileStream",
+        "FileSystemWatcher",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_png_image_from_markdown_using_imagesaveoptions_default_compression": {
+      "title": "Create Png Image From Markdown Using Imagesaveoptions Default Compression",
+      "filename": "create_png_image_from_markdown_using_imagesaveoptions_default_compression.cs",
+      "description": "Creates a PNG image from Markdown using ImageSaveOptions with ImageFormat.Png and default compression.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_powershell_script_iterates_markdown_files_converts_each_tiff_image": {
+      "title": "Create Powershell Script Iterates Markdown Files Converts Each Tiff Image",
+      "filename": "create_powershell_script_iterates_markdown_files_converts_each_tiff_image.cs",
+      "description": "Creates a PowerShell script that iterates over Markdown files and converts each to a TIFF image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_reusable_configuration_class_holds_default_pdf_save_options_doc_save_options_image_save_options": {
+      "title": "Create Reusable Configuration Class Holds Default Pdf Save Options Doc Save Options Image Save Options",
+      "filename": "create_reusable_configuration_class_holds_default_pdf_save_options_doc_save_options_image_save_options.cs",
+      "description": "Creates a reusable configuration class that holds default PdfSaveOptions, DocSaveOptions, and ImageSaveOptions instances.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "image",
+        "pdf",
+        "saving-options",
+        "drawing",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocSaveOptions",
+        "ImageSaveOptions",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_reusable_extension_method_wraps_convertmarkdown_returns_htmldocument_for_further_processing": {
+      "title": "Create Reusable Extension Method Wraps Convertmarkdown Returns Htmldocument For Further Processing",
+      "filename": "create_reusable_extension_method_wraps_convertmarkdown_returns_htmldocument_for_further_processing.cs",
+      "description": "Creates a reusable extension method that wraps ConvertMarkdown and returns an HTMLDocument for further processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "stream",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_reusable_method_accepts_markdown_path_and_target_format_enum_returning_output_file_path": {
+      "title": "Create Reusable Method Accepts Markdown Path And Target Format Enum Returning Output File Path",
+      "filename": "create_reusable_method_accepts_markdown_path_and_target_format_enum_returning_output_file_path.cs",
+      "description": "Creates a reusable method that accepts a Markdown path and target format enum, returning the output file path.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "File.Copy",
+        "NotSupportedException",
+        "Path.ChangeExtension"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_unit_test_verifies_markdown_blockquote_conversion_to_html_then_to_png": {
+      "title": "Create Unit Test Verifies Markdown Blockquote Conversion To Html Then To Png",
+      "filename": "create_unit_test_verifies_markdown_blockquote_conversion_to_html_then_to_png.cs",
+      "description": "Creates a unit test that verifies Markdown blockquote conversion to HTML and then to PNG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.Exists",
+        "File.WriteAllText",
+        "FileInfo",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "create_windows_service_convert_incoming_markdown_emails_to_png_attachments_real_time": {
+      "title": "Create Windows Service Convert Incoming Markdown Emails To Png Attachments Real Time",
+      "filename": "create_windows_service_convert_incoming_markdown_emails_to_png_attachments_real_time.cs",
+      "description": "Creates a Windows service that converts incoming Markdown emails to PNG attachments in real time.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "customize_font_embedding_settings_in_xpssaveoptions_while_converting_markdown_to_xps": {
+      "title": "Customize Font Embedding Settings In Xpssaveoptions While Converting Markdown To Xps",
+      "filename": "customize_font_embedding_settings_in_xpssaveoptions_while_converting_markdown_to_xps.cs",
+      "description": "Customizes the font embedding settings in XpsSaveOptions while converting Markdown to XPS format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "dispose_html_document_after_conversion_release_unmanaged_resources_avoid_memory_leaks": {
+      "title": "Dispose Html Document After Conversion Release Unmanaged Resources Avoid Memory Leaks",
+      "filename": "dispose_html_document_after_conversion_release_unmanaged_resources_avoid_memory_leaks.cs",
+      "description": "Disposes the HTMLDocument after conversion to release unmanaged resources and avoid memory leaks.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "pdf",
+        "saving-options",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "PdfSaveOptions",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "ensure_png_images_from_markdown_minimum_300_dpi_by_setting_image_save_options": {
+      "title": "Ensure Png Images From Markdown Minimum 300 Dpi By Setting Image Save Options",
+      "filename": "ensure_png_images_from_markdown_minimum_300_dpi_by_setting_image_save_options.cs",
+      "description": "Ensures PNG images produced from Markdown have a minimum resolution of 300 DPI by setting ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "ensure_temporary_html_files_deleted_after_final_output_saved": {
+      "title": "Ensure Temporary Html Files Deleted After Final Output Saved",
+      "filename": "ensure_temporary_html_files_deleted_after_final_output_saved.cs",
+      "description": "Ensures that temporary HTML files created during conversion are deleted after the final output is saved.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Delete",
+        "File.ReadAllText",
+        "MarkdownSaveOptions",
+        "Path.GetTempFileName"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "fine_tune_page_orientation_xps_save_options_converting_markdown_landscape_xps": {
+      "title": "Fine Tune Page Orientation Xps Save Options Converting Markdown Landscape Xps",
+      "filename": "fine_tune_page_orientation_xps_save_options_converting_markdown_landscape_xps.cs",
+      "description": "Fine‑tunes the page orientation in XpsSaveOptions when converting Markdown to landscape XPS.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "generate_high_quality_jpg_image_from_markdown_jpegquality_100": {
+      "title": "Generate High Quality Jpg Image From Markdown Jpegquality 100",
+      "filename": "generate_high_quality_jpg_image_from_markdown_jpegquality_100.cs",
+      "description": "Generates a high‑quality JPG image from Markdown by configuring ImageSaveOptions JpegQuality to 100.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllText",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "generate_pdf_preview_converting_markdown_html_then_xps_document": {
+      "title": "Generate Pdf Preview Converting Markdown Html Then Xps Document",
+      "filename": "generate_pdf_preview_converting_markdown_html_then_xps_document.cs",
+      "description": "Generates a PDF preview by converting Markdown to HTML and then to an XPS document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "pdf",
+        "saving-options",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllText",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "generate_xps_file_from_markdown_and_embed_custom_metadata_via_xps_save_options": {
+      "title": "Generate Xps File From Markdown And Embed Custom Metadata Via Xps Save Options",
+      "filename": "generate_xps_file_from_markdown_and_embed_custom_metadata_via_xps_save_options.cs",
+      "description": "Generates an XPS file from a Markdown document and embeds custom metadata via XpsSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "markdown",
+        "metadata",
+        "saving-options",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.GetCurrentDirectory",
+        "File.WriteAllText",
+        "Path.Combine",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "implement_command_line_argument_parser_maps_short_flags_output_formats_conversion_utility": {
+      "title": "Implement Command Line Argument Parser Maps Short Flags Output Formats Conversion Utility",
+      "filename": "implement_command_line_argument_parser_maps_short_flags_output_formats_conversion_utility.cs",
+      "description": "Implements a command‑line argument parser that maps short flags to output formats for the conversion utility.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Aspose.Html.Saving.ImageSaveOptions",
+        "Aspose.Html.Saving.MarkdownSaveOptions",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Saving.ImageSaveOptions",
+        "Saving.MarkdownSaveOptions",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "implement_command_line_tool_accepting_markdown_file_path_outputting_html_file": {
+      "title": "Implement Command Line Tool Accepting Markdown File Path Outputting Html File",
+      "filename": "implement_command_line_tool_accepting_markdown_file_path_outputting_html_file.cs",
+      "description": "Implements a command‑line tool that accepts a Markdown file path and outputs an HTML file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "Error.WriteLine",
+        "Path.ChangeExtension",
+        "System.IO.Path.ChangeExtension"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "implement_error_handling_for_missing_markdown_files_during_batch_conversion_to_jpeg_images": {
+      "title": "Implement Error Handling For Missing Markdown Files During Batch Conversion To Jpeg Images",
+      "filename": "implement_error_handling_for_missing_markdown_files_during_batch_conversion_to_jpeg_images.cs",
+      "description": "Implements error handling for missing Markdown files during batch conversion to JPEG images.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.Exists",
+        "FileNotFoundException",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "implement_real_time_conversion_markdown_jpeg_wpf_application_async_methods": {
+      "title": "Implement Real Time Conversion Markdown Jpeg Wpf Application Async Methods",
+      "filename": "implement_real_time_conversion_markdown_jpeg_wpf_application_async_methods.cs",
+      "description": "Implements real‑time conversion of Markdown to JPEG within a WPF application using async methods.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllTextAsync",
+        "ImageSaveOptions",
+        "Task.Run"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "load_markdown_file_convert_to_html_embed_html_into_xps_document": {
+      "title": "Load Markdown File Convert To Html Embed Html Into Xps Document",
+      "filename": "load_markdown_file_convert_to_html_embed_html_into_xps_document.cs",
+      "description": "Loads a Markdown file, converts it to HTML, and embeds the HTML into an XPS document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "load_markdown_file_from_disk_convert_to_html_using_convertmarkdown": {
+      "title": "Load Markdown File From Disk Convert To Html Using Convertmarkdown",
+      "filename": "load_markdown_file_from_disk_convert_to_html_using_convertmarkdown.cs",
+      "description": "Loads a Markdown file from disk and converts it to an HTML file using ConvertMarkdown.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "forms",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "load_markdown_file_from_local_file_system_and_convert_to_xps_document_using_default_settings": {
+      "title": "Load Markdown File From Local File System And Convert To Xps Document Using Default Settings",
+      "filename": "load_markdown_file_from_local_file_system_and_convert_to_xps_document_using_default_settings.cs",
+      "description": "Loads a Markdown file from the local file system and converts it to an XPS document using default settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllText",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "load_markdown_string_convert_to_png_image_with_custom_dpi_using_imagesaveoptions": {
+      "title": "Load Markdown String Convert To Png Image With Custom Dpi Using Imagesaveoptions",
+      "filename": "load_markdown_string_convert_to_png_image_with_custom_dpi_using_imagesaveoptions.cs",
+      "description": "Loads a Markdown string and converts it to a PNG image with custom DPI using ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllText",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "load_multiple_markdown_documents_list_merge_single_html_output_file": {
+      "title": "Load Multiple Markdown Documents List Merge Single Html Output File",
+      "filename": "load_multiple_markdown_documents_list_merge_single_html_output_file.cs",
+      "description": "Loads multiple Markdown documents from a list and merges them into a single HTML output file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "stream",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "File.ReadAllText",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "produce_xps_document_from_markdown_using_xpssaveoptions_converthtml": {
+      "title": "Produce Xps Document From Markdown Using Xpssaveoptions Converthtml",
+      "filename": "produce_xps_document_from_markdown_using_xpssaveoptions_converthtml.cs",
+      "description": "Produces an XPS document from Markdown by supplying XpsSaveOptions to the ConvertHTML method.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.WriteAllText",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "real_time_conversion_markdown_stream_to_png_without_intermediate_files": {
+      "title": "Real Time Conversion Markdown Stream To Png Without Intermediate Files",
+      "filename": "real_time_conversion_markdown_stream_to_png_without_intermediate_files.cs",
+      "description": "Performs real‑time conversion of a Markdown stream to PNG format without writing intermediate files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.Create",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "save_resulting_html_document_as_pdf_with_pdf_save_options_convert_html": {
+      "title": "Save Resulting Html Document As Pdf With Pdf Save Options Convert Html",
+      "filename": "save_resulting_html_document_as_pdf_with_pdf_save_options_convert_html.cs",
+      "description": "Saves the resulting HTMLDocument as a PDF file by providing PdfSaveOptions to ConvertHTML.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "pdf",
+        "saving-options",
+        "url",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_background_color_to_white_avoid_transparent_backgrounds_jpg_images_generated_markdown": {
+      "title": "Set Background Color To White Avoid Transparent Backgrounds Jpg Images Generated Markdown",
+      "filename": "set_background_color_to_white_avoid_transparent_backgrounds_jpg_images_generated_markdown.cs",
+      "description": "Sets ImageSaveOptions.BackgroundColor to white to avoid transparent backgrounds in JPG images generated from Markdown.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_compression_level_in_imagesaveoptions_when_converting_markdown_to_png_for_web_optimization": {
+      "title": "Set Compression Level In Imagesaveoptions When Converting Markdown To Png For Web Optimization",
+      "filename": "set_compression_level_in_imagesaveoptions_when_converting_markdown_to_png_for_web_optimization.cs",
+      "description": "Sets the compression level in ImageSaveOptions when converting Markdown to PNG for web optimization.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_docx_document_language_property_via_docsaveoptions_language_to_support_localization_after_conversion": {
+      "title": "Set Docx Document Language Property Via Docsaveoptions Language To Support Localization After Conversion",
+      "filename": "set_docx_document_language_property_via_docsaveoptions_language_to_support_localization_after_conversion.cs",
+      "description": "Sets DOCX document language property via DocSaveOptions.Language to support localization after conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_docx_page_setup_track_revisions_using_docsaveoptions_trackrevisions_change_tracking": {
+      "title": "Set Docx Page Setup Track Revisions Using Docsaveoptions Trackrevisions Change Tracking",
+      "filename": "set_docx_page_setup_track_revisions_using_docsaveoptions_trackrevisions_change_tracking.cs",
+      "description": "Sets DOCX page setup to track revisions using DocSaveOptions.TrackRevisions for change tracking.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "saving-options",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "DocSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_image_dpi_to_150_in_image_save_options_for_png_output_balance_quality_file_size": {
+      "title": "Set Image Dpi To 150 In Image Save Options For Png Output Balance Quality File Size",
+      "filename": "set_image_dpi_to_150_in_image_save_options_for_png_output_balance_quality_file_size.cs",
+      "description": "Sets image DPI in ImageSaveOptions to 150 for PNG output to balance quality and file size.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "image",
+        "png",
+        "saving-options",
+        "html-document",
+        "drawing"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.ImageSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.HTMLDocument",
+        "Saving.ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_image_quality_parameter_in_imagesaveoptions_while_converting_markdown_to_jpeg_high_fidelity": {
+      "title": "Set Image Quality Parameter In Imagesaveoptions While Converting Markdown To Jpeg High Fidelity",
+      "filename": "set_image_quality_parameter_in_imagesaveoptions_while_converting_markdown_to_jpeg_high_fidelity.cs",
+      "description": "Sets image quality parameter in ImageSaveOptions while converting Markdown to JPEG with high fidelity.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "File.WriteAllText",
+        "ImageSaveOptions",
+        "Path.Combine"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_image_save_options_image_format_svg_converting_markdown_to_svg_ensure_correct_output_type": {
+      "title": "Set Image Save Options Image Format Svg Converting Markdown To Svg Ensure Correct Output Type",
+      "filename": "set_image_save_options_image_format_svg_converting_markdown_to_svg_ensure_correct_output_type.cs",
+      "description": "Sets ImageSaveOptions.ImageFormat to Svg when converting Markdown to SVG to ensure correct output type.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "svg",
+        "saving-options",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.ReadAllText",
+        "ImageSaveOptions",
+        "System.IO.File.ReadAllText",
+        "System.Net.WebUtility.HtmlEncode",
+        "WebUtility.HtmlEncode"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_image_width_and_height_in_imagesaveoptions_converting_markdown_to_png": {
+      "title": "Set Image Width And Height In Imagesaveoptions Converting Markdown To Png",
+      "filename": "set_image_width_and_height_in_imagesaveoptions_converting_markdown_to_png.cs",
+      "description": "Sets image width and height in ImageSaveOptions when converting Markdown to a PNG file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "image",
+        "markdown",
+        "png",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "ImageSaveOptions",
+        "Margin",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "set_pdf_page_margins_using_margin_top_margin_bottom_margin_left_margin_right_before_conversion": {
+      "title": "Set Pdf Page Margins Using Margin Top Margin Bottom Margin Left Margin Right Before Conversion",
+      "filename": "set_pdf_page_margins_using_margin_top_margin_bottom_margin_left_margin_right_before_conversion.cs",
+      "description": "Sets PDF page margins using PdfSaveOptions.MarginTop, MarginBottom, MarginLeft, and MarginRight before conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "pdf",
+        "saving-options",
+        "html-document",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Margin",
+        "Page",
+        "PdfSaveOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_aspose_html_converters_namespace_alias_to_shorten_code_references_in_large_conversion_projects": {
+      "title": "Use Aspose Html Converters Namespace Alias To Shorten Code References In Large Conversion Projects",
+      "filename": "use_aspose_html_converters_namespace_alias_to_shorten_code_references_in_large_conversion_projects.cs",
+      "description": "Uses the Aspose.Html.Converters namespace alias to shorten code references in large conversion projects.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "forms",
+        "drawing",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_aspose_html_converters_namespace_exclusively_keep_conversion_code_concise_avoid_fully_qualified_type_names": {
+      "title": "Use Aspose Html Converters Namespace Exclusively Keep Conversion Code Concise Avoid Fully Qualified Type Names",
+      "filename": "use_aspose_html_converters_namespace_exclusively_keep_conversion_code_concise_avoid_fully_qualified_type_names.cs",
+      "description": "Uses Aspose.Html.Converters namespace exclusively to keep conversion code concise and avoid fully qualified type names.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "saving-options",
+        "xps",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_imagesaveoptions_specify_color_depth_converting_markdown_to_bmp": {
+      "title": "Use Imagesaveoptions Specify Color Depth Converting Markdown To Bmp",
+      "filename": "use_imagesaveoptions_specify_color_depth_converting_markdown_to_bmp.cs",
+      "description": "Uses ImageSaveOptions to specify color depth when converting Markdown to BMP format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "saving-options",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "File.Exists",
+        "File.WriteAllText",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_memorystream_convert_markdown_string_to_pdf_without_intermediate_files": {
+      "title": "Use Memorystream Convert Markdown String To Pdf Without Intermediate Files",
+      "filename": "use_memorystream_convert_markdown_string_to_pdf_without_intermediate_files.cs",
+      "description": "Uses MemoryStream to convert a Markdown string to PDF without creating intermediate files on disk.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "pdf",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "CustomStreamProvider",
+        "File.WriteAllBytes",
+        "MemoryStream",
+        "PdfSaveOptions",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_stringreader_feed_markdown_content_directly_into_converter_output_xps_document": {
+      "title": "Use Stringreader Feed Markdown Content Directly Into Converter Output Xps Document",
+      "filename": "use_stringreader_feed_markdown_content_directly_into_converter_output_xps_document.cs",
+      "description": "Uses a StringReader to feed Markdown content directly into the converter and output an XPS document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "saving-options",
+        "stream",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "MemoryStream",
+        "StringReader",
+        "UTF8.GetBytes",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_try_finally_block_to_guarantee_html_document_disposal_even_when_exception_occurs_during_conversion": {
+      "title": "Use Try Finally Block To Guarantee Html Document Disposal Even When Exception Occurs During Conversion",
+      "filename": "use_try_finally_block_to_guarantee_html_document_disposal_even_when_exception_occurs_during_conversion.cs",
+      "description": "Uses a try‑finally block to guarantee disposal of HtmlDocument even when an exception occurs during conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "saving-options",
+        "xps",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_xpssaveoptions_embed_custom_font_family_during_markdown_to_xps_conversion": {
+      "title": "Use Xpssaveoptions Embed Custom Font Family During Markdown To Xps Conversion",
+      "filename": "use_xpssaveoptions_embed_custom_font_family_during_markdown_to_xps_conversion.cs",
+      "description": "Uses XpsSaveOptions to embed a custom font family during Markdown to XPS conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_xpssaveoptions_enable_document_outline_generation_when_converting_markdown_to_xps": {
+      "title": "Use Xpssaveoptions Enable Document Outline Generation When Converting Markdown To Xps",
+      "filename": "use_xpssaveoptions_enable_document_outline_generation_when_converting_markdown_to_xps.cs",
+      "description": "Uses XpsSaveOptions to enable document outline generation when converting Markdown to XPS.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "use_xpssaveoptions_set_page_size_before_converting_markdown_file_to_xps_document": {
+      "title": "Use Xpssaveoptions Set Page Size Before Converting Markdown File To Xps Document",
+      "filename": "use_xpssaveoptions_set_page_size_before_converting_markdown_file_to_xps_document.cs",
+      "description": "Uses XpsSaveOptions to set page size before converting a Markdown file to an XPS document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "drawing",
+        "html",
+        "markdown",
+        "saving-options",
+        "xps",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "validate_generated_html_file_reading_contents_checking_expected_heading_tags": {
+      "title": "Validate Generated Html File Reading Contents Checking Expected Heading Tags",
+      "filename": "validate_generated_html_file_reading_contents_checking_expected_heading_tags.cs",
+      "description": "Validates the generated HTML file by reading its contents and checking for expected heading tags.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "forms",
+        "drawing",
+        "saving-options",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "validate_intermediate_html_document_contains_expected_img_tags_before_converting_to_image_formats": {
+      "title": "Validate Intermediate Html Document Contains Expected Img Tags Before Converting To Image Formats",
+      "filename": "validate_intermediate_html_document_contains_expected_img_tags_before_converting_to_image_formats.cs",
+      "description": "Validates that the intermediate HTMLDocument contains expected <img> tags before converting to image formats.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "saving-options",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "verify_pdf_output_correct_number_of_pages_by_opening_file_with_pdf_reader_library": {
+      "title": "Verify Pdf Output Correct Number Of Pages By Opening File With Pdf Reader Library",
+      "filename": "verify_pdf_output_correct_number_of_pages_by_opening_file_with_pdf_reader_library.cs",
+      "description": "Verifies PDF output contains the correct number of pages by opening the file with a PDF reader library.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "pdf",
+        "rendering",
+        "url",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HtmlRenderer",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    },
+    "write_utility_reads_markdown_from_stream_writes_html_output_to_another_stream": {
+      "title": "Write Utility Reads Markdown From Stream Writes Html Output To Another Stream",
+      "filename": "write_utility_reads_markdown_from_stream_writes_html_output_to_another_stream.cs",
+      "description": "Writes a utility that reads Markdown from a stream and writes the HTML output to another stream.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "dom",
+        "html",
+        "markdown",
+        "stream",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "File.Create",
+        "File.OpenRead",
+        "StreamWriter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:18:08Z",
+      "status": "verified"
+    }
+  }
+}
