@@ -112,8 +112,8 @@ catch (Exception ex)
 
 - Each category folder contains an `agents.md`
 - Each category folder contains an `index.json`
-- Root `agents.md` provides cumulative guidance
-- Root `index.json` provides full manifest
+- Root [`agents.md`](./agents.md) provides cumulative guidance
+- Root [`index.json`](./index.json) provides full manifest
 
 ## Related Resources
 
