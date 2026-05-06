@@ -239,5 +239,4 @@ class Program
 3. **Follow the common pattern** – Load → Manipulate → Convert → Render.  
 4. **Naming convention** – `Action_Entity_Operation_Detail.cs` (e.g., `Add_Watermark_To_Canvas_And_Save_As_Jpeg.cs`).  
 5. **Update statistics** – increment `total_examples`, adjust namespace and API counts in `agents.md` when a new file is added.  
-
 ---
