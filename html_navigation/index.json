@@ -1,0 +1,2567 @@
+{
+  "category": "html_navigation",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:12:12Z",
+  "examples": {
+    "add_aria_label_attributes_to_navigation_links_lacking_descriptive_text_for_screen_readers": {
+      "title": "Add Aria Label Attributes To Navigation Links Lacking Descriptive Text For Screen Readers",
+      "filename": "add_aria_label_attributes_to_navigation_links_lacking_descriptive_text_for_screen_readers.cs",
+      "description": "Add aria‑label attributes to navigation links lacking descriptive text for screen readers.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_crossorigin_attribute_to_external_script_tags_to_enable_cors_handling": {
+      "title": "Add Crossorigin Attribute To External Script Tags To Enable Cors Handling",
+      "filename": "add_crossorigin_attribute_to_external_script_tags_to_enable_cors_handling.cs",
+      "description": "Add a crossorigin attribute to external script tags to enable CORS handling.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "System.IO.File.ReadAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_custom_data_attribute_to_all_heading_elements_for_javascript_interaction": {
+      "title": "Add Custom Data Attribute To All Heading Elements For Javascript Interaction",
+      "filename": "add_custom_data_attribute_to_all_heading_elements_for_javascript_interaction.cs",
+      "description": "Add a custom data‑attribute to all heading elements for JavaScript interaction later.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_custom_data_tracking_attribute_to_all_outbound_links_for_analytics": {
+      "title": "Add Custom Data Tracking Attribute To All Outbound Links For Analytics",
+      "filename": "add_custom_data_tracking_attribute_to_all_outbound_links_for_analytics.cs",
+      "description": "Add a custom data‑tracking attribute to all outbound links for analytics purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_language_attribute_html_tag_detected_content_language": {
+      "title": "Add Language Attribute Html Tag Detected Content Language",
+      "filename": "add_language_attribute_html_tag_detected_content_language.cs",
+      "description": "Add a language attribute to the html tag based on detected content language.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_missing_alt_attributes_to_img_tags_using_placeholder_description_for_accessibility": {
+      "title": "Add Missing Alt Attributes To Img Tags Using Placeholder Description For Accessibility",
+      "filename": "add_missing_alt_attributes_to_img_tags_using_placeholder_description_for_accessibility.cs",
+      "description": "Add missing alt attributes to img tags using a placeholder description for accessibility.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_missing_charset_meta_tag_based_on_detected_file_encoding_improve_compatibility": {
+      "title": "Add Missing Charset Meta Tag Based On Detected File Encoding Improve Compatibility",
+      "filename": "add_missing_charset_meta_tag_based_on_detected_file_encoding_improve_compatibility.cs",
+      "description": "Add a missing charset meta tag based on detected file encoding to improve compatibility.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "System.IO.File.ReadAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_missing_doctype_declaration_beginning_html_file_standards_mode": {
+      "title": "Add Missing Doctype Declaration Beginning Html File Standards Mode",
+      "filename": "add_missing_doctype_declaration_beginning_html_file_standards_mode.cs",
+      "description": "Add a missing DOCTYPE declaration at the beginning of the HTML file to ensure standards mode.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "File.WriteAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "add_nofollow_attribute_to_external_links_control_search_engine_crawling": {
+      "title": "Add Nofollow Attribute To External Links Control Search Engine Crawling",
+      "filename": "add_nofollow_attribute_to_external_links_control_search_engine_crawling.cs",
+      "description": "Add a nofollow attribute to external links to control search engine crawling.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "append_new_stylesheet_link_element_to_head_reference_external_css_file": {
+      "title": "Append New Stylesheet Link Element To Head Reference External Css File",
+      "filename": "append_new_stylesheet_link_element_to_head_reference_external_css_file.cs",
+      "description": "Append a new stylesheet link element to the head to reference an external CSS file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "batch_process_folder_html_files_extract_headings_hierarchy_save_each_json_outline": {
+      "title": "Batch Process Folder Html Files Extract Headings Hierarchy Save Each Json Outline",
+      "filename": "batch_process_folder_html_files_extract_headings_hierarchy_save_each_json_outline.cs",
+      "description": "Batch process a folder of HTML files, extracting headings hierarchy and saving each as a JSON outline.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "OutlineNode",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "clone_navigation_menu_element_and_insert_clone_at_end_of_body": {
+      "title": "Clone Navigation Menu Element And Insert Clone At End Of Body",
+      "filename": "clone_navigation_menu_element_and_insert_clone_at_end_of_body.cs",
+      "description": "Clone a navigation menu element and insert the clone at the end of the body.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "compare_two_html_documents_generate_diff_report_highlighting_added_and_removed_nodes": {
+      "title": "Compare Two Html Documents Generate Diff Report Highlighting Added And Removed Nodes",
+      "filename": "compare_two_html_documents_generate_diff_report_highlighting_added_and_removed_nodes.cs",
+      "description": "Compare two HTML documents and generate a diff report highlighting added and removed nodes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "System.Net.WebUtility.HtmlEncode",
+        "WebUtility.HtmlEncode"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "configure_parser_ignore_xml_namespaces_navigating_html_documents_mixed_content": {
+      "title": "Configure Parser Ignore Xml Namespaces Navigating Html Documents Mixed Content",
+      "filename": "configure_parser_ignore_xml_namespaces_navigating_html_documents_mixed_content.cs",
+      "description": "Configure the parser to ignore XML namespaces when navigating HTML documents containing mixed content.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "configure_parser_treat_unknown_tags_as_generic_elements_instead_of_throwing_errors": {
+      "title": "Configure Parser Treat Unknown Tags As Generic Elements Instead Of Throwing Errors",
+      "filename": "configure_parser_treat_unknown_tags_as_generic_elements_instead_of_throwing_errors.cs",
+      "description": "Configure the parser to treat unknown tags as generic elements instead of throwing errors.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_html_document_to_plain_text_preserving_line_breaks_for_readability": {
+      "title": "Convert Html Document To Plain Text Preserving Line Breaks For Readability",
+      "filename": "convert_html_document_to_plain_text_preserving_line_breaks_for_readability.cs",
+      "description": "Convert the HTML document to plain text while preserving line breaks for readability.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "TextSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_html_email_templates_to_plain_text_preserving_line_breaks_and_links": {
+      "title": "Convert Html Email Templates To Plain Text Preserving Line Breaks And Links",
+      "filename": "convert_html_email_templates_to_plain_text_preserving_line_breaks_and_links.cs",
+      "description": "Convert HTML email templates to plain text while preserving line breaks and links.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "saving-options",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "TextSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_html_table_to_json_array_preserving_column_headers_as_object_keys": {
+      "title": "Convert Html Table To Json Array Preserving Column Headers As Object Keys",
+      "filename": "convert_html_table_to_json_array_preserving_column_headers_as_object_keys.cs",
+      "description": "Convert an HTML table into a JSON array preserving column headers as object keys.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_i_tags_to_em_tags_accessibility_compliance_document": {
+      "title": "Convert I Tags To Em Tags Accessibility Compliance Document",
+      "filename": "convert_i_tags_to_em_tags_accessibility_compliance_document.cs",
+      "description": "Convert all <i> tags to <em> tags for better accessibility compliance throughout the document.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_inline_svg_elements_to_external_files_and_replace_with_img_references": {
+      "title": "Convert Inline Svg Elements To External Files And Replace With Img References",
+      "filename": "convert_inline_svg_elements_to_external_files_and_replace_with_img_references.cs",
+      "description": "Convert inline SVG elements to external files and replace them with <img> references.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "ParentNode.ReplaceChild"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_relative_image_source_urls_to_absolute_urls_based_on_document_base_tag": {
+      "title": "Convert Relative Image Source Urls To Absolute Urls Based On Document Base Tag",
+      "filename": "convert_relative_image_source_urls_to_absolute_urls_based_on_document_base_tag.cs",
+      "description": "Convert all relative image source URLs to absolute URLs based on the document’s base tag.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Uri.IsWellFormedUriString",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_relative_urls_in_anchor_tags_to_absolute_using_document_base_url": {
+      "title": "Convert Relative Urls In Anchor Tags To Absolute Using Document Base Url",
+      "filename": "convert_relative_urls_in_anchor_tags_to_absolute_using_document_base_url.cs",
+      "description": "Convert relative URLs in anchor tags to absolute URLs using the document’s base URL.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "convert_uppercase_tag_names_to_lowercase_for_html5_compliance_throughout_document": {
+      "title": "Convert Uppercase Tag Names To Lowercase For Html5 Compliance Throughout Document",
+      "filename": "convert_uppercase_tag_names_to_lowercase_for_html5_compliance_throughout_document.cs",
+      "description": "Convert all uppercase tag names to lowercase to ensure HTML5 compliance throughout the document.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "Regex.Replace",
+        "Value.ToLower"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_and_correct_malformed_tags_missing_closing_brackets_during_parsing": {
+      "title": "Detect And Correct Malformed Tags Missing Closing Brackets During Parsing",
+      "filename": "detect_and_correct_malformed_tags_missing_closing_brackets_during_parsing.cs",
+      "description": "Detect and correct malformed tags such as missing closing brackets during parsing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_and_extract_comment_nodes_with_todo_markers_for_development_tracking": {
+      "title": "Detect And Extract Comment Nodes With Todo Markers For Development Tracking",
+      "filename": "detect_and_extract_comment_nodes_with_todo_markers_for_development_tracking.cs",
+      "description": "Detect and extract all comment nodes that contain TODO markers for development tracking.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_and_extract_inline_svg_elements_save_as_separate_svg_files": {
+      "title": "Detect And Extract Inline Svg Elements Save As Separate Svg Files",
+      "filename": "detect_and_extract_inline_svg_elements_save_as_separate_svg_files.cs",
+      "description": "Detect and extract all inline SVG elements and save them as separate .svg files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "Path.Combine",
+        "SVGDocument",
+        "System.IO.Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_and_list_elements_with_tabindex_to_evaluate_keyboard_navigation_order": {
+      "title": "Detect And List Elements With Tabindex To Evaluate Keyboard Navigation Order",
+      "filename": "detect_and_list_elements_with_tabindex_to_evaluate_keyboard_navigation_order.cs",
+      "description": "Detect and list all elements with tabindex attributes to evaluate keyboard navigation order.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_and_log_parsing_warnings_unknown_tags_attributes_during_load": {
+      "title": "Detect And Log Parsing Warnings Unknown Tags Attributes During Load",
+      "filename": "detect_and_log_parsing_warnings_unknown_tags_attributes_during_load.cs",
+      "description": "Detect and log any parsing warnings such as unknown tags or attributes during load.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_and_remove_empty_elements_without_child_nodes_or_text_content": {
+      "title": "Detect And Remove Empty Elements Without Child Nodes Or Text Content",
+      "filename": "detect_and_remove_empty_elements_without_child_nodes_or_text_content.cs",
+      "description": "Detect and remove empty elements that contain no child nodes or text content.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_and_remove_empty_style_tags_without_css_rules_in_document": {
+      "title": "Detect And Remove Empty Style Tags Without Css Rules In Document",
+      "filename": "detect_and_remove_empty_style_tags_without_css_rules_in_document.cs",
+      "description": "Detect and remove empty style tags that contain no CSS rules in the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_broken_links_by_sending_http_head_requests_to_each_extracted_url_and_logging_failures": {
+      "title": "Detect Broken Links By Sending Http Head Requests To Each Extracted Url And Logging Failures",
+      "filename": "detect_broken_links_by_sending_http_head_requests_to_each_extracted_url_and_logging_failures.cs",
+      "description": "Detect broken links by sending HTTP HEAD requests to each extracted URL and logging failures.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_duplicate_meta_tags_retain_only_first_occurrence_avoid_conflicts": {
+      "title": "Detect Duplicate Meta Tags Retain Only First Occurrence Avoid Conflicts",
+      "filename": "detect_duplicate_meta_tags_retain_only_first_occurrence_avoid_conflicts.cs",
+      "description": "Detect duplicate meta tags and retain only the first occurrence to avoid conflicts.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_language_attribute_of_html_tag_and_set_to_en_us_if_missing": {
+      "title": "Detect Language Attribute Of Html Tag And Set To En Us If Missing",
+      "filename": "detect_language_attribute_of_html_tag_and_set_to_en_us_if_missing.cs",
+      "description": "Detect the language attribute of the HTML tag and set it to “en‑US” if missing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "detect_pagination_controls_searching_links_containing_next_previous_text": {
+      "title": "Detect Pagination Controls Searching Links Containing Next Previous Text",
+      "filename": "detect_pagination_controls_searching_links_containing_next_previous_text.cs",
+      "description": "Detect pagination controls by searching for links containing “next” or “previous” text.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "enable_case_sensitive_element_name_matching_xml_like_html_parsing_specific_documents": {
+      "title": "Enable Case Sensitive Element Name Matching Xml Like Html Parsing Specific Documents",
+      "filename": "enable_case_sensitive_element_name_matching_xml_like_html_parsing_specific_documents.cs",
+      "description": "Enable case‑sensitive element name matching for XML‑like HTML parsing scenarios when processing specific documents.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "ensure_every_element_unique_id_generate_missing_ids_based_on_tag_names": {
+      "title": "Ensure Every Element Unique Id Generate Missing Ids Based On Tag Names",
+      "filename": "ensure_every_element_unique_id_generate_missing_ids_based_on_tag_names.cs",
+      "description": "Ensure every element has a unique ID by generating missing IDs based on tag names.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TagName.ToLower"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_all_data_table_elements_generate_json_arrays_representing_each_table_rows": {
+      "title": "Extract All Data Table Elements Generate Json Arrays Representing Each Table Rows",
+      "filename": "extract_all_data_table_elements_generate_json_arrays_representing_each_table_rows.cs",
+      "description": "Extract all data‑table elements and generate JSON arrays representing each table’s rows.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "JsonSerializer.Serialize"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_all_data_table_rows_and_calculate_sum_of_numeric_columns_for_reporting": {
+      "title": "Extract All Data Table Rows And Calculate Sum Of Numeric Columns For Reporting",
+      "filename": "extract_all_data_table_rows_and_calculate_sum_of_numeric_columns_for_reporting.cs",
+      "description": "Extract all data‑table rows and calculate the sum of numeric columns for reporting.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_all_heading_elements_assign_incremental_ids_for_anchor_linking_document": {
+      "title": "Extract All Heading Elements Assign Incremental Ids For Anchor Linking Document",
+      "filename": "extract_all_heading_elements_assign_incremental_ids_for_anchor_linking_document.cs",
+      "description": "Extract all heading elements and assign incremental IDs for anchor linking within the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_all_style_attribute_values_create_stylesheet_file_with_equivalent_css_rules": {
+      "title": "Extract All Style Attribute Values Create Stylesheet File With Equivalent Css Rules",
+      "filename": "extract_all_style_attribute_values_create_stylesheet_file_with_equivalent_css_rules.cs",
+      "description": "Extract all style attribute values and create a stylesheet file containing equivalent CSS rules.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringBuilder",
+        "TagName.ToLower"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_anchor_elements_open_new_window_target_blank_security_review": {
+      "title": "Extract Anchor Elements Open New Window Target Blank Security Review",
+      "filename": "extract_anchor_elements_open_new_window_target_blank_security_review.cs",
+      "description": "Extract all anchor elements that open in a new window (target=\"_blank\") for security review.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_author_meta_tag_value_and_store_for_content_attribution": {
+      "title": "Extract Author Meta Tag Value And Store For Content Attribution",
+      "filename": "extract_author_meta_tag_value_and_store_for_content_attribution.cs",
+      "description": "Extract the value of the author meta tag and store it for content attribution.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_breadcrumb_navigation_links_by_locating_ordered_list_elements_with_specific_class_names": {
+      "title": "Extract Breadcrumb Navigation Links By Locating Ordered List Elements With Specific Class Names",
+      "filename": "extract_breadcrumb_navigation_links_by_locating_ordered_list_elements_with_specific_class_names.cs",
+      "description": "Extract breadcrumb navigation links by locating ordered list elements with specific class names.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_canonical_link_element_href_value_for_seo_analysis_from_document": {
+      "title": "Extract Canonical Link Element Href Value For Seo Analysis From Document",
+      "filename": "extract_canonical_link_element_href_value_for_seo_analysis_from_document.cs",
+      "description": "Extract the canonical link element href value for SEO analysis from the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_charset_meta_tag_value_ensure_matches_file_encoding": {
+      "title": "Extract Charset Meta Tag Value Ensure Matches File Encoding",
+      "filename": "extract_charset_meta_tag_value_ensure_matches_file_encoding.cs",
+      "description": "Extract the value of the charset meta tag and ensure it matches the file encoding.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Encoding.GetEncoding",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "Path.GetDirectoryName",
+        "Path.GetFullPath",
+        "System.IO.File.ReadAllText",
+        "System.IO.Path.GetDirectoryName",
+        "System.IO.Path.GetFullPath",
+        "System.Text.Encoding.GetEncoding"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_csrf_token_hidden_input_values_from_forms_for_security_testing": {
+      "title": "Extract Csrf Token Hidden Input Values From Forms For Security Testing",
+      "filename": "extract_csrf_token_hidden_input_values_from_forms_for_security_testing.cs",
+      "description": "Extract CSRF token hidden input values from forms for security testing purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_css_class_names_document_output_frequency_histogram": {
+      "title": "Extract Css Class Names Document Output Frequency Histogram",
+      "filename": "extract_css_class_names_document_output_frequency_histogram.cs",
+      "description": "Extract all CSS class names used in the document and output a frequency histogram.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_email_addresses_from_mailto_links_and_compile_into_plain_text_list": {
+      "title": "Extract Email Addresses From Mailto Links And Compile Into Plain Text List",
+      "filename": "extract_email_addresses_from_mailto_links_and_compile_into_plain_text_list.cs",
+      "description": "Extract email addresses from mailto links and compile them into a plain‑text list.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_embedded_video_source_urls_from_iframe_elements_for_media_cataloging": {
+      "title": "Extract Embedded Video Source Urls From Iframe Elements For Media Cataloging",
+      "filename": "extract_embedded_video_source_urls_from_iframe_elements_for_media_cataloging.cs",
+      "description": "Extract embedded video source URLs from iframe elements for the media cataloging.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_heading_tags_h1_h6_build_nested_table_of_contents_json_structure": {
+      "title": "Extract Heading Tags H1 H6 Build Nested Table Of Contents Json Structure",
+      "filename": "extract_heading_tags_h1_h6_build_nested_table_of_contents_json_structure.cs",
+      "description": "Extract all heading tags (h1‑h6) and build a nested table of contents structure in JSON format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_hyperlink_href_attributes_from_anchor_tags_write_to_csv_file": {
+      "title": "Extract Hyperlink Href Attributes From Anchor Tags Write To Csv File",
+      "filename": "extract_hyperlink_href_attributes_from_anchor_tags_write_to_csv_file.cs",
+      "description": "Extract all hyperlink href attributes from anchor tags and write them to a CSV file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StreamWriter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_link_elements_rel_icon_verify_file_formats_favicon_compliance": {
+      "title": "Extract Link Elements Rel Icon Verify File Formats Favicon Compliance",
+      "filename": "extract_link_elements_rel_icon_verify_file_formats_favicon_compliance.cs",
+      "description": "Extract all link elements with rel=\"icon\" and verify their file formats for favicon compliance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Path.GetExtension",
+        "System.IO.Path.GetExtension",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_link_elements_with_rel_preload_and_list_resource_urls_for_performance_audit": {
+      "title": "Extract Link Elements With Rel Preload And List Resource Urls For Performance Audit",
+      "filename": "extract_link_elements_with_rel_preload_and_list_resource_urls_for_performance_audit.cs",
+      "description": "Extract all link elements with rel=\"preload\" and list their resource URLs for performance audit.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_meta_description_content_and_summarize_length_content_quality_checks": {
+      "title": "Extract Meta Description Content And Summarize Length Content Quality Checks",
+      "filename": "extract_meta_description_content_and_summarize_length_content_quality_checks.cs",
+      "description": "Extract all meta description content and summarize its length for content quality checks.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_meta_viewport_values_and_verify_contain_width_device_width_responsive_design": {
+      "title": "Extract Meta Viewport Values And Verify Contain Width Device Width Responsive Design",
+      "filename": "extract_meta_viewport_values_and_verify_contain_width_device_width_responsive_design.cs",
+      "description": "Extract all meta viewport values and verify they contain width=device‑width for responsive design.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Name.Equals"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_open_graph_meta_tags_output_dictionary_social_media_integration": {
+      "title": "Extract Open Graph Meta Tags Output Dictionary Social Media Integration",
+      "filename": "extract_open_graph_meta_tags_output_dictionary_social_media_integration.cs",
+      "description": "Extract Open Graph meta tags and output them as a dictionary for social media integration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_table_data_html_tables_export_each_table_separate_csv_file": {
+      "title": "Extract Table Data Html Tables Export Each Table Separate Csv File",
+      "filename": "extract_table_data_html_tables_export_each_table_separate_csv_file.cs",
+      "description": "Extract table data from HTML tables and export each table to a separate CSV file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "StringBuilder"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_theme_color_meta_tag_value_for_progressive_web_app_configuration": {
+      "title": "Extract Theme Color Meta Tag Value For Progressive Web App Configuration",
+      "filename": "extract_theme_color_meta_tag_value_for_progressive_web_app_configuration.cs",
+      "description": "Extract the theme‑color meta tag value for use in progressive web app configuration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "extract_value_robots_meta_tag_determine_indexing_directives": {
+      "title": "Extract Value Robots Meta Tag Determine Indexing Directives",
+      "filename": "extract_value_robots_meta_tag_determine_indexing_directives.cs",
+      "description": "Extract the value of the robots meta tag to determine indexing directives.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "find_all_form_elements_list_input_field_names_and_default_values_for_analysis": {
+      "title": "Find All Form Elements List Input Field Names And Default Values For Analysis",
+      "filename": "find_all_form_elements_list_input_field_names_and_default_values_for_analysis.cs",
+      "description": "Find all form elements, list their input field names and default values for analysis.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TagName.ToLower"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "find_element_by_unique_id_attribute_modify_inner_text_new_value": {
+      "title": "Find Element By Unique Id Attribute Modify Inner Text New Value",
+      "filename": "find_element_by_unique_id_attribute_modify_inner_text_new_value.cs",
+      "description": "Find an element by its unique ID attribute and modify its inner text to a new value.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "find_phone_number_patterns_within_text_nodes_output_for_contact_information_extraction": {
+      "title": "Find Phone Number Patterns Within Text Nodes Output For Contact Information Extraction",
+      "filename": "find_phone_number_patterns_within_text_nodes_output_for_contact_information_extraction.cs",
+      "description": "Find phone number patterns within text nodes and output them for contact information extraction.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Regex"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "generate_json_sitemap_traversing_all_anchor_elements_recording_absolute_urls": {
+      "title": "Generate Json Sitemap Traversing All Anchor Elements Recording Absolute Urls",
+      "filename": "generate_json_sitemap_traversing_all_anchor_elements_recording_absolute_urls.cs",
+      "description": "Generate a JSON sitemap by traversing all anchor elements and recording their absolute URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "generate_navigation_sidebar_html_snippet_extracted_heading_hierarchy_site": {
+      "title": "Generate Navigation Sidebar Html Snippet Extracted Heading Hierarchy Site",
+      "filename": "generate_navigation_sidebar_html_snippet_extracted_heading_hierarchy_site.cs",
+      "description": "Generate a navigation sidebar HTML snippet based on extracted heading hierarchy for the site.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "generate_report_summarizing_number_of_each_html_element_type_in_document": {
+      "title": "Generate Report Summarizing Number Of Each Html Element Type In Document",
+      "filename": "generate_report_summarizing_number_of_each_html_element_type_in_document.cs",
+      "description": "Generate a report summarizing the number of each HTML element type present in the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "generate_site_map_xml_file_traversing_all_internal_links_discovered_in_html_document": {
+      "title": "Generate Site Map Xml File Traversing All Internal Links Discovered In Html Document",
+      "filename": "generate_site_map_xml_file_traversing_all_internal_links_discovered_in_html_document.cs",
+      "description": "Generate a site map XML file by traversing all internal links discovered in the HTML document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "Html.HTMLDocument",
+        "Path.GetFullPath",
+        "SecurityElement.Escape",
+        "StringBuilder",
+        "System.Security.SecurityElement.Escape",
+        "Uri"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "identify_and_list_all_elements_with_role_attributes_for_accessibility_compliance_review": {
+      "title": "Identify And List All Elements With Role Attributes For Accessibility Compliance Review",
+      "filename": "identify_and_list_all_elements_with_role_attributes_for_accessibility_compliance_review.cs",
+      "description": "Identify and list all elements with role attributes for accessibility compliance review.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "identify_and_list_all_external_stylesheet_urls_for_dependency_management_in_project": {
+      "title": "Identify And List All External Stylesheet Urls For Dependency Management In Project",
+      "filename": "identify_and_list_all_external_stylesheet_urls_for_dependency_management_in_project.cs",
+      "description": "Identify and list all external stylesheet URLs for dependency management in the project.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "identify_and_list_all_form_action_urls_backend_endpoint_mapping_in_application": {
+      "title": "Identify And List All Form Action Urls Backend Endpoint Mapping In Application",
+      "filename": "identify_and_list_all_form_action_urls_backend_endpoint_mapping_in_application.cs",
+      "description": "Identify and list all form action URLs for backend endpoint mapping in the application.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "identify_and_list_external_script_source_urls_for_dependency_analysis_in_document": {
+      "title": "Identify And List External Script Source Urls For Dependency Analysis In Document",
+      "filename": "identify_and_list_external_script_source_urls_for_dependency_analysis_in_document.cs",
+      "description": "Identify and list all external script source URLs for dependency analysis in the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "identify_extract_all_data_attribute_values_custom_javascript_data_binding_document": {
+      "title": "Identify Extract All Data Attribute Values Custom Javascript Data Binding Document",
+      "filename": "identify_extract_all_data_attribute_values_custom_javascript_data_binding_document.cs",
+      "description": "Identify and extract all data‑attribute values for custom JavaScript data binding in the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "identify_extract_microdata_items_using_itemtype_attributes_convert_to_structured_list": {
+      "title": "Identify Extract Microdata Items Using Itemtype Attributes Convert To Structured List",
+      "filename": "identify_extract_microdata_items_using_itemtype_attributes_convert_to_structured_list.cs",
+      "description": "Identify and extract microdata items using itemtype attributes and convert them to a structured list.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "identify_inline_style_definitions_move_to_external_stylesheet_for_cleaner_markup": {
+      "title": "Identify Inline Style Definitions Move To External Stylesheet For Cleaner Markup",
+      "filename": "identify_inline_style_definitions_move_to_external_stylesheet_for_cleaner_markup.cs",
+      "description": "Identify inline style definitions and move them to an external stylesheet for cleaner markup.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "StringBuilder"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "inline_external_css_files_into_style_tags_in_html_head_self_contained_document": {
+      "title": "Inline External Css Files Into Style Tags In Html Head Self Contained Document",
+      "filename": "inline_external_css_files_into_style_tags_in_html_head_self_contained_document.cs",
+      "description": "Inline external CSS files into style tags within the HTML head for a self‑contained document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetDirectoryName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "inline_external_javascript_files_into_script_tags_create_single_file_html_page": {
+      "title": "Inline External Javascript Files Into Script Tags Create Single File Html Page",
+      "filename": "inline_external_javascript_files_into_script_tags_create_single_file_html_page.cs",
+      "description": "Inline external JavaScript files into script tags to create a single‑file HTML page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "insert_base_tag_with_specified_url_resolve_relative_links_correctly": {
+      "title": "Insert Base Tag With Specified Url Resolve Relative Links Correctly",
+      "filename": "insert_base_tag_with_specified_url_resolve_relative_links_correctly.cs",
+      "description": "Insert a base tag with a specified URL to resolve relative links correctly.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "insert_custom_script_tag_logs_page_load_time_performance_monitoring": {
+      "title": "Insert Custom Script Tag Logs Page Load Time Performance Monitoring",
+      "filename": "insert_custom_script_tag_logs_page_load_time_performance_monitoring.cs",
+      "description": "Insert a custom script tag that logs page load time for performance monitoring.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Path.Combine",
+        "TimeLoggerMessageHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "insert_new_meta_tag_for_character_encoding_into_head_section_of_html_document": {
+      "title": "Insert New Meta Tag For Character Encoding Into Head Section Of Html Document",
+      "filename": "insert_new_meta_tag_for_character_encoding_into_head_section_of_html_document.cs",
+      "description": "Insert a new meta tag for character encoding into the head section of the HTML document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocumentElement.AppendChild",
+        "File.ReadAllText",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "list_all_downloadable_file_links_filtering_anchor_hrefs_common_file_extensions": {
+      "title": "List All Downloadable File Links Filtering Anchor Hrefs Common File Extensions",
+      "filename": "list_all_downloadable_file_links_filtering_anchor_hrefs_common_file_extensions.cs",
+      "description": "List all downloadable file links by filtering anchor hrefs with common file extensions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "jpeg",
+        "pdf",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "load_html_content_from_url_stream_with_custom_user_agent_header": {
+      "title": "Load Html Content From Url Stream With Custom User Agent Header",
+      "filename": "load_html_content_from_url_stream_with_custom_user_agent_header.cs",
+      "description": "Load HTML content from a URL stream while specifying a custom user‑agent header for the request.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "RequestMessage"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "load_html_file_from_disk_into_dom_object_default_parsing_options": {
+      "title": "Load Html File From Disk Into Dom Object Default Parsing Options",
+      "filename": "load_html_file_from_disk_into_dom_object_default_parsing_options.cs",
+      "description": "Load an HTML file from disk into a DOM object using default parsing options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "load_multiple_html_documents_concurrently_asynchronous_methods_combine_body_contents_into_one_file": {
+      "title": "Load Multiple Html Documents Concurrently Asynchronous Methods Combine Body Contents Into One File",
+      "filename": "load_multiple_html_documents_concurrently_asynchronous_methods_combine_body_contents_into_one_file.cs",
+      "description": "Load multiple HTML documents concurrently using asynchronous methods and combine their body contents into one file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Task.WhenAll"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "locate_elements_xpath_replace_outer_html_custom_snippet": {
+      "title": "Locate Elements Xpath Replace Outer Html Custom Snippet",
+      "filename": "locate_elements_xpath_replace_outer_html_custom_snippet.cs",
+      "description": "Locate elements matching an XPath expression and replace their outer HTML with a custom snippet.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "locate_social_media_icon_links_matching_known_domain_patterns_and_list_urls": {
+      "title": "Locate Social Media Icon Links Matching Known Domain Patterns And List Urls",
+      "filename": "locate_social_media_icon_links_matching_known_domain_patterns_and_list_urls.cs",
+      "description": "Locate social media icon links by matching known domain patterns and list their URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Html.Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "merge_html_files_appending_body_sections_document": {
+      "title": "Merge Html Files Appending Body Sections Document",
+      "filename": "merge_html_files_appending_body_sections_document.cs",
+      "description": "Merge multiple HTML files by appending their body sections into a single document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "minify_html_document_by_collapsing_whitespace_and_removing_optional_closing_tags": {
+      "title": "Minify Html Document By Collapsing Whitespace And Removing Optional Closing Tags",
+      "filename": "minify_html_document_by_collapsing_whitespace_and_removing_optional_closing_tags.cs",
+      "description": "Minify the HTML document by collapsing whitespace and removing optional closing tags.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "move_script_element_from_head_to_end_of_body_to_improve_page_loading": {
+      "title": "Move Script Element From Head To End Of Body To Improve Page Loading",
+      "filename": "move_script_element_from_head_to_end_of_body_to_improve_page_loading.cs",
+      "description": "Move a script element from the head to the end of the body to improve page loading.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "InvalidOperationException"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "parse_html_string_case_insensitive_tag_handling_preserve_whitespace_formatting": {
+      "title": "Parse Html String Case Insensitive Tag Handling Preserve Whitespace Formatting",
+      "filename": "parse_html_string_case_insensitive_tag_handling_preserve_whitespace_formatting.cs",
+      "description": "Parse an HTML string with case‑insensitive tag handling and preserve original whitespace formatting.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "pretty_print_html_indentation_two_spaces_nesting_level_readability": {
+      "title": "Pretty Print Html Indentation Two Spaces Nesting Level Readability",
+      "filename": "pretty_print_html_indentation_two_spaces_nesting_level_readability.cs",
+      "description": "Pretty‑print the HTML with indentation of two spaces per nesting level for readability.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Math.Max",
+        "StringBuilder"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_all_comment_nodes_from_dom_clean_html_output": {
+      "title": "Remove All Comment Nodes From Dom Clean Html Output",
+      "filename": "remove_all_comment_nodes_from_dom_clean_html_output.cs",
+      "description": "Remove all comment nodes from the DOM to produce a clean HTML output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_all_empty_paragraph_tags_containing_only_whitespace_characters_in_document": {
+      "title": "Remove All Empty Paragraph Tags Containing Only Whitespace Characters In Document",
+      "filename": "remove_all_empty_paragraph_tags_containing_only_whitespace_characters_in_document.cs",
+      "description": "Remove all empty paragraph tags that contain only whitespace characters in the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_all_script_tags_from_dom_to_eliminate_executable_javascript_before_saving": {
+      "title": "Remove All Script Tags From Dom To Eliminate Executable Javascript Before Saving",
+      "filename": "remove_all_script_tags_from_dom_to_eliminate_executable_javascript_before_saving.cs",
+      "description": "Remove all script tags from the DOM to eliminate executable JavaScript before saving.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_deprecated_center_tags_replace_with_css_text_align_styling": {
+      "title": "Remove Deprecated Center Tags Replace With Css Text Align Styling",
+      "filename": "remove_deprecated_center_tags_replace_with_css_text_align_styling.cs",
+      "description": "Remove all deprecated <center> tags and replace them with CSS text‑align styling.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_deprecated_marquee_tags_replace_with_css_animations_modern_effect": {
+      "title": "Remove Deprecated Marquee Tags Replace With Css Animations Modern Effect",
+      "filename": "remove_deprecated_marquee_tags_replace_with_css_animations_modern_effect.cs",
+      "description": "Remove all deprecated <marquee> tags and replace them with CSS animations for modern effect.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.ReplaceChild"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_duplicate_id_attributes_by_appending_numeric_suffixes_ensure_uniqueness_throughout_document": {
+      "title": "Remove Duplicate Id Attributes By Appending Numeric Suffixes Ensure Uniqueness Throughout Document",
+      "filename": "remove_duplicate_id_attributes_by_appending_numeric_suffixes_ensure_uniqueness_throughout_document.cs",
+      "description": "Remove duplicate ID attributes by appending numeric suffixes to ensure uniqueness throughout the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_inline_style_attributes_from_elements_enforce_external_stylesheet_usage": {
+      "title": "Remove Inline Style Attributes From Elements Enforce External Stylesheet Usage",
+      "filename": "remove_inline_style_attributes_from_elements_enforce_external_stylesheet_usage.cs",
+      "description": "Remove all inline style attributes from elements to enforce external stylesheet usage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "remove_noscript_elements_simplify_dom_environments_without_javascript": {
+      "title": "Remove Noscript Elements Simplify Dom Environments Without Javascript",
+      "filename": "remove_noscript_elements_simplify_dom_environments_without_javascript.cs",
+      "description": "Remove all noscript elements to simplify the DOM for environments without JavaScript.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "replace_all_b_tags_with_strong_tags_improve_semantic_markup_throughout_document": {
+      "title": "Replace All B Tags With Strong Tags Improve Semantic Markup Throughout Document",
+      "filename": "replace_all_b_tags_with_strong_tags_improve_semantic_markup_throughout_document.cs",
+      "description": "Replace all <b> tags with <strong> tags to improve semantic markup throughout the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "replace_all_inline_event_handler_attributes_with_external_javascript_listeners": {
+      "title": "Replace All Inline Event Handler Attributes With External Javascript Listeners",
+      "filename": "replace_all_inline_event_handler_attributes_with_external_javascript_listeners.cs",
+      "description": "Replace all inline event handler attributes (e.g., onclick) with external JavaScript listeners.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "replace_all_occurrences_non_breaking_space_characters_with_regular_spaces_text_normalization": {
+      "title": "Replace All Occurrences Non Breaking Space Characters With Regular Spaces Text Normalization",
+      "filename": "replace_all_occurrences_non_breaking_space_characters_with_regular_spaces_text_normalization.cs",
+      "description": "Replace all occurrences of non‑breaking space characters with regular spaces for text normalization.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "replace_all_occurrences_of_deprecated_align_attribute_with_equivalent_css_styling": {
+      "title": "Replace All Occurrences Of Deprecated Align Attribute With Equivalent Css Styling",
+      "filename": "replace_all_occurrences_of_deprecated_align_attribute_with_equivalent_css_styling.cs",
+      "description": "Replace all occurrences of a deprecated attribute (e.g., align) with equivalent CSS styling.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "replace_deprecated_font_tags_with_equivalent_css_style_attributes_throughout_document": {
+      "title": "Replace Deprecated Font Tags With Equivalent Css Style Attributes Throughout Document",
+      "filename": "replace_deprecated_font_tags_with_equivalent_css_style_attributes_throughout_document.cs",
+      "description": "Replace deprecated <font> tags with equivalent CSS style attributes throughout the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "replace_empty_alt_attributes_with_descriptive_text_derived_from_surrounding_caption_elements": {
+      "title": "Replace Empty Alt Attributes With Descriptive Text Derived From Surrounding Caption Elements",
+      "filename": "replace_empty_alt_attributes_with_descriptive_text_derived_from_surrounding_caption_elements.cs",
+      "description": "Replace empty alt attributes with descriptive text derived from surrounding caption elements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Path.GetFileNameWithoutExtension",
+        "TextContent.Trim"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "replace_target_blank_attributes_with_rel_noopener_noreferrer_to_mitigate_security_risks_in_document": {
+      "title": "Replace Target Blank Attributes With Rel Noopener Noreferrer To Mitigate Security Risks In Document",
+      "filename": "replace_target_blank_attributes_with_rel_noopener_noreferrer_to_mitigate_security_risks_in_document.cs",
+      "description": "Replace target=\"_blank\" attributes with rel=\"noopener noreferrer\" to mitigate security risks in the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "retrieve_audio_source_urls_audio_tags_save_manifest_file": {
+      "title": "Retrieve Audio Source Urls Audio Tags Save Manifest File",
+      "filename": "retrieve_audio_source_urls_audio_tags_save_manifest_file.cs",
+      "description": "Retrieve audio source URLs from audio tags and save them to a manifest file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "File.WriteAllLines",
+        "Html.HTMLDocument",
+        "Html.Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "retrieve_json_ld_script_blocks_from_html_and_deserialize_into_dotnet_objects": {
+      "title": "Retrieve Json Ld Script Blocks From Html And Deserialize Into Dotnet Objects",
+      "filename": "retrieve_json_ld_script_blocks_from_html_and_deserialize_into_dotnet_objects.cs",
+      "description": "Retrieve JSON‑LD script blocks from the HTML and deserialize them into .NET objects.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "retrieve_title_element_text_from_loaded_html_document_and_store_in_variable": {
+      "title": "Retrieve Title Element Text From Loaded Html Document And Store In Variable",
+      "filename": "retrieve_title_element_text_from_loaded_html_document_and_store_in_variable.cs",
+      "description": "Retrieve the title element text from a loaded HTML document and store it in a variable.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "retrieve_viewport_meta_tag_value_for_mobile_rendering_settings": {
+      "title": "Retrieve Viewport Meta Tag Value For Mobile Rendering Settings",
+      "filename": "retrieve_viewport_meta_tag_value_for_mobile_rendering_settings.cs",
+      "description": "Retrieve the value of the viewport meta tag to determine mobile rendering settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "rewrite_all_hyperlink_urls_https_scheme_security_compliance": {
+      "title": "Rewrite All Hyperlink Urls Https Scheme Security Compliance",
+      "filename": "rewrite_all_hyperlink_urls_https_scheme_security_compliance.cs",
+      "description": "Rewrite all hyperlink URLs to use HTTPS scheme for improved security compliance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "search_elements_containing_specific_keyword_highlight_add_css_class": {
+      "title": "Search Elements Containing Specific Keyword Highlight Add Css Class",
+      "filename": "search_elements_containing_specific_keyword_highlight_add_css_class.cs",
+      "description": "Search for elements containing a specific keyword and highlight them by adding a CSS class.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "InnerHTML.Contains"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "select_all_paragraph_elements_css_selector_iterate_extract_plain_text": {
+      "title": "Select All Paragraph Elements Css Selector Iterate Extract Plain Text",
+      "filename": "select_all_paragraph_elements_css_selector_iterate_extract_plain_text.cs",
+      "description": "Select all paragraph elements using a CSS selector and iterate through them to extract plain text.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "serialize_dom_tree_to_json_representation_for_efficient_client_side_processing": {
+      "title": "Serialize Dom Tree To Json Representation For Efficient Client Side Processing",
+      "filename": "serialize_dom_tree_to_json_representation_for_efficient_client_side_processing.cs",
+      "description": "Serialize the DOM tree to a JSON representation for efficient client‑side processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringBuilder",
+        "TextContent.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "set_custom_timeout_value_when_loading_html_from_remote_urls_to_avoid_long_waits": {
+      "title": "Set Custom Timeout Value When Loading Html From Remote Urls To Avoid Long Waits",
+      "filename": "set_custom_timeout_value_when_loading_html_from_remote_urls_to_avoid_long_waits.cs",
+      "description": "Set a custom timeout value when loading HTML from remote URLs to avoid long waits.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "RequestMessage",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "split_html_document_into_separate_files_at_each_top_level_heading_for_modular_publishing": {
+      "title": "Split Html Document Into Separate Files At Each Top Level Heading For Modular Publishing",
+      "filename": "split_html_document_into_separate_files_at_each_top_level_heading_for_modular_publishing.cs",
+      "description": "Split an HTML document into separate files at each top‑level heading for modular publishing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "StringBuilder",
+        "TagName.Equals"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "transform_html_into_markdown_using_builtin_efficient_conversion_routine": {
+      "title": "Transform Html Into Markdown Using Builtin Efficient Conversion Routine",
+      "filename": "transform_html_into_markdown_using_builtin_efficient_conversion_routine.cs",
+      "description": "Transform the HTML into Markdown format using a built‑in efficient conversion routine.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "MarkdownSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "unwrap_images_from_figure_tags_preserving_src_attributes_intact": {
+      "title": "Unwrap Images From Figure Tags Preserving Src Attributes Intact",
+      "filename": "unwrap_images_from_figure_tags_preserving_src_attributes_intact.cs",
+      "description": "Unwrap images from surrounding figure tags while preserving their src attributes intact.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.InsertBefore",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "update_existing_base_tag_href_attribute_to_new_domain_for_site_migration": {
+      "title": "Update Existing Base Tag Href Attribute To New Domain For Site Migration",
+      "filename": "update_existing_base_tag_href_attribute_to_new_domain_for_site_migration.cs",
+      "description": "Update existing base tag href attribute to a new domain for site migration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "use_css_selector_find_all_list_items_within_unordered_lists_extract_text": {
+      "title": "Use Css Selector Find All List Items Within Unordered Lists Extract Text",
+      "filename": "use_css_selector_find_all_list_items_within_unordered_lists_extract_text.cs",
+      "description": "Use a CSS selector to find all list items within unordered lists and extract their text.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "validate_html_structure_against_w3c_standards_and_collect_validation_error_messages": {
+      "title": "Validate Html Structure Against W3C Standards And Collect Validation Error Messages",
+      "filename": "validate_html_structure_against_w3c_standards_and_collect_validation_error_messages.cs",
+      "description": "Validate the HTML structure against W3C standards and collect validation error messages.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "System.Console.WriteLine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    },
+    "wrap_each_paragraph_element_inside_div_specific_css_class_layout_control": {
+      "title": "Wrap Each Paragraph Element Inside Div Specific Css Class Layout Control",
+      "filename": "wrap_each_paragraph_element_inside_div_specific_css_class_layout_control.cs",
+      "description": "Wrap each paragraph element inside a div with a specific CSS class for layout control.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:12:12Z",
+      "status": "verified"
+    }
+  }
+}
