@@ -1,0 +1,1038 @@
+{
+  "category": "working_with_html_templates",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:48:09Z",
+  "examples": {
+    "apply_attribute_binding_set_href_attribute_anchor_tags_from_xml_link_data": {
+      "title": "Apply Attribute Binding Set Href Attribute Anchor Tags From Xml Link Data",
+      "filename": "apply_attribute_binding_set_href_attribute_anchor_tags_from_xml_link_data.cs",
+      "description": "Apply attribute binding to set the href attribute of anchor tags from XML link data.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "XDocument.Load"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "apply_attribute_binding_set_src_attribute_img_tag_from_json_image_urls": {
+      "title": "Apply Attribute Binding Set Src Attribute Img Tag From Json Image Urls",
+      "filename": "apply_attribute_binding_set_src_attribute_img_tag_from_json_image_urls.cs",
+      "description": "Apply attribute binding to set the src attribute of an img tag from JSON image URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "apply_templateloadoptions_enable_loading_html_templates_with_external_css_references_for_styling": {
+      "title": "Apply Templateloadoptions Enable Loading Html Templates With External Css References For Styling",
+      "filename": "apply_templateloadoptions_enable_loading_html_templates_with_external_css_references_for_styling.cs",
+      "description": "Apply TemplateLoadOptions to enable loading HTML templates that contain external CSS references for styling.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "apply_templateloadoptions_enable_loading_templates_from_network_share_with_authentication": {
+      "title": "Apply Templateloadoptions Enable Loading Templates From Network Share With Authentication",
+      "filename": "apply_templateloadoptions_enable_loading_templates_from_network_share_with_authentication.cs",
+      "description": "Apply TemplateLoadOptions to enable loading templates from a network share with authentication.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "network",
+        "template",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "NetworkCredentialHandler",
+        "System.Net.NetworkCredential",
+        "TemplateData",
+        "TemplateLoadOptions",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "combine_xml_data_inline_expressions_product_catalog_html_page": {
+      "title": "Combine Xml Data Inline Expressions Product Catalog Html Page",
+      "filename": "combine_xml_data_inline_expressions_product_catalog_html_page.cs",
+      "description": "Combine XML data with inline expressions to generate a product catalog HTML page.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "saving-options",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "configure_templateloadoptions_ignore_script_tags_template_loading_security": {
+      "title": "Configure Templateloadoptions Ignore Script Tags Template Loading Security",
+      "filename": "configure_templateloadoptions_ignore_script_tags_template_loading_security.cs",
+      "description": "Configure TemplateLoadOptions to ignore script tags during template loading for security purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "control_css_class_attribute_binding_value_json_data_source": {
+      "title": "Control Css Class Attribute Binding Value Json Data Source",
+      "filename": "control_css_class_attribute_binding_value_json_data_source.cs",
+      "description": "Control the presence of a CSS class attribute by binding its value from the JSON data source.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "control_visibility_div_element_binding_style_attribute_data_value": {
+      "title": "Control Visibility Div Element Binding Style Attribute Data Value",
+      "filename": "control_visibility_div_element_binding_style_attribute_data_value.cs",
+      "description": "Control the visibility of a div element by binding its style attribute to a data value.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "convert_populated_html_template_to_final_html_document_using_convert_template_method": {
+      "title": "Convert Populated Html Template To Final Html Document Using Convert Template Method",
+      "filename": "convert_populated_html_template_to_final_html_document_using_convert_template_method.cs",
+      "description": "Convert a populated HTML template to a final HTML document using the ConvertTemplate method.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "convert_template_conditional_attribute_binding_readonly_fields_data_flags": {
+      "title": "Convert Template Conditional Attribute Binding Readonly Fields Data Flags",
+      "filename": "convert_template_conditional_attribute_binding_readonly_fields_data_flags.cs",
+      "description": "Convert a template that uses conditional attribute binding for readonly fields based on data flags.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "convert_template_with_embedded_svg_graphics_to_html_and_render_to_png_preserving_vector_quality": {
+      "title": "Convert Template With Embedded Svg Graphics To Html And Render To Png Preserving Vector Quality",
+      "filename": "convert_template_with_embedded_svg_graphics_to_html_and_render_to_png_preserving_vector_quality.cs",
+      "description": "Convert a template with embedded SVG graphics to HTML and render it to PNG preserving vector quality.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "image",
+        "png",
+        "rendering",
+        "template",
+        "conversion"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "convert_template_with_foreach_loop_to_html_table_dynamic_rows": {
+      "title": "Convert Template With Foreach Loop To Html Table Dynamic Rows",
+      "filename": "convert_template_with_foreach_loop_to_html_table_dynamic_rows.cs",
+      "description": "Convert a template that contains a foreach loop into an HTML table with dynamic rows.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "create_html_template_dynamically_string_variable_markup_data_binding_expressions": {
+      "title": "Create Html Template Dynamically String Variable Markup Data Binding Expressions",
+      "filename": "create_html_template_dynamically_string_variable_markup_data_binding_expressions.cs",
+      "description": "Create an HTML template dynamically from a string variable containing markup with data‑binding expressions.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "create_reusable_html_email_template_populate_user_data_from_xml": {
+      "title": "Create Reusable Html Email Template Populate User Data From Xml",
+      "filename": "create_reusable_html_email_template_populate_user_data_from_xml.cs",
+      "description": "Create a reusable HTML email template and populate it with user data from an XML file.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "create_template_binds_data_driven_title_attribute_display_tooltips_hover": {
+      "title": "Create Template Binds Data Driven Title Attribute Display Tooltips Hover",
+      "filename": "create_template_binds_data_driven_title_attribute_display_tooltips_hover.cs",
+      "description": "Create a template that binds a data‑driven title attribute to display tooltips on hover.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "create_template_from_string_including_meta_tag_with_dynamic_description_content": {
+      "title": "Create Template From String Including Meta Tag With Dynamic Description Content",
+      "filename": "create_template_from_string_including_meta_tag_with_dynamic_description_content.cs",
+      "description": "Create a template from a string that includes a meta tag with dynamic description content.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "create_template_string_with_conditional_class_attribute_based_on_user_role": {
+      "title": "Create Template String With Conditional Class Attribute Based On User Role",
+      "filename": "create_template_string_with_conditional_class_attribute_based_on_user_role.cs",
+      "description": "Create a template string that includes a conditional class attribute based on user role.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateContentOptions",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "create_templatedata_object_from_json_file_and_bind_to_html_template": {
+      "title": "Create Templatedata Object From Json File And Bind To Html Template",
+      "filename": "create_templatedata_object_from_json_file_and_bind_to_html_template.cs",
+      "description": "Create a TemplateData object from a JSON file and bind it to an HTML template.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "define_inline_double_curly_brace_expressions_in_template_to_insert_first_name_values": {
+      "title": "Define Inline Double Curly Brace Expressions In Template To Insert First Name Values",
+      "filename": "define_inline_double_curly_brace_expressions_in_template_to_insert_first_name_values.cs",
+      "description": "Define inline double‑curly‑brace expressions in the template to insert first name values.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "foreach_expression_generate_list_items_from_json_array_navigation_links": {
+      "title": "Foreach Expression Generate List Items From Json Array Navigation Links",
+      "filename": "foreach_expression_generate_list_items_from_json_array_navigation_links.cs",
+      "description": "Use a foreach expression to generate list items from a JSON array of navigation links.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "generate_localized_html_page_binding_language_specific_strings_from_xml_resource_file": {
+      "title": "Generate Localized Html Page Binding Language Specific Strings From Xml Resource File",
+      "filename": "generate_localized_html_page_binding_language_specific_strings_from_xml_resource_file.cs",
+      "description": "Generate a localized HTML page by binding language‑specific strings from an XML resource file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "Path.GetDirectoryName",
+        "Path.GetFullPath",
+        "Root.Element",
+        "XDocument.Load"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "generate_png_preview_converting_template_html_rendering_result_image": {
+      "title": "Generate Png Preview Converting Template Html Rendering Result Image",
+      "filename": "generate_png_preview_converting_template_html_rendering_result_image.cs",
+      "description": "Generate a PNG preview by converting the template to HTML and rendering the result to an image.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "image",
+        "png",
+        "rendering",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "ImageDevice",
+        "ImageRenderingOptions",
+        "TemplateContentOptions",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "include_conditional_attribute_expression_hide_element_when_data_flag_false": {
+      "title": "Include Conditional Attribute Expression Hide Element When Data Flag False",
+      "filename": "include_conditional_attribute_expression_hide_element_when_data_flag_false.cs",
+      "description": "Include a conditional attribute expression to hide an element when a data flag is false.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "instantiate_templateloadoptions_specify_custom_encoding_before_loading_html_template_file": {
+      "title": "Instantiate Templateloadoptions Specify Custom Encoding Before Loading Html Template File",
+      "filename": "instantiate_templateloadoptions_specify_custom_encoding_before_loading_html_template_file.cs",
+      "description": "Instantiate TemplateLoadOptions to specify custom encoding before loading an HTML template file.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "load_html_template_file_from_disk_and_populate_using_xml_data_source": {
+      "title": "Load Html Template File From Disk And Populate Using Xml Data Source",
+      "filename": "load_html_template_file_from_disk_and_populate_using_xml_data_source.cs",
+      "description": "Load an HTML template file from disk and populate it using an XML data source.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "load_template_custom_base_url_templateloadoptions_resolve_relative_links": {
+      "title": "Load Template Custom Base Url Templateloadoptions Resolve Relative Links",
+      "filename": "load_template_custom_base_url_templateloadoptions_resolve_relative_links.cs",
+      "description": "Load a template with custom base URL using TemplateLoadOptions to resolve relative links.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "template",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "perform_one_line_template_conversion_with_source_path_data_and_output_path": {
+      "title": "Perform One Line Template Conversion With Source Path Data And Output Path",
+      "filename": "perform_one_line_template_conversion_with_source_path_data_and_output_path.cs",
+      "description": "Perform a one‑line template conversion by calling ConvertTemplate with source path, data, and output path.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "rendering",
+        "template"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "populate_template_hierarchical_xml_data_produce_nested_unordered_lists_html": {
+      "title": "Populate Template Hierarchical Xml Data Produce Nested Unordered Lists Html",
+      "filename": "populate_template_hierarchical_xml_data_produce_nested_unordered_lists_html.cs",
+      "description": "Populate a template with hierarchical XML data to produce nested unordered lists in HTML.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "populate_template_nested_json_objects_display_property_values_using_dot_notation": {
+      "title": "Populate Template Nested Json Objects Display Property Values Using Dot Notation",
+      "filename": "populate_template_nested_json_objects_display_property_values_using_dot_notation.cs",
+      "description": "Populate a template with nested JSON objects and display nested property values using dot notation.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "File.ReadAllText",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "populate_template_with_csv_data_converted_to_json_and_display_in_html_table": {
+      "title": "Populate Template With Csv Data Converted To Json And Display In Html Table",
+      "filename": "populate_template_with_csv_data_converted_to_json_and_display_in_html_table.cs",
+      "description": "Populate a template with CSV data converted to JSON and display it in an HTML table.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "File.ReadAllLines",
+        "File.WriteAllText",
+        "InvalidOperationException",
+        "JsonSerializer.Serialize",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "populate_template_with_user_profile_json_and_generate_personalized_dashboard_html_page": {
+      "title": "Populate Template With User Profile Json And Generate Personalized Dashboard Html Page",
+      "filename": "populate_template_with_user_profile_json_and_generate_personalized_dashboard_html_page.cs",
+      "description": "Populate a template with user profile JSON and generate a personalized dashboard HTML page.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "render_converted_html_document_to_png_with_specified_image_width_and_height": {
+      "title": "Render Converted Html Document To Png With Specified Image Width And Height",
+      "filename": "render_converted_html_document_to_png_with_specified_image_width_and_height.cs",
+      "description": "Render the converted HTML document to PNG with a specified image width and height.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "image",
+        "png",
+        "rendering",
+        "drawing",
+        "conversion"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "render_converted_html_to_png_with_specific_dpi_setting_for_high_resolution_output": {
+      "title": "Render Converted Html To Png With Specific Dpi Setting For High Resolution Output",
+      "filename": "render_converted_html_to_png_with_specific_dpi_setting_for_high_resolution_output.cs",
+      "description": "Render the converted HTML to PNG with a specific DPI setting for high‑resolution output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "image",
+        "png",
+        "rendering",
+        "conversion",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.ReadAllText",
+        "ImageSaveOptions",
+        "Path.GetFullPath",
+        "System.IO.File.ReadAllText",
+        "System.IO.Path.GetFullPath",
+        "Uri"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "render_final_html_to_png_transparent_background_options": {
+      "title": "Render Final Html To Png Transparent Background Options",
+      "filename": "render_final_html_to_png_transparent_background_options.cs",
+      "description": "Render the final HTML to PNG with transparent background using appropriate rendering options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "image",
+        "png",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "render_resulting_html_document_to_png_image_using_renderto_method": {
+      "title": "Render Resulting Html Document To Png Image Using Renderto Method",
+      "filename": "render_resulting_html_document_to_png_image_using_renderto_method.cs",
+      "description": "Render the resulting HTML document to a PNG image using the RenderTo method.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "png",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "set_checked_attribute_checkbox_conditionally_based_boolean_value_data_source": {
+      "title": "Set Checked Attribute Checkbox Conditionally Based Boolean Value Data Source",
+      "filename": "set_checked_attribute_checkbox_conditionally_based_boolean_value_data_source.cs",
+      "description": "Set the checked attribute on a checkbox conditionally based on a boolean value in the data source.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "template",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateContentOptions",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "set_disabled_attribute_on_form_inputs_conditionally_based_on_xml_data": {
+      "title": "Set Disabled Attribute On Form Inputs Conditionally Based On Xml Data",
+      "filename": "set_disabled_attribute_on_form_inputs_conditionally_based_on_xml_data.cs",
+      "description": "Set the disabled attribute on form inputs conditionally based on values in the XML data.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "XDocument.Load"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "set_maxlength_attribute_input_field_dynamically_from_xml_configuration_values": {
+      "title": "Set Maxlength Attribute Input Field Dynamically From Xml Configuration Values",
+      "filename": "set_maxlength_attribute_input_field_dynamically_from_xml_configuration_values.cs",
+      "description": "Set the maxlength attribute of an input field dynamically from XML configuration values.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Root.Element",
+        "XDocument.Load"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "set_selected_attribute_on_option_elements_based_on_matching_values_xml_data_source": {
+      "title": "Set Selected Attribute On Option Elements Based On Matching Values Xml Data Source",
+      "filename": "set_selected_attribute_on_option_elements_based_on_matching_values_xml_data_source.cs",
+      "description": "Set the selected attribute on option elements based on matching values in the XML data source.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "single_line_code_convert_template_string_to_html_file": {
+      "title": "Single Line Code Convert Template String To Html File",
+      "filename": "single_line_code_convert_template_string_to_html_file.cs",
+      "description": "Use a single line of code to convert a template string directly to an HTML file.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "use_foreach_directive_repeat_table_row_each_item": {
+      "title": "Use Foreach Directive Repeat Table Row Each Item",
+      "filename": "use_foreach_directive_repeat_table_row_each_item.cs",
+      "description": "Use a foreach directive {{#foreach item in collection}} to repeat a table row for each item.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "use_foreach_loop_generate_table_rows_each_json_record": {
+      "title": "Use Foreach Loop Generate Table Rows Each Json Record",
+      "filename": "use_foreach_loop_generate_table_rows_each_json_record.cs",
+      "description": "Use a foreach loop to generate table rows for each record in a JSON dataset.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "use_inline_expressions_calculate_display_total_price_json_line_item_values": {
+      "title": "Use Inline Expressions Calculate Display Total Price Json Line Item Values",
+      "filename": "use_inline_expressions_calculate_display_total_price_json_line_item_values.cs",
+      "description": "Use inline expressions to calculate and display total price from JSON line item values.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "File.ReadAllText",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "use_inline_expressions_format_dates_json_data_html_template": {
+      "title": "Use Inline Expressions Format Dates Json Data Html Template",
+      "filename": "use_inline_expressions_format_dates_json_data_html_template.cs",
+      "description": "Use inline expressions to format dates from JSON data within the HTML template.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "rendering",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    },
+    "use_templatedata_bind_product_list_from_json_generate_repeating_product_card_layout": {
+      "title": "Use Templatedata Bind Product List From Json Generate Repeating Product Card Layout",
+      "filename": "use_templatedata_bind_product_list_from_json_generate_repeating_product_card_layout.cs",
+      "description": "Use TemplateData to bind a list of products from JSON and generate a repeating product card layout.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:48:09Z",
+      "status": "verified"
+    }
+  }
+}
