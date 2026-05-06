@@ -1,0 +1,2140 @@
+{
+  "category": "web_accessibility",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:36:05Z",
+  "examples": {
+    "access_validationresult_errors_collection_count_total_accessibility_errors_document": {
+      "title": "Access Validationresult Errors Collection Count Total Accessibility Errors Document",
+      "filename": "access_validationresult_errors_collection_count_total_accessibility_errors_document.cs",
+      "description": "Access ValidationResult.Errors collection to count total accessibility errors found in the document.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "access_validationresult_warnings_collection_count_total_accessibility_warnings_html_page": {
+      "title": "Access Validationresult Warnings Collection Count Total Accessibility Warnings Html Page",
+      "filename": "access_validationresult_warnings_collection_count_total_accessibility_warnings_html_page.cs",
+      "description": "Access ValidationResult.Warnings collection to count total accessibility warnings reported for the HTML page.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "add_missing_track_element_with_kind_captions_and_src_to_video_programmatically": {
+      "title": "Add Missing Track Element With Kind Captions And Src To Video Programmatically",
+      "filename": "add_missing_track_element_with_kind_captions_and_src_to_video_programmatically.cs",
+      "description": "Add a missing <track> element with kind=\"captions\" and appropriate src attribute to a video element programmatically.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "apply_cancellation_token_to_validation_process_for_graceful_termination_during_long_batch_runs": {
+      "title": "Apply Cancellation Token To Validation Process For Graceful Termination During Long Batch Runs",
+      "filename": "apply_cancellation_token_to_validation_process_for_graceful_termination_during_long_batch_runs.cs",
+      "description": "Apply a cancellation token to the validation process to allow graceful termination during long batch runs.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "CancellationTokenSource",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TimeSpan.FromSeconds",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "call_validationresult_savetostring_obtain_formatted_string_errors_warnings": {
+      "title": "Call Validationresult Savetostring Obtain Formatted String Errors Warnings",
+      "filename": "call_validationresult_savetostring_obtain_formatted_string_errors_warnings.cs",
+      "description": "Call ValidationResult.SaveToString to obtain a formatted string of errors and warnings.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "check_missing_track_elements_kind_captions_in_video_tags_using_validation_report": {
+      "title": "Check Missing Track Elements Kind Captions In Video Tags Using Validation Report",
+      "filename": "check_missing_track_elements_kind_captions_in_video_tags_using_validation_report.cs",
+      "description": "Check for missing <track> elements with kind=\"captions\" in video tags using the validation report.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "combine_validation_findings_with_seo_metrics_identify_pages_with_accessibility_and_ranking_issues": {
+      "title": "Combine Validation Findings With Seo Metrics Identify Pages With Accessibility And Ranking Issues",
+      "filename": "combine_validation_findings_with_seo_metrics_identify_pages_with_accessibility_and_ranking_issues.cs",
+      "description": "Combine validation findings with SEO metrics to identify pages with both accessibility and ranking issues.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "Path.Combine",
+        "Random",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "compare_two_validationresult_objects_detect_regressions_modifying_html_content_same_project": {
+      "title": "Compare Two Validationresult Objects Detect Regressions Modifying Html Content Same Project",
+      "filename": "compare_two_validationresult_objects_detect_regressions_modifying_html_content_same_project.cs",
+      "description": "Compare two ValidationResult objects to detect regressions after modifying HTML content in the same project.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "configure_accessibilityvalidator_with_custom_settings_before_validating_html_document_in_application": {
+      "title": "Configure Accessibilityvalidator With Custom Settings Before Validating Html Document In Application",
+      "filename": "configure_accessibilityvalidator_with_custom_settings_before_validating_html_document_in_application.cs",
+      "description": "Configure an AccessibilityValidator with custom settings before validating an HTML document in the application.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "configure_validator_ignore_selected_rule_codes_allowing_custom_compliance_thresholds_during_checks": {
+      "title": "Configure Validator Ignore Selected Rule Codes Allowing Custom Compliance Thresholds During Checks",
+      "filename": "configure_validator_ignore_selected_rule_codes_allowing_custom_compliance_thresholds_during_checks.cs",
+      "description": "Configure the validator to ignore selected rule codes, allowing custom compliance thresholds during checks.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "configure_validator_static_rule_repository_consistent_rule_application_across_runs": {
+      "title": "Configure Validator Static Rule Repository Consistent Rule Application Across Runs",
+      "filename": "configure_validator_static_rule_repository_consistent_rule_application_across_runs.cs",
+      "description": "Configure the validator to use a static rule repository for consistent rule application across runs.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "configure_validator_treat_caption_missing_warnings_errors_adjust_severity_settings": {
+      "title": "Configure Validator Treat Caption Missing Warnings Errors Adjust Severity Settings",
+      "filename": "configure_validator_treat_caption_missing_warnings_errors_adjust_severity_settings.cs",
+      "description": "Configure the validator to treat caption missing warnings as errors by adjusting severity settings.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "create_custom_rule_subset_selecting_specific_wcag_criteria_from_accessibilityrules_before_validation": {
+      "title": "Create Custom Rule Subset Selecting Specific Wcag Criteria From Accessibilityrules Before Validation",
+      "filename": "create_custom_rule_subset_selecting_specific_wcag_criteria_from_accessibilityrules_before_validation.cs",
+      "description": "Create a custom rule subset by selecting specific WCAG criteria from AccessibilityRules before validation.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Rules.GetPrinciple"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "create_powershell_script_loads_dotnet_library_validates_html_file_prints_json_results": {
+      "title": "Create Powershell Script Loads Dotnet Library Validates Html File Prints Json Results",
+      "filename": "create_powershell_script_loads_dotnet_library_validates_html_file_prints_json_results.cs",
+      "description": "Create a PowerShell script that loads the .NET library, validates an HTML file, and prints JSON results.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "create_static_accessibilityvalidator_instance_reuse_to_validate_multiple_html_files_efficiently": {
+      "title": "Create Static Accessibilityvalidator Instance Reuse To Validate Multiple Html Files Efficiently",
+      "filename": "create_static_accessibilityvalidator_instance_reuse_to_validate_multiple_html_files_efficiently.cs",
+      "description": "Create a static AccessibilityValidator instance and reuse it to validate multiple HTML files efficiently.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "create_validator_instance_before_loading_html_document_for_accessibility": {
+      "title": "Create Validator Instance Before Loading Html Document For Accessibility",
+      "filename": "create_validator_instance_before_loading_html_document_for_accessibility.cs",
+      "description": "Create a validator instance using CreateValidator() before loading any HTML document for accessibility.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "detect_absent_caption_files_referenced_in_track_elements_and_log_file_paths": {
+      "title": "Detect Absent Caption Files Referenced In Track Elements And Log File Paths",
+      "filename": "detect_absent_caption_files_referenced_in_track_elements_and_log_file_paths.cs",
+      "description": "Detect absent caption files referenced by <track> elements and log their file paths.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.AppendAllText",
+        "File.Exists",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "develop_command_line_tool_accepting_input_path_and_output_format_arguments_to_perform_validation_on_demand": {
+      "title": "Develop Command Line Tool Accepting Input Path And Output Format Arguments To Perform Validation On Demand",
+      "filename": "develop_command_line_tool_accepting_input_path_and_output_format_arguments_to_perform_validation_on_demand.cs",
+      "description": "Develop a command‑line tool accepting input path and output format arguments to perform validation on demand.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "embed_validation_results_string_into_email_body_notify_stakeholders_accessibility_status": {
+      "title": "Embed Validation Results String Into Email Body Notify Stakeholders Accessibility Status",
+      "filename": "embed_validation_results_string_into_email_body_notify_stakeholders_accessibility_status.cs",
+      "description": "Embed validation results string into an email body to notify stakeholders of accessibility status.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MailAddress",
+        "MailMessage",
+        "NetworkCredential",
+        "SmtpClient",
+        "To.Add",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "embed_vtt_caption_file_into_html_document_and_reference_with_new_track_element": {
+      "title": "Embed Vtt Caption File Into Html Document And Reference With New Track Element",
+      "filename": "embed_vtt_caption_file_into_html_document_and_reference_with_new_track_element.cs",
+      "description": "Embed a .vtt caption file into the HTML document and reference it via a newly created <track> element.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "ensure_caption_tracks_contain_synchronized_timestamps_matching_associated_media_timeline": {
+      "title": "Ensure Caption Tracks Contain Synchronized Timestamps Matching Associated Media Timeline",
+      "filename": "ensure_caption_tracks_contain_synchronized_timestamps_matching_associated_media_timeline.cs",
+      "description": "Ensure caption tracks contain synchronized timestamps matching the associated media timeline.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Path.GetFileNameWithoutExtension",
+        "System.IO.Path.GetFileNameWithoutExtension",
+        "TagName.Equals"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "exclude_keyboard_navigation_warnings_from_final_report_using_result_filtering_option": {
+      "title": "Exclude Keyboard Navigation Warnings From Final Report Using Result Filtering Option",
+      "filename": "exclude_keyboard_navigation_warnings_from_final_report_using_result_filtering_option.cs",
+      "description": "Exclude keyboard navigation warnings from the final report by applying a result‑filtering option.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "ErrorMessage.IndexOf",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "execute_validate_method_assess_multimedia_accessibility_loaded_html_document": {
+      "title": "Execute Validate Method Assess Multimedia Accessibility Loaded Html Document",
+      "filename": "execute_validate_method_assess_multimedia_accessibility_loaded_html_document.cs",
+      "description": "Execute the Validate method to assess multimedia accessibility of the loaded HTML document.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Rules.GetPrinciple",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "execute_validator_validate_with_file_path_to_run_accessibility_checks_on_page": {
+      "title": "Execute Validator Validate With File Path To Run Accessibility Checks On Page",
+      "filename": "execute_validator_validate_with_file_path_to_run_accessibility_checks_on_page.cs",
+      "description": "Execute validator.Validate with the file path to run accessibility checks on the page.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "export_validation_results_formatted_string_save_to_string_developer_review": {
+      "title": "Export Validation Results Formatted String Save To String Developer Review",
+      "filename": "export_validation_results_formatted_string_save_to_string_developer_review.cs",
+      "description": "Export validation results as a formatted string using SaveToString for developer review.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "fail_build_if_critical_accessibility_errors_detected_enforce_quality_gates": {
+      "title": "Fail Build If Critical Accessibility Errors Detected Enforce Quality Gates",
+      "filename": "fail_build_if_critical_accessibility_errors_detected_enforce_quality_gates.cs",
+      "description": "Fail the build if any critical accessibility errors are detected to enforce quality gates.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "fail_ci_build_if_validationresult_contains_error_level_findings_enforce_accessibility_standards": {
+      "title": "Fail Ci Build If Validationresult Contains Error Level Findings Enforce Accessibility Standards",
+      "filename": "fail_ci_build_if_validationresult_contains_error_level_findings_enforce_accessibility_standards.cs",
+      "description": "Fail a CI build when ValidationResult contains any error‑level findings to enforce accessibility standards.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "fetch_html_content_from_url_list_validate_pages_save_results_xml_files": {
+      "title": "Fetch Html Content From Url List Validate Pages Save Results Xml Files",
+      "filename": "fetch_html_content_from_url_list_validate_pages_save_results_xml_files.cs",
+      "description": "Fetch HTML content from a list of URLs, validate each page, and save results as XML files.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "Path.Combine",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "filter_errors_by_target_types_to_separate_html_element_issues_from_css_related_problems": {
+      "title": "Filter Errors By Target Types To Separate Html Element Issues From Css Related Problems",
+      "filename": "filter_errors_by_target_types_to_separate_html_element_issues_from_css_related_problems.cs",
+      "description": "Filter errors by Target.TargetTypes to separate HTML element issues from CSS related problems.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "css",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "filter_rule_set_to_include_error_level_criteria_before_validation_focus_on_critical_problems": {
+      "title": "Filter Rule Set To Include Error Level Criteria Before Validation Focus On Critical Problems",
+      "filename": "filter_rule_set_to_include_error_level_criteria_before_validation_focus_on_critical_problems.cs",
+      "description": "Filter the rule set to include only error‑level criteria before validation to focus on critical problems.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "filter_validation_results_audio_description_warnings_targeted_video_improvements": {
+      "title": "Filter Validation Results Audio Description Warnings Targeted Video Improvements",
+      "filename": "filter_validation_results_audio_description_warnings_targeted_video_improvements.cs",
+      "description": "Filter validation results to display only audio‑description warnings for targeted video improvements.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "ErrorMessage.Contains",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "filter_validation_results_display_caption_related_warnings_focused_remediation": {
+      "title": "Filter Validation Results Display Caption Related Warnings Focused Remediation",
+      "filename": "filter_validation_results_display_caption_related_warnings_focused_remediation.cs",
+      "description": "Filter validation results to display only caption‑related warnings for focused remediation efforts.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "filter_warnings_specific_ruleid_values_focus_particular_accessibility_techniques": {
+      "title": "Filter Warnings Specific Ruleid Values Focus Particular Accessibility Techniques",
+      "filename": "filter_warnings_specific_ruleid_values_focus_particular_accessibility_techniques.cs",
+      "description": "Filter warnings by specific RuleId values to focus on particular accessibility techniques.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Array.IndexOf",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "System.Console.WriteLine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "generate_detailed_validation_report_json_save_to_specified_output_directory": {
+      "title": "Generate Detailed Validation Report Json Save To Specified Output Directory",
+      "filename": "generate_detailed_validation_report_json_save_to_specified_output_directory.cs",
+      "description": "Generate a detailed validation report in JSON format and save it to a specified output directory.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllText",
+        "Html.HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "generate_markdown_report_from_validationresult_to_post_directly_in_pull_request_comments": {
+      "title": "Generate Markdown Report From Validationresult To Post Directly In Pull Request Comments",
+      "filename": "generate_markdown_report_from_validationresult_to_post_directly_in_pull_request_comments.cs",
+      "description": "Generate a markdown report from ValidationResult to post directly in pull‑request comments.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "System.Text.StringBuilder",
+        "Text.StringBuilder",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "generate_summary_report_aggregates_total_errors_processed_html_documents_batch": {
+      "title": "Generate Summary Report Aggregates Total Errors Processed Html Documents Batch",
+      "filename": "generate_summary_report_aggregates_total_errors_processed_html_documents_batch.cs",
+      "description": "Generate a summary report that aggregates total errors across all processed HTML documents in a batch.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Details.Count",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "identify_video_elements_lacking_audio_description_tracks_filtering_validation_messages_description_warnings": {
+      "title": "Identify Video Elements Lacking Audio Description Tracks Filtering Validation Messages Description Warnings",
+      "filename": "identify_video_elements_lacking_audio_description_tracks_filtering_validation_messages_description_warnings.cs",
+      "description": "Identify video elements lacking audio description tracks by filtering validation messages for description warnings.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "ErrorMessage.Contains",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "implement_retry_mechanism_validating_remote_html_content_transient_network_failures": {
+      "title": "Implement Retry Mechanism Validating Remote Html Content Transient Network Failures",
+      "filename": "implement_retry_mechanism_validating_remote_html_content_transient_network_failures.cs",
+      "description": "Implement a retry mechanism when validating remote HTML content that may experience transient network failures.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RetryHandler",
+        "WebAccessibility"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "incorporate_color_contrast_verification_results_into_overall_validation_summary_comprehensive_reporting": {
+      "title": "Incorporate Color Contrast Verification Results Into Overall Validation Summary Comprehensive Reporting",
+      "filename": "incorporate_color_contrast_verification_results_into_overall_validation_summary_comprehensive_reporting.cs",
+      "description": "Incorporate color contrast verification results into the overall validation summary for comprehensive reporting.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "initialize_html_document_from_file_path_and_validate_using_default_validator": {
+      "title": "Initialize Html Document From File Path And Validate Using Default Validator",
+      "filename": "initialize_html_document_from_file_path_and_validate_using_default_validator.cs",
+      "description": "Initialize an HTMLDocument from a file path and validate it using the default validator.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "inject_accessibilityvalidator_via_dependency_injection_enable_flexible_configuration_aspnet_core_applications": {
+      "title": "Inject Accessibilityvalidator Via Dependency Injection Enable Flexible Configuration Aspnet Core Applications",
+      "filename": "inject_accessibilityvalidator_via_dependency_injection_enable_flexible_configuration_aspnet_core_applications.cs",
+      "description": "Inject AccessibilityValidator via dependency injection to enable flexible configuration in ASP.NET Core applications.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "instantiate_accessibilityvalidator_using_createvalidator_before_loading_html_document": {
+      "title": "Instantiate Accessibilityvalidator Using Createvalidator Before Loading Html Document",
+      "filename": "instantiate_accessibilityvalidator_using_createvalidator_before_loading_html_document.cs",
+      "description": "Instantiate an AccessibilityValidator using CreateValidator before loading any HTML document.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "integrate_accessibility_validation_into_aspose_html_workflows_multimedia_processing_pipeline": {
+      "title": "Integrate Accessibility Validation Into Aspose Html Workflows Multimedia Processing Pipeline",
+      "filename": "integrate_accessibility_validation_into_aspose_html_workflows_multimedia_processing_pipeline.cs",
+      "description": "Integrate accessibility validation into Aspose.HTML workflows as part of the multimedia processing pipeline.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "integrate_validation_step_into_cicd_pipeline_using_command_line_invocation_of_validator": {
+      "title": "Integrate Validation Step Into Cicd Pipeline Using Command Line Invocation Of Validator",
+      "filename": "integrate_validation_step_into_cicd_pipeline_using_command_line_invocation_of_validator.cs",
+      "description": "Integrate the validation step into a CI/CD pipeline using a command‑line invocation of the validator.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "integrate_validation_step_into_github_actions_workflow_automatically_test_pull_requests": {
+      "title": "Integrate Validation Step Into Github Actions Workflow Automatically Test Pull Requests",
+      "filename": "integrate_validation_step_into_github_actions_workflow_automatically_test_pull_requests.cs",
+      "description": "Integrate the validation step into a GitHub Actions workflow to automatically test pull requests.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "iterate_accessibilityrules_advisorytechniques_list_improvement_suggestions_identified_issues": {
+      "title": "Iterate Accessibilityrules Advisorytechniques List Improvement Suggestions Identified Issues",
+      "filename": "iterate_accessibilityrules_advisorytechniques_list_improvement_suggestions_identified_issues.cs",
+      "description": "Iterate AccessibilityRules.AdvisoryTechniques to list improvement suggestions for each identified issue.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "iterate_validationresult_details_log_each_rule_identifier_and_its_pass_fail_status": {
+      "title": "Iterate Validationresult Details Log Each Rule Identifier And Its Pass Fail Status",
+      "filename": "iterate_validationresult_details_log_each_rule_identifier_and_its_pass_fail_status.cs",
+      "description": "Iterate through ValidationResult.Details to log each rule identifier and its pass or fail status.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "load_html_content_from_string_into_validator_for_in_memory_validation": {
+      "title": "Load Html Content From String Into Validator For In Memory Validation",
+      "filename": "load_html_content_from_string_into_validator_for_in_memory_validation.cs",
+      "description": "Load HTML content from a string variable into the validator for in‑memory validation scenarios.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "load_html_content_string_create_document_object_run_accessibility_validation": {
+      "title": "Load Html Content String Create Document Object Run Accessibility Validation",
+      "filename": "load_html_content_string_create_document_object_run_accessibility_validation.cs",
+      "description": "Load HTML content from a string, create a document object, and run accessibility validation.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "load_html_file_from_disk_into_validator_using_load_method_file_path_argument": {
+      "title": "Load Html File From Disk Into Validator Using Load Method File Path Argument",
+      "filename": "load_html_file_from_disk_into_validator_using_load_method_file_path_argument.cs",
+      "description": "Load an HTML file from disk into the validator using the Load method with a file path argument.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "load_html_file_from_local_path_into_validator_for_wcag_analysis": {
+      "title": "Load Html File From Local Path Into Validator For Wcag Analysis",
+      "filename": "load_html_file_from_local_path_into_validator_for_wcag_analysis.cs",
+      "description": "Load an HTML file from a local path into the validator for WCAG analysis.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "load_html_from_stream_object_into_validator_support_network_memory_sources": {
+      "title": "Load Html From Stream Object Into Validator Support Network Memory Sources",
+      "filename": "load_html_from_stream_object_into_validator_support_network_memory_sources.cs",
+      "description": "Load HTML from a Stream object into the validator to support network or memory‑based sources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "stream"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "log_all_validation_messages_to_file_for_further_analysis_and_troubleshooting_by_developers": {
+      "title": "Log All Validation Messages To File For Further Analysis And Troubleshooting By Developers",
+      "filename": "log_all_validation_messages_to_file_for_further_analysis_and_troubleshooting_by_developers.cs",
+      "description": "Log all validation messages to a file for further analysis and troubleshooting by developers.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StreamWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "modify_video_elements_include_keyboard_focusable_controls_add_tabindex_attributes_where_needed": {
+      "title": "Modify Video Elements Include Keyboard Focusable Controls Add Tabindex Attributes Where Needed",
+      "filename": "modify_video_elements_include_keyboard_focusable_controls_add_tabindex_attributes_where_needed.cs",
+      "description": "Modify video elements to include keyboard‑focusable controls by adding tabindex attributes where needed.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "plain_text_summary_validation_findings_quick_developer_review": {
+      "title": "Plain Text Summary Validation Findings Quick Developer Review",
+      "filename": "plain_text_summary_validation_findings_quick_developer_review.cs",
+      "description": "Generate a plain‑text summary of validation findings for quick review by developers.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "prioritize_remediation_tasks_severity_levels_advisory_impact_scores": {
+      "title": "Prioritize Remediation Tasks Severity Levels Advisory Impact Scores",
+      "filename": "prioritize_remediation_tasks_severity_levels_advisory_impact_scores.cs",
+      "description": "Prioritize remediation tasks based on severity levels and advisory technique impact scores.",
+      "tags": [
+        "aspose-html",
+        "csharp"
+      ],
+      "apis_used": [
+        "Console.WriteLine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "process_batch_html_files_folder_validating_each_sequentially_aggregating_results": {
+      "title": "Process Batch Html Files Folder Validating Each Sequentially Aggregating Results",
+      "filename": "process_batch_html_files_folder_validating_each_sequentially_aggregating_results.cs",
+      "description": "Process a batch of HTML files in a folder, validating each file sequentially and aggregating results.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "rendering",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "process_folder_of_html_files_validate_each_output_individual_json_reports_to_target_directory": {
+      "title": "Process Folder Of Html Files Validate Each Output Individual Json Reports To Target Directory",
+      "filename": "process_folder_of_html_files_validate_each_output_individual_json_reports_to_target_directory.cs",
+      "description": "Process a folder of HTML files, validate each, and output individual JSON reports to a target directory.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "Error.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "process_html_files_in_parallel_using_task_parallel_library_to_improve_validation_throughput_for_large_projects": {
+      "title": "Process Html Files In Parallel Using Task Parallel Library To Improve Validation Throughput For Large Projects",
+      "filename": "process_html_files_in_parallel_using_task_parallel_library_to_improve_validation_throughput_for_large_projects.cs",
+      "description": "Process HTML files in parallel using Task Parallel Library to improve validation throughput for large projects.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Parallel.ForEach",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "publish_validation_summaries_to_dashboard_continuous_monitoring_website_accessibility_status": {
+      "title": "Publish Validation Summaries To Dashboard Continuous Monitoring Website Accessibility Status",
+      "filename": "publish_validation_summaries_to_dashboard_continuous_monitoring_website_accessibility_status.cs",
+      "description": "Publish validation summaries to a dashboard for continuous monitoring of website accessibility status.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "query_specific_rule_by_code_show_detailed_guidance": {
+      "title": "Query Specific Rule By Code Show Detailed Guidance",
+      "filename": "query_specific_rule_by_code_show_detailed_guidance.cs",
+      "description": "Query a specific rule by code using AccessibilityRules.GetRule to show detailed guidance.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Rules.GetPrinciple",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "re_run_validation_after_html_modifications_confirm_issues_resolved": {
+      "title": "Re Run Validation After Html Modifications Confirm Issues Resolved",
+      "filename": "re_run_validation_after_html_modifications_confirm_issues_resolved.cs",
+      "description": "Re‑run validation after HTML modifications to confirm that previously reported issues are resolved.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "read_validationresult_description_high_level_summary_accessibility_check_outcome": {
+      "title": "Read Validationresult Description High Level Summary Accessibility Check Outcome",
+      "filename": "read_validationresult_description_high_level_summary_accessibility_check_outcome.cs",
+      "description": "Read ValidationResult.Description to obtain a high‑level summary of the accessibility check outcome.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "redirect_console_output_validation_issues_persistent_log_file": {
+      "title": "Redirect Console Output Validation Issues Persistent Log File",
+      "filename": "redirect_console_output_validation_issues_persistent_log_file.cs",
+      "description": "Redirect console output of validation issues to a log file for persistent storage.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "File.WriteAllText",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "retrieve_contrast_ratio_values_for_specific_foreground_and_background_colors_and_log_failures": {
+      "title": "Retrieve Contrast Ratio Values For Specific Foreground And Background Colors And Log Failures",
+      "filename": "retrieve_contrast_ratio_values_for_specific_foreground_and_background_colors_and_log_failures.cs",
+      "description": "Retrieve contrast ratio values for specific foreground and background colors and log any failures.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "mhtml"
+      ],
+      "apis_used": [
+        "ColorTranslator.FromHtml",
+        "Console.WriteLine",
+        "Math.Max",
+        "Math.Min",
+        "Math.Pow"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "retrieve_validationresult_returned_by_validate_and_store_for_further_processing": {
+      "title": "Retrieve Validationresult Returned By Validate And Store For Further Processing",
+      "filename": "retrieve_validationresult_returned_by_validate_and_store_for_further_processing.cs",
+      "description": "Retrieve the ValidationResult returned by Validate and store it for further processing.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "run_batch_validation_all_html_files_project_folder_produce_consolidated_json_report": {
+      "title": "Run Batch Validation All Html Files Project Folder Produce Consolidated Json Report",
+      "filename": "run_batch_validation_all_html_files_project_folder_produce_consolidated_json_report.cs",
+      "description": "Run batch validation on all HTML files in a project folder and produce a consolidated JSON report.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.GetFiles",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "run_default_accessibility_validation_and_direct_console_output_to_debug_logger_for_development_monitoring": {
+      "title": "Run Default Accessibility Validation And Direct Console Output To Debug Logger For Development Monitoring",
+      "filename": "run_default_accessibility_validation_and_direct_console_output_to_debug_logger_for_development_monitoring.cs",
+      "description": "Run default accessibility validation and direct console output to a debug logger for development monitoring.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Debug.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "run_validation_nightly_build_process_ensure_continuous_accessibility_compliance": {
+      "title": "Run Validation Nightly Build Process Ensure Continuous Accessibility Compliance",
+      "filename": "run_validation_nightly_build_process_ensure_continuous_accessibility_compliance.cs",
+      "description": "Run validation as part of a nightly build process to ensure continuous accessibility compliance.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "save_complete_validation_report_string_using_validationresult_savetostring_later_processing": {
+      "title": "Save Complete Validation Report String Using Validationresult Savetostring Later Processing",
+      "filename": "save_complete_validation_report_string_using_validationresult_savetostring_later_processing.cs",
+      "description": "Save the complete validation report to a string using ValidationResult.SaveToString method for later processing.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "save_validation_results_to_json_file_for_later_analysis_and_integration_with_reporting_tools": {
+      "title": "Save Validation Results To Json File For Later Analysis And Integration With Reporting Tools",
+      "filename": "save_validation_results_to_json_file_for_later_analysis_and_integration_with_reporting_tools.cs",
+      "description": "Save validation results to a JSON file for later analysis and integration with reporting tools.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "System.IO.File.WriteAllText",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "save_validation_results_xml_file_compatibility_legacy_systems_workflows": {
+      "title": "Save Validation Results Xml File Compatibility Legacy Systems Workflows",
+      "filename": "save_validation_results_xml_file_compatibility_legacy_systems_workflows.cs",
+      "description": "Save validation results to an XML file for compatibility with legacy systems and workflows.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "schedule_windows_task_scheduler_job_batch_validation_all_html_files_nightly": {
+      "title": "Schedule Windows Task Scheduler Job Batch Validation All Html Files Nightly",
+      "filename": "schedule_windows_task_scheduler_job_batch_validation_all_html_files_nightly.cs",
+      "description": "Schedule a Windows Task Scheduler job that runs batch validation on all HTML files nightly.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.GetFileName"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "select_desired_output_format_enumeration_before_saving_results": {
+      "title": "Select Desired Output Format Enumeration Before Saving Results",
+      "filename": "select_desired_output_format_enumeration_before_saving_results.cs",
+      "description": "Select the desired output format by using the ValidationResultSaveFormat enumeration before saving results.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "serialize_validationresult_to_json_using_custom_serialization_for_external_tool_integration": {
+      "title": "Serialize Validationresult To Json Using Custom Serialization For External Tool Integration",
+      "filename": "serialize_validationresult_to_json_using_custom_serialization_for_external_tool_integration.cs",
+      "description": "Serialize the ValidationResult to JSON using custom serialization for external tool integration.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "serialize_validationresult_to_xml_using_custom_serialization_for_legacy_system_compatibility": {
+      "title": "Serialize Validationresult To Xml Using Custom Serialization For Legacy System Compatibility",
+      "filename": "serialize_validationresult_to_xml_using_custom_serialization_for_legacy_system_compatibility.cs",
+      "description": "Serialize the ValidationResult to XML using custom serialization for legacy system compatibility.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "set_custom_issue_severity_threshold_only_high_priority_accessibility_problems_reported": {
+      "title": "Set Custom Issue Severity Threshold Only High Priority Accessibility Problems Reported",
+      "filename": "set_custom_issue_severity_threshold_only_high_priority_accessibility_problems_reported.cs",
+      "description": "Set a custom issue severity threshold so that only high‑priority accessibility problems are reported.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "stream_validation_results_to_network_socket_using_custom_textwriter_for_remote_monitoring": {
+      "title": "Stream Validation Results To Network Socket Using Custom Textwriter For Remote Monitoring",
+      "filename": "stream_validation_results_to_network_socket_using_custom_textwriter_for_remote_monitoring.cs",
+      "description": "Stream validation results to a network socket using a custom TextWriter for remote monitoring.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Encoding.GetBytes",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "NetworkTextWriter",
+        "TcpClient",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "transform_validation_json_output_xslt_generate_human_readable_html_report": {
+      "title": "Transform Validation Json Output Xslt Generate Human Readable Html Report",
+      "filename": "transform_validation_json_output_xslt_generate_human_readable_html_report.cs",
+      "description": "Transform validation JSON output using XSLT to generate a human‑readable HTML report.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "update_audio_element_include_track_for_captions_set_kind_captions_correctly": {
+      "title": "Update Audio Element Include Track For Captions Set Kind Captions Correctly",
+      "filename": "update_audio_element_include_track_for_captions_set_kind_captions_correctly.cs",
+      "description": "Update an audio element to include a <track> element for captions and set kind=\"captions\" correctly.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_accessibilityrules_getall_fetch_all_wcag_rule_codes_and_descriptions_for_ui_display": {
+      "title": "Use Accessibilityrules Getall Fetch All Wcag Rule Codes And Descriptions For Ui Display",
+      "filename": "use_accessibilityrules_getall_fetch_all_wcag_rule_codes_and_descriptions_for_ui_display.cs",
+      "description": "Use AccessibilityRules.GetAll to fetch all WCAG rule codes and descriptions for UI display.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Rules.GetPrinciples",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_online_color_contrast_checker_api_programmatically_verify_contrast_ratios_identified_elements": {
+      "title": "Use Online Color Contrast Checker Api Programmatically Verify Contrast Ratios Identified Elements",
+      "filename": "use_online_color_contrast_checker_api_programmatically_verify_contrast_ratios_identified_elements.cs",
+      "description": "Use the online Color Contrast Checker API to programmatically verify contrast ratios for identified elements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsStringAsync",
+        "HTMLDocument",
+        "HttpClient",
+        "JsonSerializer.Serialize",
+        "StringContent"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_stringbuilder_textwriter_capture_xml_validation_output_memory": {
+      "title": "Use Stringbuilder Textwriter Capture Xml Validation Output Memory",
+      "filename": "use_stringbuilder_textwriter_capture_xml_validation_output_memory.cs",
+      "description": "Use a StringBuilder with a TextWriter to capture XML validation output in memory.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringBuilder",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_validator_azure_devops_pipeline_task_publish_validation_report_build_artifact": {
+      "title": "Use Validator Azure Devops Pipeline Task Publish Validation Report Build Artifact",
+      "filename": "use_validator_azure_devops_pipeline_task_publish_validation_report_build_artifact.cs",
+      "description": "Use the validator in an Azure DevOps pipeline task to publish a validation report as a build artifact.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_validator_in_aspnet_core_controller_to_check_uploaded_html_files_for_multimedia_accessibility_before_storage": {
+      "title": "Use Validator In Aspnet Core Controller To Check Uploaded Html Files For Multimedia Accessibility Before Storage",
+      "filename": "use_validator_in_aspnet_core_controller_to_check_uploaded_html_files_for_multimedia_accessibility_before_storage.cs",
+      "description": "Use the validator in an ASP.NET Core controller to check uploaded HTML files for multimedia accessibility before storage.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_validator_in_console_application_to_process_html_file_paths_via_command_line_arguments": {
+      "title": "Use Validator In Console Application To Process Html File Paths Via Command Line Arguments",
+      "filename": "use_validator_in_console_application_to_process_html_file_paths_via_command_line_arguments.cs",
+      "description": "Use the validator in a console application to process a list of HTML file paths via command‑line arguments.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_validator_in_github_actions_workflow_to_automatically_fail_builds_when_caption_issues_detected": {
+      "title": "Use Validator In Github Actions Workflow To Automatically Fail Builds When Caption Issues Detected",
+      "filename": "use_validator_in_github_actions_workflow_to_automatically_fail_builds_when_caption_issues_detected.cs",
+      "description": "Use the validator in a GitHub Actions workflow to automatically fail builds when caption issues are detected.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "use_validator_unit_test_assert_no_multimedia_accessibility_issues_sample_html": {
+      "title": "Use Validator Unit Test Assert No Multimedia Accessibility Issues Sample Html",
+      "filename": "use_validator_unit_test_assert_no_multimedia_accessibility_issues_sample_html.cs",
+      "description": "Use the validator within a unit test to assert that no multimedia accessibility issues exist in sample HTML.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Rules.GetPrinciple",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "validate_html_documents_retrieved_from_remote_url_loading_content_into_validator": {
+      "title": "Validate Html Documents Retrieved From Remote Url Loading Content Into Validator",
+      "filename": "validate_html_documents_retrieved_from_remote_url_loading_content_into_validator.cs",
+      "description": "Validate HTML documents retrieved from a remote URL by loading the URL content into the validator.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "validate_html_generated_razor_view_runtime_log_accessibility_issues": {
+      "title": "Validate Html Generated Razor View Runtime Log Accessibility Issues",
+      "filename": "validate_html_generated_razor_view_runtime_log_accessibility_issues.cs",
+      "description": "Validate HTML generated by a Razor view at runtime and log any accessibility issues detected.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "verify_each_track_element_includes_valid_srclang_attribute_meets_accessibility_standards": {
+      "title": "Verify Each Track Element Includes Valid Srclang Attribute Meets Accessibility Standards",
+      "filename": "verify_each_track_element_includes_valid_srclang_attribute_meets_accessibility_standards.cs",
+      "description": "Verify that each <track> element includes a valid srclang attribute to meet accessibility standards.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Accessibility.WebAccessibility",
+        "Aspose.Html.Accessibility.WebAccessibility",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "write_formatted_validation_string_text_file_archival_reporting": {
+      "title": "Write Formatted Validation String Text File Archival Reporting",
+      "filename": "write_formatted_validation_string_text_file_archival_reporting.cs",
+      "description": "Write the formatted validation string to a text file for archival and reporting.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "write_method_returns_list_of_error_messages_for_specified_rule_identifier": {
+      "title": "Write Method Returns List Of Error Messages For Specified Rule Identifier",
+      "filename": "write_method_returns_list_of_error_messages_for_specified_rule_identifier.cs",
+      "description": "Write a method that returns a list of error messages for a specified rule identifier.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "write_method_returns_warning_counts_grouped_by_target_element_type_for_analysis": {
+      "title": "Write Method Returns Warning Counts Grouped By Target Element Type For Analysis",
+      "filename": "write_method_returns_warning_counts_grouped_by_target_element_type_for_analysis.cs",
+      "description": "Write a method that returns warning counts grouped by each target element type for analysis.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "write_validation_results_to_json_file_using_validationresult_savetofile_json_format": {
+      "title": "Write Validation Results To Json File Using Validationresult Savetofile Json Format",
+      "filename": "write_validation_results_to_json_file_using_validationresult_savetofile_json_format.cs",
+      "description": "Write validation results to a JSON file by calling ValidationResult.SaveTo with Json format.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    },
+    "write_validation_results_to_xml_file_using_validationresult_savetoxml": {
+      "title": "Write Validation Results To Xml File Using Validationresult Savetoxml",
+      "filename": "write_validation_results_to_xml_file_using_validationresult_savetoxml.cs",
+      "description": "Write validation results to an XML file by calling ValidationResult.SaveTo with Xml format.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:36:05Z",
+      "status": "verified"
+    }
+  }
+}
