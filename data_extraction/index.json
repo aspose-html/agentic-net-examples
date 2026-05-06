@@ -1,0 +1,1919 @@
+{
+  "category": "data_extraction",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T08:53:43Z",
+  "examples": {
+    "access_document_images_collection_iterate_all_img_elements": {
+      "title": "Access Document Images Collection Iterate All Img Elements",
+      "filename": "access_document_images_collection_iterate_all_img_elements.cs",
+      "description": "Access the document's Images collection to iterate over all <img> elements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "access_document_links_collection_iterate_all_icon_link_elements": {
+      "title": "Access Document Links Collection Iterate All Icon Link Elements",
+      "filename": "access_document_links_collection_iterate_all_icon_link_elements.cs",
+      "description": "Access the document's Links collection to iterate over all <link rel=\"icon\"> elements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "access_document_svg_elements_collection_iterate_all_inline_svg_elements": {
+      "title": "Access Document Svg Elements Collection Iterate All Inline Svg Elements",
+      "filename": "access_document_svg_elements_collection_iterate_all_inline_svg_elements.cs",
+      "description": "Access the document's SVG elements collection to iterate over all inline <svg> elements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "add_cli_flag_skip_downloading_existing_files_output_directory": {
+      "title": "Add Cli Flag Skip Downloading Existing Files Output Directory",
+      "filename": "add_cli_flag_skip_downloading_existing_files_output_directory.cs",
+      "description": "Add a CLI flag to skip downloading files that already exist in the output directory.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.HTMLSaveOptions",
+        "Console.WriteLine",
+        "File.Exists",
+        "Html.HTMLDocument",
+        "Saving.HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "allow_user_cancel_batch_extraction_cancellationtoken_source": {
+      "title": "Allow User Cancel Batch Extraction Cancellationtoken Source",
+      "filename": "allow_user_cancel_batch_extraction_cancellationtoken_source.cs",
+      "description": "Allow user to cancel batch extraction via a CancellationToken source.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "CancellationTokenSource",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "HtmlRenderer",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "PdfDevice"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "apply_custom_nodefilter_excluding_display_none_nodes_during_dom_traversal": {
+      "title": "Apply Custom Nodefilter Excluding Display None Nodes During Dom Traversal",
+      "filename": "apply_custom_nodefilter_excluding_display_none_nodes_during_dom_traversal.cs",
+      "description": "Apply a custom NodeFilter that excludes nodes with display:none style during DOM traversal.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "OnlyVisibleFilter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "apply_custom_nodefilter_extract_script_tags_ignore_other_elements": {
+      "title": "Apply Custom Nodefilter Extract Script Tags Ignore Other Elements",
+      "filename": "apply_custom_nodefilter_extract_script_tags_ignore_other_elements.cs",
+      "description": "Apply a custom NodeFilter to extract only script tags while ignoring other elements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "OnlyScriptFilter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "apply_custom_nodefilter_include_nodes_inner_html_length_over_200_characters": {
+      "title": "Apply Custom Nodefilter Include Nodes Inner Html Length Over 200 Characters",
+      "filename": "apply_custom_nodefilter_include_nodes_inner_html_length_over_200_characters.cs",
+      "description": "Apply a custom NodeFilter that includes only nodes whose inner HTML length exceeds 200 characters.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "LongContentFilter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "apply_retry_logic_exponential_backoff_failed_download_attempts": {
+      "title": "Apply Retry Logic Exponential Backoff Failed Download Attempts",
+      "filename": "apply_retry_logic_exponential_backoff_failed_download_attempts.cs",
+      "description": "Apply retry logic with exponential backoff for failed download attempts.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Html.HTMLDocument",
+        "Html.Url",
+        "Math.Pow",
+        "Net.RequestMessage",
+        "Network.Send",
+        "Thread.Sleep"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "batch_download_files_from_list_of_urls_naming_each_file_based_on_original_filename": {
+      "title": "Batch Download Files From List Of Urls Naming Each File Based On Original Filename",
+      "filename": "batch_download_files_from_list_of_urls_naming_each_file_based_on_original_filename.cs",
+      "description": "Batch download files from a list of URLs, naming each file based on its original filename.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "network",
+        "pdf",
+        "png",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Network.Send",
+        "Path.Combine",
+        "Path.GetFileName",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "build_command_line_interface_accepts_target_urls_extracts_all_supported_resources": {
+      "title": "Build Command Line Interface Accepts Target Urls Extracts All Supported Resources",
+      "filename": "build_command_line_interface_accepts_target_urls_extracts_all_supported_resources.cs",
+      "description": "Build a command‑line interface that accepts target URLs and extracts all supported resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Uri",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "cli_option_limit_maximum_number_resources_extracted_per_page": {
+      "title": "Cli Option Limit Maximum Number Resources Extracted Per Page",
+      "filename": "cli_option_limit_maximum_number_resources_extracted_per_page.cs",
+      "description": "Provide a CLI option to limit the maximum number of resources extracted per page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "configure_custom_httpclient_headers_user_agent_string_before_downloading_resources": {
+      "title": "Configure Custom Httpclient Headers User Agent String Before Downloading Resources",
+      "filename": "configure_custom_httpclient_headers_user_agent_string_before_downloading_resources.cs",
+      "description": "Configure custom HttpClient headers, such as a User‑Agent string, before downloading resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "HTMLDocument",
+        "Headers.Add",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "configure_htmlsaveoptions_exclude_javascript_files_saving_website_static_analysis": {
+      "title": "Configure Htmlsaveoptions Exclude Javascript Files Saving Website Static Analysis",
+      "filename": "configure_htmlsaveoptions_exclude_javascript_files_saving_website_static_analysis.cs",
+      "description": "Configure HTMLSaveOptions to exclude JavaScript files when saving a website for static analysis.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.HTMLSaveOptions",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Saving.HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "configure_resource_handling_restrict_saved_resources_same_domain_source_page": {
+      "title": "Configure Resource Handling Restrict Saved Resources Same Domain Source Page",
+      "filename": "configure_resource_handling_restrict_saved_resources_same_domain_source_page.cs",
+      "description": "Configure ResourceHandlingOptions to restrict saved resources to the same domain as the source page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "create_requestmessage_custom_headers_download_image_file_from_url": {
+      "title": "Create Requestmessage Custom Headers Download Image File From Url",
+      "filename": "create_requestmessage_custom_headers_download_image_file_from_url.cs",
+      "description": "Create a RequestMessage with custom headers and use it to download an image file from a URL.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Headers.Add",
+        "Network.Send",
+        "RequestMessage",
+        "System.IO.File.WriteAllBytes",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "detect_duplicate_external_svg_files_by_comparing_content_hashes_before_saving": {
+      "title": "Detect Duplicate External Svg Files By Comparing Content Hashes Before Saving",
+      "filename": "detect_duplicate_external_svg_files_by_comparing_content_hashes_before_saving.cs",
+      "description": "Detect duplicate external SVG files by comparing content hashes before saving.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "svg"
+      ],
+      "apis_used": [
+        "BitConverter.ToString",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.ReadAllText",
+        "Path.Combine",
+        "Path.GetFileName",
+        "SHA256.Create",
+        "SVGDocument",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "download_pdf_file_from_given_url_using_requestmessage_save_with_responsemessage": {
+      "title": "Download Pdf File From Given Url Using Requestmessage Save With Responsemessage",
+      "filename": "download_pdf_file_from_given_url_using_requestmessage_save_with_responsemessage.cs",
+      "description": "Download a PDF file from a given URL using RequestMessage and save it with ResponseMessage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "extract_content_attribute_meta_tags_viewport_via_css_selector": {
+      "title": "Extract Content Attribute Meta Tags Viewport Via Css Selector",
+      "filename": "extract_content_attribute_meta_tags_viewport_via_css_selector.cs",
+      "description": "Extract the content attribute of all meta tags that specify viewport settings via CSS selector.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "extract_email_addresses_from_webpage_selecting_anchor_tags_with_href_containing_mailto": {
+      "title": "Extract Email Addresses From Webpage Selecting Anchor Tags With Href Containing Mailto",
+      "filename": "extract_email_addresses_from_webpage_selecting_anchor_tags_with_href_containing_mailto.cs",
+      "description": "Extract all email addresses from a webpage by selecting anchor tags with href containing \"mailto:\".",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "extract_open_graph_title_property_from_page_using_xpath_store_csv_file": {
+      "title": "Extract Open Graph Title Property From Page Using Xpath Store Csv File",
+      "filename": "extract_open_graph_title_property_from_page_using_xpath_store_csv_file.cs",
+      "description": "Extract the Open Graph title property from a page using XPath and store it in a CSV file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StreamWriter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "extract_text_content_all_list_items_within_navigation_menu_css_selector": {
+      "title": "Extract Text Content All List Items Within Navigation Menu Css Selector",
+      "filename": "extract_text_content_all_list_items_within_navigation_menu_css_selector.cs",
+      "description": "Extract the text content of all list items within a navigation menu using a CSS selector.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "extract_website_icons_defined_by_link_rel_icon_save_as_ico": {
+      "title": "Extract Website Icons Defined By Link Rel Icon Save As Ico",
+      "filename": "extract_website_icons_defined_by_link_rel_icon_save_as_ico.cs",
+      "description": "Extract website icons defined with <link rel=\"icon\"> and save them as .ico files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "filter_dom_nodes_include_only_elements_with_data_id_attribute_using_custom_nodefilter": {
+      "title": "Filter Dom Nodes Include Only Elements With Data Id Attribute Using Custom Nodefilter",
+      "filename": "filter_dom_nodes_include_only_elements_with_data_id_attribute_using_custom_nodefilter.cs",
+      "description": "Filter DOM nodes to include only elements with a data-id attribute using a custom NodeFilter.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DataIdFilter",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "filter_extracted_images_by_png_jpg_extension_before_download": {
+      "title": "Filter Extracted Images By Png Jpg Extension Before Download",
+      "filename": "filter_extracted_images_by_png_jpg_extension_before_download.cs",
+      "description": "Filter extracted images by file extension, such as .png or .jpg, before download.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "filter_extracted_images_minimum_width_height_before_saving": {
+      "title": "Filter Extracted Images Minimum Width Height Before Saving",
+      "filename": "filter_extracted_images_minimum_width_height_before_saving.cs",
+      "description": "Filter extracted images by minimum width and height before saving.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "drawing",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Image.FromStream",
+        "MemoryStream",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "flatten_extracted_files_into_single_output_folder_ignoring_original_website_paths": {
+      "title": "Flatten Extracted Files Into Single Output Folder Ignoring Original Website Paths",
+      "filename": "flatten_extracted_files_into_single_output_folder_ignoring_original_website_paths.cs",
+      "description": "Flatten all extracted files into a single output folder, ignoring original website paths.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.Copy",
+        "Path.Combine",
+        "Path.GetFileName"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "generate_csv_report_listing_each_extracted_resource_type_url_local_path": {
+      "title": "Generate Csv Report Listing Each Extracted Resource Type Url Local Path",
+      "filename": "generate_csv_report_listing_each_extracted_resource_type_url_local_path.cs",
+      "description": "Generate a CSV report listing each extracted resource with its type, URL, and local path.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "metadata",
+        "saving-options",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions",
+        "MimeType.ToString",
+        "OriginalUrl.ToString",
+        "OutputUrl.ToString",
+        "ResourceHandler",
+        "Resources.Add",
+        "StreamWriter"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "generate_list_external_resource_urls_referenced_in_page_using_xpath_save_to_csv": {
+      "title": "Generate List External Resource Urls Referenced In Page Using Xpath Save To Csv",
+      "filename": "generate_list_external_resource_urls_referenced_in_page_using_xpath_save_to_csv.cs",
+      "description": "Generate a list of all external resource URLs referenced in a page using XPath and save to CSV.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StreamWriter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "generate_seo_report_extracting_title_meta_description_heading_hierarchy_from_webpage": {
+      "title": "Generate Seo Report Extracting Title Meta Description Heading Hierarchy From Webpage",
+      "filename": "generate_seo_report_extracting_title_meta_description_heading_hierarchy_from_webpage.cs",
+      "description": "Generate an SEO report by extracting title, meta description, and heading hierarchy from a webpage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "honor_base_tag_when_constructing_absolute_urls_resource_download": {
+      "title": "Honor Base Tag When Constructing Absolute Urls Resource Download",
+      "filename": "honor_base_tag_when_constructing_absolute_urls_resource_download.cs",
+      "description": "Honor the <base> tag when constructing absolute URLs for resource download.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Network.Send",
+        "Path.Combine",
+        "Path.GetFileName",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "identify_external_svg_files_referenced_by_img_tags_download_to_local_storage": {
+      "title": "Identify External Svg Files Referenced By Img Tags Download To Local Storage",
+      "filename": "identify_external_svg_files_referenced_by_img_tags_download_to_local_storage.cs",
+      "description": "Identify external SVG files referenced by <img> tags and download them to local storage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytesAsync",
+        "FileInfo",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Uri",
+        "Uri.TryCreate"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "implement_asynchronous_download_resources_using_async_await_each_page": {
+      "title": "Implement Asynchronous Download Resources Using Async Await Each Page",
+      "filename": "implement_asynchronous_download_resources_using_async_await_each_page.cs",
+      "description": "Implement asynchronous download of resources using async/await for each page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Task.Run",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "implement_custom_nodefilter_including_only_anchor_elements_collect_link_nodes": {
+      "title": "Implement Custom Nodefilter Including Only Anchor Elements Collect Link Nodes",
+      "filename": "implement_custom_nodefilter_including_only_anchor_elements_collect_link_nodes.cs",
+      "description": "Implement a custom NodeFilter that includes only anchor elements and use it to collect link nodes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "OnlyAnchorFilter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "implement_error_handling_for_requestmessage_failures_when_downloading_files_from_invalid_urls": {
+      "title": "Implement Error Handling For Requestmessage Failures When Downloading Files From Invalid Urls",
+      "filename": "implement_error_handling_for_requestmessage_failures_when_downloading_files_from_invalid_urls.cs",
+      "description": "Implement error handling for RequestMessage failures when downloading files from invalid URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "iterate_through_sibling_nodes_of_selected_element_and_log_each_node_outer_html": {
+      "title": "Iterate Through Sibling Nodes Of Selected Element And Log Each Node Outer Html",
+      "filename": "iterate_through_sibling_nodes_of_selected_element_and_log_each_node_outer_html.cs",
+      "description": "Iterate through sibling nodes of a selected element and log each node's outer HTML.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "load_html_document_count_number_of_heading_elements_h1_to_h3_using_xpath": {
+      "title": "Load Html Document Count Number Of Heading Elements H1 To H3 Using Xpath",
+      "filename": "load_html_document_count_number_of_heading_elements_h1_to_h3_using_xpath.cs",
+      "description": "Load an HTML document and count the number of heading elements from h1 to h3 using XPath.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "load_html_document_from_remote_url_and_extract_all_hyperlink_urls_with_css_selector": {
+      "title": "Load Html Document From Remote Url And Extract All Hyperlink Urls With Css Selector",
+      "filename": "load_html_document_from_remote_url_and_extract_all_hyperlink_urls_with_css_selector.cs",
+      "description": "Load an HTML document from a remote URL and extract all hyperlink URLs with a CSS selector.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "load_html_document_normalize_whitespace_text_nodes_save_cleaned_markup": {
+      "title": "Load Html Document Normalize Whitespace Text Nodes Save Cleaned Markup",
+      "filename": "load_html_document_normalize_whitespace_text_nodes_save_cleaned_markup.cs",
+      "description": "Load an HTML document, normalize whitespace in text nodes, and save the cleaned markup.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "load_html_document_remove_comment_nodes_save_cleaned_page_locally": {
+      "title": "Load Html Document Remove Comment Nodes Save Cleaned Page Locally",
+      "filename": "load_html_document_remove_comment_nodes_save_cleaned_page_locally.cs",
+      "description": "Load an HTML document, remove all comment nodes, and save the cleaned page locally.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "load_html_document_replace_relative_image_urls_with_absolute_urls_save_updated_file": {
+      "title": "Load Html Document Replace Relative Image Urls With Absolute Urls Save Updated File",
+      "filename": "load_html_document_replace_relative_image_urls_with_absolute_urls_save_updated_file.cs",
+      "description": "Load an HTML document, replace all relative image URLs with absolute URLs, and save the updated file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Uri.IsWellFormedUriString",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "load_html_file_extract_image_source_attributes_selecting_img_tags_css_selector": {
+      "title": "Load Html File Extract Image Source Attributes Selecting Img Tags Css Selector",
+      "filename": "load_html_file_extract_image_source_attributes_selecting_img_tags_css_selector.cs",
+      "description": "Load an HTML file and extract image source attributes by selecting img tags with a CSS selector.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "load_local_html_file_retrieve_page_title_using_xpath_expression": {
+      "title": "Load Local Html File Retrieve Page Title Using Xpath Expression",
+      "filename": "load_local_html_file_retrieve_page_title_using_xpath_expression.cs",
+      "description": "Load a local HTML file and retrieve the page title using an XPath expression.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "log_errors_encountered_during_resource_download_to_dedicated_error_log_file": {
+      "title": "Log Errors Encountered During Resource Download To Dedicated Error Log File",
+      "filename": "log_errors_encountered_during_resource_download_to_dedicated_error_log_file.cs",
+      "description": "Log errors encountered during resource download to a dedicated error log file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Errors.Add",
+        "File.WriteAllLines",
+        "HTMLDocument",
+        "LogMessageHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "log_summary_extracted_resources_including_type_and_file_path_after_extraction": {
+      "title": "Log Summary Extracted Resources Including Type And File Path After Extraction",
+      "filename": "log_summary_extracted_resources_including_type_and_file_path_after_extraction.cs",
+      "description": "Log a summary of all extracted resources, including type and file path, after extraction.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "File.AppendAllText",
+        "File.WriteAllText",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "navigate_from_document_element_to_head_section_and_list_all_linked_stylesheet_urls": {
+      "title": "Navigate From Document Element To Head Section And List All Linked Stylesheet Urls",
+      "filename": "navigate_from_document_element_to_head_section_and_list_all_linked_stylesheet_urls.cs",
+      "description": "Navigate from the document element to the head section and list all linked stylesheet URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "open_web_page_using_aspose_html_document_and_extract_raster_images_from_img_tags": {
+      "title": "Open Web Page Using Aspose Html Document And Extract Raster Images From Img Tags",
+      "filename": "open_web_page_using_aspose_html_document_and_extract_raster_images_from_img_tags.cs",
+      "description": "Open a web page using Aspose.HTML Document and extract raster images from <img> tags.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "parse_html_string_collect_text_all_paragraph_elements_using_xpath": {
+      "title": "Parse Html String Collect Text All Paragraph Elements Using Xpath",
+      "filename": "parse_html_string_collect_text_all_paragraph_elements_using_xpath.cs",
+      "description": "Parse an HTML string and collect the text of all paragraph elements using XPath.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "perform_http_get_request_retrieve_json_data_from_api_endpoint_store_response": {
+      "title": "Perform Http Get Request Retrieve Json Data From Api Endpoint Store Response",
+      "filename": "perform_http_get_request_retrieve_json_data_from_api_endpoint_store_response.cs",
+      "description": "Perform an HTTP GET request to retrieve JSON data from an API endpoint and store the response.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "UTF8.GetString",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "preserve_original_website_directory_hierarchy_when_saving_extracted_resources_locally": {
+      "title": "Preserve Original Website Directory Hierarchy When Saving Extracted Resources Locally",
+      "filename": "preserve_original_website_directory_hierarchy_when_saving_extracted_resources_locally.cs",
+      "description": "Preserve the original website directory hierarchy when saving extracted resources locally.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "process_list_of_web_page_urls_from_text_file_and_extract_resources_from_each_page": {
+      "title": "Process List Of Web Page Urls From Text File And Extract Resources From Each Page",
+      "filename": "process_list_of_web_page_urls_from_text_file_and_extract_resources_from_each_page.cs",
+      "description": "Process a list of web page URLs from a text file and extract resources from each page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "File.Exists",
+        "File.ReadLines",
+        "Html.HTMLDocument",
+        "Html.Url",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "programmatically_download_each_extracted_resource_efficiently_using_aspose_html_network_utilities": {
+      "title": "Programmatically Download Each Extracted Resource Efficiently Using Aspose Html Network Utilities",
+      "filename": "programmatically_download_each_extracted_resource_efficiently_using_aspose_html_network_utilities.cs",
+      "description": "Programmatically download each extracted resource efficiently using Aspose.HTML network utilities.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "File.WriteAllBytes",
+        "Html.HTMLDocument",
+        "Html.Url",
+        "Net.RequestMessage",
+        "Network.Send",
+        "Path.GetFileName",
+        "System.IO.File.WriteAllBytes",
+        "System.IO.Path.GetFileName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "raise_progress_events_after_each_resource_downloaded_report_extraction_status": {
+      "title": "Raise Progress Events After Each Resource Downloaded Report Extraction Status",
+      "filename": "raise_progress_events_after_each_resource_downloaded_report_extraction_status.cs",
+      "description": "Raise progress events after each resource is downloaded to report extraction status.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "HTMLDocument",
+        "ResourceProgressHandler",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "resolve_protocol_relative_urls_to_absolute_urls_using_url_class": {
+      "title": "Resolve Protocol Relative Urls To Absolute Urls Using Url Class",
+      "filename": "resolve_protocol_relative_urls_to_absolute_urls_using_url_class.cs",
+      "description": "Resolve protocol‑relative URLs (starting with //) to absolute URLs using the Url class.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "resolve_relative_urls_to_absolute_using_url_class_and_document_baseuri": {
+      "title": "Resolve Relative Urls To Absolute Using Url Class And Document Baseuri",
+      "filename": "resolve_relative_urls_to_absolute_using_url_class_and_document_baseuri.cs",
+      "description": "Resolve relative URLs to absolute URLs using the Url class and the document BaseURI.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "restrict_saved_resources_whitelist_domains_using_restricted_resource_urls_before_saving": {
+      "title": "Restrict Saved Resources Whitelist Domains Using Restricted Resource Urls Before Saving",
+      "filename": "restrict_saved_resources_whitelist_domains_using_restricted_resource_urls_before_saving.cs",
+      "description": "Restrict saved resources to a whitelist of domains by configuring RestrictedResourceUrls before saving.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "retrieve_inline_svg_markup_via_outerhtml_and_write_each_to_separate_svg_file": {
+      "title": "Retrieve Inline Svg Markup Via Outerhtml And Write Each To Separate Svg File",
+      "filename": "retrieve_inline_svg_markup_via_outerhtml_and_write_each_to_separate_svg_file.cs",
+      "description": "Retrieve inline SVG markup via OuterHTML and write each to a separate .svg file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "retrieve_inner_text_of_first_paragraph_inside_div_with_specific_class_using_xpath": {
+      "title": "Retrieve Inner Text Of First Paragraph Inside Div With Specific Class Using Xpath",
+      "filename": "retrieve_inner_text_of_first_paragraph_inside_div_with_specific_class_using_xpath.cs",
+      "description": "Retrieve the inner text of the first paragraph inside a div with a specific class using XPath.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_each_downloaded_external_svg_file_to_output_folder_with_svg_extension": {
+      "title": "Save Each Downloaded External Svg File To Output Folder With Svg Extension",
+      "filename": "save_each_downloaded_external_svg_file_to_output_folder_with_svg_extension.cs",
+      "description": "Save each downloaded external SVG file to the output folder with .svg extension.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "image",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_each_downloaded_image_to_specified_output_folder_preserving_original_filenames": {
+      "title": "Save Each Downloaded Image To Specified Output Folder Preserving Original Filenames",
+      "filename": "save_each_downloaded_image_to_specified_output_folder_preserving_original_filenames.cs",
+      "description": "Save each downloaded image to a specified output folder preserving original filenames.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "File.WriteAllBytesAsync",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Uri"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_each_extracted_icon_to_output_folder_with_appropriate_ico_extension": {
+      "title": "Save Each Extracted Icon To Output Folder With Appropriate Ico Extension",
+      "filename": "save_each_extracted_icon_to_output_folder_with_appropriate_ico_extension.cs",
+      "description": "Save each extracted icon to the output folder with appropriate .ico extension.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "HttpClient",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFullPath",
+        "Uri"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_each_extracted_inline_svg_markup_to_svg_file_preserving_original_markup": {
+      "title": "Save Each Extracted Inline Svg Markup To Svg File Preserving Original Markup",
+      "filename": "save_each_extracted_inline_svg_markup_to_svg_file_preserving_original_markup.cs",
+      "description": "Save each extracted inline SVG markup to a .svg file preserving original markup.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_entire_website_to_directory_limiting_depth_to_two_levels_using_htmlsaveoptions": {
+      "title": "Save Entire Website To Directory Limiting Depth To Two Levels Using Htmlsaveoptions",
+      "filename": "save_entire_website_to_directory_limiting_depth_to_two_levels_using_htmlsaveoptions.cs",
+      "description": "Save an entire website to a directory while limiting resource depth to two levels using HTMLSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_remote_html_page_to_disk_after_modifying_title_element_using_dom_manipulation": {
+      "title": "Save Remote Html Page To Disk After Modifying Title Element Using Dom Manipulation",
+      "filename": "save_remote_html_page_to_disk_after_modifying_title_element_using_dom_manipulation.cs",
+      "description": "Save a remote HTML page to disk after modifying its title element using DOM manipulation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_single_page_htmlsaveoptions_embed_all_css_resources_inline_offline_viewing": {
+      "title": "Save Single Page Htmlsaveoptions Embed All Css Resources Inline Offline Viewing",
+      "filename": "save_single_page_htmlsaveoptions_embed_all_css_resources_inline_offline_viewing.cs",
+      "description": "Save a single page with HTMLSaveOptions that embed all CSS resources inline for offline viewing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_single_webpage_to_local_folder_with_default_htmlsaveoptions_and_verify_file_creation": {
+      "title": "Save Single Webpage To Local Folder With Default Htmlsaveoptions And Verify File Creation",
+      "filename": "save_single_webpage_to_local_folder_with_default_htmlsaveoptions_and_verify_file_creation.cs",
+      "description": "Save a single webpage to a local folder with default HTMLSaveOptions and verify file creation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_website_preserving_original_folder_structure_using_html_save_options": {
+      "title": "Save Website Preserving Original Folder Structure Using Html Save Options",
+      "filename": "save_website_preserving_original_folder_structure_using_html_save_options.cs",
+      "description": "Save a website while preserving the original folder structure by setting appropriate HTMLSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "save_website_with_max_handling_depth_zero_capture_only_entry_page": {
+      "title": "Save Website With Max Handling Depth Zero Capture Only Entry Page",
+      "filename": "save_website_with_max_handling_depth_zero_capture_only_entry_page.cs",
+      "description": "Save a website with ResourceHandlingOptions.MaxHandlingDepth set to zero to capture only the entry page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "select_nodes_using_xpath_to_retrieve_all_table_rows_in_html_table": {
+      "title": "Select Nodes Using Xpath To Retrieve All Table Rows In Html Table",
+      "filename": "select_nodes_using_xpath_to_retrieve_all_table_rows_in_html_table.cs",
+      "description": "Use Document.SelectNodes with an XPath query to retrieve all table rows in an HTML table.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "set_restricted_resource_urls_block_external_javascript_files_website_saving": {
+      "title": "Set Restricted Resource Urls Block External Javascript Files Website Saving",
+      "filename": "set_restricted_resource_urls_block_external_javascript_files_website_saving.cs",
+      "description": "Set ResourceHandlingOptions.RestrictedResourceUrls to block external JavaScript files during website saving.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.HTMLSaveOptions",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Saving.HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "skip_duplicate_images_comparing_sha256_hashes_before_saving_new_files": {
+      "title": "Skip Duplicate Images Comparing Sha256 Hashes Before Saving New Files",
+      "filename": "skip_duplicate_images_comparing_sha256_hashes_before_saving_new_files.cs",
+      "description": "Skip duplicate images by comparing SHA256 hashes before saving new files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.ReadAllBytes",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFullPath",
+        "SHA256.Create",
+        "StringBuilder",
+        "Uri"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "store_extracted_resource_metadata_url_size_json_later_analysis": {
+      "title": "Store Extracted Resource Metadata Url Size Json Later Analysis",
+      "filename": "store_extracted_resource_metadata_url_size_json_later_analysis.cs",
+      "description": "Store extracted resource metadata such as URL and size in a JSON file for later analysis.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "metadata",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "File.WriteAllText",
+        "Html.HTMLDocument",
+        "Html.Url",
+        "JsonSerializer.Serialize",
+        "Net.RequestMessage",
+        "Network.Send"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "traverse_dom_find_first_body_child_element_output_tag_name": {
+      "title": "Traverse Dom Find First Body Child Element Output Tag Name",
+      "filename": "traverse_dom_find_first_body_child_element_output_tag_name.cs",
+      "description": "Traverse the DOM to find the first child element of the body and output its tag name.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_css_selectors_find_all_bold_text_elements_replace_inner_html_uppercase_text": {
+      "title": "Use Css Selectors Find All Bold Text Elements Replace Inner Html Uppercase Text",
+      "filename": "use_css_selectors_find_all_bold_text_elements_replace_inner_html_uppercase_text.cs",
+      "description": "Use CSS selectors to find all bold text elements and replace their inner HTML with uppercase text.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "InnerHTML.ToUpperInvariant"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_css_selectors_find_all_elements_class_highlight_change_background_color": {
+      "title": "Use Css Selectors Find All Elements Class Highlight Change Background Color",
+      "filename": "use_css_selectors_find_all_elements_class_highlight_change_background_color.cs",
+      "description": "Use CSS selectors to find all elements with class \"highlight\" and change their background color.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_css_selectors_locate_all_video_tags_retrieve_source_urls_further_processing": {
+      "title": "Use Css Selectors Locate All Video Tags Retrieve Source Urls Further Processing",
+      "filename": "use_css_selectors_locate_all_video_tags_retrieve_source_urls_further_processing.cs",
+      "description": "Use CSS selectors to locate all video tags and retrieve their source URLs for further processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Html.Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_document_queryselectorall_locate_elements_with_style_attribute_containing_color_red_change_to_blue": {
+      "title": "Use Document Queryselectorall Locate Elements With Style Attribute Containing Color Red Change To Blue",
+      "filename": "use_document_queryselectorall_locate_elements_with_style_attribute_containing_color_red_change_to_blue.cs",
+      "description": "Use Document.QuerySelectorAll to locate all elements with style attribute containing \"color:red\" and change to blue.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_document_queryselectorall_with_css_selector_to_obtain_all_list_items_inside_ordered_lists": {
+      "title": "Use Document Queryselectorall With Css Selector To Obtain All List Items Inside Ordered Lists",
+      "filename": "use_document_queryselectorall_with_css_selector_to_obtain_all_list_items_inside_ordered_lists.cs",
+      "description": "Use Document.QuerySelectorAll with a CSS selector to obtain all list items inside ordered lists.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_pageurlrestriction_allow_only_https_urls_when_saving_multi_page_website": {
+      "title": "Use Pageurlrestriction Allow Only Https Urls When Saving Multi Page Website",
+      "filename": "use_pageurlrestriction_allow_only_https_urls_when_saving_multi_page_website.cs",
+      "description": "Use PageUrlRestriction to allow only HTTPS URLs when saving a multi‑page website.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.HTMLSaveOptions",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Saving.HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_parallel_foreach_process_multiple_pages_concurrently_respecting_thread_safety": {
+      "title": "Use Parallel Foreach Process Multiple Pages Concurrently Respecting Thread Safety",
+      "filename": "use_parallel_foreach_process_multiple_pages_concurrently_respecting_thread_safety.cs",
+      "description": "Use Parallel.ForEach to process multiple pages concurrently while respecting thread safety.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "epub",
+        "forms",
+        "html",
+        "image",
+        "jpeg",
+        "rendering",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "FileStream",
+        "ImageSaveOptions",
+        "Interlocked.Increment",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Parallel.ForEach"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    },
+    "use_xpath_select_table_cells_containing_numeric_values_and_calculate_sum_programmatically": {
+      "title": "Use Xpath Select Table Cells Containing Numeric Values And Calculate Sum Programmatically",
+      "filename": "use_xpath_select_table_cells_containing_numeric_values_and_calculate_sum_programmatically.cs",
+      "description": "Use XPath to select all table cells containing numeric values and calculate their sum programmatically.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:53:43Z",
+      "status": "verified"
+    }
+  }
+}
