@@ -1,0 +1,756 @@
+{
+  "category": "website_to_html",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:38:47Z",
+  "examples": {
+    "allow_conversion_https_websites_custom_ssl_certificate_validation_callbacks_ensure_security": {
+      "title": "Allow Conversion Https Websites Custom Ssl Certificate Validation Callbacks Ensure Security",
+      "filename": "allow_conversion_https_websites_custom_ssl_certificate_validation_callbacks_ensure_security.cs",
+      "description": "Allow conversion of HTTPS websites with custom SSL certificate validation callbacks to ensure security.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "pdf",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "apply_custom_css_stylesheet_during_conversion_override_default_website_styling": {
+      "title": "Apply Custom Css Stylesheet During Conversion Override Default Website Styling",
+      "filename": "apply_custom_css_stylesheet_during_conversion_override_default_website_styling.cs",
+      "description": "Apply a custom CSS stylesheet during conversion to override the default website styling.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "css",
+        "epub",
+        "forms",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.OpenRead",
+        "File.ReadAllText",
+        "Html.Configuration",
+        "System.IO.File.OpenRead",
+        "System.IO.File.ReadAllText",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "apply_custom_html_template_to_wrap_converted_content_for_consistent_page_layout": {
+      "title": "Apply Custom Html Template To Wrap Converted Content For Consistent Page Layout",
+      "filename": "apply_custom_html_template_to_wrap_converted_content_for_consistent_page_layout.cs",
+      "description": "Apply a custom HTML template to wrap converted content for a consistent page layout.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "template"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "TemplateData",
+        "TemplateLoadOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "automatic_detection_correction_broken_links_website_to_html_conversion": {
+      "title": "Automatic Detection Correction Broken Links Website To Html Conversion",
+      "filename": "automatic_detection_correction_broken_links_website_to_html_conversion.cs",
+      "description": "Enable automatic detection and correction of broken links during website–to–HTML conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "configure_proxy_settings_access_websites_behind_corporate_firewalls_securely_during_conversion": {
+      "title": "Configure Proxy Settings Access Websites Behind Corporate Firewalls Securely During Conversion",
+      "filename": "configure_proxy_settings_access_websites_behind_corporate_firewalls_securely_during_conversion.cs",
+      "description": "Configure proxy settings to access websites behind corporate firewalls securely during conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "pdf",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions",
+        "WebProxy"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "convert_multiple_website_urls_batch_mode_storing_each_result_separate_html_files": {
+      "title": "Convert Multiple Website Urls Batch Mode Storing Each Result Separate Html Files",
+      "filename": "convert_multiple_website_urls_batch_mode_storing_each_result_separate_html_files.cs",
+      "description": "Convert multiple website URLs in batch mode, storing each result in separate HTML files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "HTMLDocument",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "convert_website_pages_to_html_simultaneously_generate_pdf_snapshots_for_archival": {
+      "title": "Convert Website Pages To Html Simultaneously Generate Pdf Snapshots For Archival",
+      "filename": "convert_website_pages_to_html_simultaneously_generate_pdf_snapshots_for_archival.cs",
+      "description": "Convert website pages to HTML and simultaneously generate PDF snapshots for archival purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "pdf",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "Uri"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "enable_compression_of_html_output_to_reduce_file_size_for_faster_transmission": {
+      "title": "Enable Compression Of Html Output To Reduce File Size For Faster Transmission",
+      "filename": "enable_compression_of_html_output_to_reduce_file_size_for_faster_transmission.cs",
+      "description": "Enable compression of the HTML output to reduce file size for faster transmission.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Create",
+        "File.Delete",
+        "File.OpenRead",
+        "GZipStream",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "enable_javascript_execution_while_loading_site_capture_dynamic_content_html_output": {
+      "title": "Enable Javascript Execution While Loading Site Capture Dynamic Content Html Output",
+      "filename": "enable_javascript_execution_while_loading_site_capture_dynamic_content_html_output.cs",
+      "description": "Enable JavaScript execution while loading the site to capture dynamic content in the HTML output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "AutoResetEvent",
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "exclude_specific_url_patterns_conversion_regular_expression_filters_processing": {
+      "title": "Exclude Specific Url Patterns Conversion Regular Expression Filters Processing",
+      "filename": "exclude_specific_url_patterns_conversion_regular_expression_filters_processing.cs",
+      "description": "Exclude specific URL patterns from conversion using regular–expression filters during processing.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "mhtml",
+        "network",
+        "png"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Aspose.Html.Saving.MHTMLSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ExcludeUrlHandler",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.RequestMessage",
+        "Regex",
+        "RequestUri.ToString",
+        "Saving.MHTMLSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "generate_sitemap_xml_file_alongside_html_output_to_map_converted_pages": {
+      "title": "Generate Sitemap Xml File Alongside Html Output To Map Converted Pages",
+      "filename": "generate_sitemap_xml_file_alongside_html_output_to_map_converted_pages.cs",
+      "description": "Generate a sitemap XML file alongside the HTML output to map converted pages.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "template",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertTemplate",
+        "HTMLDocument",
+        "Path.GetFullPath",
+        "TemplateData",
+        "TemplateLoadOptions",
+        "Uri",
+        "XDocument",
+        "XElement"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "generate_summary_report_processed_url_output_path_conversion_status": {
+      "title": "Generate Summary Report Processed Url Output Path Conversion Status",
+      "filename": "generate_summary_report_processed_url_output_path_conversion_status.cs",
+      "description": "Generate a summary report listing each processed URL, output path, and conversion status.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "pdf",
+        "saving-options",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Converter.ConvertHTML",
+        "PdfSaveOptions",
+        "StreamWriter",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "implement_retry_logic_for_transient_network_failures_when_fetching_website_resources_during_conversion": {
+      "title": "Implement Retry Logic For Transient Network Failures When Fetching Website Resources During Conversion",
+      "filename": "implement_retry_logic_for_transient_network_failures_when_fetching_website_resources_during_conversion.cs",
+      "description": "Implement retry logic for transient network failures when fetching website resources during conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "RetryHandler",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "include_external_images_base64_encoded_data_uris_generated_html_file": {
+      "title": "Include External Images Base64 Encoded Data Uris Generated Html File",
+      "filename": "include_external_images_base64_encoded_data_uris_generated_html_file.cs",
+      "description": "Include external images as base64–encoded data URIs within the generated HTML file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png"
+      ],
+      "apis_used": [
+        "BaseURI.ToString",
+        "Console.WriteLine",
+        "Convert.ToBase64String",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.GetExtension",
+        "System.IO.Path.GetExtension",
+        "Uri"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "include_http_response_headers_as_comments_in_generated_html_for_debugging": {
+      "title": "Include Http Response Headers As Comments In Generated Html For Debugging",
+      "filename": "include_http_response_headers_as_comments_in_generated_html_for_debugging.cs",
+      "description": "Include HTTP response headers as comments within the generated HTML for debugging.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "CapturedHeaders.Add",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HeaderCaptureHandler",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "integrate_conversion_library_into_aspnet_mvc_application_for_on_demand_website_rendering": {
+      "title": "Integrate Conversion Library Into Aspnet Mvc Application For On Demand Website Rendering",
+      "filename": "integrate_conversion_library_into_aspnet_mvc_application_for_on_demand_website_rendering.cs",
+      "description": "Integrate the conversion library into an ASP.NET MVC application for on–demand website rendering.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "mhtml",
+        "rendering",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead",
+        "File.ReadAllBytes",
+        "File.WriteAllBytes",
+        "Guid.NewGuid",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "load_website_url_convert_to_single_html_file_with_embedded_resources": {
+      "title": "Load Website Url Convert To Single Html File With Embedded Resources",
+      "filename": "load_website_url_convert_to_single_html_file_with_embedded_resources.cs",
+      "description": "Load a website URL and convert it to a single HTML file with embedded resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "log_detailed_conversion_progress_errors_file_troubleshooting_batch_operations": {
+      "title": "Log Detailed Conversion Progress Errors File Troubleshooting Batch Operations",
+      "filename": "log_detailed_conversion_progress_errors_file_troubleshooting_batch_operations.cs",
+      "description": "Log detailed conversion progress and errors to a file for troubleshooting batch operations.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.AppendAllText",
+        "HTMLDocument",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetFileName",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "option_to_retain_original_javascript_files_alongside_converted_html_interactive_pages": {
+      "title": "Option To Retain Original Javascript Files Alongside Converted Html Interactive Pages",
+      "filename": "option_to_retain_original_javascript_files_alongside_converted_html_interactive_pages.cs",
+      "description": "Provide an option to retain original JavaScript files alongside converted HTML for interactive pages.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "preserve_original_meta_tags_and_seo_attributes_converting_website_pages_to_html": {
+      "title": "Preserve Original Meta Tags And Seo Attributes Converting Website Pages To Html",
+      "filename": "preserve_original_meta_tags_and_seo_attributes_converting_website_pages_to_html.cs",
+      "description": "Preserve original meta tags and SEO attributes when converting website pages to HTML.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "save_converted_website_html_to_specified_output_directory_preserving_original_folder_structure": {
+      "title": "Save Converted Website Html To Specified Output Directory Preserving Original Folder Structure",
+      "filename": "save_converted_website_html_to_specified_output_directory_preserving_original_folder_structure.cs",
+      "description": "Save the converted website HTML to a specified output directory preserving original folder structure.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "mhtml",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "MHTMLSaveOptions",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetFileNameWithoutExtension",
+        "Path.GetRelativePath"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "set_character_encoding_utf8_generated_html_files_ensure_compatibility": {
+      "title": "Set Character Encoding Utf8 Generated Html Files Ensure Compatibility",
+      "filename": "set_character_encoding_utf8_generated_html_files_ensure_compatibility.cs",
+      "description": "Set character encoding to UTF‑8 for all generated HTML files to ensure compatibility.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "Html.HTMLDocument",
+        "Path.GetDirectoryName",
+        "System.IO.File.ReadAllText",
+        "System.IO.Path.GetDirectoryName"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "set_maximum_crawl_depth_for_linked_pages_when_converting_entire_website_to_html": {
+      "title": "Set Maximum Crawl Depth For Linked Pages When Converting Entire Website To Html",
+      "filename": "set_maximum_crawl_depth_for_linked_pages_when_converting_entire_website_to_html.cs",
+      "description": "Set the maximum crawl depth for linked pages when converting an entire website to HTML.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "set_maximum_file_size_limit_for_individual_html_outputs_to_manage_storage_constraints": {
+      "title": "Set Maximum File Size Limit For Individual Html Outputs To Manage Storage Constraints",
+      "filename": "set_maximum_file_size_limit_for_individual_html_outputs_to_manage_storage_constraints.cs",
+      "description": "Set a maximum file size limit for individual HTML outputs to manage storage constraints.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "set_timeout_limit_for_loading_website_resources_to_prevent_excessively_long_conversions": {
+      "title": "Set Timeout Limit For Loading Website Resources To Prevent Excessively Long Conversions",
+      "filename": "set_timeout_limit_for_loading_website_resources_to_prevent_excessively_long_conversions.cs",
+      "description": "Set a timeout limit for loading website resources to prevent excessively long conversions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "RequestMessage",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "specify_output_file_naming_conventions_based_on_source_url_host_and_path_segments": {
+      "title": "Specify Output File Naming Conventions Based On Source Url Host And Path Segments",
+      "filename": "specify_output_file_naming_conventions_based_on_source_url_host_and_path_segments.cs",
+      "description": "Specify output file naming conventions based on source URL host and path segments.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Host.Replace",
+        "Path.Combine",
+        "System.IO.Path.Combine",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "specify_user_agent_string_to_mimic_particular_browser_during_website_retrieval": {
+      "title": "Specify User Agent String To Mimic Particular Browser During Website Retrieval",
+      "filename": "specify_user_agent_string_to_mimic_particular_browser_during_website_retrieval.cs",
+      "description": "Specify a user-agent string to mimic a particular browser during website retrieval.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "UserAgentHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "throttle_network_requests_avoid_overwhelming_target_server_during_large_scale_website_conversion": {
+      "title": "Throttle Network Requests Avoid Overwhelming Target Server During Large Scale Website Conversion",
+      "filename": "throttle_network_requests_avoid_overwhelming_target_server_during_large_scale_website_conversion.cs",
+      "description": "Throttle network requests to avoid overwhelming the target server during large–scale website conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "html",
+        "html-document",
+        "network",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions",
+        "MessageHandlers.Add",
+        "Thread.Sleep",
+        "ThrottleHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "use_asynchronous_loading_improve_performance_converting_multiple_websites_concurrently": {
+      "title": "Use Asynchronous Loading Improve Performance Converting Multiple Websites Concurrently",
+      "filename": "use_asynchronous_loading_improve_performance_converting_multiple_websites_concurrently.cs",
+      "description": "Use asynchronous loading to improve performance when converting multiple websites concurrently.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "AutoResetEvent",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Task.Run",
+        "Task.WhenAll"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    },
+    "validate_generated_html_against_w3c_standards_and_report_compliance_issues": {
+      "title": "Validate Generated Html Against W3C Standards And Report Compliance Issues",
+      "filename": "validate_generated_html_against_w3c_standards_and_report_compliance_issues.cs",
+      "description": "Validate generated HTML against W3C standards and report any compliance issues found.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "accessibility"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:38:47Z",
+      "status": "verified"
+    }
+  }
+}
