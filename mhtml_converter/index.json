@@ -1,0 +1,2819 @@
+{
+  "category": "mhtml_converter",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:28:14Z",
+  "examples": {
+    "apply_custom_color_profile_image_save_options_export_mhtml_to_png_color_critical_workflows": {
+      "title": "Apply Custom Color Profile Image Save Options Export Mhtml To Png Color Critical Workflows",
+      "filename": "apply_custom_color_profile_image_save_options_export_mhtml_to_png_color_critical_workflows.cs",
+      "description": "Apply a custom color profile in ImageSaveOptions while exporting MHTML to PNG for color‑critical workflows.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "png",
+        "mhtml",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "ColorProfile",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "apply_password_protection_to_pdf_output_generated_from_mhtml_using_pdfsaveoptions_encryption": {
+      "title": "Apply Password Protection To Pdf Output Generated From Mhtml Using Pdfsaveoptions Encryption",
+      "filename": "apply_password_protection_to_pdf_output_generated_from_mhtml_using_pdfsaveoptions_encryption.cs",
+      "description": "Apply password protection to PDF output generated from MHTML using PdfSaveOptions encryption features.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "stream",
+        "conversion",
+        "extraction"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfEncryptionInfo"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "auto_delete_source_mhtml_files_after_successful_pdf_conversion_save_space": {
+      "title": "Auto Delete Source Mhtml Files After Successful Pdf Conversion Save Space",
+      "filename": "auto_delete_source_mhtml_files_after_successful_pdf_conversion_save_space.cs",
+      "description": "Implement a feature that automatically deletes source MHTML files after successful conversion to PDF to save space.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "stream",
+        "conversion",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.Delete",
+        "File.OpenRead",
+        "Path.ChangeExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "batch_conversion_multiple_mhtml_files_to_pdf_using_foreach_loop_and_converter": {
+      "title": "Batch Conversion Multiple Mhtml Files To Pdf Using Foreach Loop And Converter",
+      "filename": "batch_conversion_multiple_mhtml_files_to_pdf_using_foreach_loop_and_converter.cs",
+      "description": "Implement batch conversion of multiple MHTML files to PDF using a foreach loop and Converter.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "stream",
+        "conversion",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Path.ChangeExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "benchmark_conversion_time_mhtml_to_gif_using_different_quality_levels": {
+      "title": "Benchmark Conversion Time Mhtml To Gif Using Different Quality Levels",
+      "filename": "benchmark_conversion_time_mhtml_to_gif_using_different_quality_levels.cs",
+      "description": "Benchmark conversion time for MHTML to GIF using different ImageSaveOptions quality levels.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "image",
+        "mhtml",
+        "saving-options",
+        "stream",
+        "conversion",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "compress_resulting_pdf_using_third_party_library_after_mhtml_conversion": {
+      "title": "Compress Resulting Pdf Using Third Party Library After Mhtml Conversion",
+      "filename": "compress_resulting_pdf_using_third_party_library_after_mhtml_conversion.cs",
+      "description": "Write a method that compresses the resulting PDF using a third‑party library after MHTML conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "stream",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.Exists",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FileStream",
+        "Path.Combine",
+        "Path.GetFileName",
+        "PdfSaveOptions",
+        "ZipArchive"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_color_depth_8bit_png_output_for_reduced_file_size": {
+      "title": "Configure Color Depth 8Bit Png Output For Reduced File Size",
+      "filename": "configure_color_depth_8bit_png_output_for_reduced_file_size.cs",
+      "description": "Configure ImageSaveOptions to set color depth to 8‑bit for PNG output when reducing file size is required.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_docsaveoptions_enforce_openxml_strict_compliance_generating_docx_from_mhtml_enterprise_standards": {
+      "title": "Configure Docsaveoptions Enforce Openxml Strict Compliance Generating Docx From Mhtml Enterprise Standards",
+      "filename": "configure_docsaveoptions_enforce_openxml_strict_compliance_generating_docx_from_mhtml_enterprise_standards.cs",
+      "description": "Configure DocSaveOptions to enforce OpenXML strict compliance when generating DOCX from MHTML for enterprise standards.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_image_save_options_lossless_png_output_image_fidelity": {
+      "title": "Configure Image Save Options Lossless Png Output Image Fidelity",
+      "filename": "configure_image_save_options_lossless_png_output_image_fidelity.cs",
+      "description": "Configure ImageSaveOptions to enable lossless compression for PNG output when preserving image fidelity is critical.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms",
+        "mhtml"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_enable_progressive_rendering_jpeg_output_converting_large_mhtml_files": {
+      "title": "Configure Imagesaveoptions Enable Progressive Rendering Jpeg Output Converting Large Mhtml Files",
+      "filename": "configure_imagesaveoptions_enable_progressive_rendering_jpeg_output_converting_large_mhtml_files.cs",
+      "description": "Configure ImageSaveOptions to enable progressive rendering for JPEG output when converting large MHTML files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms",
+        "mhtml"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_set_background_color_when_converting_mhtml_to_bmp": {
+      "title": "Configure Imagesaveoptions Set Background Color When Converting Mhtml To Bmp",
+      "filename": "configure_imagesaveoptions_set_background_color_when_converting_mhtml_to_bmp.cs",
+      "description": "Configure ImageSaveOptions to set background color when converting MHTML to BMP format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_set_background_transparency_png_output_source_mhtml_contains_transparent_elements": {
+      "title": "Configure Imagesaveoptions Set Background Transparency Png Output Source Mhtml Contains Transparent Elements",
+      "filename": "configure_imagesaveoptions_set_background_transparency_png_output_source_mhtml_contains_transparent_elements.cs",
+      "description": "Configure ImageSaveOptions to set background transparency for PNG output when source MHTML contains transparent elements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_set_compression_level_bmp_output_converting_mhtml_files": {
+      "title": "Configure Imagesaveoptions Set Compression Level Bmp Output Converting Mhtml Files",
+      "filename": "configure_imagesaveoptions_set_compression_level_bmp_output_converting_mhtml_files.cs",
+      "description": "Configure ImageSaveOptions to set compression level for BMP output when converting MHTML files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_set_jpeg_subsampling_factor_optimized_file_size_mhtml_conversion": {
+      "title": "Configure Imagesaveoptions Set Jpeg Subsampling Factor Optimized File Size Mhtml Conversion",
+      "filename": "configure_imagesaveoptions_set_jpeg_subsampling_factor_optimized_file_size_mhtml_conversion.cs",
+      "description": "Configure ImageSaveOptions to set JPEG subsampling factor for optimized file size during MHTML conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms",
+        "mhtml"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_set_pixel_format_24bit_converting_mhtml_to_bmp_compatibility": {
+      "title": "Configure Imagesaveoptions Set Pixel Format 24Bit Converting Mhtml To Bmp Compatibility",
+      "filename": "configure_imagesaveoptions_set_pixel_format_24bit_converting_mhtml_to_bmp_compatibility.cs",
+      "description": "Configure ImageSaveOptions to set pixel format to 24‑bit when converting MHTML to BMP for compatibility.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "image",
+        "saving-options",
+        "conversion",
+        "forms"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMHTML",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_disable_pdfa_compliance_converting_mhtml_pdf_output": {
+      "title": "Configure Pdfsaveoptions Disable Pdfa Compliance Converting Mhtml Pdf Output",
+      "filename": "configure_pdfsaveoptions_disable_pdfa_compliance_converting_mhtml_pdf_output.cs",
+      "description": "Configure PdfSaveOptions to disable PDF/A compliance when converting MHTML for regular PDF output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_embed_custom_javascript_action_opens_url_on_pdf_open": {
+      "title": "Configure Pdfsaveoptions Embed Custom Javascript Action Opens Url On Pdf Open",
+      "filename": "configure_pdfsaveoptions_embed_custom_javascript_action_opens_url_on_pdf_open.cs",
+      "description": "Configure PdfSaveOptions to embed a custom JavaScript action that opens a URL when the PDF is opened.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "javascript",
+        "saving-options",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.WriteAllText",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_embed_fonts_set_document_permissions_before_converting_mhtml_to_pdf": {
+      "title": "Configure Pdfsaveoptions Embed Fonts Set Document Permissions Before Converting Mhtml To Pdf",
+      "filename": "configure_pdfsaveoptions_embed_fonts_set_document_permissions_before_converting_mhtml_to_pdf.cs",
+      "description": "Configure PdfSaveOptions to embed fonts and set document permissions before converting MHTML to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_enable_fast_web_view_pdf_output_large_mhtml_documents": {
+      "title": "Configure Pdfsaveoptions Enable Fast Web View Pdf Output Large Mhtml Documents",
+      "filename": "configure_pdfsaveoptions_enable_fast_web_view_pdf_output_large_mhtml_documents.cs",
+      "description": "Configure PdfSaveOptions to enable fast web view for PDF output generated from large MHTML documents.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_flatten_form_fields_converting_mhtml_pdf_read_only_documents": {
+      "title": "Configure Pdfsaveoptions Flatten Form Fields Converting Mhtml Pdf Read Only Documents",
+      "filename": "configure_pdfsaveoptions_flatten_form_fields_converting_mhtml_pdf_read_only_documents.cs",
+      "description": "Configure PdfSaveOptions to flatten form fields when converting MHTML to PDF for read‑only documents.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_set_custom_document_title_metadata_based_on_source_mhtml_filename": {
+      "title": "Configure Pdfsaveoptions Set Custom Document Title Metadata Based On Source Mhtml Filename",
+      "filename": "configure_pdfsaveoptions_set_custom_document_title_metadata_based_on_source_mhtml_filename.cs",
+      "description": "Configure PdfSaveOptions to set a custom document title metadata based on the source MHTML filename.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "metadata",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMHTML",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Path.GetFileNameWithoutExtension",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_set_custom_pdf_version_number_compatibility_older_readers": {
+      "title": "Configure Pdfsaveoptions Set Custom Pdf Version Number Compatibility Older Readers",
+      "filename": "configure_pdfsaveoptions_set_custom_pdf_version_number_compatibility_older_readers.cs",
+      "description": "Configure PdfSaveOptions to set a custom PDF version number for compatibility with older readers.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "saving-options",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_xps_save_options_enable_document_outline_generation_converting_mhtml_to_xps": {
+      "title": "Configure Xps Save Options Enable Document Outline Generation Converting Mhtml To Xps",
+      "filename": "configure_xps_save_options_enable_document_outline_generation_converting_mhtml_to_xps.cs",
+      "description": "Configure XpsSaveOptions to enable document outline generation when converting MHTML to XPS.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "configure_xps_save_options_specific_printer_dpi_setting_mhtml_to_xps_conversion": {
+      "title": "Configure Xps Save Options Specific Printer Dpi Setting Mhtml To Xps Conversion",
+      "filename": "configure_xps_save_options_specific_printer_dpi_setting_mhtml_to_xps_conversion.cs",
+      "description": "Configure XpsSaveOptions to use a specific printer DPI setting during MHTML to XPS conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "convert_mhtml_file_to_xps_format_custom_page_dimensions_xpssaveoptions": {
+      "title": "Convert Mhtml File To Xps Format Custom Page Dimensions Xpssaveoptions",
+      "filename": "convert_mhtml_file_to_xps_format_custom_page_dimensions_xpssaveoptions.cs",
+      "description": "Convert an MHTML file to XPS format while specifying custom page dimensions in XpsSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "drawing",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "Length.FromInches",
+        "Page",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "convert_mhtml_to_pdf_and_extract_text_using_pdf_parsing_library": {
+      "title": "Convert Mhtml To Pdf And Extract Text Using Pdf Parsing Library",
+      "filename": "convert_mhtml_to_pdf_and_extract_text_using_pdf_parsing_library.cs",
+      "description": "Write code to convert MHTML to PDF and then extract text using a PDF parsing library.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "extraction",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "convert_mhtml_to_pdf_and_merge_resulting_pdf_with_another_document_using_external_library": {
+      "title": "Convert Mhtml To Pdf And Merge Resulting Pdf With Another Document Using External Library",
+      "filename": "convert_mhtml_to_pdf_and_merge_resulting_pdf_with_another_document_using_external_library.cs",
+      "description": "Convert MHTML to PDF and then merge the resulting PDF with another document using an external library.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "FileStream",
+        "Pdf.PdfDocument",
+        "PdfReader.Open",
+        "PdfSaveOptions",
+        "PdfSharp.Pdf.PdfDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "convert_mhtml_to_xps_extract_xps_package_contents_analysis": {
+      "title": "Convert Mhtml To Xps Extract Xps Package Contents Analysis",
+      "filename": "convert_mhtml_to_xps_extract_xps_package_contents_analysis.cs",
+      "description": "Write code to convert MHTML to XPS and then extract the XPS package contents for analysis.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "conversion",
+        "extraction",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "File.OpenRead",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "XpsSaveOptions",
+        "ZipFile.OpenRead"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_batch_script_processes_all_mhtml_files_in_directory_outputs_pdfs_with_timestamped_names": {
+      "title": "Create Batch Script Processes All Mhtml Files In Directory Outputs Pdfs With Timestamped Names",
+      "filename": "create_batch_script_processes_all_mhtml_files_in_directory_outputs_pdfs_with_timestamped_names.cs",
+      "description": "Create a batch script that processes all MHTML files in a directory and outputs PDFs with timestamped names.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "html",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.GetCurrentDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Now.ToString",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_command_line_tool_accepts_input_mhtml_path_output_format_argument_conversion": {
+      "title": "Create Command Line Tool Accepts Input Mhtml Path Output Format Argument Conversion",
+      "filename": "create_command_line_tool_accepts_input_mhtml_path_output_format_argument_conversion.cs",
+      "description": "Create a command‑line tool that accepts input MHTML path and output format argument for conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "mhtml",
+        "conversion",
+        "html",
+        "forms",
+        "saving-options"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "Path.ChangeExtension",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_console_application_reads_mhtml_paths_from_text_file_and_converts_each_to_png": {
+      "title": "Create Console Application Reads Mhtml Paths From Text File And Converts Each To Png",
+      "filename": "create_console_application_reads_mhtml_paths_from_text_file_and_converts_each_to_png.cs",
+      "description": "Create a console application that reads a list of MHTML paths from a text file and converts each to PNG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "png",
+        "mhtml",
+        "conversion",
+        "html",
+        "forms",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Converter.ConvertMHTML",
+        "Error.WriteLine",
+        "File.Exists",
+        "File.OpenRead",
+        "File.ReadAllLines",
+        "FileNotFoundException",
+        "ImageSaveOptions",
+        "Path.ChangeExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_docsaveoptions_instance_set_compatibility_mode_before_converting_mhtml_to_docx": {
+      "title": "Create Docsaveoptions Instance Set Compatibility Mode Before Converting Mhtml To Docx",
+      "filename": "create_docsaveoptions_instance_set_compatibility_mode_before_converting_mhtml_to_docx.cs",
+      "description": "Create a DocSaveOptions instance to set compatibility mode before converting MHTML to DOCX.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "conversion",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_function_accepts_stream_provider_returns_converted_image_size_bytes": {
+      "title": "Create Function Accepts Stream Provider Returns Converted Image Size Bytes",
+      "filename": "create_function_accepts_stream_provider_returns_converted_image_size_bytes.cs",
+      "description": "Create a function that accepts a stream provider and returns the size of the converted image in bytes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "epub",
+        "rendering",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_helper_converts_mhtml_to_multiple_image_formats_returns_dictionary_of_format_to_stream_mappings": {
+      "title": "Create Helper Converts Mhtml To Multiple Image Formats Returns Dictionary Of Format To Stream Mappings",
+      "filename": "create_helper_converts_mhtml_to_multiple_image_formats_returns_dictionary_of_format_to_stream_mappings.cs",
+      "description": "Create a helper that converts MHTML to multiple image formats and returns a dictionary of format‑to‑stream mappings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "mhtml",
+        "conversion",
+        "forms",
+        "saving-options"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.Delete",
+        "File.OpenRead",
+        "File.ReadAllBytes",
+        "Guid.NewGuid",
+        "ImageSaveOptions",
+        "Key.ToUpper",
+        "MemoryStream",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_helper_validates_output_file_path_accessibility_before_mhtml_conversion_avoid_io_errors": {
+      "title": "Create Helper Validates Output File Path Accessibility Before Mhtml Conversion Avoid Io Errors",
+      "filename": "create_helper_validates_output_file_path_accessibility_before_mhtml_conversion_avoid_io_errors.cs",
+      "description": "Create a helper that validates output file path accessibility before invoking MHTML conversion to avoid I/O errors.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "accessibility",
+        "html",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "stream"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.Exists",
+        "DirectoryNotFoundException",
+        "File.Delete",
+        "File.Exists",
+        "FileStream",
+        "MHTMLSaveOptions",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetFullPath",
+        "Path.GetRandomFileName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_jpeg_image_from_mhtml_using_compression_quality_image_save_options_configuration": {
+      "title": "Create Jpeg Image From Mhtml Using Compression Quality Image Save Options Configuration",
+      "filename": "create_jpeg_image_from_mhtml_using_compression_quality_image_save_options_configuration.cs",
+      "description": "Create a JPEG image from MHTML by applying compression quality through ImageSaveOptions configuration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "image",
+        "mhtml",
+        "conversion",
+        "html",
+        "forms",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_method_return_mime_type_of_converted_output_based_on_selected_save_options": {
+      "title": "Create Method Return Mime Type Of Converted Output Based On Selected Save Options",
+      "filename": "create_method_return_mime_type_of_converted_output_based_on_selected_save_options.cs",
+      "description": "Create a method that returns the MIME type of the converted output based on selected save options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "pdf",
+        "xps",
+        "saving-options",
+        "rendering",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_powershell_function_wraps_conversion_calls_returns_output_file_path_string": {
+      "title": "Create Powershell Function Wraps Conversion Calls Returns Output File Path String",
+      "filename": "create_powershell_function_wraps_conversion_calls_returns_output_file_path_string.cs",
+      "description": "Create a PowerShell function that wraps conversion calls and returns the output file path as a string.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_powershell_module_wraps_dotnet_converter_methods_quick_mhtml_to_image_conversion": {
+      "title": "Create Powershell Module Wraps Dotnet Converter Methods Quick Mhtml To Image Conversion",
+      "filename": "create_powershell_module_wraps_dotnet_converter_methods_quick_mhtml_to_image_conversion.cs",
+      "description": "Create a PowerShell module that wraps .NET Converter methods for quick MHTML to image conversions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "mhtml",
+        "conversion",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "ImageSaveOptions",
+        "Path.ChangeExtension",
+        "System.IO.Path.ChangeExtension"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_reusable_class_abstracts_converter_calls_supported_mhtml_output_formats": {
+      "title": "Create Reusable Class Abstracts Converter Calls Supported Mhtml Output Formats",
+      "filename": "create_reusable_class_abstracts_converter_calls_supported_mhtml_output_formats.cs",
+      "description": "Create a reusable helper class that abstracts Converter calls for all supported MHTML output formats.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "pdf",
+        "docx",
+        "xps",
+        "mhtml",
+        "conversion",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "DocSaveOptions",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "MhtmlConverterHelper.ConvertToDocx",
+        "MhtmlConverterHelper.ConvertToImage",
+        "MhtmlConverterHelper.ConvertToPdf",
+        "MhtmlConverterHelper.ConvertToXps",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_reusable_configuration_file_storing_default_pdfsaveoptions_values_for_all_mhtml_conversions": {
+      "title": "Create Reusable Configuration File Storing Default Pdfsaveoptions Values For All Mhtml Conversions",
+      "filename": "create_reusable_configuration_file_storing_default_pdfsaveoptions_values_for_all_mhtml_conversions.cs",
+      "description": "Create a reusable configuration file that stores default PdfSaveOptions values for all MHTML conversions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions",
+        "PdfSaveOptionsProvider.GetDefaultOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_reusable_extension_method_wraps_converter_convertmhtml_with_default_options_quick_usage": {
+      "title": "Create Reusable Extension Method Wraps Converter Convertmhtml With Default Options Quick Usage",
+      "filename": "create_reusable_extension_method_wraps_converter_convertmhtml_with_default_options_quick_usage.cs",
+      "description": "Create a reusable extension method that wraps Converter.ConvertMHTML with default options for quick usage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "mhtml",
+        "pdf",
+        "saving-options",
+        "conversion",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_unit_test_ensures_pdf_output_contains_expected_number_of_pages_after_conversion": {
+      "title": "Create Unit Test Ensures Pdf Output Contains Expected Number Of Pages After Conversion",
+      "filename": "create_unit_test_ensures_pdf_output_contains_expected_number_of_pages_after_conversion.cs",
+      "description": "Create a unit test that ensures the PDF output contains the expected number of pages after conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "dom",
+        "html",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Exists",
+        "File.WriteAllText",
+        "FileInfo",
+        "InvalidOperationException",
+        "Path.Combine",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_unit_test_verifies_docx_conversion_fails_gracefully_when_fonts_missing": {
+      "title": "Create Unit Test Verifies Docx Conversion Fails Gracefully When Fonts Missing",
+      "filename": "create_unit_test_verifies_docx_conversion_fails_gracefully_when_fonts_missing.cs",
+      "description": "Create a unit test that verifies conversion to DOCX fails gracefully when required fonts are missing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "html",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_unit_test_verifies_generated_tiff_file_contains_expected_number_of_pages": {
+      "title": "Create Unit Test Verifies Generated Tiff File Contains Expected Number Of Pages",
+      "filename": "create_unit_test_verifies_generated_tiff_file_contains_expected_number_of_pages.cs",
+      "description": "Create a unit test that verifies the generated TIFF file contains the expected number of pages.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "image",
+        "epub",
+        "rendering",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "Exception",
+        "File.OpenRead",
+        "File.WriteAllBytes",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "create_unit_test_verifies_imagesaveoptions_applies_jpeg_quality_level_during_conversion": {
+      "title": "Create Unit Test Verifies Imagesaveoptions Applies Jpeg Quality Level During Conversion",
+      "filename": "create_unit_test_verifies_imagesaveoptions_applies_jpeg_quality_level_during_conversion.cs",
+      "description": "Create a unit test that verifies ImageSaveOptions correctly applies JPEG quality level during conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "image",
+        "rendering",
+        "saving-options",
+        "svg",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "File.Exists",
+        "File.WriteAllText",
+        "FileInfo",
+        "ImageSaveOptions",
+        "Path.Combine"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_background_worker_processes_queue_mhtml_files_converts_each_to_pdf_asynchronously": {
+      "title": "Develop Background Worker Processes Queue Mhtml Files Converts Each To Pdf Asynchronously",
+      "filename": "develop_background_worker_processes_queue_mhtml_files_converts_each_to_pdf_asynchronously.cs",
+      "description": "Develop a background worker that processes a queue of MHTML files and converts each to PDF asynchronously.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "forms",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.GetCurrentDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Path.ChangeExtension",
+        "Path.GetFileName",
+        "PdfSaveOptions",
+        "Task.Run",
+        "Task.WaitAll"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_console_program_reads_conversion_parameters_from_json_and_processes_mhtml": {
+      "title": "Develop Console Program Reads Conversion Parameters From Json And Processes Mhtml",
+      "filename": "develop_console_program_reads_conversion_parameters_from_json_and_processes_mhtml.cs",
+      "description": "Develop a console program that reads conversion parameters from a JSON file and processes MHTML accordingly.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "json"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "MHTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_console_utility_accepts_json_configuration_specifying_input_paths_and_desired_output_formats": {
+      "title": "Develop Console Utility Accepts Json Configuration Specifying Input Paths And Desired Output Formats",
+      "filename": "develop_console_utility_accepts_json_configuration_specifying_input_paths_and_desired_output_formats.cs",
+      "description": "Develop a console utility that accepts JSON configuration specifying input paths and desired output formats.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "image",
+        "jpeg",
+        "markdown",
+        "mhtml",
+        "pdf",
+        "png",
+        "saving-options",
+        "forms",
+        "template"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertTemplate",
+        "File.Delete",
+        "File.Exists",
+        "File.ReadAllText",
+        "Guid.NewGuid",
+        "ImageSaveOptions",
+        "MHTMLSaveOptions",
+        "MarkdownSaveOptions",
+        "OutputFormat.ToLower",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "PdfSaveOptions",
+        "TemplateData"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_gui_application_lets_users_select_mhtml_files_choose_output_format_dropdown": {
+      "title": "Develop Gui Application Lets Users Select Mhtml Files Choose Output Format Dropdown",
+      "filename": "develop_gui_application_lets_users_select_mhtml_files_choose_output_format_dropdown.cs",
+      "description": "Develop a GUI application that lets users select MHTML files and choose output format from a dropdown.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "mhtml",
+        "image",
+        "jpeg",
+        "html",
+        "forms",
+        "saving-options"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.Exists",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "ImageSaveOptions",
+        "Path.ChangeExtension",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_logging_interceptor_converter_method_entry_exit_timestamps_metrics": {
+      "title": "Develop Logging Interceptor Converter Method Entry Exit Timestamps Metrics",
+      "filename": "develop_logging_interceptor_converter_method_entry_exit_timestamps_metrics.cs",
+      "description": "Develop a logging interceptor that records Converter method entry and exit timestamps for performance metrics.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "epub",
+        "xps",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.Create",
+        "File.OpenRead",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add",
+        "Streams.Clear",
+        "System.IO.File.OpenRead",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_logging_provider_writes_conversion_details_to_console_and_rotating_log_file": {
+      "title": "Develop Logging Provider Writes Conversion Details To Console And Rotating Log File",
+      "filename": "develop_logging_provider_writes_conversion_details_to_console_and_rotating_log_file.cs",
+      "description": "Develop a logging provider that writes conversion details to both console and a rotating log file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "network",
+        "pdf",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Convert.ToString",
+        "HTMLDocument",
+        "LoggingMessageHandler",
+        "MessageHandlers.Add",
+        "StreamWriter"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_powershell_script_calls_dotnet_batch_convert_mhtml_files_to_docx": {
+      "title": "Develop Powershell Script Calls Dotnet Batch Convert Mhtml Files To Docx",
+      "filename": "develop_powershell_script_calls_dotnet_batch_convert_mhtml_files_to_docx.cs",
+      "description": "Develop a PowerShell script that calls the .NET assembly to batch convert MHTML files to DOCX.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "html",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "DocSaveOptions",
+        "File.OpenRead",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_retry_policy_using_polly_handles_transient_io_errors_during_mhtml_to_pdf_conversion": {
+      "title": "Develop Retry Policy Using Polly Handles Transient Io Errors During Mhtml To Pdf Conversion",
+      "filename": "develop_retry_policy_using_polly_handles_transient_io_errors_during_mhtml_to_pdf_conversion.cs",
+      "description": "Develop a retry policy using Polly that handles transient I/O errors during MHTML to PDF conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "html",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Exception",
+        "File.OpenRead",
+        "IOException",
+        "PdfSaveOptions",
+        "Thread.Sleep",
+        "UnauthorizedAccessException"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_test_harness_measures_memory_usage_in_memory_mhtml_to_tiff_conversion": {
+      "title": "Develop Test Harness Measures Memory Usage In Memory Mhtml To Tiff Conversion",
+      "filename": "develop_test_harness_measures_memory_usage_in_memory_mhtml_to_tiff_conversion.cs",
+      "description": "Develop a test harness that measures memory usage during in‑memory MHTML to TIFF conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "image",
+        "mhtml",
+        "rendering",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "GC.Collect",
+        "GC.GetTotalMemory",
+        "GC.WaitForPendingFinalizers",
+        "ImageSaveOptions",
+        "Process.GetCurrentProcess"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_test_measures_cpu_usage_bulk_conversion_mhtml_to_gif": {
+      "title": "Develop Test Measures Cpu Usage Bulk Conversion Mhtml To Gif",
+      "filename": "develop_test_measures_cpu_usage_bulk_conversion_mhtml_to_gif.cs",
+      "description": "Develop a test that measures CPU usage during bulk conversion of MHTML files to GIF format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "image",
+        "mhtml",
+        "rendering",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "Process.GetCurrentProcess",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_utility_reads_mhtml_network_stream_saves_xps_temporary_folder": {
+      "title": "Develop Utility Reads Mhtml Network Stream Saves Xps Temporary Folder",
+      "filename": "develop_utility_reads_mhtml_network_stream_saves_xps_temporary_folder.cs",
+      "description": "Develop a utility that reads MHTML from a network stream and saves XPS to a temporary folder.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "mhtml",
+        "xps",
+        "network",
+        "saving-options",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "FileStream",
+        "HttpClient",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "Streams.Add",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_windows_forms_app_display_preview_of_converted_image_before_saving_to_disk": {
+      "title": "Develop Windows Forms App Display Preview Of Converted Image Before Saving To Disk",
+      "filename": "develop_windows_forms_app_display_preview_of_converted_image_before_saving_to_disk.cs",
+      "description": "Develop a Windows Forms app that displays a preview of the converted image before saving to disk.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "mhtml",
+        "forms",
+        "html",
+        "rendering"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "ImageSaveOptions",
+        "Path.ChangeExtension",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "develop_windows_service_monitors_folder_new_mhtml_files_converts_to_pdf": {
+      "title": "Develop Windows Service Monitors Folder New Mhtml Files Converts To Pdf",
+      "filename": "develop_windows_service_monitors_folder_new_mhtml_files_converts_to_pdf.cs",
+      "description": "Develop a Windows service that monitors a folder for new MHTML files and converts them to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "forms",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Path.ChangeExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "export_mhtml_to_gif_transparent_background_imagesaveoptions": {
+      "title": "Export Mhtml To Gif Transparent Background Imagesaveoptions",
+      "filename": "export_mhtml_to_gif_transparent_background_imagesaveoptions.cs",
+      "description": "Export MHTML to GIF format with transparent background support using ImageSaveOptions settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "generate_bmp_file_from_mhtml_source_preserving_color_depth_default_options": {
+      "title": "Generate Bmp File From Mhtml Source Preserving Color Depth Default Options",
+      "filename": "generate_bmp_file_from_mhtml_source_preserving_color_depth_default_options.cs",
+      "description": "Generate a BMP file from MHTML source while preserving original color depth using default options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "generate_multi_page_tiff_from_single_mhtml_file_setting_multipage_flag": {
+      "title": "Generate Multi Page Tiff From Single Mhtml File Setting Multipage Flag",
+      "filename": "generate_multi_page_tiff_from_single_mhtml_file_setting_multipage_flag.cs",
+      "description": "Generate a multi‑page TIFF from a single MHTML file by setting ImageSaveOptions multipage flag.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "helper_converts_mhtml_to_multiple_image_formats_single_pass_parallel_tasks": {
+      "title": "Helper Converts Mhtml To Multiple Image Formats Single Pass Parallel Tasks",
+      "filename": "helper_converts_mhtml_to_multiple_image_formats_single_pass_parallel_tasks.cs",
+      "description": "Write a helper that converts MHTML to multiple image formats in a single pass using parallel tasks.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "mhtml",
+        "rendering",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMHTML",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "File.ReadAllBytes",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "Path.Combine",
+        "Task.Run",
+        "Task.WaitAll"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_asynchronous_conversion_of_mhtml_to_pdf_using_task_run_and_converter_convertmhtml_method": {
+      "title": "Implement Asynchronous Conversion Of Mhtml To Pdf Using Task Run And Converter Convertmhtml Method",
+      "filename": "implement_asynchronous_conversion_of_mhtml_to_pdf_using_task_run_and_converter_convertmhtml_method.cs",
+      "description": "Implement asynchronous conversion of MHTML to PDF using Task.Run and Converter.ConvertMHTML method.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions",
+        "Task.Run"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_cancellation_token_abort_mhtml_to_xps_conversion_on_user_termination": {
+      "title": "Implement Cancellation Token Abort Mhtml To Xps Conversion On User Termination",
+      "filename": "implement_cancellation_token_abort_mhtml_to_xps_conversion_on_user_termination.cs",
+      "description": "Implement a cancellation token that aborts MHTML to XPS conversion when the user requests termination.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "CancellationTokenSource",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.Create",
+        "File.OpenRead",
+        "InvalidOperationException",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_error_handling_catches_conversion_exceptions_logs_file_path_failed_mhtml": {
+      "title": "Implement Error Handling Catches Conversion Exceptions Logs File Path Failed Mhtml",
+      "filename": "implement_error_handling_catches_conversion_exceptions_logs_file_path_failed_mhtml.cs",
+      "description": "Implement error handling that catches conversion exceptions and logs source file path for failed MHTML.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "mhtml",
+        "conversion",
+        "forms",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_feature_allows_users_specify_image_dpi_in_imagesaveoptions_for_png_output": {
+      "title": "Implement Feature Allows Users Specify Image Dpi In Imagesaveoptions For Png Output",
+      "filename": "implement_feature_allows_users_specify_image_dpi_in_imagesaveoptions_for_png_output.cs",
+      "description": "Implement a feature that allows users to specify image DPI in ImageSaveOptions for PNG output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "saving-options",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.ImageSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.HTMLDocument",
+        "Saving.ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_feature_logs_sha256_hash_converted_file_integrity_verification": {
+      "title": "Implement Feature Logs Sha256 Hash Converted File Integrity Verification",
+      "filename": "implement_feature_logs_sha256_hash_converted_file_integrity_verification.cs",
+      "description": "Implement a feature that logs the SHA‑256 hash of the converted file for integrity verification.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "mhtml",
+        "pdf",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "BitConverter.ToString",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead",
+        "File.ReadAllBytes",
+        "SHA256.Create"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_feature_users_select_multiple_mhtml_files_convert_single_pdf_document": {
+      "title": "Implement Feature Users Select Multiple Mhtml Files Convert Single Pdf Document",
+      "filename": "implement_feature_users_select_multiple_mhtml_files_convert_single_pdf_document.cs",
+      "description": "Implement a feature that allows users to select multiple MHTML files and convert them to a single PDF document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "Saving.PdfSaveOptions",
+        "System.IO.File.OpenRead"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_feature_validates_converted_pdf_not_password_protected_unless_explicitly_set": {
+      "title": "Implement Feature Validates Converted Pdf Not Password Protected Unless Explicitly Set",
+      "filename": "implement_feature_validates_converted_pdf_not_password_protected_unless_explicitly_set.cs",
+      "description": "Implement a feature that validates that the converted PDF is not password protected unless explicitly set.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "html",
+        "saving-options",
+        "conversion"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_feature_writes_conversion_logs_to_json_file_for_downstream_processing": {
+      "title": "Implement Feature Writes Conversion Logs To Json File For Downstream Processing",
+      "filename": "implement_feature_writes_conversion_logs_to_json_file_for_downstream_processing.cs",
+      "description": "Implement a feature that writes conversion logs to a JSON file for downstream processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "epub",
+        "xps",
+        "saving-options",
+        "forms",
+        "html",
+        "conversion"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.Create",
+        "File.OpenRead",
+        "File.WriteAllText",
+        "JsonSerializer.Serialize",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_file_watcher_triggers_mhtml_to_gif_conversion_on_new_file_in_directory": {
+      "title": "Implement File Watcher Triggers Mhtml To Gif Conversion On New File In Directory",
+      "filename": "implement_file_watcher_triggers_mhtml_to_gif_conversion_on_new_file_in_directory.cs",
+      "description": "Implement a file watcher that triggers MHTML to GIF conversion whenever a new file appears in a directory.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.ReadLine",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "FileSystemWatcher",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "System.IO.File.OpenRead",
+        "System.Threading.Thread.Sleep",
+        "Thread.Sleep"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_logging_conversion_parameters_such_as_output_format_save_options_audit_trails": {
+      "title": "Implement Logging Conversion Parameters Such As Output Format Save Options Audit Trails",
+      "filename": "implement_logging_conversion_parameters_such_as_output_format_save_options_audit_trails.cs",
+      "description": "Implement logging of conversion parameters such as output format and save options for audit trails.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "saving-options",
+        "conversion",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Path.GetFullPath",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_method_return_dictionary_mapping_supported_output_format_to_conversion_success_flag": {
+      "title": "Implement Method Return Dictionary Mapping Supported Output Format To Conversion Success Flag",
+      "filename": "implement_method_return_dictionary_mapping_supported_output_format_to_conversion_success_flag.cs",
+      "description": "Implement a method that returns a dictionary mapping each supported output format to its conversion success flag.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.Delete",
+        "File.Exists",
+        "Guid.NewGuid",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_method_returns_stream_converted_jpeg_image_for_further_processing": {
+      "title": "Implement Method Returns Stream Converted Jpeg Image For Further Processing",
+      "filename": "implement_method_returns_stream_converted_jpeg_image_for_further_processing.cs",
+      "description": "Implement a method that returns a stream containing the converted JPEG image for further processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "image",
+        "epub",
+        "rendering",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.Create",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "InvalidOperationException",
+        "MemoryStream",
+        "MemoryStreamProvider"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_progress_reporter_updates_ui_converting_mhtml_files_to_pdf": {
+      "title": "Implement Progress Reporter Updates Ui Converting Mhtml Files To Pdf",
+      "filename": "implement_progress_reporter_updates_ui_converting_mhtml_files_to_pdf.cs",
+      "description": "Implement a progress reporter that updates the UI while converting large MHTML files to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html",
+        "conversion"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Path.ChangeExtension",
+        "Path.GetFileName",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_retry_loop_mhtml_to_png_conversion_up_to_five_times_incremental_delays": {
+      "title": "Implement Retry Loop Mhtml To Png Conversion Up To Five Times Incremental Delays",
+      "filename": "implement_retry_loop_mhtml_to_png_conversion_up_to_five_times_incremental_delays.cs",
+      "description": "Implement a retry loop that attempts MHTML to PNG conversion up to five times with incremental delays.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMHTML",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Exception",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "Thread.Sleep"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "implement_retry_mechanism_attempts_mhtml_to_xps_conversion_up_to_three_times_on_failure": {
+      "title": "Implement Retry Mechanism Attempts Mhtml To Xps Conversion Up To Three Times On Failure",
+      "filename": "implement_retry_mechanism_attempts_mhtml_to_xps_conversion_up_to_three_times_on_failure.cs",
+      "description": "Implement a retry mechanism that attempts MHTML to XPS conversion up to three times on failure.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "Thread.Sleep",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "integrate_mhtml_docx_conversion_aspnet_mvc_controller_download": {
+      "title": "Integrate Mhtml Docx Conversion Aspnet Mvc Controller Download",
+      "filename": "integrate_mhtml_docx_conversion_aspnet_mvc_controller_download.cs",
+      "description": "Integrate MHTML to DOCX conversion into an ASP.NET MVC controller returning the file as a download.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.Delete",
+        "File.OpenRead",
+        "File.ReadAllBytes",
+        "File.WriteAllBytes",
+        "Guid.NewGuid",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "load_mhtml_file_from_disk_and_convert_to_pdf_using_default_settings": {
+      "title": "Load Mhtml File From Disk And Convert To Pdf Using Default Settings",
+      "filename": "load_mhtml_file_from_disk_and_convert_to_pdf_using_default_settings.cs",
+      "description": "Load an MHTML file from disk and convert it to PDF using default settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "conversion",
+        "html",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "log_conversion_duration_output_file_path_using_structured_logger_after_each_mhtml_conversion": {
+      "title": "Log Conversion Duration Output File Path Using Structured Logger After Each Mhtml Conversion",
+      "filename": "log_conversion_duration_output_file_path_using_structured_logger_after_each_mhtml_conversion.cs",
+      "description": "Log conversion duration and output file path using a structured logger after each MHTML conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "conversion",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "DocSaveOptions",
+        "File.OpenRead",
+        "JsonSerializer.Serialize",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "log_source_mhtml_file_size_before_conversion_performance_analysis": {
+      "title": "Log Source Mhtml File Size Before Conversion Performance Analysis",
+      "filename": "log_source_mhtml_file_size_before_conversion_performance_analysis.cs",
+      "description": "Implement logging of source MHTML file size before conversion to assist in performance analysis.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "File.OpenRead",
+        "FileInfo",
+        "Path.Combine",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "produce_tiff_image_from_mhtml_with_lzw_compression": {
+      "title": "Produce Tiff Image From Mhtml With Lzw Compression",
+      "filename": "produce_tiff_image_from_mhtml_with_lzw_compression.cs",
+      "description": "Produce a TIFF image from MHTML and enable LZW compression via ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "read_mhtml_stream_generate_docx_docsaveoptions_metadata": {
+      "title": "Read Mhtml Stream Generate Docx Docsaveoptions Metadata",
+      "filename": "read_mhtml_stream_generate_docx_docsaveoptions_metadata.cs",
+      "description": "Read an MHTML stream and generate a DOCX document with custom DocSaveOptions for metadata.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "metadata",
+        "saving-options",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "script_archives_converted_docx_files_to_zip_after_successful_mhtml_conversion": {
+      "title": "Script Archives Converted Docx Files To Zip After Successful Mhtml Conversion",
+      "filename": "script_archives_converted_docx_files_to_zip_after_successful_mhtml_conversion.cs",
+      "description": "Write a script that archives converted DOCX files to a zip archive after successful MHTML conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMHTML",
+        "Aspose.Html.Saving.DocSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileStream",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "Saving.DocSaveOptions",
+        "System.IO.File.OpenRead",
+        "ZipArchive"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "script_archives_original_mhtml_files_after_successful_conversion_to_docx": {
+      "title": "Script Archives Original Mhtml Files After Successful Conversion To Docx",
+      "filename": "script_archives_original_mhtml_files_after_successful_conversion_to_docx.cs",
+      "description": "Write a script that archives original MHTML files after successful conversion to DOCX.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "DocSaveOptions",
+        "File.Move",
+        "File.OpenRead",
+        "Path.Combine",
+        "Path.GetFileName"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "set_custom_margins_and_page_size_in_pdfsaveoptions_while_converting_mhtml_to_pdf_for_printing": {
+      "title": "Set Custom Margins And Page Size In Pdfsaveoptions While Converting Mhtml To Pdf For Printing",
+      "filename": "set_custom_margins_and_page_size_in_pdfsaveoptions_while_converting_mhtml_to_pdf_for_printing.cs",
+      "description": "Set custom margins and page size in PdfSaveOptions while converting MHTML to PDF for printing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "drawing",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "Margin",
+        "Page",
+        "PdfSaveOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "set_preserve_exif_metadata_during_mhtml_to_jpeg_conversion": {
+      "title": "Set Preserve Exif Metadata During Mhtml To Jpeg Conversion",
+      "filename": "set_preserve_exif_metadata_during_mhtml_to_jpeg_conversion.cs",
+      "description": "Set ImageSaveOptions to preserve EXIF metadata when converting MHTML to JPEG images.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "image",
+        "metadata",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "transform_mhtml_content_to_high_resolution_png_using_image_save_options_dpi_settings": {
+      "title": "Transform Mhtml Content To High Resolution Png Using Image Save Options Dpi Settings",
+      "filename": "transform_mhtml_content_to_high_resolution_png_using_image_save_options_dpi_settings.cs",
+      "description": "Transform MHTML content into a high‑resolution PNG image using ImageSaveOptions with DPI settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "unit_test_conversion_to_docx_preserves_paragraph_spacing_original_mhtml": {
+      "title": "Unit Test Conversion To Docx Preserves Paragraph Spacing Original Mhtml",
+      "filename": "unit_test_conversion_to_docx_preserves_paragraph_spacing_original_mhtml.cs",
+      "description": "Create a unit test that ensures conversion to DOCX preserves paragraph spacing from the original MHTML.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "html",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.Exists",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "unit_test_verifies_conversion_fails_gracefully_with_invalid_source_mhtml_file_path": {
+      "title": "Unit Test Verifies Conversion Fails Gracefully With Invalid Source Mhtml File Path",
+      "filename": "unit_test_verifies_conversion_fails_gracefully_with_invalid_source_mhtml_file_path.cs",
+      "description": "Create a unit test that verifies conversion fails gracefully when the source MHTML file path is invalid.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "html",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "unit_test_verify_image_dimensions_match_expected_after_mhtml_to_bmp_conversion": {
+      "title": "Unit Test Verify Image Dimensions Match Expected After Mhtml To Bmp Conversion",
+      "filename": "unit_test_verify_image_dimensions_match_expected_after_mhtml_to_bmp_conversion.cs",
+      "description": "Develop a unit test that verifies the image dimensions match expected values after MHTML to BMP conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "image",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "Image.FromFile",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "use_docsaveoptions_set_default_font_fallback_converting_mhtml_unsupported_fonts_to_docx": {
+      "title": "Use Docsaveoptions Set Default Font Fallback Converting Mhtml Unsupported Fonts To Docx",
+      "filename": "use_docsaveoptions_set_default_font_fallback_converting_mhtml_unsupported_fonts_to_docx.cs",
+      "description": "Use DocSaveOptions to set default font fallback when converting MHTML containing unsupported fonts to DOCX.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "saving-options",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "use_docsaveoptions_set_document_language_property_converting_mhtml_to_docx_localization": {
+      "title": "Use Docsaveoptions Set Document Language Property Converting Mhtml To Docx Localization",
+      "filename": "use_docsaveoptions_set_document_language_property_converting_mhtml_to_docx_localization.cs",
+      "description": "Use DocSaveOptions to set document language property when converting MHTML to DOCX for localization.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "mhtml",
+        "saving-options",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "DocSaveOptions",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "use_icreatestreamprovider_write_converted_jpeg_data_directly_cloud_storage_stream": {
+      "title": "Use Icreatestreamprovider Write Converted Jpeg Data Directly Cloud Storage Stream",
+      "filename": "use_icreatestreamprovider_write_converted_jpeg_data_directly_cloud_storage_stream.cs",
+      "description": "Use ICreateStreamProvider to write converted JPEG data directly to a cloud storage stream.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "image",
+        "epub",
+        "rendering",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.Create",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "use_pdfsaveoptions_embed_custom_icc_profile_color_management_mhtml_to_pdf_conversion": {
+      "title": "Use Pdfsaveoptions Embed Custom Icc Profile Color Management Mhtml To Pdf Conversion",
+      "filename": "use_pdfsaveoptions_embed_custom_icc_profile_color_management_mhtml_to_pdf_conversion.cs",
+      "description": "Use PdfSaveOptions to embed a custom ICC profile for color management during MHTML to PDF conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "mhtml",
+        "saving-options",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "use_xpssaveoptions_define_document_author_title_metadata_converting_mhtml_xps": {
+      "title": "Use Xpssaveoptions Define Document Author Title Metadata Converting Mhtml Xps",
+      "filename": "use_xpssaveoptions_define_document_author_title_metadata_converting_mhtml_xps.cs",
+      "description": "Use XpsSaveOptions to define document author and title metadata when converting MHTML to XPS.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "mhtml",
+        "saving-options",
+        "metadata",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "validate_output_pdf_file_exists_and_size_exceeds_minimum_threshold_after_conversion": {
+      "title": "Validate Output Pdf File Exists And Size Exceeds Minimum Threshold After Conversion",
+      "filename": "validate_output_pdf_file_exists_and_size_exceeds_minimum_threshold_after_conversion.cs",
+      "description": "Validate that the output PDF file exists and its size exceeds a minimum threshold after conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "html",
+        "saving-options",
+        "dom"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Exists",
+        "File.WriteAllText",
+        "FileInfo",
+        "FileNotFoundException",
+        "InvalidDataException",
+        "Path.Combine",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "windows_service_retry_failed_mhtml_to_tiff_conversions_exponential_backoff": {
+      "title": "Windows Service Retry Failed Mhtml To Tiff Conversions Exponential Backoff",
+      "filename": "windows_service_retry_failed_mhtml_to_tiff_conversions_exponential_backoff.cs",
+      "description": "Develop a Windows service that retries failed MHTML to TIFF conversions using an exponential backoff strategy.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "image",
+        "mhtml",
+        "conversion",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Exception",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "Math.Pow",
+        "Thread.Sleep"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_code_convert_mhtml_to_gif_and_create_animated_gif_sequence_from_multiple_pages": {
+      "title": "Write Code Convert Mhtml To Gif And Create Animated Gif Sequence From Multiple Pages",
+      "filename": "write_code_convert_mhtml_to_gif_and_create_animated_gif_sequence_from_multiple_pages.cs",
+      "description": "Write code to convert MHTML to GIF and then create an animated GIF sequence from multiple pages.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "image",
+        "mhtml",
+        "rendering",
+        "saving-options",
+        "forms",
+        "drawing"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "EncoderParameter",
+        "EncoderParameters",
+        "File.OpenRead",
+        "Image.FromFile",
+        "ImageCodecInfo.GetImageEncoders",
+        "ImageSaveOptions",
+        "MimeType.Equals",
+        "Path.GetTempFileName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_code_convert_mhtml_to_pdf_and_embed_generated_cover_page_from_separate_html": {
+      "title": "Write Code Convert Mhtml To Pdf And Embed Generated Cover Page From Separate Html",
+      "filename": "write_code_convert_mhtml_to_pdf_and_embed_generated_cover_page_from_separate_html.cs",
+      "description": "Write code to convert MHTML to PDF and then embed a cover page generated from a separate HTML file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "html",
+        "mhtml",
+        "saving-options",
+        "forms",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMHTML",
+        "Directory.GetCurrentDirectory",
+        "File.OpenRead",
+        "HTMLDocument",
+        "Path.Combine",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_code_convert_pdf_add_digital_signature_using_external_library": {
+      "title": "Write Code Convert Pdf Add Digital Signature Using External Library",
+      "filename": "write_code_convert_pdf_add_digital_signature_using_external_library.cs",
+      "description": "Write code to convert PDF and then add a digital signature using an external library.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_code_convert_pdf_split_into_individual_pages_using_pdf_library": {
+      "title": "Write Code Convert Pdf Split Into Individual Pages Using Pdf Library",
+      "filename": "write_code_convert_pdf_split_into_individual_pages_using_pdf_library.cs",
+      "description": "Write code to convert PDF and then split the PDF into individual pages using a PDF library.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "html",
+        "html-document",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_code_to_convert_pdf_and_add_table_of_contents_using_pdf_manipulation_library": {
+      "title": "Write Code To Convert Pdf And Add Table Of Contents Using Pdf Manipulation Library",
+      "filename": "write_code_to_convert_pdf_and_add_table_of_contents_using_pdf_manipulation_library.cs",
+      "description": "Write code to convert PDF and then add a table of contents using a PDF manipulation library.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "html",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.WriteAllBytes",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Path.Combine",
+        "PdfSaveOptions",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_method_validates_mime_type_source_stream_before_mhtml_conversion": {
+      "title": "Write Method Validates Mime Type Source Stream Before Mhtml Conversion",
+      "filename": "write_method_validates_mime_type_source_stream_before_mhtml_conversion.cs",
+      "description": "Write a method that validates the MIME type of the source stream before performing MHTML conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "mhtml",
+        "rendering",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions",
+        "InvalidOperationException",
+        "StreamReader"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_unit_tests_verifying_mhtml_to_png_conversion_produces_image_with_expected_dimensions": {
+      "title": "Write Unit Tests Verifying Mhtml To Png Conversion Produces Image With Expected Dimensions",
+      "filename": "write_unit_tests_verifying_mhtml_to_png_conversion_produces_image_with_expected_dimensions.cs",
+      "description": "Write unit tests verifying that MHTML to PNG conversion produces an image with expected dimensions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "mhtml",
+        "rendering",
+        "drawing",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Drawing.Page",
+        "Aspose.Html.Drawing.Size",
+        "Aspose.Html.Rendering.Image.ImageDevice",
+        "Aspose.Html.Rendering.Image.ImageRenderingOptions",
+        "Aspose.Html.Rendering.MhtmlRenderer",
+        "Aspose.Html.Saving.MHTMLSaveOptions",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Delete",
+        "Drawing.Page",
+        "Drawing.Size",
+        "File.OpenRead",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "Image.FromFile"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    },
+    "write_wrapper_method_selects_appropriate_image_save_options_based_on_desired_output_image_format": {
+      "title": "Write Wrapper Method Selects Appropriate Image Save Options Based On Desired Output Image Format",
+      "filename": "write_wrapper_method_selects_appropriate_image_save_options_based_on_desired_output_image_format.cs",
+      "description": "Write a wrapper method that selects appropriate ImageSaveOptions based on the desired output image format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "jpeg",
+        "png",
+        "rendering",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions",
+        "NotSupportedException"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:28:14Z",
+      "status": "verified"
+    }
+  }
+}
