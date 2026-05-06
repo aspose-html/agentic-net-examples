@@ -1,0 +1,951 @@
+{
+  "category": "extract_images_from_website",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:00:24Z",
+  "examples": {
+    "add_error_handling_for_missing_src_attributes_and_log_warnings_without_interrupting_workflow": {
+      "title": "Add Error Handling For Missing Src Attributes And Log Warnings Without Interrupting Workflow",
+      "filename": "add_error_handling_for_missing_src_attributes_and_log_warnings_without_interrupting_workflow.cs",
+      "description": "Add error handling for missing src attributes and log warnings without interrupting workflow.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.AppendAllText",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "add_retry_logic_transient_network_failures_downloading_images_icons": {
+      "title": "Add Retry Logic Transient Network Failures Downloading Images Icons",
+      "filename": "add_retry_logic_transient_network_failures_downloading_images_icons.cs",
+      "description": "Add retry logic for transient network failures when downloading images or icons.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "network",
+        "png",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Exception",
+        "Html.HTMLDocument",
+        "Html.Url",
+        "Net.RequestMessage",
+        "Network.Send",
+        "Thread.Sleep"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "apply_naming_pattern_prefixes_saved_files_source_domain_name": {
+      "title": "Apply Naming Pattern Prefixes Saved Files Source Domain Name",
+      "filename": "apply_naming_pattern_prefixes_saved_files_source_domain_name.cs",
+      "description": "Apply a naming pattern that prefixes each saved file with the source domain name.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "archive_all_extracted_images_and_icons_zip_file_easy_distribution": {
+      "title": "Archive All Extracted Images And Icons Zip File Easy Distribution",
+      "filename": "archive_all_extracted_images_and_icons_zip_file_easy_distribution.cs",
+      "description": "Archive all extracted images and icons into a ZIP file for easy distribution.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.Delete",
+        "File.Exists",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url",
+        "ZipFile.CreateFromDirectory"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "async_streams_write_image_files_directly_to_disk_while_downloading_reduce_memory_usage": {
+      "title": "Async Streams Write Image Files Directly To Disk While Downloading Reduce Memory Usage",
+      "filename": "async_streams_write_image_files_directly_to_disk_while_downloading_reduce_memory_usage.cs",
+      "description": "Use async streams to write image files directly to disk while downloading to reduce memory usage.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "epub",
+        "forms",
+        "html",
+        "image",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "FileStream",
+        "FileStreamProvider",
+        "HttpClient",
+        "ImageSaveOptions",
+        "Path.Combine"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "collect_all_link_elements_with_rel_icon_from_loaded_html_document": {
+      "title": "Collect All Link Elements With Rel Icon From Loaded Html Document",
+      "filename": "collect_all_link_elements_with_rel_icon_from_loaded_html_document.cs",
+      "description": "Collect all <link> elements with rel='icon' attribute from the loaded HTML document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "configure_httpclient_proxy_settings_support_extraction_behind_corporate_firewalls": {
+      "title": "Configure Httpclient Proxy Settings Support Extraction Behind Corporate Firewalls",
+      "filename": "configure_httpclient_proxy_settings_support_extraction_behind_corporate_firewalls.cs",
+      "description": "Configure HttpClient with proxy settings to support extraction behind corporate firewalls.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsStringAsync",
+        "HttpClient",
+        "NetworkCredential",
+        "WebProxy"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "convert_downloaded_image_bytes_base64_strings_embedding_json_payloads": {
+      "title": "Convert Downloaded Image Bytes Base64 Strings Embedding Json Payloads",
+      "filename": "convert_downloaded_image_bytes_base64_strings_embedding_json_payloads.cs",
+      "description": "Convert downloaded image bytes to Base64 strings for embedding into JSON payloads.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "image",
+        "png",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Convert.ToBase64String",
+        "Error.WriteLine",
+        "HttpClient",
+        "JsonSerializer.Serialize"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "create_reusable_method_accepts_url_returns_list_of_absolute_image_urls": {
+      "title": "Create Reusable Method Accepts Url Returns List Of Absolute Image Urls",
+      "filename": "create_reusable_method_accepts_url_returns_list_of_absolute_image_urls.cs",
+      "description": "Create a reusable method that accepts a URL and returns a list of absolute image URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "document_extraction_workflow_code_comments_xml_documentation_public_methods": {
+      "title": "Document Extraction Workflow Code Comments Xml Documentation Public Methods",
+      "filename": "document_extraction_workflow_code_comments_xml_documentation_public_methods.cs",
+      "description": "Document the extraction workflow with inline code comments and generate XML documentation for public methods.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringWriter",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "download_icon_data_synchronously_using_webclient_each_resolved_icon_url_resource": {
+      "title": "Download Icon Data Synchronously Using Webclient Each Resolved Icon Url Resource",
+      "filename": "download_icon_data_synchronously_using_webclient_each_resolved_icon_url_resource.cs",
+      "description": "Download icon data synchronously using WebClient for each resolved icon URL resource.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Url",
+        "WebClient"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "download_image_data_asynchronously_httpclient_each_resolved_url_resource": {
+      "title": "Download Image Data Asynchronously Httpclient Each Resolved Url Resource",
+      "filename": "download_image_data_asynchronously_httpclient_each_resolved_url_resource.cs",
+      "description": "Download image data asynchronously with HttpClient for each resolved image URL resource.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "extract_image_dimensions_from_html_attributes_and_store_alongside_file_metadata": {
+      "title": "Extract Image Dimensions From Html Attributes And Store Alongside File Metadata",
+      "filename": "extract_image_dimensions_from_html_attributes_and_store_alongside_file_metadata.cs",
+      "description": "Extract image dimensions from HTML attributes and store them alongside file metadata.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "metadata"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "filter_extracted_images_by_file_extension_download_only_png_and_jpeg": {
+      "title": "Filter Extracted Images By File Extension Download Only Png And Jpeg",
+      "filename": "filter_extracted_images_by_file_extension_download_only_png_and_jpeg.cs",
+      "description": "Filter extracted images by file extension, downloading only PNG and JPEG formats.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "implement_batch_extraction_process_multiple_web_pages_sequentially_single_run": {
+      "title": "Implement Batch Extraction Process Multiple Web Pages Sequentially Single Run",
+      "filename": "implement_batch_extraction_process_multiple_web_pages_sequentially_single_run.cs",
+      "description": "Implement batch extraction to process multiple web pages sequentially in a single run.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "System.Text.Json.JsonSerializer.Serialize",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "implement_configurable_timeout_for_httpclient_requests_to_avoid_hanging_on_slow_resources": {
+      "title": "Implement Configurable Timeout For Httpclient Requests To Avoid Hanging On Slow Resources",
+      "filename": "implement_configurable_timeout_for_httpclient_requests_to_avoid_hanging_on_slow_resources.cs",
+      "description": "Implement a configurable timeout for HttpClient requests to avoid hanging on slow resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "RequestMessage",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "implement_parallel_image_download_using_task_whenall_improve_overall_extraction_performance": {
+      "title": "Implement Parallel Image Download Using Task Whenall Improve Overall Extraction Performance",
+      "filename": "implement_parallel_image_download_using_task_whenall_improve_overall_extraction_performance.cs",
+      "description": "Implement parallel image download using Task.WhenAll to improve overall extraction performance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "forms",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytesAsync",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Task.Run",
+        "Task.WhenAll",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "implement_progress_reporting_callback_reports_number_of_images_downloaded_versus_total": {
+      "title": "Implement Progress Reporting Callback Reports Number Of Images Downloaded Versus Total",
+      "filename": "implement_progress_reporting_callback_reports_number_of_images_downloaded_versus_total.cs",
+      "description": "Implement progress reporting callback that reports number of images downloaded versus total.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "integrate_extraction_routine_into_aspnet_core_controller_endpoint_for_on_demand_usage": {
+      "title": "Integrate Extraction Routine Into Aspnet Core Controller Endpoint For On Demand Usage",
+      "filename": "integrate_extraction_routine_into_aspnet_core_controller_endpoint_for_on_demand_usage.cs",
+      "description": "Integrate the extraction routine into an ASP.NET Core controller endpoint for on‑demand usage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "Directory.GetCurrentDirectory",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "Path.Combine",
+        "Stopwatch.StartNew",
+        "TimeLoggerMessageHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "log_detailed_extraction_steps_to_file_using_serilog_for_troubleshooting": {
+      "title": "Log Detailed Extraction Steps To File Using Serilog For Troubleshooting",
+      "filename": "log_detailed_extraction_steps_to_file_using_serilog_for_troubleshooting.cs",
+      "description": "Log detailed extraction steps to a file using Serilog for troubleshooting purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "File.AppendAllText",
+        "HTMLDocument",
+        "System.IO.File.AppendAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "parse_remote_web_page_url_and_retrieve_all_img_elements_using_htmldocument": {
+      "title": "Parse Remote Web Page Url And Retrieve All Img Elements Using Htmldocument",
+      "filename": "parse_remote_web_page_url_and_retrieve_all_img_elements_using_htmldocument.cs",
+      "description": "Parse a remote web page URL and retrieve all <img> elements using HtmlDocument.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "provide_option_overwrite_existing_files_skip_them_user_defined_flag": {
+      "title": "Provide Option Overwrite Existing Files Skip Them User Defined Flag",
+      "filename": "provide_option_overwrite_existing_files_skip_them_user_defined_flag.cs",
+      "description": "Provide an option to overwrite existing files or skip them based on a user‑defined flag.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.Exists",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "register_html_document_and_http_client_services_via_dependency_injection_for_testability": {
+      "title": "Register Html Document And Http Client Services Via Dependency Injection For Testability",
+      "filename": "register_html_document_and_http_client_services_via_dependency_injection_for_testability.cs",
+      "description": "Register HtmlDocument and HttpClient services via dependency injection for testability.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HttpClient"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "resolve_each_icon_href_to_absolute_url_using_url_class_and_document_baseuri": {
+      "title": "Resolve Each Icon Href To Absolute Url Using Url Class And Document Baseuri",
+      "filename": "resolve_each_icon_href_to_absolute_url_using_url_class_and_document_baseuri.cs",
+      "description": "Resolve each icon href attribute to an absolute URL using Url class and document BaseURI.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "resolve_each_image_src_attribute_absolute_url_using_url_class_and_document_baseuri": {
+      "title": "Resolve Each Image Src Attribute Absolute Url Using Url Class And Document Baseuri",
+      "filename": "resolve_each_image_src_attribute_absolute_url_using_url_class_and_document_baseuri.cs",
+      "description": "Resolve each image src attribute to an absolute URL using Url class and document BaseURI.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "save_downloaded_icons_to_dedicated_icons_directory_using_custom_naming_convention": {
+      "title": "Save Downloaded Icons To Dedicated Icons Directory Using Custom Naming Convention",
+      "filename": "save_downloaded_icons_to_dedicated_icons_directory_using_custom_naming_convention.cs",
+      "description": "Save downloaded icons to a dedicated icons directory using a custom naming convention.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytesAsync",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Uri",
+        "Uri.IsWellFormedUriString"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "save_downloaded_images_local_folder_original_names": {
+      "title": "Save Downloaded Images Local Folder Original Names",
+      "filename": "save_downloaded_images_local_folder_original_names.cs",
+      "description": "Save downloaded images to a specified local folder preserving original file names.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "skip_downloading_icons_larger_than_specified_byte_size_threshold_conserve_bandwidth": {
+      "title": "Skip Downloading Icons Larger Than Specified Byte Size Threshold Conserve Bandwidth",
+      "filename": "skip_downloading_icons_larger_than_specified_byte_size_threshold_conserve_bandwidth.cs",
+      "description": "Skip downloading icons larger than a specified byte size threshold to conserve bandwidth.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "png",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Network.Send",
+        "Path.Combine",
+        "Path.GetFileName",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "store_extracted_images_in_memory_streams_for_further_processing_before_writing_to_disk": {
+      "title": "Store Extracted Images In Memory Streams For Further Processing Before Writing To Disk",
+      "filename": "store_extracted_images_in_memory_streams_for_further_processing_before_writing_to_disk.cs",
+      "description": "Store extracted images in memory streams for further processing before writing to disk.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "epub",
+        "extraction",
+        "forms",
+        "html",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.OpenRead",
+        "FileStream",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "support_extraction_of_favicon_ico_files_by_handling_link_elements_with_rel_shortcut_icon": {
+      "title": "Support Extraction Of Favicon Ico Files By Handling Link Elements With Rel Shortcut Icon",
+      "filename": "support_extraction_of_favicon_ico_files_by_handling_link_elements_with_rel_shortcut_icon.cs",
+      "description": "Support extraction of favicon.ico files by handling link elements with rel='shortcut icon'.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "use_cancellationtoken_allow_graceful_termination_image_extraction_process": {
+      "title": "Use Cancellationtoken Allow Graceful Termination Image Extraction Process",
+      "filename": "use_cancellationtoken_allow_graceful_termination_image_extraction_process.cs",
+      "description": "Use CancellationToken to allow graceful termination of the image extraction process.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "CancellationTokenSource",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileName",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "use_custom_http_message_handler_simulate_network_latency_performance_testing": {
+      "title": "Use Custom Http Message Handler Simulate Network Latency Performance Testing",
+      "filename": "use_custom_http_message_handler_simulate_network_latency_performance_testing.cs",
+      "description": "Use custom HttpMessageHandler to simulate network latency during performance testing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "LatencyMessageHandler",
+        "MessageHandlers.Insert",
+        "Thread.Sleep"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "use_html_document_queryselectorall_with_css_selector_img_data_important_true_to_target_specific_images": {
+      "title": "Use Html Document Queryselectorall With Css Selector Img Data Important True To Target Specific Images",
+      "filename": "use_html_document_queryselectorall_with_css_selector_img_data_important_true_to_target_specific_images.cs",
+      "description": "Use HtmlDocument.QuerySelectorAll with CSS selector \"img[data-important='true']\" to target specific images.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "use_retry_after_header_http_response_schedule_delayed_retries_rate_limited_resources": {
+      "title": "Use Retry After Header Http Response Schedule Delayed Retries Rate Limited Resources",
+      "filename": "use_retry_after_header_http_response_schedule_delayed_retries_rate_limited_resources.cs",
+      "description": "Use a retry‑after header from HTTP response to schedule delayed retries for rate‑limited resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsStringAsync",
+        "HTMLDocument",
+        "HttpClient",
+        "Task.Delay",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "validate_each_resolved_url_successful_http_status_before_download": {
+      "title": "Validate Each Resolved Url Successful Http Status Before Download",
+      "filename": "validate_each_resolved_url_successful_http_status_before_download.cs",
+      "description": "Validate that each resolved URL returns a successful HTTP status before attempting download.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "validate_saved_image_files_not_corrupted_by_checking_file_signatures_after_write_operation": {
+      "title": "Validate Saved Image Files Not Corrupted By Checking File Signatures After Write Operation",
+      "filename": "validate_saved_image_files_not_corrupted_by_checking_file_signatures_after_write_operation.cs",
+      "description": "Validate that saved image files are not corrupted by checking file signatures after write operation.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "epub",
+        "forms",
+        "html",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "Directory.CreateDirectory",
+        "File.OpenRead",
+        "File.ReadAllBytes",
+        "ImageSaveOptions",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    },
+    "write_unit_tests_mock_httpclient_responses_verify_url_resolution_download_logic": {
+      "title": "Write Unit Tests Mock Httpclient Responses Verify Url Resolution Download Logic",
+      "filename": "write_unit_tests_mock_httpclient_responses_verify_url_resolution_download_logic.cs",
+      "description": "Write unit tests that mock HttpClient responses to verify URL resolution and download logic.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.Url",
+        "ByteArrayContent",
+        "Console.WriteLine",
+        "Downloader.ResolveAndDownload",
+        "DownloaderTests.RunAll",
+        "Exception",
+        "HTMLDocument",
+        "Html.Url",
+        "HttpClient",
+        "HttpResponseMessage",
+        "MockHttpMessageHandler",
+        "RequestUri.ToString",
+        "Task.FromResult"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:00:24Z",
+      "status": "verified"
+    }
+  }
+}
