@@ -1,0 +1,2593 @@
+{
+  "category": "markdown_processing",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:21:00Z",
+  "examples": {
+    "add_author_metadata_comment_beginning_markdown_file_documentation": {
+      "title": "Add Author Metadata Comment Beginning Markdown File Documentation",
+      "filename": "add_author_metadata_comment_beginning_markdown_file_documentation.cs",
+      "description": "Add an author metadata comment at the beginning of the Markdown file for documentation purposes.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "metadata",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.GetCurrentDirectory",
+        "DocSaveOptions",
+        "File.WriteAllText",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_bullet_list_generated_from_array_of_strings_at_designated_location_in_document": {
+      "title": "Add Bullet List Generated From Array Of Strings At Designated Location In Document",
+      "filename": "add_bullet_list_generated_from_array_of_strings_at_designated_location_in_document.cs",
+      "description": "Add a bullet list generated from an array of strings at a designated location in the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Path.Combine",
+        "System.IO.Path.Combine"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_custom_attribute_heading_nodes_seo_without_altering_visible_text": {
+      "title": "Add Custom Attribute Heading Nodes Seo Without Altering Visible Text",
+      "filename": "add_custom_attribute_heading_nodes_seo_without_altering_visible_text.cs",
+      "description": "Add a custom attribute to heading nodes for SEO purposes without altering visible text.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_custom_data_attribute_to_list_nodes_indicating_ordered_or_unordered": {
+      "title": "Add Custom Data Attribute To List Nodes Indicating Ordered Or Unordered",
+      "filename": "add_custom_data_attribute_to_list_nodes_indicating_ordered_or_unordered.cs",
+      "description": "Add a custom data attribute to list nodes indicating whether they are ordered or unordered.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "TagName.Equals"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_html_comment_with_line_numbers_before_each_paragraph_node_for_debugging": {
+      "title": "Add Html Comment With Line Numbers Before Each Paragraph Node For Debugging",
+      "filename": "add_html_comment_with_line_numbers_before_each_paragraph_node_for_debugging.cs",
+      "description": "Add an HTML comment containing line numbers before each paragraph node for debugging purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_language_identifiers_to_fenced_code_blocks_proper_syntax_highlighting_in_rendered_output": {
+      "title": "Add Language Identifiers To Fenced Code Blocks Proper Syntax Highlighting In Rendered Output",
+      "filename": "add_language_identifiers_to_fenced_code_blocks_proper_syntax_highlighting_in_rendered_output.cs",
+      "description": "Add language identifiers to fenced code blocks to enable proper syntax highlighting in rendered output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_missing_alt_text_to_images_lacking_descriptions_with_default_placeholder": {
+      "title": "Add Missing Alt Text To Images Lacking Descriptions With Default Placeholder",
+      "filename": "add_missing_alt_text_to_images_lacking_descriptions_with_default_placeholder.cs",
+      "description": "Add missing alt text to images lacking descriptions by inserting a default placeholder.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_timestamp_comment_indicating_processing_time_at_top_of_markdown_file": {
+      "title": "Add Timestamp Comment Indicating Processing Time At Top Of Markdown File",
+      "filename": "add_timestamp_comment_indicating_processing_time_at_top_of_markdown_file.cs",
+      "description": "Add a timestamp comment indicating processing time at the top of the Markdown file.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.ReadAllText",
+        "File.WriteAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_title_attribute_to_image_markdown_nodes_for_additional_tooltip_information": {
+      "title": "Add Title Attribute To Image Markdown Nodes For Additional Tooltip Information",
+      "filename": "add_title_attribute_to_image_markdown_nodes_for_additional_tooltip_information.cs",
+      "description": "Add a title attribute to image markdown nodes to provide additional tooltip information.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "markdown"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Path.GetFileName"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "add_yaml_front_matter_block_at_top_with_custom_metadata_fields_for_document": {
+      "title": "Add Yaml Front Matter Block At Top With Custom Metadata Fields For Document",
+      "filename": "add_yaml_front_matter_block_at_top_with_custom_metadata_fields_for_document.cs",
+      "description": "Add a YAML front‑matter block at the top with custom metadata fields for the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "metadata"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "append_disclaimer_paragraph_at_end_of_file_for_usage_terms": {
+      "title": "Append Disclaimer Paragraph At End Of File For Usage Terms",
+      "filename": "append_disclaimer_paragraph_at_end_of_file_for_usage_terms.cs",
+      "description": "Append a disclaimer paragraph at the end of the file to inform readers of usage terms.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "append_list_of_tags_to_yaml_front_matter_based_on_extracted_heading_keywords": {
+      "title": "Append List Of Tags To Yaml Front Matter Based On Extracted Heading Keywords",
+      "filename": "append_list_of_tags_to_yaml_front_matter_based_on_extracted_heading_keywords.cs",
+      "description": "Append a list of tags to the YAML front‑matter based on extracted heading keywords.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "markdown"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TagName.ToLower",
+        "Text.Trim",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "append_new_level_two_heading_with_custom_text_at_end_of_markdown_document": {
+      "title": "Append New Level Two Heading With Custom Text At End Of Markdown Document",
+      "filename": "append_new_level_two_heading_with_custom_text_at_end_of_markdown_document.cs",
+      "description": "Append a new level‑two heading with custom text at the end of the Markdown document.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "markdown",
+        "stream"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "MemoryStream",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "apply_custom_css_class_all_code_block_nodes_modifying_syntax_properties": {
+      "title": "Apply Custom Css Class All Code Block Nodes Modifying Syntax Properties",
+      "filename": "apply_custom_css_class_all_code_block_nodes_modifying_syntax_properties.cs",
+      "description": "Apply a custom CSS class to all code block nodes by modifying their syntax properties.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "apply_regular_expression_to_mask_email_addresses_in_all_text_nodes_for_privacy_compliance": {
+      "title": "Apply Regular Expression To Mask Email Addresses In All Text Nodes For Privacy Compliance",
+      "filename": "apply_regular_expression_to_mask_email_addresses_in_all_text_nodes_for_privacy_compliance.cs",
+      "description": "Apply a regular expression to mask email addresses within all text nodes for privacy compliance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "batch_heading_updates_across_multiple_markdown_files_in_folder_using_shared_configuration": {
+      "title": "Batch Heading Updates Across Multiple Markdown Files In Folder Using Shared Configuration",
+      "filename": "batch_heading_updates_across_multiple_markdown_files_in_folder_using_shared_configuration.cs",
+      "description": "Perform batch heading updates across multiple Markdown files in a folder using a shared configuration.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "MarkdownSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TextContent.Trim"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "batch_processing_update_heading_prefixes_markdown_files_specified_directory": {
+      "title": "Batch Processing Update Heading Prefixes Markdown Files Specified Directory",
+      "filename": "batch_processing_update_heading_prefixes_markdown_files_specified_directory.cs",
+      "description": "Perform batch processing to update heading prefixes across all Markdown files in a specified directory.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Regex.Replace",
+        "Value.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "collapse_multiple_consecutive_blank_lines_into_single_blank_line_throughout_document": {
+      "title": "Collapse Multiple Consecutive Blank Lines Into Single Blank Line Throughout Document",
+      "filename": "collapse_multiple_consecutive_blank_lines_into_single_blank_line_throughout_document.cs",
+      "description": "Collapse multiple consecutive blank lines into a single blank line throughout the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "Html.HTMLDocument",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "compare_two_markdownsyntax_tree_objects_structural_equality_detect_unintended_modifications_version_control": {
+      "title": "Compare Two Markdownsyntax Tree Objects Structural Equality Detect Unintended Modifications Version Control",
+      "filename": "compare_two_markdownsyntax_tree_objects_structural_equality_detect_unintended_modifications_version_control.cs",
+      "description": "Compare two MarkdownSyntaxTree objects for structural equality to detect unintended modifications during version control.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "MarkdownParser"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_all_uppercase_heading_texts_to_title_case_preserving_hash_level_markers": {
+      "title": "Convert All Uppercase Heading Texts To Title Case Preserving Hash Level Markers",
+      "filename": "convert_all_uppercase_heading_texts_to_title_case_preserving_hash_level_markers.cs",
+      "description": "Convert all uppercase heading texts to title case while preserving their hash level markers.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_blockquote_sections_to_italic_paragraphs_simplify_formatting_retaining_emphasis": {
+      "title": "Convert Blockquote Sections To Italic Paragraphs Simplify Formatting Retaining Emphasis",
+      "filename": "convert_blockquote_sections_to_italic_paragraphs_simplify_formatting_retaining_emphasis.cs",
+      "description": "Convert blockquote sections into italic paragraphs to simplify formatting while retaining emphasis.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.ReplaceChild"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_existing_markdown_tables_to_plain_text_preserving_column_alignment": {
+      "title": "Convert Existing Markdown Tables To Plain Text Preserving Column Alignment",
+      "filename": "convert_existing_markdown_tables_to_plain_text_preserving_column_alignment.cs",
+      "description": "Convert existing Markdown tables into plain text representations while preserving column alignment.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "TextSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_heading_texts_to_title_case_keeping_existing_hash_level_markers": {
+      "title": "Convert Heading Texts To Title Case Keeping Existing Hash Level Markers",
+      "filename": "convert_heading_texts_to_title_case_keeping_existing_hash_level_markers.cs",
+      "description": "Convert all heading texts to title case while keeping their existing hash level markers.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "markdown",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "DocumentElement.AppendChild",
+        "MemoryStream",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_inline_markdown_links_to_reference_style_links_generate_reference_list_bottom": {
+      "title": "Convert Inline Markdown Links To Reference Style Links Generate Reference List Bottom",
+      "filename": "convert_inline_markdown_links_to_reference_style_links_generate_reference_list_bottom.cs",
+      "description": "Convert inline Markdown links to reference‑style links and generate a reference list at the bottom.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "markdown",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "Regex.Replace",
+        "StringBuilder"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_markdown_emphasis_markers_from_single_to_double_asterisks_stronger_emphasis": {
+      "title": "Convert Markdown Emphasis Markers From Single To Double Asterisks Stronger Emphasis",
+      "filename": "convert_markdown_emphasis_markers_from_single_to_double_asterisks_stronger_emphasis.cs",
+      "description": "Convert Markdown emphasis markers from single asterisks to double asterisks for stronger emphasis.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_markdown_footnotes_endnotes_adjust_references_throughout_document": {
+      "title": "Convert Markdown Footnotes Endnotes Adjust References Throughout Document",
+      "filename": "convert_markdown_footnotes_endnotes_adjust_references_throughout_document.cs",
+      "description": "Convert Markdown footnotes to endnotes and adjust references accordingly throughout the document.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.GetCurrentDirectory",
+        "DocSaveOptions",
+        "File.WriteAllText",
+        "Path.Combine"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_tabs_to_spaces_code_blocks_maintain_consistent_formatting_editors": {
+      "title": "Convert Tabs To Spaces Code Blocks Maintain Consistent Formatting Editors",
+      "filename": "convert_tabs_to_spaces_code_blocks_maintain_consistent_formatting_editors.cs",
+      "description": "Convert tabs to spaces within code blocks to maintain consistent formatting across editors.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_task_list_items_regular_bullet_points_simplify_document_formatting": {
+      "title": "Convert Task List Items Regular Bullet Points Simplify Document Formatting",
+      "filename": "convert_task_list_items_regular_bullet_points_simplify_document_formatting.cs",
+      "description": "Convert task list items to regular bullet points to simplify document formatting.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "convert_unordered_list_items_into_ordered_list_preserving_hierarchy": {
+      "title": "Convert Unordered List Items Into Ordered List Preserving Hierarchy",
+      "filename": "convert_unordered_list_items_into_ordered_list_preserving_hierarchy.cs",
+      "description": "Convert an unordered list of items into an ordered list while preserving list hierarchy.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.ReplaceChild"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "count_number_headings_each_level_output_statistics_comment": {
+      "title": "Count Number Headings Each Level Output Statistics Comment",
+      "filename": "count_number_headings_each_level_output_statistics_comment.cs",
+      "description": "Count the number of headings at each level and output the statistics as a comment.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringBuilder",
+        "TagName.ToLower"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "create_custom_transformation_wrap_paragraph_text_in_span_with_specific_css_class": {
+      "title": "Create Custom Transformation Wrap Paragraph Text In Span With Specific Css Class",
+      "filename": "create_custom_transformation_wrap_paragraph_text_in_span_with_specific_css_class.cs",
+      "description": "Create a custom transformation that wraps all paragraph text in a span with a specific CSS class.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "create_markdown_table_from_two_dimensional_data_array_and_insert_after_heading": {
+      "title": "Create Markdown Table From Two Dimensional Data Array And Insert After Heading",
+      "filename": "create_markdown_table_from_two_dimensional_data_array_and_insert_after_heading.cs",
+      "description": "Create a new Markdown table from a two‑dimensional data array and insert it after a heading.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "MarkdownSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "decrypt_previously_encrypted_markdown_nodes_restore_original_content_further_editing": {
+      "title": "Decrypt Previously Encrypted Markdown Nodes Restore Original Content Further Editing",
+      "filename": "decrypt_previously_encrypted_markdown_nodes_restore_original_content_further_editing.cs",
+      "description": "Decrypt previously encrypted Markdown nodes to restore original content for further editing.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Convert.FromBase64String",
+        "HTMLDocument",
+        "UTF8.GetString"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "delete_specific_list_item_identified_by_text_content_from_markdown_list": {
+      "title": "Delete Specific List Item Identified By Text Content From Markdown List",
+      "filename": "delete_specific_list_item_identified_by_text_content_from_markdown_list.cs",
+      "description": "Delete a specific list item identified by its text content from a Markdown list.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "ParentNode.RemoveChild",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "depth_first_traversal_collect_text_nodes_into_list_for_bulk_processing": {
+      "title": "Depth First Traversal Collect Text Nodes Into List For Bulk Processing",
+      "filename": "depth_first_traversal_collect_text_nodes_into_list_for_bulk_processing.cs",
+      "description": "Perform a depth‑first traversal to collect all text nodes into a list for bulk processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "detect_and_fix_inconsistent_indentation_in_nested_lists_to_ensure_proper_hierarchical_rendering": {
+      "title": "Detect And Fix Inconsistent Indentation In Nested Lists To Ensure Proper Hierarchical Rendering",
+      "filename": "detect_and_fix_inconsistent_indentation_in_nested_lists_to_ensure_proper_hierarchical_rendering.cs",
+      "description": "Detect and fix inconsistent indentation in nested lists to ensure proper hierarchical rendering.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "detect_broken_image_links_by_checking_each_image_url_http_response_status": {
+      "title": "Detect Broken Image Links By Checking Each Image Url Http Response Status",
+      "filename": "detect_broken_image_links_by_checking_each_image_url_http_response_status.cs",
+      "description": "Detect broken image links by checking each image URL's HTTP response status.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "detect_duplicate_heading_texts_rename_with_unique_identifiers_avoid_ambiguity": {
+      "title": "Detect Duplicate Heading Texts Rename With Unique Identifiers Avoid Ambiguity",
+      "filename": "detect_duplicate_heading_texts_rename_with_unique_identifiers_avoid_ambiguity.cs",
+      "description": "Detect duplicate heading texts and rename them with unique identifiers to avoid ambiguity.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "detect_github_flavored_markdown_features_in_document_log_identified_elements": {
+      "title": "Detect Github Flavored Markdown Features In Document Log Identified Elements",
+      "filename": "detect_github_flavored_markdown_features_in_document_log_identified_elements.cs",
+      "description": "Detect GitHub Flavored Markdown features within a document and log identified elements.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "detect_mismatched_markdown_delimiters_automatically_correct_maintain_valid_syntax": {
+      "title": "Detect Mismatched Markdown Delimiters Automatically Correct Maintain Valid Syntax",
+      "filename": "detect_mismatched_markdown_delimiters_automatically_correct_maintain_valid_syntax.cs",
+      "description": "Detect mismatched Markdown delimiters and automatically correct them to maintain valid syntax.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "Regex.Escape",
+        "Regex.Matches"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "detect_remove_stray_backticks_not_form_valid_code_spans_clean_markup": {
+      "title": "Detect Remove Stray Backticks Not Form Valid Code Spans Clean Markup",
+      "filename": "detect_remove_stray_backticks_not_form_valid_code_spans_clean_markup.cs",
+      "description": "Detect and remove stray backticks that do not form valid code spans to clean markup.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "InnerHTML.Replace"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "detect_unescaped_special_characters_in_urls_and_escape_to_prevent_parsing_errors": {
+      "title": "Detect Unescaped Special Characters In Urls And Escape To Prevent Parsing Errors",
+      "filename": "detect_unescaped_special_characters_in_urls_and_escape_to_prevent_parsing_errors.cs",
+      "description": "Detect unescaped special characters in URLs and escape them to prevent parsing errors.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "Uri.EscapeUriString"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "encrypt_specific_markdown_nodes_using_custom_wrapper_to_protect_sensitive_content_before_saving": {
+      "title": "Encrypt Specific Markdown Nodes Using Custom Wrapper To Protect Sensitive Content Before Saving",
+      "filename": "encrypt_specific_markdown_nodes_using_custom_wrapper_to_protect_sensitive_content_before_saving.cs",
+      "description": "Encrypt specific Markdown nodes using a custom wrapper to protect sensitive content before saving.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "File.Delete",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "MarkdownSaveOptions",
+        "Path.GetTempFileName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "ensure_each_list_preceded_by_blank_line_markdown_spacing_conventions": {
+      "title": "Ensure Each List Preceded By Blank Line Markdown Spacing Conventions",
+      "filename": "ensure_each_list_preceded_by_blank_line_markdown_spacing_conventions.cs",
+      "description": "Ensure each list is preceded by a blank line to conform with Markdown spacing conventions.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.ReadAllLines",
+        "MarkdownSaveOptions",
+        "Regex.IsMatch",
+        "StreamWriter",
+        "System.Text.RegularExpressions.Regex.IsMatch"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "ensure_every_heading_node_ends_newline_character_maintain_valid_markdown_syntax": {
+      "title": "Ensure Every Heading Node Ends Newline Character Maintain Valid Markdown Syntax",
+      "filename": "ensure_every_heading_node_ends_newline_character_maintain_valid_markdown_syntax.cs",
+      "description": "Ensure every heading node ends with a newline character to maintain valid Markdown syntax.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Delete",
+        "File.ReadAllText",
+        "MarkdownSaveOptions",
+        "Path.GetTempFileName",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "ensure_markdown_file_ends_single_newline_parser_requirements": {
+      "title": "Ensure Markdown File Ends Single Newline Parser Requirements",
+      "filename": "ensure_markdown_file_ends_single_newline_parser_requirements.cs",
+      "description": "Ensure the Markdown file ends with a single newline character to satisfy parser requirements.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "MarkdownSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "escape_special_markdown_characters_in_all_text_nodes_to_prevent_unintended_formatting": {
+      "title": "Escape Special Markdown Characters In All Text Nodes To Prevent Unintended Formatting",
+      "filename": "escape_special_markdown_characters_in_all_text_nodes_to_prevent_unintended_formatting.cs",
+      "description": "Escape special Markdown characters in all text nodes to prevent unintended formatting.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Delete",
+        "File.ReadAllText",
+        "MarkdownSaveOptions",
+        "Path.GetTempFileName",
+        "StringBuilder"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "export_entire_markdownsyntax_tree_to_xml_for_archival_and_version_control": {
+      "title": "Export Entire Markdownsyntax Tree To Xml For Archival And Version Control",
+      "filename": "export_entire_markdownsyntax_tree_to_xml_for_archival_and_version_control.cs",
+      "description": "Export the entire MarkdownSyntaxTree to an XML file for archival and version control purposes.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "File.ReadAllText",
+        "XCData",
+        "XDocument",
+        "XElement"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "extract_all_hyperlink_urls_from_markdown_document_and_store_in_list": {
+      "title": "Extract All Hyperlink Urls From Markdown Document And Store In List",
+      "filename": "extract_all_hyperlink_urls_from_markdown_document_and_store_in_list.cs",
+      "description": "Extract all hyperlink URLs from the Markdown document and store them in a list.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "markdown",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "extract_list_items_from_document_write_separate_markdown_file": {
+      "title": "Extract List Items From Document Write Separate Markdown File",
+      "filename": "extract_list_items_from_document_write_separate_markdown_file.cs",
+      "description": "Extract all list items from the document and write them to a separate Markdown file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllLines",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "extract_task_list_items_into_json_array_for_external_processing_reporting": {
+      "title": "Extract Task List Items Into Json Array For External Processing Reporting",
+      "filename": "extract_task_list_items_into_json_array_for_external_processing_reporting.cs",
+      "description": "Extract all task list items into a JSON array for external processing or reporting.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "File.ReadAllLines",
+        "JsonSerializer.Serialize"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_consolidated_reference_list_for_all_urls_used_in_document_and_insert": {
+      "title": "Generate Consolidated Reference List For All Urls Used In Document And Insert",
+      "filename": "generate_consolidated_reference_list_for_all_urls_used_in_document_and_insert.cs",
+      "description": "Generate a consolidated reference list for all URLs used in the document and insert it.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_html_preview_of_markdown_content_using_built_in_renderer_for_visual_verification": {
+      "title": "Generate Html Preview Of Markdown Content Using Built In Renderer For Visual Verification",
+      "filename": "generate_html_preview_of_markdown_content_using_built_in_renderer_for_visual_verification.cs",
+      "description": "Generate an HTML preview of the Markdown content using the built‑in renderer for visual verification.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "DocumentElement.AppendChild",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_index_markdown_file_linking_each_split_chapter_file_quick_access": {
+      "title": "Generate Index Markdown File Linking Each Split Chapter File Quick Access",
+      "filename": "generate_index_markdown_file_linking_each_split_chapter_file_quick_access.cs",
+      "description": "Generate an index Markdown file linking to each split chapter file for quick access.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.Exists",
+        "Directory.GetCurrentDirectory",
+        "Directory.GetFiles",
+        "File.WriteAllLines",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_json_representation_heading_hierarchy_external_analysis_integration": {
+      "title": "Generate Json Representation Heading Hierarchy External Analysis Integration",
+      "filename": "generate_json_representation_heading_hierarchy_external_analysis_integration.cs",
+      "description": "Generate a JSON representation of the heading hierarchy for external analysis or integration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_report_summarizing_modifications_made_to_markdown_file_including_counts_of_each_change_type": {
+      "title": "Generate Report Summarizing Modifications Made To Markdown File Including Counts Of Each Change Type",
+      "filename": "generate_report_summarizing_modifications_made_to_markdown_file_including_counts_of_each_change_type.cs",
+      "description": "Generate a report summarizing all modifications made to a Markdown file, including counts of each change type.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "File.Exists",
+        "File.ReadLines",
+        "FileNotFoundException",
+        "StreamWriter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_summary_paragraph_document_length_main_topics": {
+      "title": "Generate Summary Paragraph Document Length Main Topics",
+      "filename": "generate_summary_paragraph_document_length_main_topics.cs",
+      "description": "Generate a summary paragraph that describes the document length and main topics.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_table_of_contents_based_on_heading_hierarchy_and_insert_at_top": {
+      "title": "Generate Table Of Contents Based On Heading Hierarchy And Insert At Top",
+      "filename": "generate_table_of_contents_based_on_heading_hierarchy_and_insert_at_top.cs",
+      "description": "Generate a table of contents based on heading hierarchy and insert it at the top.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Guid.NewGuid",
+        "HTMLDocument",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "generate_word_count_statistic_and_embed_as_comment_at_top_of_document": {
+      "title": "Generate Word Count Statistic And Embed As Comment At Top Of Document",
+      "filename": "generate_word_count_statistic_and_embed_as_comment_at_top_of_document.cs",
+      "description": "Generate a word count statistic and embed it as a comment at the top of the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "highlight_code_block_syntax_by_assigning_custom_css_class_through_node_property_modification": {
+      "title": "Highlight Code Block Syntax By Assigning Custom Css Class Through Node Property Modification",
+      "filename": "highlight_code_block_syntax_by_assigning_custom_css_class_through_node_property_modification.cs",
+      "description": "Highlight code block syntax by assigning a custom CSS class through node property modification.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "implement_lazy_loading_for_large_images_by_inserting_placeholder_syntax_before_actual_image_references": {
+      "title": "Implement Lazy Loading For Large Images By Inserting Placeholder Syntax Before Actual Image References",
+      "filename": "implement_lazy_loading_for_large_images_by_inserting_placeholder_syntax_before_actual_image_references.cs",
+      "description": "Implement lazy loading for large images by inserting placeholder syntax before actual image references.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_checklist_items_using_task_list_syntax_set_initial_checked_state": {
+      "title": "Insert Checklist Items Using Task List Syntax Set Initial Checked State",
+      "filename": "insert_checklist_items_using_task_list_syntax_set_initial_checked_state.cs",
+      "description": "Insert checklist items using task list syntax and set their initial checked state.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_copyright_notice_immediately_after_first_heading_assert_ownership": {
+      "title": "Insert Copyright Notice Immediately After First Heading Assert Ownership",
+      "filename": "insert_copyright_notice_immediately_after_first_heading_assert_ownership.cs",
+      "description": "Insert a copyright notice immediately after the first heading to assert ownership.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_footnote_definitions_at_end_of_document_for_each_referenced_footnote_marker": {
+      "title": "Insert Footnote Definitions At End Of Document For Each Referenced Footnote Marker",
+      "filename": "insert_footnote_definitions_at_end_of_document_for_each_referenced_footnote_marker.cs",
+      "description": "Insert footnote definitions at the end of the document for each referenced footnote marker.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_generated_table_of_contents_after_front_matter_block_to_improve_navigation": {
+      "title": "Insert Generated Table Of Contents After Front Matter Block To Improve Navigation",
+      "filename": "insert_generated_table_of_contents_after_front_matter_block_to_improve_navigation.cs",
+      "description": "Insert a generated table of contents after the front‑matter block to improve navigation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Guid.NewGuid",
+        "HTMLDocument",
+        "ParentNode.AppendChild",
+        "ParentNode.InsertBefore"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_horizontal_rule_after_top_level_heading_to_visually_separate_sections": {
+      "title": "Insert Horizontal Rule After Top Level Heading To Visually Separate Sections",
+      "filename": "insert_horizontal_rule_after_top_level_heading_to_visually_separate_sections.cs",
+      "description": "Insert a horizontal rule after every top‑level heading to visually separate sections.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_horizontal_rule_before_each_code_block_visually_separate_code_surrounding_text": {
+      "title": "Insert Horizontal Rule Before Each Code Block Visually Separate Code Surrounding Text",
+      "filename": "insert_horizontal_rule_before_each_code_block_visually_separate_code_surrounding_text.cs",
+      "description": "Insert a horizontal rule before each code block to visually separate code from surrounding text.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.InsertBefore"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_line_break_within_long_heading_text_improve_readability_narrow_screens": {
+      "title": "Insert Line Break Within Long Heading Text Improve Readability Narrow Screens",
+      "filename": "insert_line_break_within_long_heading_text_improve_readability_narrow_screens.cs",
+      "description": "Insert a line break within a long heading text to improve readability on narrow screens.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_markdown_comment_before_each_heading_indicating_hierarchical_level_for_easier_navigation": {
+      "title": "Insert Markdown Comment Before Each Heading Indicating Hierarchical Level For Easier Navigation",
+      "filename": "insert_markdown_comment_before_each_heading_indicating_hierarchical_level_for_easier_navigation.cs",
+      "description": "Insert a Markdown comment before each heading indicating its hierarchical level for easier navigation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.InsertBefore",
+        "TagName.ToLower"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_subheading_under_specified_parent_heading_using_markdownsyntaxfactory_create_nodes": {
+      "title": "Insert Subheading Under Specified Parent Heading Using Markdownsyntaxfactory Create Nodes",
+      "filename": "insert_subheading_under_specified_parent_heading_using_markdownsyntaxfactory_create_nodes.cs",
+      "description": "Insert a subheading under a specified parent heading using the MarkdownSyntaxFactory to create nodes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "MarkdownSyntaxTree"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "insert_table_of_figures_generated_from_image_captions_after_table_of_contents": {
+      "title": "Insert Table Of Figures Generated From Image Captions After Table Of Contents",
+      "filename": "insert_table_of_figures_generated_from_image_captions_after_table_of_contents.cs",
+      "description": "Insert a table of figures generated from image captions and place it after the table of contents.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions",
+        "InvalidOperationException"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "load_all_md_files_from_directory_and_parse_each_into_separate_syntax_trees": {
+      "title": "Load All Md Files From Directory And Parse Each Into Separate Syntax Trees",
+      "filename": "load_all_md_files_from_directory_and_parse_each_into_separate_syntax_trees.cs",
+      "description": "Load all .md files from a directory and parse each into separate syntax trees.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "MarkdownParser"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "load_previously_saved_xml_representation_of_syntax_tree_and_reconstruct_markdown_document": {
+      "title": "Load Previously Saved Xml Representation Of Syntax Tree And Reconstruct Markdown Document",
+      "filename": "load_previously_saved_xml_representation_of_syntax_tree_and_reconstruct_markdown_document.cs",
+      "description": "Load a previously saved XML representation of a syntax tree and reconstruct the Markdown document.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "MarkdownSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "merge_consecutive_list_items_single_paragraph_simplify_presentation": {
+      "title": "Merge Consecutive List Items Single Paragraph Simplify Presentation",
+      "filename": "merge_consecutive_list_items_single_paragraph_simplify_presentation.cs",
+      "description": "Merge consecutive list items into a single paragraph to simplify list presentation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "NodeName.Equals",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "merge_consecutive_paragraph_nodes_into_single_paragraph_reduce_unnecessary_breaks": {
+      "title": "Merge Consecutive Paragraph Nodes Into Single Paragraph Reduce Unnecessary Breaks",
+      "filename": "merge_consecutive_paragraph_nodes_into_single_paragraph_reduce_unnecessary_breaks.cs",
+      "description": "Merge consecutive paragraph nodes into a single paragraph to reduce unnecessary breaks.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TagName.ToLower"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "merge_two_markdown_documents_preserving_heading_hierarchy_inserting_separator_comment": {
+      "title": "Merge Two Markdown Documents Preserving Heading Hierarchy Inserting Separator Comment",
+      "filename": "merge_two_markdown_documents_preserving_heading_hierarchy_inserting_separator_comment.cs",
+      "description": "Merge two Markdown documents while preserving heading hierarchy and inserting a separator comment.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "MarkdownSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "normalize_all_line_endings_document_to_lf_characters_consistent_cross_platform_behavior": {
+      "title": "Normalize All Line Endings Document To Lf Characters Consistent Cross Platform Behavior",
+      "filename": "normalize_all_line_endings_document_to_lf_characters_consistent_cross_platform_behavior.cs",
+      "description": "Normalize all line endings in the document to LF characters for consistent cross‑platform behavior.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "File.WriteAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "optimize_image_markdown_adding_width_attributes_improve_rendering_performance_web_pages": {
+      "title": "Optimize Image Markdown Adding Width Attributes Improve Rendering Performance Web Pages",
+      "filename": "optimize_image_markdown_adding_width_attributes_improve_rendering_performance_web_pages.cs",
+      "description": "Optimize image markdown by adding width attributes to improve rendering performance on web pages.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "image",
+        "markdown",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "parse_single_markdown_file_into_markdown_syntax_tree_using_markdown_parser": {
+      "title": "Parse Single Markdown File Into Markdown Syntax Tree Using Markdown Parser",
+      "filename": "parse_single_markdown_file_into_markdown_syntax_tree_using_markdown_parser.cs",
+      "description": "Parse a single Markdown file into a MarkdownSyntaxTree using the MarkdownParser class.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "MarkdownParser"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "prefix_each_heading_with_sequential_numeric_index_to_create_ordered_document_outline": {
+      "title": "Prefix Each Heading With Sequential Numeric Index To Create Ordered Document Outline",
+      "filename": "prefix_each_heading_with_sequential_numeric_index_to_create_ordered_document_outline.cs",
+      "description": "Prefix each heading with a sequential numeric index to create an ordered document outline.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "prepend_note_all_blockquote_contents_highlight_important_information": {
+      "title": "Prepend Note All Blockquote Contents Highlight Important Information",
+      "filename": "prepend_note_all_blockquote_contents_highlight_important_information.cs",
+      "description": "Prepend the word “NOTE:” to all blockquote contents to highlight important information.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "remove_all_empty_list_items_clean_up_list_structures_avoid_rendering_issues": {
+      "title": "Remove All Empty List Items Clean Up List Structures Avoid Rendering Issues",
+      "filename": "remove_all_empty_list_items_clean_up_list_structures_avoid_rendering_issues.cs",
+      "description": "Remove all empty list items to clean up list structures and avoid rendering issues.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "remove_blockquote_formatting_preserving_text_flatten_document_structure": {
+      "title": "Remove Blockquote Formatting Preserving Text Flatten Document Structure",
+      "filename": "remove_blockquote_formatting_preserving_text_flatten_document_structure.cs",
+      "description": "Remove blockquote formatting while preserving the inner text to flatten document structure.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.InsertBefore",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "remove_duplicate_paragraph_nodes_eliminate_redundant_content_streamline_document": {
+      "title": "Remove Duplicate Paragraph Nodes Eliminate Redundant Content Streamline Document",
+      "filename": "remove_duplicate_paragraph_nodes_eliminate_redundant_content_streamline_document.cs",
+      "description": "Remove duplicate paragraph nodes to eliminate redundant content and streamline the document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "remove_embedded_html_tags_markdown_content_ensure_pure_markdown_output": {
+      "title": "Remove Embedded Html Tags Markdown Content Ensure Pure Markdown Output",
+      "filename": "remove_embedded_html_tags_markdown_content_ensure_pure_markdown_output.cs",
+      "description": "Remove any embedded HTML tags from the Markdown content to ensure pure Markdown output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.GetCurrentDirectory",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "remove_empty_paragraph_nodes_from_syntax_tree_clean_up_document_structure": {
+      "title": "Remove Empty Paragraph Nodes From Syntax Tree Clean Up Document Structure",
+      "filename": "remove_empty_paragraph_nodes_from_syntax_tree_clean_up_document_structure.cs",
+      "description": "Remove all empty paragraph nodes from the syntax tree to clean up the document structure.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "remove_existing_yaml_front_matter_block_revert_document_to_plain_markdown": {
+      "title": "Remove Existing Yaml Front Matter Block Revert Document To Plain Markdown",
+      "filename": "remove_existing_yaml_front_matter_block_revert_document_to_plain_markdown.cs",
+      "description": "Remove an existing YAML front‑matter block to revert the document to plain Markdown.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "File.ReadAllLines",
+        "File.WriteAllLines",
+        "FileNotFoundException"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "remove_markdown_comments_from_document_produce_clean_version_without_annotations": {
+      "title": "Remove Markdown Comments From Document Produce Clean Version Without Annotations",
+      "filename": "remove_markdown_comments_from_document_produce_clean_version_without_annotations.cs",
+      "description": "Remove all Markdown comments from the document to produce a clean version without annotations.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "renumber_ordered_list_after_deleting_items_maintain_proper_numeric_ordering": {
+      "title": "Renumber Ordered List After Deleting Items Maintain Proper Numeric Ordering",
+      "filename": "renumber_ordered_list_after_deleting_items_maintain_proper_numeric_ordering.cs",
+      "description": "Renumber an ordered list after deleting items to maintain proper numeric ordering.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "reorder_list_items_alphabetically_based_on_text_values_and_update_syntax_tree": {
+      "title": "Reorder List Items Alphabetically Based On Text Values And Update Syntax Tree",
+      "filename": "reorder_list_items_alphabetically_based_on_text_values_and_update_syntax_tree.cs",
+      "description": "Reorder list items alphabetically based on their text values and update the syntax tree.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_all_em_dashes_double_hyphens_ensure_compatibility_plain_text_viewers": {
+      "title": "Replace All Em Dashes Double Hyphens Ensure Compatibility Plain Text Viewers",
+      "filename": "replace_all_em_dashes_double_hyphens_ensure_compatibility_plain_text_viewers.cs",
+      "description": "Replace all em dashes with double hyphens to ensure compatibility with plain‑text viewers.",
+      "tags": [
+        "aspose-html",
+        "csharp"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "File.WriteAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_all_inline_html_tags_with_equivalent_markdown_syntax_to_maintain_pure_markdown_formatting": {
+      "title": "Replace All Inline Html Tags With Equivalent Markdown Syntax To Maintain Pure Markdown Formatting",
+      "filename": "replace_all_inline_html_tags_with_equivalent_markdown_syntax_to_maintain_pure_markdown_formatting.cs",
+      "description": "Replace all inline HTML tags with equivalent Markdown syntax to maintain pure Markdown formatting.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "MarkdownSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_content_first_paragraph_node_new_text_retaining_formatting": {
+      "title": "Replace Content First Paragraph Node New Text Retaining Formatting",
+      "filename": "replace_content_first_paragraph_node_new_text_retaining_formatting.cs",
+      "description": "Replace the content of the first paragraph node with new text while retaining its formatting.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_double_spaces_with_single_spaces_in_all_text_nodes_to_improve_readability": {
+      "title": "Replace Double Spaces With Single Spaces In All Text Nodes To Improve Readability",
+      "filename": "replace_double_spaces_with_single_spaces_in_all_text_nodes_to_improve_readability.cs",
+      "description": "Replace double spaces with single spaces in all text nodes to improve readability.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_existing_image_urls_with_cdn_hosted_equivalents_to_improve_loading_performance_for_users": {
+      "title": "Replace Existing Image Urls With Cdn Hosted Equivalents To Improve Loading Performance For Users",
+      "filename": "replace_existing_image_urls_with_cdn_hosted_equivalents_to_improve_loading_performance_for_users.cs",
+      "description": "Replace existing image URLs with CDN-hosted equivalents to improve loading performance for users.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Uri",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_inline_code_spans_emphasized_text_alternative_formatting_options": {
+      "title": "Replace Inline Code Spans Emphasized Text Alternative Formatting Options",
+      "filename": "replace_inline_code_spans_emphasized_text_alternative_formatting_options.cs",
+      "description": "Replace inline code spans with emphasized text to demonstrate alternative formatting options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_markdown_image_syntax_with_html_img_tags_preserving_alt_text_and_source_attributes": {
+      "title": "Replace Markdown Image Syntax With Html Img Tags Preserving Alt Text And Source Attributes",
+      "filename": "replace_markdown_image_syntax_with_html_img_tags_preserving_alt_text_and_source_attributes.cs",
+      "description": "Replace Markdown image syntax with HTML img tags while preserving alt text and source attributes.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "Regex.Replace"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "replace_markdown_tables_csv_code_fences_provide_raw_data_format": {
+      "title": "Replace Markdown Tables Csv Code Fences Provide Raw Data Format",
+      "filename": "replace_markdown_tables_csv_code_fences_provide_raw_data_format.cs",
+      "description": "Replace all Markdown tables with CSV code fences to provide raw data format.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "markdown",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "StringBuilder",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "save_generated_html_preview_to_temporary_file_for_automated_testing_workflows": {
+      "title": "Save Generated Html Preview To Temporary File For Automated Testing Workflows",
+      "filename": "save_generated_html_preview_to_temporary_file_for_automated_testing_workflows.cs",
+      "description": "Save the generated HTML preview to a temporary file for automated testing workflows.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Error.WriteLine",
+        "Html.HTMLDocument",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "System.IO.Path.Combine",
+        "System.IO.Path.GetTempPath"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "save_updated_markdown_document_preserving_original_file_encoding_and_line_ending_style": {
+      "title": "Save Updated Markdown Document Preserving Original File Encoding And Line Ending Style",
+      "filename": "save_updated_markdown_document_preserving_original_file_encoding_and_line_ending_style.cs",
+      "description": "Save the updated Markdown document preserving the original file encoding and line ending style.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "serialize_modified_markdown_syntax_tree_to_string_with_custom_indentation_for_readability": {
+      "title": "Serialize Modified Markdown Syntax Tree To String With Custom Indentation For Readability",
+      "filename": "serialize_modified_markdown_syntax_tree_to_string_with_custom_indentation_for_readability.cs",
+      "description": "Serialize the modified MarkdownSyntaxTree to a string with custom indentation for readability.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "MarkdownSyntaxNode",
+        "MarkdownSyntaxTree",
+        "Root.AddChild",
+        "StringBuilder"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "split_document_into_chapters_based_on_level_2_headings_and_save_each_separate_file": {
+      "title": "Split Document Into Chapters Based On Level 2 Headings And Save Each Separate File",
+      "filename": "split_document_into_chapters_based_on_level_2_headings_and_save_each_separate_file.cs",
+      "description": "Split the document into chapters based on level‑2 headings and save each as a separate file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TagName.Equals"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "split_long_paragraph_into_two_nodes_sentence_boundary": {
+      "title": "Split Long Paragraph Into Two Nodes Sentence Boundary",
+      "filename": "split_long_paragraph_into_two_nodes_sentence_boundary.cs",
+      "description": "Split a long paragraph into two separate nodes at the nearest sentence boundary.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "split_markdown_document_into_separate_files_per_top_level_heading_modular_sections": {
+      "title": "Split Markdown Document Into Separate Files Per Top Level Heading Modular Sections",
+      "filename": "split_markdown_document_into_separate_files_per_top_level_heading_modular_sections.cs",
+      "description": "Split a Markdown document into separate files for each top‑level heading to create modular sections.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "HTMLDocument",
+        "MarkdownSaveOptions",
+        "Path.Combine",
+        "Path.GetInvalidFileNameChars",
+        "StringBuilder",
+        "TagName.Equals",
+        "TextContent.Trim"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "toggle_checked_state_of_task_list_items_programmatically_to_reflect_completion_status": {
+      "title": "Toggle Checked State Of Task List Items Programmatically To Reflect Completion Status",
+      "filename": "toggle_checked_state_of_task_list_items_programmatically_to_reflect_completion_status.cs",
+      "description": "Toggle the checked state of task list items programmatically to reflect completion status.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "trim_leading_and_trailing_whitespace_from_every_text_node_consistent_spacing": {
+      "title": "Trim Leading And Trailing Whitespace From Every Text Node Consistent Spacing",
+      "filename": "trim_leading_and_trailing_whitespace_from_every_text_node_consistent_spacing.cs",
+      "description": "Trim leading and trailing whitespace from every text node to ensure consistent spacing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Data.Trim",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "trim_trailing_spaces_each_line_avoid_unnecessary_whitespace_final_output": {
+      "title": "Trim Trailing Spaces Each Line Avoid Unnecessary Whitespace Final Output",
+      "filename": "trim_trailing_spaces_each_line_avoid_unnecessary_whitespace_final_output.cs",
+      "description": "Trim trailing spaces from each line to avoid unnecessary whitespace in the final output.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Delete",
+        "File.ReadAllText",
+        "MarkdownSaveOptions",
+        "Path.GetTempFileName",
+        "System.IO.File.Delete",
+        "System.IO.File.ReadAllText",
+        "System.IO.Path.GetTempFileName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "update_atx_heading_text_preserving_original_hash_symbol_count": {
+      "title": "Update Atx Heading Text Preserving Original Hash Symbol Count",
+      "filename": "update_atx_heading_text_preserving_original_hash_symbol_count.cs",
+      "description": "Update the text of an ATX heading while preserving its original number of hash symbols.",
+      "tags": [
+        "aspose-html",
+        "csharp"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllLines",
+        "File.WriteAllLines"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "update_specific_yaml_frontmatter_fields_title_date_programmatically": {
+      "title": "Update Specific Yaml Frontmatter Fields Title Date Programmatically",
+      "filename": "update_specific_yaml_frontmatter_fields_title_date_programmatically.cs",
+      "description": "Update specific fields within the YAML front‑matter, such as title or date, programmatically.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllLines",
+        "File.WriteAllLines",
+        "InvalidOperationException"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_document_contains_at_least_one_heading_meet_structural_requirements": {
+      "title": "Validate Document Contains At Least One Heading Meet Structural Requirements",
+      "filename": "validate_document_contains_at_least_one_heading_meet_structural_requirements.cs",
+      "description": "Validate that the document contains at least one heading to meet structural requirements.",
+      "tags": [
+        "accessibility",
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "WebAccessibility"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_document_does_not_contain_any_raw_html_tags_to_ensure_strict_markdown_compliance": {
+      "title": "Validate Document Does Not Contain Any Raw Html Tags To Ensure Strict Markdown Compliance",
+      "filename": "validate_document_does_not_contain_any_raw_html_tags_to_ensure_strict_markdown_compliance.cs",
+      "description": "Validate that the document does not contain any raw HTML tags to ensure strict Markdown compliance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_every_footnote_definition_is_referenced_somewhere_in_document_to_avoid_orphaned_notes": {
+      "title": "Validate Every Footnote Definition Is Referenced Somewhere In Document To Avoid Orphaned Notes",
+      "filename": "validate_every_footnote_definition_is_referenced_somewhere_in_document_to_avoid_orphaned_notes.cs",
+      "description": "Validate that every footnote definition is referenced somewhere in the document to avoid orphaned notes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_every_url_in_document_uses_https_scheme_for_secure_connections": {
+      "title": "Validate Every Url In Document Uses Https Scheme For Secure Connections",
+      "filename": "validate_every_url_in_document_uses_https_scheme_for_secure_connections.cs",
+      "description": "Validate that every URL in the document uses the HTTPS scheme for secure connections.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_heading_levels_follow_logical_hierarchy_without_skipping_intermediate_levels": {
+      "title": "Validate Heading Levels Follow Logical Hierarchy Without Skipping Intermediate Levels",
+      "filename": "validate_heading_levels_follow_logical_hierarchy_without_skipping_intermediate_levels.cs",
+      "description": "Validate that heading levels follow a logical hierarchy without skipping intermediate levels.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "TagName.ToLower",
+        "TextContent.Trim"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_no_heading_exceeds_six_hash_characters_ensuring_markdown_specification_compliance": {
+      "title": "Validate No Heading Exceeds Six Hash Characters Ensuring Markdown Specification Compliance",
+      "filename": "validate_no_heading_exceeds_six_hash_characters_ensuring_markdown_specification_compliance.cs",
+      "description": "Validate that no heading exceeds six hash characters, ensuring compliance with Markdown specifications.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "stream"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_no_paragraph_exceeds_two_hundred_words_content_standards": {
+      "title": "Validate No Paragraph Exceeds Two Hundred Words Content Standards",
+      "filename": "validate_no_paragraph_exceeds_two_hundred_words_content_standards.cs",
+      "description": "Validate that no paragraph exceeds two hundred words to maintain concise content standards.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_ordered_list_numbers_sequential_correct_gaps_after_item_removal": {
+      "title": "Validate Ordered List Numbers Sequential Correct Gaps After Item Removal",
+      "filename": "validate_ordered_list_numbers_sequential_correct_gaps_after_item_removal.cs",
+      "description": "Validate that ordered list numbers are sequential and correct any gaps after item removal.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "validate_required_fields_title_author_exist_yaml_front_matter_block": {
+      "title": "Validate Required Fields Title Author Exist Yaml Front Matter Block",
+      "filename": "validate_required_fields_title_author_exist_yaml_front_matter_block.cs",
+      "description": "Validate that required fields like title and author exist in the YAML front‑matter block.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.ReadAllText",
+        "StringReader"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    },
+    "verify_all_code_blocks_fenced_with_backticks_and_correct_indentation": {
+      "title": "Verify All Code Blocks Fenced With Backticks And Correct Indentation",
+      "filename": "verify_all_code_blocks_fenced_with_backticks_and_correct_indentation.cs",
+      "description": "Verify that all code blocks are fenced with backticks and correct any that use indentation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "File.ReadAllLines",
+        "StringBuilder"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:21:00Z",
+      "status": "verified"
+    }
+  }
+}
