@@ -1,0 +1,693 @@
+{
+  "category": "save_file_from_url",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:31:56Z",
+  "examples": {
+    "append_timestamp_to_saved_file_name_to_avoid_overwriting_existing_files": {
+      "title": "Append Timestamp To Saved File Name To Avoid Overwriting Existing Files",
+      "filename": "append_timestamp_to_saved_file_name_to_avoid_overwriting_existing_files.cs",
+      "description": "Append a timestamp to the saved file name to avoid overwriting existing files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "HTMLDocument",
+        "Now.ToString",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "configure_basic_authentication_credentials_request_message_protected_resources": {
+      "title": "Configure Basic Authentication Credentials Request Message Protected Resources",
+      "filename": "configure_basic_authentication_credentials_request_message_protected_resources.cs",
+      "description": "Configure basic authentication credentials in RequestMessage for protected resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "BasicAuthValidator",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "Net.RequestMessage",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "configure_timeout_for_request_message_to_avoid_hanging": {
+      "title": "Configure Timeout For Request Message To Avoid Hanging",
+      "filename": "configure_timeout_for_request_message_to_avoid_hanging.cs",
+      "description": "Configure a timeout for the RequestMessage to avoid hanging.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "RequestMessage",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "create_console_application_accepts_url_argument_saves_downloaded_file_current_directory": {
+      "title": "Create Console Application Accepts Url Argument Saves Downloaded File Current Directory",
+      "filename": "create_console_application_accepts_url_argument_saves_downloaded_file_current_directory.cs",
+      "description": "Create a console application that accepts a URL argument and saves the downloaded file to the current directory.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Directory.GetCurrentDirectory",
+        "Error.WriteLine",
+        "Exception",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Network.Send",
+        "Path.Combine",
+        "Path.GetFileName",
+        "RequestMessage",
+        "Uri",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "create_filestream_destination_path_copy_response_stream": {
+      "title": "Create Filestream Destination Path Copy Response Stream",
+      "filename": "create_filestream_destination_path_copy_response_stream.cs",
+      "description": "Create a FileStream for the destination path and copy the response stream to it.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "FileStream",
+        "HttpClient"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "create_helper_method_accepts_url_destination_path_performs_download_save_logic": {
+      "title": "Create Helper Method Accepts Url Destination Path Performs Download Save Logic",
+      "filename": "create_helper_method_accepts_url_destination_path_performs_download_save_logic.cs",
+      "description": "Create a helper method that accepts a URL and destination path, then performs the download and save logic.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "create_uri_object_for_target_url": {
+      "title": "Create Uri Object For Target Url",
+      "filename": "create_uri_object_for_target_url.cs",
+      "description": "Create a Uri object for the target URL.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "download_multiple_files_sequentially_iterating_over_list_of_urls_saving_each_response_uniquely": {
+      "title": "Download Multiple Files Sequentially Iterating Over List Of Urls Saving Each Response Uniquely",
+      "filename": "download_multiple_files_sequentially_iterating_over_list_of_urls_saving_each_response_uniquely.cs",
+      "description": "Download multiple files sequentially by iterating over a list of URLs and saving each response uniquely.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "extract_file_name_from_url_and_use_as_default_local_file_name": {
+      "title": "Extract File Name From Url And Use As Default Local File Name",
+      "filename": "extract_file_name_from_url_and_use_as_default_local_file_name.cs",
+      "description": "Extract the file name from the URL and use it as the default local file name.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Path.GetFileName",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "handle_http_redirects_following_3xx_location_headers_resending_request": {
+      "title": "Handle Http Redirects Following 3Xx Location Headers Resending Request",
+      "filename": "handle_http_redirects_following_3xx_location_headers_resending_request.cs",
+      "description": "Handle HTTP redirects by following 3xx Location headers and resending the request.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RedirectHandler",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "implement_asynchronous_file_download_using_document_sendasync_await_response_before_saving": {
+      "title": "Implement Asynchronous File Download Using Document Sendasync Await Response Before Saving",
+      "filename": "implement_asynchronous_file_download_using_document_sendasync_await_response_before_saving.cs",
+      "description": "Implement asynchronous file download using Document.SendAsync and await the response before saving.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "File.WriteAllBytesAsync",
+        "HTMLDocument",
+        "Network.Send",
+        "Path.Combine",
+        "RequestMessage",
+        "Task.Run",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "implement_error_handling_retries_download_up_to_three_times_transient_network_errors": {
+      "title": "Implement Error Handling Retries Download Up To Three Times Transient Network Errors",
+      "filename": "implement_error_handling_retries_download_up_to_three_times_transient_network_errors.cs",
+      "description": "Implement error handling that retries the download up to three times for transient network errors.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RetryHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "implement_retry_policy_exponential_backoff_transient_failures_downloading_large_files": {
+      "title": "Implement Retry Policy Exponential Backoff Transient Failures Downloading Large Files",
+      "filename": "implement_retry_policy_exponential_backoff_transient_failures_downloading_large_files.cs",
+      "description": "Implement a retry policy with exponential backoff for transient failures when downloading large files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Math.Pow",
+        "MessageHandlers.Add",
+        "RetryHandler",
+        "Thread.Sleep"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "log_download_progress_reading_response_stream_in_chunks_reporting_bytes_transferred": {
+      "title": "Log Download Progress Reading Response Stream In Chunks Reporting Bytes Transferred",
+      "filename": "log_download_progress_reading_response_stream_in_chunks_reporting_bytes_transferred.cs",
+      "description": "Log the download progress by reading the response stream in chunks and reporting bytes transferred.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsStream",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "log_download_start_and_completion_timestamps_to_file": {
+      "title": "Log Download Start And Completion Timestamps To File",
+      "filename": "log_download_start_and_completion_timestamps_to_file.cs",
+      "description": "Log download start and completion timestamps to a log file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "StreamWriter",
+        "System.Diagnostics.Debug.WriteLine",
+        "TimingHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "provide_progress_callback_delegate_report_percentage_completed_during_download": {
+      "title": "Provide Progress Callback Delegate Report Percentage Completed During Download",
+      "filename": "provide_progress_callback_delegate_report_percentage_completed_during_download.cs",
+      "description": "Provide a progress callback delegate to report percentage completed during download.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "System.IO.File.WriteAllBytes",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "send_request_via_document_send_or_sendasync_obtain_response_message": {
+      "title": "Send Request Via Document Send Or Sendasync Obtain Response Message",
+      "filename": "send_request_via_document_send_or_sendasync_obtain_response_message.cs",
+      "description": "Send the request via Document.Send (or SendAsync) and obtain a ResponseMessage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Document.Send",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "set_accept_language_header_requestmessage_localized_content": {
+      "title": "Set Accept Language Header Requestmessage Localized Content",
+      "filename": "set_accept_language_header_requestmessage_localized_content.cs",
+      "description": "Set Accept-Language header in RequestMessage to request localized content.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "AcceptLanguageHandler",
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "set_custom_user_agent_header_requestmessage_before_downloading": {
+      "title": "Set Custom User Agent Header Requestmessage Before Downloading",
+      "filename": "set_custom_user_agent_header_requestmessage_before_downloading.cs",
+      "description": "Set custom User-Agent header in RequestMessage before downloading.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "CustomUserAgentHandler",
+        "HTMLDocument",
+        "Html.Configuration",
+        "MessageHandlers.Add",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "set_http_method_get_request_message": {
+      "title": "Set Http Method Get Request Message",
+      "filename": "set_http_method_get_request_message.cs",
+      "description": "Set the HTTP method to GET in RequestMessage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "Net.RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "set_referer_header_in_requestmessage_before_sending_request": {
+      "title": "Set Referer Header In Requestmessage Before Sending Request",
+      "filename": "set_referer_header_in_requestmessage_before_sending_request.cs",
+      "description": "Set the Referer header in RequestMessage before sending the request.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "Net.RequestMessage",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "use_cancellation_token_allow_asynchronous_download_operation_cancelled_by_user": {
+      "title": "Use Cancellation Token Allow Asynchronous Download Operation Cancelled By User",
+      "filename": "use_cancellation_token_allow_asynchronous_download_operation_cancelled_by_user.cs",
+      "description": "Use a cancellation token to allow the asynchronous download operation to be cancelled by the user.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "CancellationTokenSource",
+        "Console.ReadKey",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Task.Run"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "use_memorystream_temporarily_hold_response_data_before_writing_to_disk_for_validation": {
+      "title": "Use Memorystream Temporarily Hold Response Data Before Writing To Disk For Validation",
+      "filename": "use_memorystream_temporarily_hold_response_data_before_writing_to_disk_for_validation.cs",
+      "description": "Use a MemoryStream to temporarily hold the response data before writing to disk for validation.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "pdf",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "FileStream",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "PdfSaveOptions",
+        "Streams.Add",
+        "Streams.Clear"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "use_using_block_ensure_requestmessage_responsmessage_disposed_after_operation": {
+      "title": "Use Using Block Ensure Requestmessage Responsmessage Disposed After Operation",
+      "filename": "use_using_block_ensure_requestmessage_responsmessage_disposed_after_operation.cs",
+      "description": "Use a using block to ensure RequestMessage and ResponseMessage are disposed after the operation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "RequestMessage",
+        "ResponseMessage"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "validate_saved_file_exists_and_size_matches_content_length_header": {
+      "title": "Validate Saved File Exists And Size Matches Content Length Header",
+      "filename": "validate_saved_file_exists_and_size_matches_content_length_header.cs",
+      "description": "Validate that the saved file exists and its size matches the Content-Length header.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.Exists",
+        "File.WriteAllBytesAsync",
+        "FileInfo",
+        "FileNotFoundException",
+        "HttpClient",
+        "HttpRequestMessage",
+        "InvalidOperationException"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "verify_http_response_status_code_equals_200_before_processing": {
+      "title": "Verify Http Response Status Code Equals 200 Before Processing",
+      "filename": "verify_http_response_status_code_equals_200_before_processing.cs",
+      "description": "Verify the HTTP response status code equals 200 before processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "StatusCheckHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "verify_response_content_type_header_matches_expected_file_type_before_saving": {
+      "title": "Verify Response Content Type Header Matches Expected File Type Before Saving",
+      "filename": "verify_response_content_type_header_matches_expected_file_type_before_saving.cs",
+      "description": "Verify the response Content-Type header matches the expected file type before saving.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Exception",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Network.Send",
+        "RequestMessage",
+        "System.IO.File.WriteAllBytes",
+        "Url"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    },
+    "write_unit_tests_mock_http_response_verify_file_saving_logic_works_correctly": {
+      "title": "Write Unit Tests Mock Http Response Verify File Saving Logic Works Correctly",
+      "filename": "write_unit_tests_mock_http_response_verify_file_saving_logic_works_correctly.cs",
+      "description": "Write unit tests that mock the HTTP response to verify the file saving logic works correctly.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Exception",
+        "File.Exists",
+        "FileInfo",
+        "Html.HTMLDocument",
+        "Path.Combine",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:31:56Z",
+      "status": "verified"
+    }
+  }
+}
