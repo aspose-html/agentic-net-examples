@@ -9,7 +9,7 @@ This repository provides working code examples demonstrating Aspose.HTML for .NE
 | Metric | Value |
 |--------|-------|
 | Total examples | 1802 |
-| Categories | 19 |
+| Categories | 18 |
 | Target framework | net9.0 |
 | Aspose.HTML version | 26.4.0 |
 | Last updated | 2026-05-06 |
@@ -44,7 +44,7 @@ Each category contains standalone `.cs` files that can be compiled and run indep
 ### Prerequisites
 
 - .NET SDK (net9.0 or compatible version)
-- Aspose.HTML for .NET NuGet package (26.4.0)
+- Aspose.HTML for .NET NuGet package (26.x.x)
 - Valid Aspose license (for production use)
 
 ### Running Examples
@@ -111,6 +111,9 @@ catch (Exception ex)
 ## Documentation
 
 - Each category folder contains an `agents.md`
+- Each category folder contains an `index.json`
+- Root `agents.md` provides cumulative guidance
+- Root `index.json` provides full manifest
 
 ## Related Resources
 
