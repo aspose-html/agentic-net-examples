@@ -1,0 +1,695 @@
+{
+  "category": "extract_svg_from_website",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:02:27Z",
+  "examples": {
+    "allow_custom_user_agent_header_httpclient_requests": {
+      "title": "Allow Custom User Agent Header Httpclient Requests",
+      "filename": "allow_custom_user_agent_header_httpclient_requests.cs",
+      "description": "Allow custom User-Agent header configuration for HttpClient requests.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "HttpClient",
+        "PdfSaveOptions",
+        "UserAgent.ParseAdd"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "batch_process_multiple_page_urls_looping_list_applying_extraction_workflow": {
+      "title": "Batch Process Multiple Page Urls Looping List Applying Extraction Workflow",
+      "filename": "batch_process_multiple_page_urls_looping_list_applying_extraction_workflow.cs",
+      "description": "Batch process multiple page URLs by looping through a list and applying the extraction workflow.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "saving-options",
+        "url"
+      ],
+      "apis_used": [
+        "Children.Add",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetCurrentDirectory",
+        "File.WriteAllText",
+        "HTMLDocument",
+        "JsonSerializer.Serialize",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "TagName.ToLower",
+        "TextContent.Trim",
+        "Uri"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "cache_downloaded_external_svg_files_locally_to_avoid_redundant_network_requests": {
+      "title": "Cache Downloaded External Svg Files Locally To Avoid Redundant Network Requests",
+      "filename": "cache_downloaded_external_svg_files_locally_to_avoid_redundant_network_requests.cs",
+      "description": "Cache downloaded external SVG files locally to avoid redundant network requests.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "network",
+        "saving-options",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "FileSystemResourceHandler",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "configure_html_document_ignore_script_errors_page_loading": {
+      "title": "Configure Html Document Ignore Script Errors Page Loading",
+      "filename": "configure_html_document_ignore_script_errors_page_loading.cs",
+      "description": "Configure HtmlDocument to ignore script errors during page loading.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "create_reusable_method_accepts_page_url_returns_list_of_extracted_inline_svg_strings": {
+      "title": "Create Reusable Method Accepts Page Url Returns List Of Extracted Inline Svg Strings",
+      "filename": "create_reusable_method_accepts_page_url_returns_list_of_extracted_inline_svg_strings.cs",
+      "description": "Create a reusable method that accepts a page URL and returns a list of extracted inline SVG strings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "detect_skip_duplicate_svg_markup_outerhtml_before_writing_files": {
+      "title": "Detect Skip Duplicate Svg Markup Outerhtml Before Writing Files",
+      "filename": "detect_skip_duplicate_svg_markup_outerhtml_before_writing_files.cs",
+      "description": "Detect and skip duplicate SVG markup by comparing OuterHTML strings before writing files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "download_external_svg_files_httpclient_async_getasync": {
+      "title": "Download External Svg Files Httpclient Async Getasync",
+      "filename": "download_external_svg_files_httpclient_async_getasync.cs",
+      "description": "Download external SVG files using HttpClient with asynchronous GetAsync calls.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "image",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Content.ReadAsByteArrayAsync",
+        "File.WriteAllBytesAsync",
+        "Guid.NewGuid",
+        "HttpClient",
+        "Path.GetFileName",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "expose_public_api_method_returns_collection_of_file_paths_for_all_extracted_svgs_from_given_url": {
+      "title": "Expose Public Api Method Returns Collection Of File Paths For All Extracted Svgs From Given Url",
+      "filename": "expose_public_api_method_returns_collection_of_file_paths_for_all_extracted_svgs_from_given_url.cs",
+      "description": "Expose a public API method that returns a collection of file paths for all extracted SVGs from a given URL.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.GetCurrentDirectory",
+        "HTMLDocument",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "extract_each_inline_svg_markup_outerhtml_property": {
+      "title": "Extract Each Inline Svg Markup Outerhtml Property",
+      "filename": "extract_each_inline_svg_markup_outerhtml_property.cs",
+      "description": "Extract each inline SVG's markup via the OuterHTML property.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "filter_img_collection_keep_only_elements_with_src_ending_svg": {
+      "title": "Filter Img Collection Keep Only Elements With Src Ending Svg",
+      "filename": "filter_img_collection_keep_only_elements_with_src_ending_svg.cs",
+      "description": "Filter the <img> collection to keep only elements whose src attribute ends with \".svg\".",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "saving-options",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ParentNode.RemoveChild"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "generate_summary_csv_file_listing_source_page_url_svg_type_inline_external_saved_file_name": {
+      "title": "Generate Summary Csv File Listing Source Page Url Svg Type Inline External Saved File Name",
+      "filename": "generate_summary_csv_file_listing_source_page_url_svg_type_inline_external_saved_file_name.cs",
+      "description": "Generate a summary CSV file that lists source page URL, SVG type (inline or external), and saved file name.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "stream",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "SVGDocument",
+        "StreamWriter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "identify_all_img_elements_in_dom_via_document_images": {
+      "title": "Identify All Img Elements In Dom Via Document Images",
+      "filename": "identify_all_img_elements_in_dom_via_document_images.cs",
+      "description": "Identify all <img> elements in the DOM via document.Images.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "implement_asynchronous_version_extraction_routine_improve_scalability": {
+      "title": "Implement Asynchronous Version Extraction Routine Improve Scalability",
+      "filename": "implement_asynchronous_version_extraction_routine_improve_scalability.cs",
+      "description": "Implement an asynchronous version of the extraction routine to improve scalability.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "stream"
+      ],
+      "apis_used": [
+        "Error.WriteLine",
+        "File.AppendAllTextAsync",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "implement_error_handling_skip_extraction_when_html_page_cannot_be_loaded": {
+      "title": "Implement Error Handling Skip Extraction When Html Page Cannot Be Loaded",
+      "filename": "implement_error_handling_skip_extraction_when_html_page_cannot_be_loaded.cs",
+      "description": "Implement error handling to skip extraction when the HTML page cannot be loaded.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "implement_retry_logic_for_external_svg_downloads_transient_network_errors": {
+      "title": "Implement Retry Logic For External Svg Downloads Transient Network Errors",
+      "filename": "implement_retry_logic_for_external_svg_downloads_transient_network_errors.cs",
+      "description": "Implement retry logic for external SVG downloads that fail due to transient network errors.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "image",
+        "network",
+        "stream"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Aspose.Html.Url",
+        "Console.WriteLine",
+        "Content.ReadAsByteArray",
+        "Exception",
+        "Html.HTMLDocument",
+        "Html.Url",
+        "MemoryStream",
+        "Net.RequestMessage",
+        "Network.Send",
+        "SVGDocument",
+        "System.Threading.Thread.Sleep",
+        "Thread.Sleep"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "iterate_over_returned_svg_collection": {
+      "title": "Iterate Over Returned Svg Collection",
+      "filename": "iterate_over_returned_svg_collection.cs",
+      "description": "Iterate over the returned SVG collection.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "load_html_page_from_url_using_aspose_html_htmldocument_class": {
+      "title": "Load Html Page From Url Using Aspose Html Htmldocument Class",
+      "filename": "load_html_page_from_url_using_aspose_html_htmldocument_class.cs",
+      "description": "Load an HTML page from a URL using Aspose.HTML's HtmlDocument class.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "log_count_of_external_svgs_each_processed_page": {
+      "title": "Log Count Of External Svgs Each Processed Page",
+      "filename": "log_count_of_external_svgs_each_processed_page.cs",
+      "description": "Log the count of external SVGs found on each processed page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "log_inline_svgs_count_per_processed_page": {
+      "title": "Log Inline Svgs Count Per Processed Page",
+      "filename": "log_inline_svgs_count_per_processed_page.cs",
+      "description": "Log the count of inline SVGs found on each processed page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "parse_base_tag_html_document_resolve_relative_svg_urls": {
+      "title": "Parse Base Tag Html Document Resolve Relative Svg Urls",
+      "filename": "parse_base_tag_html_document_resolve_relative_svg_urls.cs",
+      "description": "Parse the <base> tag in the HTML document to correctly resolve relative SVG URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "png"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "provide_option_rename_saved_svg_files_pattern_including_source_page_domain_index": {
+      "title": "Provide Option Rename Saved Svg Files Pattern Including Source Page Domain Index",
+      "filename": "provide_option_rename_saved_svg_files_pattern_including_source_page_domain_index.cs",
+      "description": "Provide an option to rename saved SVG files using a pattern that includes the source page domain and an index.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "HttpClient",
+        "Path.Combine",
+        "SVGDocument",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "resolve_relative_svg_urls_against_page_base_url_before_downloading": {
+      "title": "Resolve Relative Svg Urls Against Page Base Url Before Downloading",
+      "filename": "resolve_relative_svg_urls_against_page_base_url_before_downloading.cs",
+      "description": "Resolve relative SVG URLs against the page's base URL before downloading.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "image",
+        "png",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "retrieve_all_inline_svg_elements_using_getelementsbytagname_svg": {
+      "title": "Retrieve All Inline Svg Elements Using Getelementsbytagname Svg",
+      "filename": "retrieve_all_inline_svg_elements_using_getelementsbytagname_svg.cs",
+      "description": "Retrieve all inline <svg> elements with document.GetElementsByTagName(\"svg\").",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "svg"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "save_each_downloaded_external_svg_to_local_file_preserving_original_file_name": {
+      "title": "Save Each Downloaded External Svg To Local File Preserving Original File Name",
+      "filename": "save_each_downloaded_external_svg_to_local_file_preserving_original_file_name.cs",
+      "description": "Save each downloaded external SVG to a local .svg file preserving the original file name.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "image",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HttpClient",
+        "Path.Combine",
+        "Path.GetFileName",
+        "SVGDocument",
+        "Uri"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "save_each_extracted_inline_svg_markup_to_separate_svg_file_using_system_io": {
+      "title": "Save Each Extracted Inline Svg Markup To Separate Svg File Using System Io",
+      "filename": "save_each_extracted_inline_svg_markup_to_separate_svg_file_using_system_io.cs",
+      "description": "Save each extracted inline SVG markup to a separate .svg file using System.IO.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "HTMLDocument",
+        "Path.Combine",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "set_timeout_on_httpclient_to_prevent_hanging_during_external_svg_download": {
+      "title": "Set Timeout On Httpclient To Prevent Hanging During External Svg Download",
+      "filename": "set_timeout_on_httpclient_to_prevent_hanging_during_external_svg_download.cs",
+      "description": "Set a timeout on HttpClient to prevent hanging during external SVG download.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "RequestMessage",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "store_file_paths_of_saved_svgs_in_dictionary_keyed_by_source_page_url": {
+      "title": "Store File Paths Of Saved Svgs In Dictionary Keyed By Source Page Url",
+      "filename": "store_file_paths_of_saved_svgs_in_dictionary_keyed_by_source_page_url.cs",
+      "description": "Store the file paths of saved SVGs in a dictionary keyed by the source page URL.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "svg",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Guid.NewGuid",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "use_htmlloadoptions_specify_correct_encoding_when_loading_non_utf8_html_pages": {
+      "title": "Use Htmlloadoptions Specify Correct Encoding When Loading Non Utf8 Html Pages",
+      "filename": "use_htmlloadoptions_specify_correct_encoding_when_loading_non_utf8_html_pages.cs",
+      "description": "Use HtmlLoadOptions to specify the correct encoding when loading non-UTF-8 HTML pages.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Encoding.GetEncoding",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "Path.GetDirectoryName",
+        "Path.GetFullPath",
+        "System.IO.File.ReadAllText",
+        "System.IO.Path.GetDirectoryName",
+        "System.IO.Path.GetFullPath",
+        "System.Text.Encoding.GetEncoding"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "use_webclient_fallback_when_httpclient_download_fails": {
+      "title": "Use Webclient Fallback When Httpclient Download Fails",
+      "filename": "use_webclient_fallback_when_httpclient_download_fails.cs",
+      "description": "Use WebClient as a fallback when HttpClient download fails.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HttpClient",
+        "WebClient"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    },
+    "verify_copyright_and_usage_terms_before_reusing_extracted_svg_files": {
+      "title": "Verify Copyright And Usage Terms Before Reusing Extracted Svg Files",
+      "filename": "verify_copyright_and_usage_terms_before_reusing_extracted_svg_files.cs",
+      "description": "Verify copyright and usage terms before reusing extracted SVG files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "saving-options",
+        "svg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "FileSystemResourceHandler",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:02:27Z",
+      "status": "verified"
+    }
+  }
+}
