@@ -1,0 +1,2687 @@
+{
+  "category": "message_handlers",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:25:11Z",
+  "examples": {
+    "abort_pipeline_if_response_status_code_500_using_error_short_circuit_handler": {
+      "title": "Abort Pipeline If Response Status Code 500 Using Error Short Circuit Handler",
+      "filename": "abort_pipeline_if_response_status_code_500_using_error_short_circuit_handler.cs",
+      "description": "Abort pipeline if response status code is 500 using an error‑short‑circuit handler.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Http500AbortHandler",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_correlation_id_header_to_request_custom_message_handler": {
+      "title": "Add Correlation Id Header To Request Custom Message Handler",
+      "filename": "add_correlation_id_header_to_request_custom_message_handler.cs",
+      "description": "Add a correlation ID header to each request using a custom message handler.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CorrelationIdHandler",
+        "Guid.NewGuid",
+        "HTMLDocument",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_custom_error_handling_for_network_timeouts_via_timeout_error_handler": {
+      "title": "Add Custom Error Handling For Network Timeouts Via Timeout Error Handler",
+      "filename": "add_custom_error_handling_for_network_timeouts_via_timeout_error_handler.cs",
+      "description": "Add custom error handling for network timeouts via a timeout‑error handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "PdfSaveOptions",
+        "TimeSpan.FromSeconds",
+        "TimeoutHandler"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_custom_handler_retries_failed_network_requests_up_to_three_times_before_aborting": {
+      "title": "Add Custom Handler Retries Failed Network Requests Up To Three Times Before Aborting",
+      "filename": "add_custom_handler_retries_failed_network_requests_up_to_three_times_before_aborting.cs",
+      "description": "Add a custom handler that retries failed network requests up to three times before aborting.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RetryHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_custom_header_conversion_version_response_using_handler": {
+      "title": "Add Custom Header Conversion Version Response Using Handler",
+      "filename": "add_custom_header_conversion_version_response_using_handler.cs",
+      "description": "Add a custom header indicating conversion version to response using a version‑header handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Saving.PdfSaveOptions",
+        "VersionHeaderHandler"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_custom_header_to_outgoing_requests_using_custom_message_handler": {
+      "title": "Add Custom Header To Outgoing Requests Using Custom Message Handler",
+      "filename": "add_custom_header_to_outgoing_requests_using_custom_message_handler.cs",
+      "description": "Add a custom header to outgoing requests using a custom message handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "CustomHeaderHandler",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_custom_user_agent_string_to_outgoing_requests_via_header_injection_handler": {
+      "title": "Add Custom User Agent String To Outgoing Requests Via Header Injection Handler",
+      "filename": "add_custom_user_agent_string_to_outgoing_requests_via_header_injection_handler.cs",
+      "description": "Add a custom user‑agent string to outgoing requests via a header‑injection handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "CustomUserAgentHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_digest_authentication_support_in_credentialhandler_by_generating_ha1_hash_from_user_credentials": {
+      "title": "Add Digest Authentication Support In Credentialhandler By Generating Ha1 Hash From User Credentials",
+      "filename": "add_digest_authentication_support_in_credentialhandler_by_generating_ha1_hash_from_user_credentials.cs",
+      "description": "Add Digest authentication support in CredentialHandler by generating HA1 hash from user credentials.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "BitConverter.ToString",
+        "Configuration",
+        "Console.WriteLine",
+        "DigestHandler",
+        "HTMLDocument",
+        "MD5.Create",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "RequestMessage",
+        "System.Net.NetworkCredential",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_handler_strips_query_strings_from_urls_before_network_service": {
+      "title": "Add Handler Strips Query Strings From Urls Before Network Service",
+      "filename": "add_handler_strips_query_strings_from_urls_before_network_service.cs",
+      "description": "Add a handler that strips query strings from URLs before they are passed to the network service.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "QueryStripHandler",
+        "Url"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_start_stop_logging_handlers_around_each_network_request_produce_detailed_performance_reports_per_document": {
+      "title": "Add Start Stop Logging Handlers Around Each Network Request Produce Detailed Performance Reports Per Document",
+      "filename": "add_start_stop_logging_handlers_around_each_network_request_produce_detailed_performance_reports_per_document.cs",
+      "description": "Add start and stop logging handlers around each network request to produce detailed performance reports per document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Path.Combine",
+        "RequestStartHandler",
+        "RequestStopHandler",
+        "Stopwatch.StartNew",
+        "System.IO.Path.Combine"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_startrequestdurationloggingmessagehandler_and_stoprequestdurationloggingmessagehandler_capture_http_request_executio": {
+      "title": "Add Startrequestdurationloggingmessagehandler And Stoprequestdurationloggingmessagehandler Capture Http Request Executio",
+      "filename": "add_startrequestdurationloggingmessagehandler_and_stoprequestdurationloggingmessagehandler_capture_http_request_executio.cs",
+      "description": "Add StartRequestDurationLoggingMessageHandler and StopRequestDurationLoggingMessageHandler to capture HTTP request execution times.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "StartRequestDurationLoggingMessageHandler",
+        "StopRequestDurationLoggingMessageHandler",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_timeout_message_handler_after_logging_handlers_ensure_timeout_enforcement_last": {
+      "title": "Add Timeout Message Handler After Logging Handlers Ensure Timeout Enforcement Last",
+      "filename": "add_timeout_message_handler_after_logging_handlers_ensure_timeout_enforcement_last.cs",
+      "description": "Add a TimeoutMessageHandler after logging handlers to ensure timeout enforcement occurs last.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "HTMLDocument",
+        "LoggingHandler",
+        "MessageHandlers.Add",
+        "System.Diagnostics.Debug.WriteLine",
+        "TimeSpan.FromSeconds",
+        "TimeoutMessageHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "add_timeout_message_handler_five_second_limit_ensure_large_image_downloads_do_not_stall_conversion": {
+      "title": "Add Timeout Message Handler Five Second Limit Ensure Large Image Downloads Do Not Stall Conversion",
+      "filename": "add_timeout_message_handler_five_second_limit_ensure_large_image_downloads_do_not_stall_conversion.cs",
+      "description": "Add a TimeoutMessageHandler with a five‑second limit to ensure large image downloads do not stall conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MessageHandlers.Add",
+        "TimeSpan.FromSeconds",
+        "TimeoutMessageHandler"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "batch_process_apply_timeout_message_handler_to_html_documents_in_directory": {
+      "title": "Batch Process Apply Timeout Message Handler To Html Documents In Directory",
+      "filename": "batch_process_apply_timeout_message_handler_to_html_documents_in_directory.cs",
+      "description": "Create a batch process that applies TimeoutMessageHandler to each HTML document in a directory.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "image",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MessageHandlers.Add",
+        "Path.ChangeExtension",
+        "TimeSpan.FromSeconds",
+        "TimeoutMessageHandler"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "batch_process_convert_twenty_zip_archives_to_jpg_parallel_execution": {
+      "title": "Batch Process Convert Twenty Zip Archives To Jpg Parallel Execution",
+      "filename": "batch_process_convert_twenty_zip_archives_to_jpg_parallel_execution.cs",
+      "description": "Create a batch process that converts twenty ZIP archives to JPG with parallel execution.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "image",
+        "jpeg",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.Create",
+        "File.Delete",
+        "FullName.EndsWith",
+        "Guid.NewGuid",
+        "ImageSaveOptions",
+        "Parallel.ForEach",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "Path.GetTempPath",
+        "ZipFile.OpenRead"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "block_external_http_resources_adding_networkdisabledmessagehandler_permits_file_about_base64_protocols": {
+      "title": "Block External Http Resources Adding Networkdisabledmessagehandler Permits File About Base64 Protocols",
+      "filename": "block_external_http_resources_adding_networkdisabledmessagehandler_permits_file_about_base64_protocols.cs",
+      "description": "Block external HTTP resources by adding a NetworkDisabledMessageHandler that permits file, about, and base64 protocols.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Filters.Add",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkDisabledMessageHandler",
+        "ProtocolMessageFilter"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "build_timing_handler_records_start_end_timestamps_logs_total_request_duration": {
+      "title": "Build Timing Handler Records Start End Timestamps Logs Total Request Duration",
+      "filename": "build_timing_handler_records_start_end_timestamps_logs_total_request_duration.cs",
+      "description": "Build a timing handler that records start and end timestamps and logs total request duration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RequestTimingHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "clean_up_temporary_files_after_conversion_completes_using_cleanup_handler": {
+      "title": "Clean Up Temporary Files After Conversion Completes Using Cleanup Handler",
+      "filename": "clean_up_temporary_files_after_conversion_completes_using_cleanup_handler.cs",
+      "description": "Clean up temporary files after conversion completes using a cleanup handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Error.WriteLine",
+        "File.Delete",
+        "File.Exists",
+        "File.ReadAllText",
+        "MarkdownSaveOptions",
+        "Path.GetTempFileName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "combine_authentication_logging_handlers_pipeline_secure_auditing_requests": {
+      "title": "Combine Authentication Logging Handlers Pipeline Secure Auditing Requests",
+      "filename": "combine_authentication_logging_handlers_pipeline_secure_auditing_requests.cs",
+      "description": "Combine authentication and logging handlers in pipeline for secure auditing of requests.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "AuthHandler",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "LogHandler",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "combine_zipfileschemamessagehandler_networkdisabledmessagehandler_safely_load_html_from_zip_restricting_protocols": {
+      "title": "Combine Zipfileschemamessagehandler Networkdisabledmessagehandler Safely Load Html From Zip Restricting Protocols",
+      "filename": "combine_zipfileschemamessagehandler_networkdisabledmessagehandler_safely_load_html_from_zip_restricting_protocols.cs",
+      "description": "Combine ZipFileSchemaMessageHandler with NetworkDisabledMessageHandler to safely load HTML from ZIP while restricting protocols.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "GuardHandler",
+        "HTMLDocument",
+        "InvalidOperationException",
+        "LogHandler",
+        "MessageHandlers.Add",
+        "MessageHandlers.Insert",
+        "Path.Combine",
+        "Path.GetDirectoryName"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "configure_message_handler_order_zipfileschemamessagehandler_before_logging_handlers_accurate_timing": {
+      "title": "Configure Message Handler Order Zipfileschemamessagehandler Before Logging Handlers Accurate Timing",
+      "filename": "configure_message_handler_order_zipfileschemamessagehandler_before_logging_handlers_accurate_timing.cs",
+      "description": "Configure the message handler order so ZipFileSchemaMessageHandler runs before any logging handlers for accurate timing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "LogHandler",
+        "MessageHandlers.Add",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetTempPath",
+        "PdfDevice",
+        "ZipArchive"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "configure_network_timeout_values_in_configuration_object_and_apply_to_all_message_handlers": {
+      "title": "Configure Network Timeout Values In Configuration Object And Apply To All Message Handlers",
+      "filename": "configure_network_timeout_values_in_configuration_object_and_apply_to_all_message_handlers.cs",
+      "description": "Configure network timeout values in a Configuration object and apply to all message handlers.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "TimeSpan.FromSeconds",
+        "TimeoutHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "configure_networkdisabledmessagehandler_allow_about_and_base64_protocols_secure_offline_rendering": {
+      "title": "Configure Networkdisabledmessagehandler Allow About And Base64 Protocols Secure Offline Rendering",
+      "filename": "configure_networkdisabledmessagehandler_allow_about_and_base64_protocols_secure_offline_rendering.cs",
+      "description": "Configure NetworkDisabledMessageHandler to allow only about and base64 protocols for secure offline rendering.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "AboutBase64MessageHandler",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "InvalidOperationException",
+        "MessageHandlers.Insert",
+        "PdfDevice",
+        "RequestUri.ToString"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "configure_timeout_message_handler_dynamic_timeout_value_based_on_requested_resource_size": {
+      "title": "Configure Timeout Message Handler Dynamic Timeout Value Based On Requested Resource Size",
+      "filename": "configure_timeout_message_handler_dynamic_timeout_value_based_on_requested_resource_size.cs",
+      "description": "Configure a TimeoutMessageHandler with a dynamic timeout value based on the size of the requested resource.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "DynamicTimeoutMessageHandler",
+        "HTMLDocument",
+        "MessageHandlers.Insert",
+        "RequestUri.ToString",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "configure_ziparchive_message_handler_handle_only_html_files_inside_archive": {
+      "title": "Configure Ziparchive Message Handler Handle Only Html Files Inside Archive",
+      "filename": "configure_ziparchive_message_handler_handle_only_html_files_inside_archive.cs",
+      "description": "Configure ZipArchiveMessageHandler to handle only .html files inside the archive.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetTempPath",
+        "PdfDevice",
+        "ZipArchive"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "configure_zipfileschemamessagehandler_before_other_handlers_to_resolve_resources_inside_zip_archive": {
+      "title": "Configure Zipfileschemamessagehandler Before Other Handlers To Resolve Resources Inside Zip Archive",
+      "filename": "configure_zipfileschemamessagehandler_before_other_handlers_to_resolve_resources_inside_zip_archive.cs",
+      "description": "Configure ZipFileSchemaMessageHandler before other handlers to resolve resources inside a ZIP archive.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetTempPath",
+        "PdfDevice",
+        "ZipArchive"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "confirm_credentialhandler_automatically_retries_request_after_receiving_authentication_challenge": {
+      "title": "Confirm Credentialhandler Automatically Retries Request After Receiving Authentication Challenge",
+      "filename": "confirm_credentialhandler_automatically_retries_request_after_receiving_authentication_challenge.cs",
+      "description": "Confirm that CredentialHandler automatically retries the request after receiving an authentication challenge.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "confirm_inserting_credentialhandler_does_not_affect_loading_of_non_protected_html_pages": {
+      "title": "Confirm Inserting Credentialhandler Does Not Affect Loading Of Non Protected Html Pages",
+      "filename": "confirm_inserting_credentialhandler_does_not_affect_loading_of_non_protected_html_pages.cs",
+      "description": "Confirm that inserting CredentialHandler does not affect loading of non-protected HTML pages.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "convert_html_from_zip_to_jpg_using_ziparchivemessagehandler_custom_dpi": {
+      "title": "Convert Html From Zip To Jpg Using Ziparchivemessagehandler Custom Dpi",
+      "filename": "convert_html_from_zip_to_jpg_using_ziparchivemessagehandler_custom_dpi.cs",
+      "description": "Convert HTML from a ZIP archive to JPG using ZipArchiveMessageHandler with custom DPI option.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "image",
+        "jpeg",
+        "rendering"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetTempPath",
+        "ZipArchive"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "convert_html_from_zip_to_pdf_ziparchivemessagehandler_default_settings": {
+      "title": "Convert Html From Zip To Pdf Ziparchivemessagehandler Default Settings",
+      "filename": "convert_html_from_zip_to_pdf_ziparchivemessagehandler_default_settings.cs",
+      "description": "Convert HTML from a ZIP archive to PDF using ZipArchiveMessageHandler with default settings.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "pdf",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetTempPath",
+        "PdfDevice",
+        "ZipArchive"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_batch_process_convert_ten_zip_archives_to_pdf_same_pipeline_configuration": {
+      "title": "Create Batch Process Convert Ten Zip Archives To Pdf Same Pipeline Configuration",
+      "filename": "create_batch_process_convert_ten_zip_archives_to_pdf_same_pipeline_configuration.cs",
+      "description": "Create a batch process that converts ten ZIP archives to PDF using same pipeline configuration.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "Html.Configuration",
+        "MessageHandlers.Add",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetFileNameWithoutExtension",
+        "Path.GetTempPath"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_configuration_add_one_second_timeout_message_handler_load_html_file": {
+      "title": "Create Configuration Add One Second Timeout Message Handler Load Html File",
+      "filename": "create_configuration_add_one_second_timeout_message_handler_load_html_file.cs",
+      "description": "Create a Configuration, add a one‑second TimeoutMessageHandler, and load an HTML file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "OneSecondTimeoutMessageHandler",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_configuration_disables_all_network_requests_except_loading_local_resources": {
+      "title": "Create Configuration Disables All Network Requests Except Loading Local Resources",
+      "filename": "create_configuration_disables_all_network_requests_except_loading_local_resources.cs",
+      "description": "Create a configuration that disables all network requests except those required for loading local resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "InvalidOperationException",
+        "LocalOnlyHandler",
+        "MessageHandlers.Insert",
+        "RequestUri.ToString"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_configuration_enables_timeout_handling_protocol_filtering_zip_schema_resolution_detailed_request_logging": {
+      "title": "Create Configuration Enables Timeout Handling Protocol Filtering Zip Schema Resolution Detailed Request Logging",
+      "filename": "create_configuration_enables_timeout_handling_protocol_filtering_zip_schema_resolution_detailed_request_logging.cs",
+      "description": "Create a configuration that enables timeout handling, protocol filtering, ZIP schema resolution, and detailed request logging.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "InvalidOperationException",
+        "LocalOnlyGuardHandler",
+        "LoggingHandler",
+        "MessageHandlers.Add",
+        "MessageHandlers.Insert",
+        "Path.Combine",
+        "Path.GetDirectoryName"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_configuration_instance_30_second_network_timeout_all_handlers": {
+      "title": "Create Configuration Instance 30 Second Network Timeout All Handlers",
+      "filename": "create_configuration_instance_30_second_network_timeout_all_handlers.cs",
+      "description": "Create a Configuration instance with a 30‑second network timeout for all handlers.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Insert",
+        "TimeSpan.FromSeconds",
+        "TimeoutHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_configuration_object_retrieve_inetworkservice_attach_custom_authentication_handlers": {
+      "title": "Create Configuration Object Retrieve Inetworkservice Attach Custom Authentication Handlers",
+      "filename": "create_configuration_object_retrieve_inetworkservice_attach_custom_authentication_handlers.cs",
+      "description": "Create a Configuration object and retrieve INetworkService to attach custom authentication handlers.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkCredential",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_configuration_start_stop_duration_logging_handlers_detailed_performance_metrics": {
+      "title": "Create Configuration Start Stop Duration Logging Handlers Detailed Performance Metrics",
+      "filename": "create_configuration_start_stop_duration_logging_handlers_detailed_performance_metrics.cs",
+      "description": "Create a configuration that includes both start and stop duration logging handlers for detailed performance metrics.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "StartHandler",
+        "StopHandler",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_credentialhandler_class_inheriting_messagehandler_to_manage_http_authentication": {
+      "title": "Create Credentialhandler Class Inheriting Messagehandler To Manage Http Authentication",
+      "filename": "create_credentialhandler_class_inheriting_messagehandler_to_manage_http_authentication.cs",
+      "description": "Create a CredentialHandler class inheriting from MessageHandler to manage HTTP authentication.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkCredential",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_custom_message_handler_logs_request_urls_and_execution_times_for_each_http_call": {
+      "title": "Create Custom Message Handler Logs Request Urls And Execution Times For Each Http Call",
+      "filename": "create_custom_message_handler_logs_request_urls_and_execution_times_for_each_http_call.cs",
+      "description": "Create a custom message handler that logs request URLs and execution times for each HTTP call.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "System.Diagnostics.Debug.WriteLine",
+        "TimingMessageHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_html_document_instance_with_target_url_and_custom_configuration_containing_credential_handler": {
+      "title": "Create Html Document Instance With Target Url And Custom Configuration Containing Credential Handler",
+      "filename": "create_html_document_instance_with_target_url_and_custom_configuration_containing_credential_handler.cs",
+      "description": "Create an HTMLDocument instance with a target URL and the custom Configuration containing CredentialHandler.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "MyCredentialHandler",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "create_script_processes_list_of_zip_files_extracts_html_converts_each_to_pdf": {
+      "title": "Create Script Processes List Of Zip Files Extracts Html Converts Each To Pdf",
+      "filename": "create_script_processes_list_of_zip_files_extracts_html_converts_each_to_pdf.cs",
+      "description": "Create a script that processes a list of ZIP files, extracts HTML, and converts each to PDF.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "pdf",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Delete",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetFileNameWithoutExtension",
+        "Path.GetTempPath",
+        "PdfDevice"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "demonstrate_loading_protected_html_page_ntlm_authentication_validate_response_content": {
+      "title": "Demonstrate Loading Protected Html Page Ntlm Authentication Validate Response Content",
+      "filename": "demonstrate_loading_protected_html_page_ntlm_authentication_validate_response_content.cs",
+      "description": "Demonstrate loading a protected HTML page using NTLM authentication and validate the response content.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkCredential",
+        "NtlmAuthHandler",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "demonstrate_loading_protected_html_page_using_basic_authentication_and_validate_response_content": {
+      "title": "Demonstrate Loading Protected Html Page Using Basic Authentication And Validate Response Content",
+      "filename": "demonstrate_loading_protected_html_page_using_basic_authentication_and_validate_response_content.cs",
+      "description": "Demonstrate loading a protected HTML page using Basic authentication and validate the response content.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "BasicAuthHandler",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "demonstrate_loading_protected_html_page_using_digest_authentication_and_validate_response_content": {
+      "title": "Demonstrate Loading Protected Html Page Using Digest Authentication And Validate Response Content",
+      "filename": "demonstrate_loading_protected_html_page_using_digest_authentication_and_validate_response_content.cs",
+      "description": "Demonstrate loading a protected HTML page using Digest authentication and validate the response content.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Console.WriteLine",
+        "DigestAuthHandler",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "Net.RequestMessage",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "demonstrate_loading_protected_html_page_using_kerberos_authentication_and_validate_response_content": {
+      "title": "Demonstrate Loading Protected Html Page Using Kerberos Authentication And Validate Response Content",
+      "filename": "demonstrate_loading_protected_html_page_using_kerberos_authentication_and_validate_response_content.cs",
+      "description": "Demonstrate loading a protected HTML page using Kerberos authentication and validate the response content.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "KerberosHandler",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "design_short_circuit_handler_returns_immediate_response_when_specific_query_parameter_present": {
+      "title": "Design Short Circuit Handler Returns Immediate Response When Specific Query Parameter Present",
+      "filename": "design_short_circuit_handler_returns_immediate_response_when_specific_query_parameter_present.cs",
+      "description": "Design a short‑circuit handler that returns immediate response when specific query parameter is present.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RequestUri.ToString",
+        "SkipHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "develop_conversion_reads_html_files_applies_logging_handlers_saves_pdfs": {
+      "title": "Develop Conversion Reads Html Files Applies Logging Handlers Saves Pdfs",
+      "filename": "develop_conversion_reads_html_files_applies_logging_handlers_saves_pdfs.cs",
+      "description": "Develop a batch conversion tool that reads HTML files from a directory, applies logging handlers, and saves PDFs.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.GetFiles",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "LoggingHandler",
+        "MessageHandlers.Add",
+        "Path.ChangeExtension",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "develop_custom_schema_handler_for_myproto_protocol_and_register_in_message_handlers_collection": {
+      "title": "Develop Custom Schema Handler For Myproto Protocol And Register In Message Handlers Collection",
+      "filename": "develop_custom_schema_handler_for_myproto_protocol_and_register_in_message_handlers_collection.cs",
+      "description": "Develop a custom schema handler for the myproto protocol and register it in the message handlers collection.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CustomSchemaMessageFilter",
+        "Filters.Add",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "MyProtoMessageHandler",
+        "Protocol.TrimEnd",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "develop_unit_test_verifying_networkdisabledmessagehandler_blocks_disallowed_protocols_during_html_loading": {
+      "title": "Develop Unit Test Verifying Networkdisabledmessagehandler Blocks Disallowed Protocols During Html Loading",
+      "filename": "develop_unit_test_verifying_networkdisabledmessagehandler_blocks_disallowed_protocols_during_html_loading.cs",
+      "description": "Develop a unit test verifying NetworkDisabledMessageHandler blocks disallowed protocols during HTML loading.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "network",
+        "png"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "File.WriteAllText",
+        "Guid.NewGuid",
+        "HTMLDocument",
+        "Html.Configuration",
+        "InvalidOperationException",
+        "MessageHandlers.Insert",
+        "NetworkDisabledMessageHandler",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "RequestUri.ToString"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "enable_kerberos_authentication_in_credentialhandler_using_windowsidentity_and_ticket_acquisition_mechanisms": {
+      "title": "Enable Kerberos Authentication In Credentialhandler Using Windowsidentity And Ticket Acquisition Mechanisms",
+      "filename": "enable_kerberos_authentication_in_credentialhandler_using_windowsidentity_and_ticket_acquisition_mechanisms.cs",
+      "description": "Enable Kerberos authentication in CredentialHandler using WindowsIdentity and ticket acquisition mechanisms.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "KerberosCredentialHandler",
+        "MessageHandlers.Add",
+        "Net.RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "ensure_credentialhandler_inserted_at_index_zero_of_messagehandlers_before_creating_htmldocument": {
+      "title": "Ensure Credentialhandler Inserted At Index Zero Of Messagehandlers Before Creating Htmldocument",
+      "filename": "ensure_credentialhandler_inserted_at_index_zero_of_messagehandlers_before_creating_htmldocument.cs",
+      "description": "Ensure the CredentialHandler is inserted at index zero of MessageHandlers before creating any HTMLDocument.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Insert",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "ensure_credentialhandler_processes_authentication_challenges_without_additional_htmldocument_loading_code": {
+      "title": "Ensure Credentialhandler Processes Authentication Challenges Without Additional Htmldocument Loading Code",
+      "filename": "ensure_credentialhandler_processes_authentication_challenges_without_additional_htmldocument_loading_code.cs",
+      "description": "Ensure CredentialHandler processes authentication challenges without requiring additional code in HTMLDocument loading logic.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "implement_authentication_handler_validates_required_headers_returns_error_response_when_missing": {
+      "title": "Implement Authentication Handler Validates Required Headers Returns Error Response When Missing",
+      "filename": "implement_authentication_handler_validates_required_headers_returns_error_response_when_missing.cs",
+      "description": "Implement an authentication handler that validates required headers and returns error response when missing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "AuthHandler",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Html.Configuration",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "implement_basic_authentication_in_credentialhandler_using_networkcredential_username_password": {
+      "title": "Implement Basic Authentication In Credentialhandler Using Networkcredential Username Password",
+      "filename": "implement_basic_authentication_in_credentialhandler_using_networkcredential_username_password.cs",
+      "description": "Implement Basic authentication in CredentialHandler using NetworkCredential with username and password.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "BasicAuthHandler",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "implement_custom_handler_logs_request_urls_and_response_status_codes_for_debugging": {
+      "title": "Implement Custom Handler Logs Request Urls And Response Status Codes For Debugging",
+      "filename": "implement_custom_handler_logs_request_urls_and_response_status_codes_for_debugging.cs",
+      "description": "Implement a custom handler that logs request URLs and response status codes for debugging.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RequestLogger"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "implement_custom_protocol_handler_for_datauri_scheme_decode_base64_content_directly_within_html": {
+      "title": "Implement Custom Protocol Handler For Datauri Scheme Decode Base64 Content Directly Within Html",
+      "filename": "implement_custom_protocol_handler_for_datauri_scheme_decode_base64_content_directly_within_html.cs",
+      "description": "Implement a custom protocol handler for the datauri scheme to decode base64 content directly within HTML.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "image",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Convert.FromBase64String",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "File.WriteAllBytes",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "PdfSaveOptions",
+        "Regex",
+        "UTF8.GetBytes",
+        "Uri.UnescapeDataString"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "implement_diagnostic_handler_writes_request_and_response_headers_to_log_file_per_network_call": {
+      "title": "Implement Diagnostic Handler Writes Request And Response Headers To Log File Per Network Call",
+      "filename": "implement_diagnostic_handler_writes_request_and_response_headers_to_log_file_per_network_call.cs",
+      "description": "Implement a diagnostic handler that writes request and response headers to a log file for each network call.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Convert.ToString",
+        "DiagnosticHandler",
+        "HTMLDocument",
+        "IO.StreamWriter",
+        "MessageHandlers.Add",
+        "System.Convert.ToString",
+        "System.IO.StreamWriter"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "implement_idisposable_pattern_custom_handler_release_resources_after_processing": {
+      "title": "Implement Idisposable Pattern Custom Handler Release Resources After Processing",
+      "filename": "implement_idisposable_pattern_custom_handler_release_resources_after_processing.cs",
+      "description": "Implement IDisposable pattern in a custom handler to release resources after processing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CustomHandler",
+        "GC.SuppressFinalize",
+        "HTMLDocument",
+        "IO.MemoryStream",
+        "MessageHandlers.Add",
+        "PdfDevice",
+        "System.IO.MemoryStream"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "implement_retry_logic_in_credentialhandler_to_resend_requests_after_authentication_challenge_responses": {
+      "title": "Implement Retry Logic In Credentialhandler To Resend Requests After Authentication Challenge Responses",
+      "filename": "implement_retry_logic_in_credentialhandler_to_resend_requests_after_authentication_challenge_responses.cs",
+      "description": "Implement retry logic in CredentialHandler to resend requests after receiving authentication challenge responses.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "insert_authentication_handler_after_logging_enforce_security_checks": {
+      "title": "Insert Authentication Handler After Logging Enforce Security Checks",
+      "filename": "insert_authentication_handler_after_logging_enforce_security_checks.cs",
+      "description": "Insert an authentication handler after logging to enforce security checks.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "AuthHandler",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "LogHandler",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "insert_custom_credentialhandler_at_start_of_pipeline_using_configuration": {
+      "title": "Insert Custom Credentialhandler At Start Of Pipeline Using Configuration",
+      "filename": "insert_custom_credentialhandler_at_start_of_pipeline_using_configuration.cs",
+      "description": "Insert the custom CredentialHandler at the start of the pipeline using configuration.MessageHandlers.Insert.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Insert",
+        "NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "insert_logging_handler_beginning_of_pipeline_capture_request_details": {
+      "title": "Insert Logging Handler Beginning Of Pipeline Capture Request Details",
+      "filename": "insert_logging_handler_beginning_of_pipeline_capture_request_details.cs",
+      "description": "Insert a logging handler at the beginning of the pipeline to capture request details.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Convert.ToString",
+        "HTMLDocument",
+        "LoggingHandler",
+        "MessageHandlers.Add",
+        "StreamWriter"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "insert_logging_handlers_at_pipeline_start_capture_request_start_times_before_filtering": {
+      "title": "Insert Logging Handlers At Pipeline Start Capture Request Start Times Before Filtering",
+      "filename": "insert_logging_handlers_at_pipeline_start_capture_request_start_times_before_filtering.cs",
+      "description": "Insert logging handlers at the beginning of the pipeline to capture request start times before any filtering.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "Path.Combine",
+        "Stopwatch.StartNew",
+        "System.Diagnostics.Debug.WriteLine",
+        "System.Diagnostics.Stopwatch.StartNew",
+        "System.IO.Path.Combine",
+        "TimeLoggerMessageHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "insert_networkdisabledmessagehandler_at_pipeline_start_allow_only_file_protocol": {
+      "title": "Insert Networkdisabledmessagehandler At Pipeline Start Allow Only File Protocol",
+      "filename": "insert_networkdisabledmessagehandler_at_pipeline_start_allow_only_file_protocol.cs",
+      "description": "Insert a NetworkDisabledMessageHandler at the pipeline start to allow only the file protocol.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "FileProtocolMessageHandler",
+        "HTMLDocument",
+        "MessageHandlers.Insert"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "insert_ziparchive_message_handler_before_rendering_ensure_resources_resolved_correctly": {
+      "title": "Insert Ziparchive Message Handler Before Rendering Ensure Resources Resolved Correctly",
+      "filename": "insert_ziparchive_message_handler_before_rendering_ensure_resources_resolved_correctly.cs",
+      "description": "Insert ZipArchiveMessageHandler before rendering to ensure resources are resolved correctly.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetTempPath",
+        "PdfDevice",
+        "TimeSpan.FromSeconds",
+        "TimeoutHandler",
+        "ZipArchive"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "integrate_ntlm_authentication_handling_credentialhandler_configuring_domain_username_password_parameters": {
+      "title": "Integrate Ntlm Authentication Handling Credentialhandler Configuring Domain Username Password Parameters",
+      "filename": "integrate_ntlm_authentication_handling_credentialhandler_configuring_domain_username_password_parameters.cs",
+      "description": "Integrate NTLM authentication handling within CredentialHandler by configuring domain, username, and password parameters.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "RequestMessage",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "load_protected_html_page_require_digest_authentication_verify_automatic_challenge_handling": {
+      "title": "Load Protected Html Page Require Digest Authentication Verify Automatic Challenge Handling",
+      "filename": "load_protected_html_page_require_digest_authentication_verify_automatic_challenge_handling.cs",
+      "description": "Load a protected HTML page requiring Digest authentication and verify automatic challenge handling.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Console.WriteLine",
+        "DigestAuthHandler",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "Net.RequestMessage",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "load_protected_html_page_requiring_kerberos_authentication_test_ticket_renewal_functionality": {
+      "title": "Load Protected Html Page Requiring Kerberos Authentication Test Ticket Renewal Functionality",
+      "filename": "load_protected_html_page_requiring_kerberos_authentication_test_ticket_renewal_functionality.cs",
+      "description": "Load a protected HTML page requiring Kerberos authentication and test ticket renewal functionality.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "KerberosHandler",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "load_protected_html_page_requiring_ntlm_authentication_credentials_applied": {
+      "title": "Load Protected Html Page Requiring Ntlm Authentication Credentials Applied",
+      "filename": "load_protected_html_page_requiring_ntlm_authentication_credentials_applied.cs",
+      "description": "Load a protected HTML page requiring NTLM authentication and ensure credentials are correctly applied.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "Net.RequestMessage",
+        "NtlmHandler",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "load_protected_html_page_with_basic_auth_using_networkcredential_credentialhandler": {
+      "title": "Load Protected Html Page With Basic Auth Using Networkcredential Credentialhandler",
+      "filename": "load_protected_html_page_with_basic_auth_using_networkcredential_credentialhandler.cs",
+      "description": "Load a protected HTML page requiring Basic authentication by providing NetworkCredential to CredentialHandler.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "BasicAuthHandler",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "log_conversion_duration_each_zip_to_pdf_operation_conversion_timer_handler": {
+      "title": "Log Conversion Duration Each Zip To Pdf Operation Conversion Timer Handler",
+      "filename": "log_conversion_duration_each_zip_to_pdf_operation_conversion_timer_handler.cs",
+      "description": "Log conversion duration for each ZIP‑to‑PDF operation with a conversion‑timer handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "Html.Configuration",
+        "MessageHandlers.Add",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "PdfDevice",
+        "RequestLoggingHandler",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "log_request_and_response_headers_to_file_via_dedicated_logging_handler": {
+      "title": "Log Request And Response Headers To File Via Dedicated Logging Handler",
+      "filename": "log_request_and_response_headers_to_file_via_dedicated_logging_handler.cs",
+      "description": "Log request and response headers to a file via a dedicated logging handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "stream",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Convert.ToString",
+        "HTMLDocument",
+        "IO.StreamWriter",
+        "LoggingHandler",
+        "MessageHandlers.Add",
+        "System.Convert.ToString",
+        "System.IO.StreamWriter"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "log_request_processing_start_end_timestamps_with_timestamping_handler": {
+      "title": "Log Request Processing Start End Timestamps With Timestamping Handler",
+      "filename": "log_request_processing_start_end_timestamps_with_timestamping_handler.cs",
+      "description": "Log request processing start and end timestamps with a timestamping handler.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Debug.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "TimestampLoggingHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "measure_pipeline_processing_time_output_console_handler": {
+      "title": "Measure Pipeline Processing Time Output Console Handler",
+      "filename": "measure_pipeline_processing_time_output_console_handler.cs",
+      "description": "Measure total pipeline processing time and output to console using a timing handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Debug.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Saving.PdfSaveOptions",
+        "Stopwatch.StartNew",
+        "System.Diagnostics.Debug.WriteLine",
+        "System.Diagnostics.Stopwatch.StartNew",
+        "TimingHandler"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "modify_response_content_include_additional_json_metadata_custom_handler": {
+      "title": "Modify Response Content Include Additional Json Metadata Custom Handler",
+      "filename": "modify_response_content_include_additional_json_metadata_custom_handler.cs",
+      "description": "Modify response content to include additional JSON metadata via a custom handler.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "metadata",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Console.WriteLine",
+        "Content.ReadAsString",
+        "HTMLDocument",
+        "Html.Configuration",
+        "JsonMetadataHandler",
+        "JsonNode.Parse",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "override_invoke_method_forward_request_to_next_handler_unless_condition_triggers_short_circuit": {
+      "title": "Override Invoke Method Forward Request To Next Handler Unless Condition Triggers Short Circuit",
+      "filename": "override_invoke_method_forward_request_to_next_handler_unless_condition_triggers_short_circuit.cs",
+      "description": "Override Invoke method to forward request to next handler unless condition triggers short‑circuit.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "RequestUri.ToString",
+        "SkipHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "place_zipfileschemamessagehandler_after_timeout_handler_prioritize_timeout_checks_before_zip_resolution": {
+      "title": "Place Zipfileschemamessagehandler After Timeout Handler Prioritize Timeout Checks Before Zip Resolution",
+      "filename": "place_zipfileschemamessagehandler_after_timeout_handler_prioritize_timeout_checks_before_zip_resolution.cs",
+      "description": "Place ZipFileSchemaMessageHandler after the timeout handler to prioritize timeout checks before ZIP resolution.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "network",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "MessageHandlers.Insert",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetTempPath",
+        "PdfDevice",
+        "TimeSpan.FromSeconds",
+        "TimeoutHandler"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "retrieve_inetworkservice_from_configuration_to_enable_network_operations": {
+      "title": "Retrieve Inetworkservice From Configuration To Enable Network Operations",
+      "filename": "retrieve_inetworkservice_from_configuration_to_enable_network_operations.cs",
+      "description": "Retrieve the INetworkService from the Configuration object to enable network operations.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "return_403_forbidden_from_authentication_handler_when_api_key_validation_fails": {
+      "title": "Return 403 Forbidden From Authentication Handler When Api Key Validation Fails",
+      "filename": "return_403_forbidden_from_authentication_handler_when_api_key_validation_fails.cs",
+      "description": "Return 403 Forbidden from authentication handler when API key validation fails.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "ApiKeyAuthHandler",
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "set_global_three_second_timeout_network_requests_pdf_conversion": {
+      "title": "Set Global Three Second Timeout Network Requests Pdf Conversion",
+      "filename": "set_global_three_second_timeout_network_requests_pdf_conversion.cs",
+      "description": "Set a global three‑second timeout for all network requests during PDF conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "MessageHandlers.Insert",
+        "PdfSaveOptions",
+        "ThreeSecondTimeoutHandler",
+        "TimeSpan.FromSeconds"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "set_jpeg_device_options_quality_85_rendering_html_from_zip_to_jpg": {
+      "title": "Set Jpeg Device Options Quality 85 Rendering Html From Zip To Jpg",
+      "filename": "set_jpeg_device_options_quality_85_rendering_html_from_zip_to_jpg.cs",
+      "description": "Set JPEG device options to use quality 85 when rendering HTML from ZIP to JPG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.Delete",
+        "Directory.Exists",
+        "File.Exists",
+        "FileNotFoundException",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions",
+        "Path.Combine",
+        "ZipFile.ExtractToDirectory"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "set_pdf_device_options_embed_fonts_render_html_from_zip_to_pdf": {
+      "title": "Set Pdf Device Options Embed Fonts Render Html From Zip To Pdf",
+      "filename": "set_pdf_device_options_embed_fonts_render_html_from_zip_to_pdf.cs",
+      "description": "Set PDF device options to embed fonts when rendering HTML from ZIP to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "extraction",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "FileNotFoundException",
+        "FontsSettings.SetFontsLookupFolder",
+        "FullName.EndsWith",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "ZipArchive"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "set_timeout_property_of_timeout_message_handler_to_zero_disable_timeout_enforcement_testing": {
+      "title": "Set Timeout Property Of Timeout Message Handler To Zero Disable Timeout Enforcement Testing",
+      "filename": "set_timeout_property_of_timeout_message_handler_to_zero_disable_timeout_enforcement_testing.cs",
+      "description": "Set the Timeout property of TimeoutMessageHandler to zero to disable timeout enforcement for testing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "TimeSpan.FromSeconds",
+        "ZeroTimeoutHandler"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "test_digest_authentication_handling_by_verifying_server_provided_nonce_and_response_hash_calculations": {
+      "title": "Test Digest Authentication Handling By Verifying Server Provided Nonce And Response Hash Calculations",
+      "filename": "test_digest_authentication_handling_by_verifying_server_provided_nonce_and_response_hash_calculations.cs",
+      "description": "Test Digest authentication handling by verifying server-provided nonce and response hash calculations.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "Console.WriteLine",
+        "DigestAuthHandler",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "Net.RequestMessage",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "transform_xml_response_using_xslt_custom_handler": {
+      "title": "Transform Xml Response Using Xslt Custom Handler",
+      "filename": "transform_xml_response_using_xslt_custom_handler.cs",
+      "description": "Transform XML response using XSLT within a custom response handler.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Content.ReadAsString",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "PdfSaveOptions",
+        "StringReader",
+        "StringWriter",
+        "XmlReader.Create",
+        "XslCompiledTransform",
+        "XsltTransformHandler"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "use_configuration_object_apply_custom_schema_handler_data_protocol_multiple_conversions": {
+      "title": "Use Configuration Object Apply Custom Schema Handler Data Protocol Multiple Conversions",
+      "filename": "use_configuration_object_apply_custom_schema_handler_data_protocol_multiple_conversions.cs",
+      "description": "Use the Configuration object to apply a custom schema handler for the data protocol across multiple conversions.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "CustomSchemaMessageFilter",
+        "DataProtocolMessageHandler",
+        "Filters.Add",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "PdfSaveOptions",
+        "Protocol.TrimEnd"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "use_protocol_message_filter_handle_http_and_https_schemes": {
+      "title": "Use Protocol Message Filter Handle Http And Https Schemes",
+      "filename": "use_protocol_message_filter_handle_http_and_https_schemes.cs",
+      "description": "Use ProtocolMessageFilter to handle both \"http\" and \"https\" schemes for comprehensive coverage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Filters.Add",
+        "HTMLDocument",
+        "HttpAndHttpsHandler",
+        "MessageHandlers.Add",
+        "ProtocolMessageFilter",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "use_protocol_message_filter_handle_only_http_resources_in_conversion_workflow": {
+      "title": "Use Protocol Message Filter Handle Only Http Resources In Conversion Workflow",
+      "filename": "use_protocol_message_filter_handle_only_http_resources_in_conversion_workflow.cs",
+      "description": "Use ProtocolMessageFilter to handle only resources with \"http\" scheme in conversion workflow.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Filters.Add",
+        "HTMLDocument",
+        "HttpOnlyHandler",
+        "MessageHandlers.Add",
+        "ProtocolMessageFilter",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "use_protocol_message_filter_to_exclude_file_protocol_resources_from_processing_in_pipeline": {
+      "title": "Use Protocol Message Filter To Exclude File Protocol Resources From Processing In Pipeline",
+      "filename": "use_protocol_message_filter_to_exclude_file_protocol_resources_from_processing_in_pipeline.cs",
+      "description": "Use ProtocolMessageFilter to exclude file protocol resources from processing in the pipeline.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Console.WriteLine",
+        "Filters.Add",
+        "HTMLDocument",
+        "Html.Configuration",
+        "HttpOnlyHandler",
+        "MessageHandlers.Add",
+        "ProtocolMessageFilter",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "use_protocolmessagefilter_process_http_and_https_protocols_in_pipeline": {
+      "title": "Use Protocolmessagefilter Process Http And Https Protocols In Pipeline",
+      "filename": "use_protocolmessagefilter_process_http_and_https_protocols_in_pipeline.cs",
+      "description": "Use ProtocolMessageFilter to process only HTTP and HTTPS protocols in the pipeline.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Filters.Add",
+        "HTMLDocument",
+        "HttpHttpsHandler",
+        "MessageHandlers.Add",
+        "ProtocolMessageFilter",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "validate_credentialhandler_encodes_credentials_basic_authentication_base64": {
+      "title": "Validate Credentialhandler Encodes Credentials Basic Authentication Base64",
+      "filename": "validate_credentialhandler_encodes_credentials_basic_authentication_base64.cs",
+      "description": "Validate that CredentialHandler correctly encodes credentials for Basic authentication using Base64 encoding.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "BasicAuthValidator",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "Net.RequestMessage",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "validate_credentialhandler_reuse_multiple_sequential_htmldocument_loads_different_urls": {
+      "title": "Validate Credentialhandler Reuse Multiple Sequential Htmldocument Loads Different Urls",
+      "filename": "validate_credentialhandler_reuse_multiple_sequential_htmldocument_loads_different_urls.cs",
+      "description": "Validate that CredentialHandler can be reused for multiple sequential HTMLDocument loads with different URLs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "validate_json_payload_in_request_body_using_custom_validation_handler": {
+      "title": "Validate Json Payload In Request Body Using Custom Validation Handler",
+      "filename": "validate_json_payload_in_request_body_using_custom_validation_handler.cs",
+      "description": "Validate JSON payload in request body using a custom validation handler.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Content.ReadAsString",
+        "HTMLDocument",
+        "JsonNode.Parse",
+        "JsonRequestValidationHandler",
+        "MessageHandlers.Add"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "verify_credentialhandler_correctly_adds_authorization_header_basic_authentication_using_base64": {
+      "title": "Verify Credentialhandler Correctly Adds Authorization Header Basic Authentication Using Base64",
+      "filename": "verify_credentialhandler_correctly_adds_authorization_header_basic_authentication_using_base64.cs",
+      "description": "Verify that CredentialHandler correctly adds the Authorization header for Basic authentication using Base64.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Net.RequestMessage",
+        "BasicAuthValidator",
+        "Console.WriteLine",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "Net.RequestMessage",
+        "System.Console.WriteLine",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "verify_credentialhandler_correctly_computes_digest_response_using_server_provided_nonce": {
+      "title": "Verify Credentialhandler Correctly Computes Digest Response Using Server Provided Nonce",
+      "filename": "verify_credentialhandler_correctly_computes_digest_response_using_server_provided_nonce.cs",
+      "description": "Verify that CredentialHandler correctly computes the Digest response using the server-provided nonce.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "extraction",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "DigestHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "NetworkCredential",
+        "RequestMessage"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "verify_credentialhandler_correctly_formats_ntlm_authentication_messages_protocol_specifications": {
+      "title": "Verify Credentialhandler Correctly Formats Ntlm Authentication Messages Protocol Specifications",
+      "filename": "verify_credentialhandler_correctly_formats_ntlm_authentication_messages_protocol_specifications.cs",
+      "description": "Verify that CredentialHandler correctly formats NTLM authentication messages according to protocol specifications.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "NtlmAuthHandler",
+        "RequestMessage",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "verify_credentialhandler_correctly_obtains_and_uses_kerberos_tickets_for_authentication": {
+      "title": "Verify Credentialhandler Correctly Obtains And Uses Kerberos Tickets For Authentication",
+      "filename": "verify_credentialhandler_correctly_obtains_and_uses_kerberos_tickets_for_authentication.cs",
+      "description": "Verify that CredentialHandler correctly obtains and uses Kerberos tickets for authentication.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "html",
+        "html-document",
+        "network",
+        "url"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "KerberosCredentialHandler",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    },
+    "verify_html_document_loads_protected_page_successfully_after_credential_handler_processes_authentication": {
+      "title": "Verify Html Document Loads Protected Page Successfully After Credential Handler Processes Authentication",
+      "filename": "verify_html_document_loads_protected_page_successfully_after_credential_handler_processes_authentication.cs",
+      "description": "Verify that the HTMLDocument loads the protected page successfully after CredentialHandler processes authentication.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "network"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "CredentialHandler",
+        "HTMLDocument",
+        "MessageHandlers.Add",
+        "Net.NetworkCredential",
+        "System.Net.NetworkCredential"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:25:11Z",
+      "status": "verified"
+    }
+  }
+}
