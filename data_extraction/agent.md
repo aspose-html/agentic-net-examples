@@ -313,5 +313,4 @@ class DataExtractionDemo
 3. **Follow the common pattern** – load → locate → extract → save/download.  
 4. **Naming** – file name and `title` should be PascalCase with underscores separating logical parts (e.g., `Extract_Images_From_Page_Using_Css_Selector.cs`).  
 5. **Update statistics** – after adding a file, increment `total_examples` and the relevant namespace/API counts in the repository’s metadata.  
-
 ---
