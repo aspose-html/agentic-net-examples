@@ -245,5 +245,4 @@ class Program
 3. **Follow the Standard Flow** – Load → Bind → Convert → (optional) Render → Save.  
 4. **Naming Convention** – File name in *PascalCase* describing the operation, prefixed with the category action (e.g., `convert_template_...`).  
 5. **Update Statistics** – After adding a file, increment `total_examples` and adjust namespace/API counts accordingly.  
-
 ---
