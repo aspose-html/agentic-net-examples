@@ -1,0 +1,939 @@
+{
+  "category": "advanced_html_editing",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T08:52:04Z",
+  "examples": {
+    "apply_linear_gradient_fill_to_canvas_rectangle_and_export_drawing_as_jpeg_image": {
+      "title": "Apply Linear Gradient Fill To Canvas Rectangle And Export Drawing As Jpeg Image",
+      "filename": "apply_linear_gradient_fill_to_canvas_rectangle_and_export_drawing_as_jpeg_image.cs",
+      "description": "Apply a linear gradient fill to a canvas rectangle and export the drawing as a JPEG image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "dom",
+        "image",
+        "jpeg",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Create",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "configure_html_load_options_disable_external_resources_render_canvas_convert_to_jpeg_safely": {
+      "title": "Configure Html Load Options Disable External Resources Render Canvas Convert To Jpeg Safely",
+      "filename": "configure_html_load_options_disable_external_resources_render_canvas_convert_to_jpeg_safely.cs",
+      "description": "Configure HtmlLoadOptions to disable external resources, then render canvas and convert to JPEG safely.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "dom",
+        "image",
+        "jpeg",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_set_jpeg_dpi_300_render_high_resolution_canvas_save": {
+      "title": "Configure Imagesaveoptions Set Jpeg Dpi 300 Render High Resolution Canvas Save",
+      "filename": "configure_imagesaveoptions_set_jpeg_dpi_300_render_high_resolution_canvas_save.cs",
+      "description": "Configure ImageSaveOptions to set JPEG DPI to 300, then render a high‑resolution canvas and save.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "image",
+        "jpeg",
+        "rendering",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_custom_margins_convert_html_canvas_to_pdf": {
+      "title": "Configure Pdfsaveoptions Custom Margins Convert Html Canvas To Pdf",
+      "filename": "configure_pdfsaveoptions_custom_margins_convert_html_canvas_to_pdf.cs",
+      "description": "Configure PdfSaveOptions with custom margins, then convert an HTML file containing canvas to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "drawing",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfSaveOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "configure_pdfsaveoptions_embed_xmp_metadata_convert_canvas_rich_html_to_pdf": {
+      "title": "Configure Pdfsaveoptions Embed Xmp Metadata Convert Canvas Rich Html To Pdf",
+      "filename": "configure_pdfsaveoptions_embed_xmp_metadata_convert_canvas_rich_html_to_pdf.cs",
+      "description": "Configure PdfSaveOptions to embed XMP metadata, then convert a canvas‑rich HTML document to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "metadata",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "convert_html_document_containing_canvas_to_jpeg_using_imagesaveoptions": {
+      "title": "Convert Html Document Containing Canvas To Jpeg Using Imagesaveoptions",
+      "filename": "convert_html_document_containing_canvas_to_jpeg_using_imagesaveoptions.cs",
+      "description": "Convert an HTML document containing a canvas element to JPEG using ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "image",
+        "jpeg",
+        "rendering",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_batch_process_reads_html_strings_draws_watermarks_on_canvases_writes_jpeg_outputs": {
+      "title": "Create Batch Process Reads Html Strings Draws Watermarks On Canvases Writes Jpeg Outputs",
+      "filename": "create_batch_process_reads_html_strings_draws_watermarks_on_canvases_writes_jpeg_outputs.cs",
+      "description": "Create a batch process that reads HTML strings, draws watermarks on canvases, and writes JPEG outputs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "dom",
+        "image",
+        "jpeg",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "Path.Combine"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_canvas_element_in_html_string_draw_gradient_save_output_as_jpeg_image": {
+      "title": "Create Canvas Element In Html String Draw Gradient Save Output As Jpeg Image",
+      "filename": "create_canvas_element_in_html_string_draw_gradient_save_output_as_jpeg_image.cs",
+      "description": "Create a canvas element in an HTML string, draw a gradient, and save output as a JPEG image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "dom",
+        "image",
+        "jpeg",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Create",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_css_aspose_rule_adds_drop_shadow_all_canvas_elements_pdf": {
+      "title": "Create Css Aspose Rule Adds Drop Shadow All Canvas Elements Pdf",
+      "filename": "create_css_aspose_rule_adds_drop_shadow_all_canvas_elements_pdf.cs",
+      "description": "Create a CSS -aspose- rule that adds a drop shadow to all canvas elements in PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "css",
+        "dom",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_css_aspose_rule_background_color_canvas_elements_pdf": {
+      "title": "Create Css Aspose Rule Background Color Canvas Elements Pdf",
+      "filename": "create_css_aspose_rule_background_color_canvas_elements_pdf.cs",
+      "description": "Create a CSS -aspose- rule that adds a background color to all canvas elements in the PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "css",
+        "dom",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_css_rule_aspose_page_margin_printable_margins_canvas_content": {
+      "title": "Create Css Rule Aspose Page Margin Printable Margins Canvas Content",
+      "filename": "create_css_rule_aspose_page_margin_printable_margins_canvas_content.cs",
+      "description": "Create a CSS rule using -aspose- page‑margin to add printable margins around canvas content.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "css",
+        "dom",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_custom_css_extension_adds_aspose_page_number_footer_verify_pdf_output": {
+      "title": "Create Custom Css Extension Adds Aspose Page Number Footer Verify Pdf Output",
+      "filename": "create_custom_css_extension_adds_aspose_page_number_footer_verify_pdf_output.cs",
+      "description": "Create a custom CSS extension that adds a -aspose- page‑number footer, and verify in PDF output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "css",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration.Create",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Configuration.Create",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.HTMLDocument",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_custom_stream_provider_writing_jpeg_streams_to_network_location_during_conversion": {
+      "title": "Create Custom Stream Provider Writing Jpeg Streams To Network Location During Conversion",
+      "filename": "create_custom_stream_provider_writing_jpeg_streams_to_network_location_during_conversion.cs",
+      "description": "Create a custom ICreateStreamProvider that writes JPEG streams to a network location during conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "epub",
+        "image",
+        "jpeg",
+        "network",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "Directory.CreateDirectory",
+        "File.OpenRead",
+        "FileStream",
+        "ImageSaveOptions",
+        "NetworkStreamProvider",
+        "Path.Combine"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "create_pdf_device_with_file_path_attach_to_html_document_and_save_canvas_output": {
+      "title": "Create Pdf Device With File Path Attach To Html Document And Save Canvas Output",
+      "filename": "create_pdf_device_with_file_path_attach_to_html_document_and_save_canvas_output.cs",
+      "description": "Create a PDF device with a file path, attach it to an HTMLDocument, and save the canvas output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "dom",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "draw_series_of_concentric_circles_on_canvas_export_each_page_as_separate_jpeg_streams": {
+      "title": "Draw Series Of Concentric Circles On Canvas Export Each Page As Separate Jpeg Streams",
+      "filename": "draw_series_of_concentric_circles_on_canvas_export_each_page_as_separate_jpeg_streams.cs",
+      "description": "Draw a series of concentric circles on a canvas, then export each page as separate JPEG streams.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "image",
+        "jpeg",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.GetCurrentDirectory",
+        "File.Create",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Path.Combine"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "enable_css_extensions_add_aspose_header_rule_verify_header_appears_in_converted_pdf": {
+      "title": "Enable Css Extensions Add Aspose Header Rule Verify Header Appears In Converted Pdf",
+      "filename": "enable_css_extensions_add_aspose_header_rule_verify_header_appears_in_converted_pdf.cs",
+      "description": "Enable CSS extensions, add a -aspose- header rule, and verify header appears in converted PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "css",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration.Create",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Configuration.Create",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.WriteAllText",
+        "Html.HTMLDocument",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "enable_css_extensions_add_custom_aspose_margin_rule_convert_html_to_pdf": {
+      "title": "Enable Css Extensions Add Custom Aspose Margin Rule Convert Html To Pdf",
+      "filename": "enable_css_extensions_add_custom_aspose_margin_rule_convert_html_to_pdf.cs",
+      "description": "Enable CSS extensions, add a custom -aspose- margin rule, then convert the HTML to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "css",
+        "pdf",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration.Create",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Configuration.Create",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "enable_css_extensions_define_aspose_page_break_rule_verify_pdf_pagination_after_conversion": {
+      "title": "Enable Css Extensions Define Aspose Page Break Rule Verify Pdf Pagination After Conversion",
+      "filename": "enable_css_extensions_define_aspose_page_break_rule_verify_pdf_pagination_after_conversion.cs",
+      "description": "Enable CSS extensions, define a -aspose- page‑break rule, and verify PDF pagination after conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "css",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Exists",
+        "File.WriteAllText",
+        "PdfSaveOptions",
+        "System.IO.File.Exists",
+        "System.IO.File.WriteAllText"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "implement_custom_stream_provider_compress_jpeg_pages_gzip_before_saving_to_disk": {
+      "title": "Implement Custom Stream Provider Compress Jpeg Pages Gzip Before Saving To Disk",
+      "filename": "implement_custom_stream_provider_compress_jpeg_pages_gzip_before_saving_to_disk.cs",
+      "description": "Implement a custom stream provider that compresses JPEG pages using GZip before saving to disk.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "epub",
+        "image",
+        "jpeg",
+        "stream",
+        "gzip"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.Create",
+        "File.OpenRead",
+        "GZipStream",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "implement_custom_stream_provider_writing_pdf_output_to_disk_using_icreatestreamprovider_html_to_pdf_conversion": {
+      "title": "Implement Custom Stream Provider Writing Pdf Output To Disk Using Icreatestreamprovider Html To Pdf Conversion",
+      "filename": "implement_custom_stream_provider_writing_pdf_output_to_disk_using_icreatestreamprovider_html_to_pdf_conversion.cs",
+      "description": "Implement a custom stream provider that writes PDF output streams to disk using ICreateStreamProvider during HTML to PDF conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "pdf",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "DiskStreamProvider",
+        "File.Exists",
+        "File.WriteAllText",
+        "FileStream",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "implement_stream_provider_supply_file_streams_multi_page_html_to_jpeg_conversion": {
+      "title": "Implement Stream Provider Supply File Streams Multi Page Html To Jpeg Conversion",
+      "filename": "implement_stream_provider_supply_file_streams_multi_page_html_to_jpeg_conversion.cs",
+      "description": "Implement ICreateStreamProvider to supply file streams for multi‑page HTML to JPEG conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "conversion",
+        "image",
+        "jpeg",
+        "stream",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "FileStream",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Path.Combine",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "iterate_over_directory_html_files_draw_border_each_canvas_save_pdfs": {
+      "title": "Iterate Over Directory Html Files Draw Border Each Canvas Save Pdfs",
+      "filename": "iterate_over_directory_html_files_draw_border_each_canvas_save_pdfs.cs",
+      "description": "Iterate over a directory of HTML files, draw a border on each canvas, and save PDFs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "dom",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "DirectoryNotFoundException",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfDevice"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "iterate_over_list_of_markdown_sources_add_watermark_canvas_overlay_output_pdfs": {
+      "title": "Iterate Over List Of Markdown Sources Add Watermark Canvas Overlay Output Pdfs",
+      "filename": "iterate_over_list_of_markdown_sources_add_watermark_canvas_overlay_output_pdfs.cs",
+      "description": "Iterate over a list of Markdown sources, add a watermark canvas overlay, and output PDFs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "markdown",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "Path.Combine",
+        "PdfSaveOptions",
+        "System.IO.Directory.CreateDirectory",
+        "System.IO.Directory.GetCurrentDirectory",
+        "System.IO.Path.Combine"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_epub_locate_canvas_draw_text_export_page_pdf": {
+      "title": "Load Epub Locate Canvas Draw Text Export Page Pdf",
+      "filename": "load_epub_locate_canvas_draw_text_export_page_pdf.cs",
+      "description": "Load an EPUB file, locate its canvas element, draw text, and export the page as PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "epub",
+        "pdf",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_html_file_attach_mutationobserver_canvas_log_drawing_changes_console": {
+      "title": "Load Html File Attach Mutationobserver Canvas Log Drawing Changes Console",
+      "filename": "load_html_file_attach_mutationobserver_canvas_log_drawing_changes_console.cs",
+      "description": "Load an HTML file, attach a MutationObserver to the canvas, and log drawing changes to console.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "dom",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "MutationObserver"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_html_file_edit_canvas_graphics_export_to_pdf": {
+      "title": "Load Html File Edit Canvas Graphics Export To Pdf",
+      "filename": "load_html_file_edit_canvas_graphics_export_to_pdf.cs",
+      "description": "Load an HTML file, edit its canvas graphics, and export the result to a PDF file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "dom",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_markdown_embed_canvas_render_shapes_icanvasrenderingcontext2d_save_pdf": {
+      "title": "Load Markdown Embed Canvas Render Shapes Icanvasrenderingcontext2D Save Pdf",
+      "filename": "load_markdown_embed_canvas_render_shapes_icanvasrenderingcontext2d_save_pdf.cs",
+      "description": "Load a Markdown source, embed a canvas, render shapes via ICanvasRenderingContext2D, and save as PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "drawing",
+        "markdown",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Converters.Converter.ConvertMarkdown",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_markdown_file_with_embedded_canvas_add_drop_shadow_effect_convert_to_pdf": {
+      "title": "Load Markdown File With Embedded Canvas Add Drop Shadow Effect Convert To Pdf",
+      "filename": "load_markdown_file_with_embedded_canvas_add_drop_shadow_effect_convert_to_pdf.cs",
+      "description": "Load a Markdown file with embedded canvas, add a drop shadow effect, and convert to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "markdown",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMarkdown",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_mhtml_email_archive_edit_canvas_drawing_export_modified_content_to_jpeg": {
+      "title": "Load Mhtml Email Archive Edit Canvas Drawing Export Modified Content To Jpeg",
+      "filename": "load_mhtml_email_archive_edit_canvas_drawing_export_modified_content_to_jpeg.cs",
+      "description": "Load an MHTML email archive, edit its canvas drawing, and export the modified content to JPEG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "image",
+        "jpeg",
+        "mhtml",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_multiple_html_files_apply_same_canvas_drawing_routine_generate_combined_pdf_booklet": {
+      "title": "Load Multiple Html Files Apply Same Canvas Drawing Routine Generate Combined Pdf Booklet",
+      "filename": "load_multiple_html_files_apply_same_canvas_drawing_routine_generate_combined_pdf_booklet.cs",
+      "description": "Load multiple HTML files, apply the same canvas drawing routine, and generate a combined PDF booklet.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "drawing",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.Drawing.Size",
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Drawing.Size",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "HtmlRenderer",
+        "Page",
+        "Path.GetDirectoryName",
+        "Path.GetFullPath",
+        "PdfDevice",
+        "PdfRenderingOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_xhtml_page_modify_canvas_text_content_save_as_pdf": {
+      "title": "Load Xhtml Page Modify Canvas Text Content Save As Pdf",
+      "filename": "load_xhtml_page_modify_canvas_text_content_save_as_pdf.cs",
+      "description": "Load a XHTML page, modify its canvas text content, and save the result as a PDF file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "load_xml_document_transform_to_html_with_canvas_and_convert_to_pdf": {
+      "title": "Load Xml Document Transform To Html With Canvas And Convert To Pdf",
+      "filename": "load_xml_document_transform_to_html_with_canvas_and_convert_to_pdf.cs",
+      "description": "Load an XML document, transform it to HTML with a canvas element, and convert to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "conversion",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice",
+        "XDocument.Load"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "set_html_load_options_preserve_whitespace_render_canvas_export_pdf_preserving_layout": {
+      "title": "Set Html Load Options Preserve Whitespace Render Canvas Export Pdf Preserving Layout",
+      "filename": "set_html_load_options_preserve_whitespace_render_canvas_export_pdf_preserving_layout.cs",
+      "description": "Set HtmlLoadOptions to preserve whitespace, then render a canvas and export to PDF preserving layout.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "use_icanvasrenderingcontext2d_draw_bezier_curve_save_highresolution_jpeg": {
+      "title": "Use Icanvasrenderingcontext2D Draw Bezier Curve Save Highresolution Jpeg",
+      "filename": "use_icanvasrenderingcontext2d_draw_bezier_curve_save_highresolution_jpeg.cs",
+      "description": "Use ICanvasRenderingContext2D to draw a bezier curve, then save the drawing as a high‑resolution JPEG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "image",
+        "jpeg",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "File.Create",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "use_icanvasrenderingcontext2d_draw_rotated_text_string_on_canvas_save_as_jpeg": {
+      "title": "Use Icanvasrenderingcontext2D Draw Rotated Text String On Canvas Save As Jpeg",
+      "filename": "use_icanvasrenderingcontext2d_draw_rotated_text_string_on_canvas_save_as_jpeg.cs",
+      "description": "Use ICanvasRenderingContext2D to draw a rotated text string on a canvas and save as JPEG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "image",
+        "jpeg",
+        "rendering",
+        "stream"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.GetCurrentDirectory",
+        "File.Create",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Path.Combine"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "use_mutationobserver_detect_canvas_changes_trigger_automatic_pdf_regeneration": {
+      "title": "Use Mutationobserver Detect Canvas Changes Trigger Automatic Pdf Regeneration",
+      "filename": "use_mutationobserver_detect_canvas_changes_trigger_automatic_pdf_regeneration.cs",
+      "description": "Use MutationObserver to detect canvas element changes, then trigger automatic PDF regeneration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MutationObserver",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    },
+    "use_mutationobserver_monitor_canvas_attribute_changes_automatically_adjust_pdf_page_orientation": {
+      "title": "Use Mutationobserver Monitor Canvas Attribute Changes Automatically Adjust Pdf Page Orientation",
+      "filename": "use_mutationobserver_monitor_canvas_attribute_changes_automatically_adjust_pdf_page_orientation.cs",
+      "description": "Use MutationObserver to monitor attribute changes on canvas and automatically adjust PDF page orientation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "canvas",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Body.AppendChild",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "MutationObserver",
+        "PdfDevice"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T08:52:04Z",
+      "status": "verified"
+    }
+  }
+}
