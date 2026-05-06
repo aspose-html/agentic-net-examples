@@ -1,0 +1,2682 @@
+{
+  "category": "svg_converter",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:32:59Z",
+  "examples": {
+    "add_table_of_contents_using_pdfsaveoptions_outlines_when_generating_pdf": {
+      "title": "Add Table Of Contents Using Pdfsaveoptions Outlines When Generating Pdf",
+      "filename": "add_table_of_contents_using_pdfsaveoptions_outlines_when_generating_pdf.cs",
+      "description": "Add a table of contents using PdfSaveOptions.Outlines when generating PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "saving-options",
+        "forms",
+        "html",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "adjust_imagesaveoptions_gamma_value_improve_brightness_png_conversion": {
+      "title": "Adjust Imagesaveoptions Gamma Value Improve Brightness Png Conversion",
+      "filename": "adjust_imagesaveoptions_gamma_value_improve_brightness_png_conversion.cs",
+      "description": "Adjust ImageSaveOptions gamma value to improve brightness for PNG conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "saving-options",
+        "forms",
+        "html",
+        "image",
+        "mhtml"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "apply_lzw_compression_image_save_options_converting_svg_to_tiff": {
+      "title": "Apply Lzw Compression Image Save Options Converting Svg To Tiff",
+      "filename": "apply_lzw_compression_image_save_options_converting_svg_to_tiff.cs",
+      "description": "Apply LZW compression in ImageSaveOptions while converting SVG to TIFF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "image",
+        "rendering",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "apply_xpssaveoptions_set_compression_level_page_size_svg_to_xps_conversion": {
+      "title": "Apply Xpssaveoptions Set Compression Level Page Size Svg To Xps Conversion",
+      "filename": "apply_xpssaveoptions_set_compression_level_page_size_svg_to_xps_conversion.cs",
+      "description": "Apply XpsSaveOptions to set compression level and page size during SVG to XPS conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "xps",
+        "dom",
+        "drawing",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Margin",
+        "Page",
+        "SVGDocument",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "batch_conversion_folder_svg_to_jpeg_uniform_quality": {
+      "title": "Batch Conversion Folder Svg To Jpeg Uniform Quality",
+      "filename": "batch_conversion_folder_svg_to_jpeg_uniform_quality.cs",
+      "description": "Implement batch conversion of a folder of SVG files to JPEG with uniform quality.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "jpeg",
+        "image",
+        "rendering",
+        "forms"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertSVG",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "batch_convert_list_of_svg_files_to_various_formats_iterating_save_options_programmatically": {
+      "title": "Batch Convert List Of Svg Files To Various Formats Iterating Save Options Programmatically",
+      "filename": "batch_convert_list_of_svg_files_to_various_formats_iterating_save_options_programmatically.cs",
+      "description": "Batch convert a list of SVG files to various formats by iterating over save options programmatically.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "jpeg",
+        "pdf",
+        "png",
+        "xps",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "DocSaveOptions",
+        "ImageSaveOptions",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "SVGDocument",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "batch_convert_multiple_svg_images_to_gif_format_applying_custom_options_per_file": {
+      "title": "Batch Convert Multiple Svg Images To Gif Format Applying Custom Options Per File",
+      "filename": "batch_convert_multiple_svg_images_to_gif_format_applying_custom_options_per_file.cs",
+      "description": "Batch convert multiple SVG images to GIF format while applying custom ImageSaveOptions for each file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "image",
+        "gif",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertSVG",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "batch_convert_svg_documents_to_docx_with_page_size_and_margins": {
+      "title": "Batch Convert Svg Documents To Docx With Page Size And Margins",
+      "filename": "batch_convert_svg_documents_to_docx_with_page_size_and_margins.cs",
+      "description": "Batch convert SVG documents to DOCX, setting page size and margins via DocSaveOptions for each conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "docx",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "DocSaveOptions",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "batch_convert_svg_files_to_tiff_configuring_compression_differently_per_output_file": {
+      "title": "Batch Convert Svg Files To Tiff Configuring Compression Differently Per Output File",
+      "filename": "batch_convert_svg_files_to_tiff_configuring_compression_differently_per_output_file.cs",
+      "description": "Batch convert SVG files to TIFF, configuring Compression property differently for each output file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "tiff",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "batch_convert_svg_folder_to_bmp_using_loop_converter": {
+      "title": "Batch Convert Svg Folder To Bmp Using Loop Converter",
+      "filename": "batch_convert_svg_folder_to_bmp_using_loop_converter.cs",
+      "description": "Batch convert a folder of SVG files to BMP format using a loop and Converter.ConvertSVG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "bmp",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "batch_process_svg_files_to_docx_ensuring_each_document_retains_vector_graphic_fidelity_after_conversion": {
+      "title": "Batch Process Svg Files To Docx Ensuring Each Document Retains Vector Graphic Fidelity After Conversion",
+      "filename": "batch_process_svg_files_to_docx_ensuring_each_document_retains_vector_graphic_fidelity_after_conversion.cs",
+      "description": "Batch process SVG files to DOCX format, ensuring each document retains vector graphic fidelity after conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "docx",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "DocSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "benchmark_conversion_time_svg_to_jpeg_different_jpeg_quality_settings_find_optimal_performance": {
+      "title": "Benchmark Conversion Time Svg To Jpeg Different Jpeg Quality Settings Find Optimal Performance",
+      "filename": "benchmark_conversion_time_svg_to_jpeg_different_jpeg_quality_settings_find_optimal_performance.cs",
+      "description": "Benchmark conversion time for SVG to JPEG with different JPEG quality settings to find optimal performance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "jpeg",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "call_converter_convertsvg_with_svgdocument_and_save_options_for_format_conversion": {
+      "title": "Call Converter Convertsvg With Svgdocument And Save Options For Format Conversion",
+      "filename": "call_converter_convertsvg_with_svgdocument_and_save_options_for_format_conversion.cs",
+      "description": "Call Converter.ConvertSVG with SVGDocument and save options to perform format conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "saving-options",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "capture_conversion_exceptions_log_error_messages_source_file_path_troubleshooting": {
+      "title": "Capture Conversion Exceptions Log Error Messages Source File Path Troubleshooting",
+      "filename": "capture_conversion_exceptions_log_error_messages_source_file_path_troubleshooting.cs",
+      "description": "Capture conversion exceptions and log error messages with source file path for troubleshooting.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "configure_image_save_options_png_output_antialiasing_disabled_pixel_perfect_thumbnail_generation": {
+      "title": "Configure Image Save Options Png Output Antialiasing Disabled Pixel Perfect Thumbnail Generation",
+      "filename": "configure_image_save_options_png_output_antialiasing_disabled_pixel_perfect_thumbnail_generation.cs",
+      "description": "Configure ImageSaveOptions for PNG output with antialiasing disabled for pixel‑perfect thumbnail PNG generation process.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "saving-options",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "configure_imagesaveoptions_png_output_antialiasing_enabled_improve_visual_quality": {
+      "title": "Configure Imagesaveoptions Png Output Antialiasing Enabled Improve Visual Quality",
+      "filename": "configure_imagesaveoptions_png_output_antialiasing_enabled_improve_visual_quality.cs",
+      "description": "Configure ImageSaveOptions for PNG output with antialiasing enabled to improve visual quality.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "saving-options",
+        "image",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "configure_xpssaveoptions_embed_fonts_within_xps_output_consistent_rendering_across_devices": {
+      "title": "Configure Xpssaveoptions Embed Fonts Within Xps Output Consistent Rendering Across Devices",
+      "filename": "configure_xpssaveoptions_embed_fonts_within_xps_output_consistent_rendering_across_devices.cs",
+      "description": "Configure XpsSaveOptions to embed fonts within the XPS output for consistent rendering across devices.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "saving-options",
+        "html",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "console_application_reads_svg_file_paths_from_text_file_converts_to_xps": {
+      "title": "Console Application Reads Svg File Paths From Text File Converts To Xps",
+      "filename": "console_application_reads_svg_file_paths_from_text_file_converts_to_xps.cs",
+      "description": "Write a console application that reads SVG file paths from a text file and converts them to XPS.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.Exists",
+        "File.ReadAllLines",
+        "Path.ChangeExtension",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_multiple_svg_files_in_directory_to_xps_using_loop": {
+      "title": "Convert Multiple Svg Files In Directory To Xps Using Loop",
+      "filename": "convert_multiple_svg_files_in_directory_to_xps_using_loop.cs",
+      "description": "Convert multiple SVG files in a directory to XPS using a loop with Converter.ConvertSVG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_single_svg_file_to_bmp_using_one_line_converter_convertsvg": {
+      "title": "Convert Single Svg File To Bmp Using One Line Converter Convertsvg",
+      "filename": "convert_single_svg_file_to_bmp_using_one_line_converter_convertsvg.cs",
+      "description": "Convert a single SVG file to BMP using the one‑line Converter.ConvertSVG method.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_document_to_docx_with_new_docsaveoptions_instance": {
+      "title": "Convert Svg Document To Docx With New Docsaveoptions Instance",
+      "filename": "convert_svg_document_to_docx_with_new_docsaveoptions_instance.cs",
+      "description": "Convert an SVG document to DOCX by providing a new DocSaveOptions instance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "svg",
+        "saving-options",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Saving.DocSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Saving.DocSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_file_to_bmp_by_selecting_bmp_target_in_conversion_api": {
+      "title": "Convert Svg File To Bmp By Selecting Bmp Target In Conversion Api",
+      "filename": "convert_svg_file_to_bmp_by_selecting_bmp_target_in_conversion_api.cs",
+      "description": "Convert an SVG file to BMP format by selecting BMP as the target in the conversion API.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_files_nested_subfolders_to_tiff_preserving_directory_structure_output_locations": {
+      "title": "Convert Svg Files Nested Subfolders To Tiff Preserving Directory Structure Output Locations",
+      "filename": "convert_svg_files_nested_subfolders_to_tiff_preserving_directory_structure_output_locations.cs",
+      "description": "Convert SVG files located in nested subfolders to TIFF, preserving directory structure in output locations.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetFileNameWithoutExtension",
+        "Path.GetRelativePath"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_files_using_relative_paths_source_destination_demonstrating_path_resolution_batch_scripts": {
+      "title": "Convert Svg Files Using Relative Paths Source Destination Demonstrating Path Resolution Batch Scripts",
+      "filename": "convert_svg_files_using_relative_paths_source_destination_demonstrating_path_resolution_batch_scripts.cs",
+      "description": "Convert SVG files using relative paths for source and destination, demonstrating path resolution in batch scripts.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "pdf",
+        "saving-options",
+        "drawing",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_files_with_spaces_to_gif_preserving_output_filenames_spacing": {
+      "title": "Convert Svg Files With Spaces To Gif Preserving Output Filenames Spacing",
+      "filename": "convert_svg_files_with_spaces_to_gif_preserving_output_filenames_spacing.cs",
+      "description": "Convert SVG files with spaces in their names to GIF, verifying that output filenames preserve spacing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.ChangeExtension",
+        "Path.Combine",
+        "Path.GetFileName"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_files_with_unicode_characters_in_filenames_to_bmp_ensuring_correct_file_path_handling": {
+      "title": "Convert Svg Files With Unicode Characters In Filenames To Bmp Ensuring Correct File Path Handling",
+      "filename": "convert_svg_files_with_unicode_characters_in_filenames_to_bmp_ensuring_correct_file_path_handling.cs",
+      "description": "Convert SVG files with Unicode characters in filenames to BMP, ensuring correct handling of file paths.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_from_memory_stream_to_bmp_using_convertsvg_overload_image_save_options": {
+      "title": "Convert Svg From Memory Stream To Bmp Using Convertsvg Overload Image Save Options",
+      "filename": "convert_svg_from_memory_stream_to_bmp_using_convertsvg_overload_image_save_options.cs",
+      "description": "Convert an SVG loaded from a memory stream directly to BMP using ConvertSVG overload with ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.ReadAllBytes",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "StreamReader"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_image_to_gif_default_imagesaveoptions_converter_convertsvg": {
+      "title": "Convert Svg Image To Gif Default Imagesaveoptions Converter Convertsvg",
+      "filename": "convert_svg_image_to_gif_default_imagesaveoptions_converter_convertsvg.cs",
+      "description": "Convert an SVG image to GIF format with default ImageSaveOptions via Converter.ConvertSVG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_bmp_with_antialiasing_and_verify_image_sharpness": {
+      "title": "Convert Svg To Bmp With Antialiasing And Verify Image Sharpness",
+      "filename": "convert_svg_to_bmp_with_antialiasing_and_verify_image_sharpness.cs",
+      "description": "Convert an SVG to BMP with antialiasing enabled and verify image sharpness after conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Bitmap",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_bmp_with_dpi_300_image_save_options": {
+      "title": "Convert Svg To Bmp With Dpi 300 Image Save Options",
+      "filename": "convert_svg_to_bmp_with_dpi_300_image_save_options.cs",
+      "description": "Convert an SVG to BMP while specifying a DPI of 300 in ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_bmp_with_specified_color_depth_adjusting_settings": {
+      "title": "Convert Svg To Bmp With Specified Color Depth Adjusting Settings",
+      "filename": "convert_svg_to_bmp_with_specified_color_depth_adjusting_settings.cs",
+      "description": "Convert an SVG to BMP with a specified color depth by adjusting the conversion settings accordingly.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_gif_preserving_animation_frames_using_settings": {
+      "title": "Convert Svg To Gif Preserving Animation Frames Using Settings",
+      "filename": "convert_svg_to_gif_preserving_animation_frames_using_settings.cs",
+      "description": "Convert an SVG to GIF while preserving animation frames using appropriate ImageSaveOptions settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_gif_set_background_color_white_using_imagesaveoptions": {
+      "title": "Convert Svg To Gif Set Background Color White Using Imagesaveoptions",
+      "filename": "convert_svg_to_gif_set_background_color_white_using_imagesaveoptions.cs",
+      "description": "Convert an SVG to GIF and set background color to white using ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertSVG",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_gif_set_frame_delay_100ms_image_save_options": {
+      "title": "Convert Svg To Gif Set Frame Delay 100Ms Image Save Options",
+      "filename": "convert_svg_to_gif_set_frame_delay_100ms_image_save_options.cs",
+      "description": "Convert an SVG to GIF and set the frame delay to 100 milliseconds using ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_gif_with_transparent_background_configuring_conversion_settings_before_execution": {
+      "title": "Convert Svg To Gif With Transparent Background Configuring Conversion Settings Before Execution",
+      "filename": "convert_svg_to_gif_with_transparent_background_configuring_conversion_settings_before_execution.cs",
+      "description": "Convert SVG to GIF with transparent background by configuring the conversion settings before execution.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_tiff_ccitt_group4_compression_optimal_black_and_white_document_storage": {
+      "title": "Convert Svg To Tiff Ccitt Group4 Compression Optimal Black And White Document Storage",
+      "filename": "convert_svg_to_tiff_ccitt_group4_compression_optimal_black_and_white_document_storage.cs",
+      "description": "Convert an SVG to TIFF with CCITT Group 4 compression for optimal black‑and‑white document storage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_tiff_enable_usebig_endian_compatibility_viewers": {
+      "title": "Convert Svg To Tiff Enable Usebig Endian Compatibility Viewers",
+      "filename": "convert_svg_to_tiff_enable_usebig_endian_compatibility_viewers.cs",
+      "description": "Convert an SVG to TIFF and enable ImageSaveOptions.UseBigEndian for compatibility with certain viewers.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_tiff_image_save_options_compression_lzw": {
+      "title": "Convert Svg To Tiff Image Save Options Compression Lzw",
+      "filename": "convert_svg_to_tiff_image_save_options_compression_lzw.cs",
+      "description": "Convert an SVG file to TIFF using ImageSaveOptions and set Compression to LZW.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_tiff_no_compression_image_save_options_compression_none": {
+      "title": "Convert Svg To Tiff No Compression Image Save Options Compression None",
+      "filename": "convert_svg_to_tiff_no_compression_image_save_options_compression_none.cs",
+      "description": "Convert an SVG to TIFF with no compression by setting ImageSaveOptions.Compression to None.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_tiff_set_compression_ccitt_group4_monochrome_output": {
+      "title": "Convert Svg To Tiff Set Compression Ccitt Group4 Monochrome Output",
+      "filename": "convert_svg_to_tiff_set_compression_ccitt_group4_monochrome_output.cs",
+      "description": "Convert an SVG to TIFF and set Compression to CCITT Group 4 for monochrome output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_tiff_set_dpix_dpy_200_higher_resolution": {
+      "title": "Convert Svg To Tiff Set Dpix Dpy 200 Higher Resolution",
+      "filename": "convert_svg_to_tiff_set_dpix_dpy_200_higher_resolution.cs",
+      "description": "Convert an SVG to TIFF and set ImageSaveOptions.DpiX and DpiY to 200 for higher resolution.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_tiff_with_lzw_compression_by_configuring_save_options_api": {
+      "title": "Convert Svg To Tiff With Lzw Compression By Configuring Save Options Api",
+      "filename": "convert_svg_to_tiff_with_lzw_compression_by_configuring_save_options_api.cs",
+      "description": "Convert an SVG to TIFF with LZW compression by configuring the appropriate save options in the API.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_xps_preserve_original_color_profiles_disable_color_conversion": {
+      "title": "Convert Svg To Xps Preserve Original Color Profiles Disable Color Conversion",
+      "filename": "convert_svg_to_xps_preserve_original_color_profiles_disable_color_conversion.cs",
+      "description": "Convert SVG to XPS while preserving original color profiles by disabling color conversion in options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "color",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Margin",
+        "Page",
+        "SVGDocument",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_xps_preserving_embedded_fonts_enable_font_embedding_in_xpssaveoptions": {
+      "title": "Convert Svg To Xps Preserving Embedded Fonts Enable Font Embedding In Xpssaveoptions",
+      "filename": "convert_svg_to_xps_preserving_embedded_fonts_enable_font_embedding_in_xpssaveoptions.cs",
+      "description": "Convert SVG to XPS while preserving embedded fonts by enabling font embedding in XpsSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "convert_svg_to_xps_using_one_line_static_method": {
+      "title": "Convert Svg To Xps Using One Line Static Method",
+      "filename": "convert_svg_to_xps_using_one_line_static_method.cs",
+      "description": "Convert an SVG file to XPS using the one‑line Converter.ConvertSVG static method.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "converter_convertsvg_static_method_batch_convert_svg_paths_to_png_files": {
+      "title": "Converter Convertsvg Static Method Batch Convert Svg Paths To Png Files",
+      "filename": "converter_convertsvg_static_method_batch_convert_svg_paths_to_png_files.cs",
+      "description": "Use Converter.ConvertSVG static method to batch convert an array of SVG paths into PNG files.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "Path.ChangeExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_console_application_reads_svg_paths_from_text_file_and_converts_to_pdf": {
+      "title": "Create Console Application Reads Svg Paths From Text File And Converts To Pdf",
+      "filename": "create_console_application_reads_svg_paths_from_text_file_and_converts_to_pdf.cs",
+      "description": "Create a console application that reads SVG file paths from a text file and converts each to PDF.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "svg",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.Exists",
+        "File.ReadAllLines",
+        "Path.ChangeExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_diagnostic_log_records_source_svg_path_target_format_conversion_duration": {
+      "title": "Create Diagnostic Log Records Source Svg Path Target Format Conversion Duration",
+      "filename": "create_diagnostic_log_records_source_svg_path_target_format_conversion_duration.cs",
+      "description": "Create a diagnostic log that records source SVG path, target format, and conversion duration.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "png",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_method_accepts_svg_path_returns_memorystream_with_xps_result": {
+      "title": "Create Method Accepts Svg Path Returns Memorystream With Xps Result",
+      "filename": "create_method_accepts_svg_path_returns_memorystream_with_xps_result.cs",
+      "description": "Create a method that accepts an SVG path and returns a MemoryStream containing the XPS result.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "stream",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.Create",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_naming_convention_appends_output_format_suffix_to_original_svg_filename_batch_conversion": {
+      "title": "Create Naming Convention Appends Output Format Suffix To Original Svg Filename Batch Conversion",
+      "filename": "create_naming_convention_appends_output_format_suffix_to_original_svg_filename_batch_conversion.cs",
+      "description": "Create a naming convention that appends output format suffix to original SVG filename during batch conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "pdf",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "System.IO.Directory.CreateDirectory",
+        "System.IO.Directory.Exists",
+        "System.IO.Directory.GetFiles",
+        "System.IO.Path.Combine",
+        "System.IO.Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_naming_pattern_includes_conversion_timestamp_saving_bmp_files_from_svg_sources": {
+      "title": "Create Naming Pattern Includes Conversion Timestamp Saving Bmp Files From Svg Sources",
+      "filename": "create_naming_pattern_includes_conversion_timestamp_saving_bmp_files_from_svg_sources.cs",
+      "description": "Create a naming pattern that includes conversion timestamp when saving BMP files from SVG sources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "Now.ToString"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_naming_scheme_adds_sequential_numbers_to_tiff_files_generated_from_svg_folder": {
+      "title": "Create Naming Scheme Adds Sequential Numbers To Tiff Files Generated From Svg Folder",
+      "filename": "create_naming_scheme_adds_sequential_numbers_to_tiff_files_generated_from_svg_folder.cs",
+      "description": "Create a naming scheme that adds sequential numbers to TIFF files generated from a folder of SVGs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_pdfsaveoptions_custom_page_width_height_pdf_conversion": {
+      "title": "Create Pdfsaveoptions Custom Page Width Height Pdf Conversion",
+      "filename": "create_pdfsaveoptions_custom_page_width_height_pdf_conversion.cs",
+      "description": "Create PdfSaveOptions with custom page width and height for PDF conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "saving-options",
+        "drawing",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfSaveOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_powershell_function_wraps_dotnet_converter_api_svg_to_jpeg_conversion_quality_parameter": {
+      "title": "Create Powershell Function Wraps Dotnet Converter Api Svg To Jpeg Conversion Quality Parameter",
+      "filename": "create_powershell_function_wraps_dotnet_converter_api_svg_to_jpeg_conversion_quality_parameter.cs",
+      "description": "Create a PowerShell function that wraps the .NET Converter API for SVG to JPEG conversion with quality parameter.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_reusable_utility_class_encapsulating_svg_to_xps_conversion_configurable_save_options": {
+      "title": "Create Reusable Utility Class Encapsulating Svg To Xps Conversion Configurable Save Options",
+      "filename": "create_reusable_utility_class_encapsulating_svg_to_xps_conversion_configurable_save_options.cs",
+      "description": "Create a reusable utility class that encapsulates SVG to XPS conversion with configurable save options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "SvgToXpsConverter.Convert",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "create_unit_test_verifies_svg_to_xps_conversion_produces_non_empty_xps_file_stream": {
+      "title": "Create Unit Test Verifies Svg To Xps Conversion Produces Non Empty Xps File Stream",
+      "filename": "create_unit_test_verifies_svg_to_xps_conversion_produces_non_empty_xps_file_stream.cs",
+      "description": "Create a unit test that verifies SVG to XPS conversion produces a non‑empty XPS file stream.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "stream",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.Delete",
+        "File.WriteAllText",
+        "FileStream",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "develop_rest_endpoint_receives_svg_data_returns_pdf_using_in_memory_conversion": {
+      "title": "Develop Rest Endpoint Receives Svg Data Returns Pdf Using In Memory Conversion",
+      "filename": "develop_rest_endpoint_receives_svg_data_returns_pdf_using_in_memory_conversion.cs",
+      "description": "Develop a REST endpoint that receives SVG data and returns PDF using in‑memory conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "svg",
+        "stream",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.WriteAllBytes",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "PdfSaveOptions",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "dispose_svgdocument_associated_streams_after_conversion_prevent_memory_leaks": {
+      "title": "Dispose Svgdocument Associated Streams After Conversion Prevent Memory Leaks",
+      "filename": "dispose_svgdocument_associated_streams_after_conversion_prevent_memory_leaks.cs",
+      "description": "Dispose SVGDocument and all associated streams after conversion to prevent memory leaks.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "stream",
+        "pdf",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "PdfSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "embed_fonts_in_pdfsaveoptions_during_svg_to_pdf_conversion_for_consistent_text_appearance": {
+      "title": "Embed Fonts In Pdfsaveoptions During Svg To Pdf Conversion For Consistent Text Appearance",
+      "filename": "embed_fonts_in_pdfsaveoptions_during_svg_to_pdf_conversion_for_consistent_text_appearance.cs",
+      "description": "Embed fonts in PdfSaveOptions during SVG to PDF conversion for consistent text appearance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "svg",
+        "saving-options",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "enable_high_compression_in_image_save_options_when_generating_bmp_for_archival_purposes": {
+      "title": "Enable High Compression In Image Save Options When Generating Bmp For Archival Purposes",
+      "filename": "enable_high_compression_in_image_save_options_when_generating_bmp_for_archival_purposes.cs",
+      "description": "Enable high compression in ImageSaveOptions when generating BMP for archival purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "generate_docx_document_from_svg_image_using_converter_with_appropriate_save_options": {
+      "title": "Generate Docx Document From Svg Image Using Converter With Appropriate Save Options",
+      "filename": "generate_docx_document_from_svg_image_using_converter_with_appropriate_save_options.cs",
+      "description": "Generate a DOCX document from an SVG image using the Converter with appropriate save options.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "svg",
+        "saving-options",
+        "image",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "DocSaveOptions",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "handle_conversion_exceptions_wrap_converter_convertsvg_calls_try_catch_log_errors": {
+      "title": "Handle Conversion Exceptions Wrap Converter Convertsvg Calls Try Catch Log Errors",
+      "filename": "handle_conversion_exceptions_wrap_converter_convertsvg_calls_try_catch_log_errors.cs",
+      "description": "Handle conversion exceptions by wrapping Converter.ConvertSVG calls in try‑catch blocks and logging errors.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "image",
+        "jpeg",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertSVG",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_batch_conversion_multiple_svg_files_to_png_store_results_zip_archive": {
+      "title": "Implement Batch Conversion Multiple Svg Files To Png Store Results Zip Archive",
+      "filename": "implement_batch_conversion_multiple_svg_files_to_png_store_results_zip_archive.cs",
+      "description": "Implement batch conversion of multiple SVG files to PNG and store results in a zip archive.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "svg",
+        "saving-options",
+        "image",
+        "drawing",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.Delete",
+        "File.Exists",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument",
+        "ZipFile.CreateFromDirectory"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_error_handling_around_converter_convertsvg_to_catch_and_log_conversion_failures_for_svg_inputs": {
+      "title": "Implement Error Handling Around Converter Convertsvg To Catch And Log Conversion Failures For Svg Inputs",
+      "filename": "implement_error_handling_around_converter_convertsvg_to_catch_and_log_conversion_failures_for_svg_inputs.cs",
+      "description": "Implement error handling around Converter.ConvertSVG to catch and log conversion failures for SVG inputs.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "image",
+        "jpeg",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_progress_reporter_for_batch_svg_to_docx_conversion_showing_percentage_completed": {
+      "title": "Implement Progress Reporter For Batch Svg To Docx Conversion Showing Percentage Completed",
+      "filename": "implement_progress_reporter_for_batch_svg_to_docx_conversion_showing_percentage_completed.cs",
+      "description": "Implement a progress reporter for batch conversion of SVG files to DOCX, showing percentage completed.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "docx",
+        "saving-options",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "DocSaveOptions",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_progress_reporter_svg_to_gif_conversion_showing_file_name_index": {
+      "title": "Implement Progress Reporter Svg To Gif Conversion Showing File Name Index",
+      "filename": "implement_progress_reporter_svg_to_gif_conversion_showing_file_name_index.cs",
+      "description": "Implement a progress reporter for SVG to GIF batch conversion, displaying current file name and index.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "gif",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_progress_reporter_svg_to_tiff_batch_conversion_indicating_compression_level_per_file": {
+      "title": "Implement Progress Reporter Svg To Tiff Batch Conversion Indicating Compression Level Per File",
+      "filename": "implement_progress_reporter_svg_to_tiff_batch_conversion_indicating_compression_level_per_file.cs",
+      "description": "Implement a progress reporter for SVG to TIFF batch conversion, indicating compression level for each file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "tiff",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_progress_reporter_updates_after_each_svg_file_converted_to_bmp_in_batch_operation": {
+      "title": "Implement Progress Reporter Updates After Each Svg File Converted To Bmp In Batch Operation",
+      "filename": "implement_progress_reporter_updates_after_each_svg_file_converted_to_bmp_in_batch_operation.cs",
+      "description": "Implement a progress reporter that updates after each SVG file is converted to BMP in a batch operation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "bmp",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_progress_reporter_updates_percentage_completed_batch_svg_to_png_conversion": {
+      "title": "Implement Progress Reporter Updates Percentage Completed Batch Svg To Png Conversion",
+      "filename": "implement_progress_reporter_updates_percentage_completed_batch_svg_to_png_conversion.cs",
+      "description": "Implement a progress reporter that updates percentage completed during batch SVG to PNG conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "png",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_retry_policy_wait_two_seconds_between_attempts_svg_to_gif_conversion_failures": {
+      "title": "Implement Retry Policy Wait Two Seconds Between Attempts Svg To Gif Conversion Failures",
+      "filename": "implement_retry_policy_wait_two_seconds_between_attempts_svg_to_gif_conversion_failures.cs",
+      "description": "Implement a retry policy that waits two seconds between attempts for SVG to GIF conversion failures.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "Thread.Sleep"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "implement_stream_provider_direct_svg_conversion_output_network_stream_remote_storage": {
+      "title": "Implement Stream Provider Direct Svg Conversion Output Network Stream Remote Storage",
+      "filename": "implement_stream_provider_direct_svg_conversion_output_network_stream_remote_storage.cs",
+      "description": "Implement ICreateStreamProvider to direct SVG conversion output into a network stream for remote storage.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "stream",
+        "network",
+        "saving-options",
+        "pdf",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "NetworkStreamProvider",
+        "PdfSaveOptions",
+        "TcpClient"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "leverage_default_save_options_quickly_convert_svg_to_xps_without_additional_parameters": {
+      "title": "Leverage Default Save Options Quickly Convert Svg To Xps Without Additional Parameters",
+      "filename": "leverage_default_save_options_quickly_convert_svg_to_xps_without_additional_parameters.cs",
+      "description": "Leverage the default save options to quickly convert SVG to XPS without specifying additional parameters.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "load_svg_document_from_stream_using_memorystream": {
+      "title": "Load Svg Document From Stream Using Memorystream",
+      "filename": "load_svg_document_from_stream_using_memorystream.cs",
+      "description": "Load an SVG document from a stream using a MemoryStream.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "stream",
+        "dom",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "MemoryStream",
+        "SVGDocument",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "load_svg_file_from_local_file_system_for_conversion": {
+      "title": "Load Svg File From Local File System For Conversion",
+      "filename": "load_svg_file_from_local_file_system_for_conversion.cs",
+      "description": "Load an SVG file from the local file system for conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "dom",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "load_svg_file_from_local_path_into_svgdocument_instance": {
+      "title": "Load Svg File From Local Path Into Svgdocument Instance",
+      "filename": "load_svg_file_from_local_path_into_svgdocument_instance.cs",
+      "description": "Load an SVG file from a local path into an SVGDocument instance.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "dom",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "load_svg_from_local_path_and_convert_to_xps_with_custom_page_dimensions": {
+      "title": "Load Svg From Local Path And Convert To Xps With Custom Page Dimensions",
+      "filename": "load_svg_from_local_path_and_convert_to_xps_with_custom_page_dimensions.cs",
+      "description": "Load an SVG from a local path and convert it to XPS with custom page dimensions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "drawing",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Margin",
+        "Page",
+        "SVGDocument",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "load_svg_from_memory_stream_convert_to_bmp_using_image_save_options": {
+      "title": "Load Svg From Memory Stream Convert To Bmp Using Image Save Options",
+      "filename": "load_svg_from_memory_stream_convert_to_bmp_using_image_save_options.cs",
+      "description": "Load an SVG from a memory stream and convert it directly to BMP using ImageSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "stream",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.ReadAllBytes",
+        "File.WriteAllBytes",
+        "ImageSaveOptions",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "StreamReader",
+        "Streams.Add",
+        "Streams.Clear"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "load_svg_from_url_and_convert_to_docx_with_custom_docsaveoptions": {
+      "title": "Load Svg From Url And Convert To Docx With Custom Docsaveoptions",
+      "filename": "load_svg_from_url_and_convert_to_docx_with_custom_docsaveoptions.cs",
+      "description": "Load an SVG from a URL and convert it to DOCX with custom DocSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "svg",
+        "saving-options",
+        "drawing",
+        "html",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "DocSaveOptions",
+        "HttpClient",
+        "Margin",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "log_conversion_parameters_source_path_target_format_duration_json": {
+      "title": "Log Conversion Parameters Source Path Target Format Duration Json",
+      "filename": "log_conversion_parameters_source_path_target_format_duration_json.cs",
+      "description": "Log conversion parameters, including source path, target format, and duration, to a JSON file.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.WriteAllText",
+        "JsonSerializer.Serialize",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "log_each_svg_gif_conversion_recording_output_file_size_applied_image_quality_settings": {
+      "title": "Log Each Svg Gif Conversion Recording Output File Size Applied Image Quality Settings",
+      "filename": "log_each_svg_gif_conversion_recording_output_file_size_applied_image_quality_settings.cs",
+      "description": "Log each SVG to GIF conversion, recording output file size and applied image quality settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "FileInfo",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "log_successful_svg_to_bmp_conversion_source_destination_file_paths_audit_purposes": {
+      "title": "Log Successful Svg To Bmp Conversion Source Destination File Paths Audit Purposes",
+      "filename": "log_successful_svg_to_bmp_conversion_source_destination_file_paths_audit_purposes.cs",
+      "description": "Log each successful SVG to BMP conversion with source and destination file paths for audit purposes.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "Path.GetFullPath"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "log_svg_to_docx_conversion_including_page_count_and_custom_docsaveoptions_applied": {
+      "title": "Log Svg To Docx Conversion Including Page Count And Custom Docsaveoptions Applied",
+      "filename": "log_svg_to_docx_conversion_including_page_count_and_custom_docsaveoptions_applied.cs",
+      "description": "Log each SVG to DOCX conversion, including page count and any custom DocSaveOptions applied.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "docx",
+        "svg",
+        "saving-options",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "DocSaveOptions",
+        "Margin",
+        "Page",
+        "Path.ChangeExtension",
+        "SVGDocument",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "log_svg_to_tiff_conversion_noting_compression_type_and_file_dimensions": {
+      "title": "Log Svg To Tiff Conversion Noting Compression Type And File Dimensions",
+      "filename": "log_svg_to_tiff_conversion_noting_compression_type_and_file_dimensions.cs",
+      "description": "Log each SVG to TIFF conversion, noting compression type and resulting file dimensions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "Image.FromFile",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "measure_conversion_performance_svg_to_tiff_different_compression_settings_large_dataset": {
+      "title": "Measure Conversion Performance Svg To Tiff Different Compression Settings Large Dataset",
+      "filename": "measure_conversion_performance_svg_to_tiff_different_compression_settings_large_dataset.cs",
+      "description": "Measure conversion performance when converting SVG to TIFF with different compression settings across a large dataset.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "measure_conversion_time_converting_100_svg_files_to_bmp_stopwatch_log_results": {
+      "title": "Measure Conversion Time Converting 100 Svg Files To Bmp Stopwatch Log Results",
+      "filename": "measure_conversion_time_converting_100_svg_files_to_bmp_stopwatch_log_results.cs",
+      "description": "Measure conversion time for converting 100 SVG files to BMP using a stopwatch and log results.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertSVG",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "SVGDocument",
+        "Stopwatch.StartNew"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "provide_custom_istreamprovider_receive_pdf_output_memory": {
+      "title": "Provide Custom Istreamprovider Receive Pdf Output Memory",
+      "filename": "provide_custom_istreamprovider_receive_pdf_output_memory.cs",
+      "description": "Provide a custom ICreateStreamProvider to receive PDF output in memory.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "html",
+        "stream",
+        "saving-options",
+        "forms",
+        "url"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "PdfSaveOptions",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_image_compression_to_jpeg_quality_80_for_embedded_raster_images": {
+      "title": "Set Image Compression To Jpeg Quality 80 For Embedded Raster Images",
+      "filename": "set_image_compression_to_jpeg_quality_80_for_embedded_raster_images.cs",
+      "description": "Set PdfSaveOptions image compression to JPEG with quality 80 for embedded raster images.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "pdf",
+        "html",
+        "image",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_image_save_options_jpeg_quality_85_percent_before_converting_svg_to_jpg": {
+      "title": "Set Image Save Options Jpeg Quality 85 Percent Before Converting Svg To Jpg",
+      "filename": "set_image_save_options_jpeg_quality_85_percent_before_converting_svg_to_jpg.cs",
+      "description": "Set ImageSaveOptions JPEG quality to 85 percent before converting SVG to JPG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_imagesaveoptions_background_color_to_white_when_converting_svg_to_jpeg": {
+      "title": "Set Imagesaveoptions Background Color To White When Converting Svg To Jpeg",
+      "filename": "set_imagesaveoptions_background_color_to_white_when_converting_svg_to_jpeg.cs",
+      "description": "Set ImageSaveOptions background color to white when converting SVG to JPEG.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "svg",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_imagesaveoptions_color_depth_8_bits_gif_output_reduce_file_size": {
+      "title": "Set Imagesaveoptions Color Depth 8 Bits Gif Output Reduce File Size",
+      "filename": "set_imagesaveoptions_color_depth_8_bits_gif_output_reduce_file_size.cs",
+      "description": "Set ImageSaveOptions color depth to 8 bits for GIF output to reduce file size.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "gif",
+        "html",
+        "image",
+        "saving-options",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_imagesaveoptions_dpi_300_high_resolution_png_printing_applications": {
+      "title": "Set Imagesaveoptions Dpi 300 High Resolution Png Printing Applications",
+      "filename": "set_imagesaveoptions_dpi_300_high_resolution_png_printing_applications.cs",
+      "description": "Set ImageSaveOptions DPI to 300 for high‑resolution PNG printing applications.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "image",
+        "saving-options",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_imagesaveoptions_jpeg_quality_to_95_percent_for_high_resolution_jpeg_output": {
+      "title": "Set Imagesaveoptions Jpeg Quality To 95 Percent For High Resolution Jpeg Output",
+      "filename": "set_imagesaveoptions_jpeg_quality_to_95_percent_for_high_resolution_jpeg_output.cs",
+      "description": "Set ImageSaveOptions JPEG quality to 95 percent for high‑resolution JPEG output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "jpeg",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_imagesaveoptions_transparency_true_converting_svg_to_png_alpha_channel": {
+      "title": "Set Imagesaveoptions Transparency True Converting Svg To Png Alpha Channel",
+      "filename": "set_imagesaveoptions_transparency_true_converting_svg_to_png_alpha_channel.cs",
+      "description": "Set ImageSaveOptions transparency to true when converting SVG to PNG with alpha channel.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "svg",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "set_xps_save_options_custom_page_margin_configuration_svg_documents_irregular_dimensions": {
+      "title": "Set Xps Save Options Custom Page Margin Configuration Svg Documents Irregular Dimensions",
+      "filename": "set_xps_save_options_custom_page_margin_configuration_svg_documents_irregular_dimensions.cs",
+      "description": "Set XpsSaveOptions to use a custom page margin configuration for SVG documents with irregular dimensions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "drawing",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Margin",
+        "Page",
+        "SVGDocument",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "specify_bits_per_pixel_24_image_save_options_true_color_bmp_output": {
+      "title": "Specify Bits Per Pixel 24 Image Save Options True Color Bmp Output",
+      "filename": "specify_bits_per_pixel_24_image_save_options_true_color_bmp_output.cs",
+      "description": "Specify BitsPerPixel equal to 24 in ImageSaveOptions for true‑color BMP output.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "specify_xpssaveoptions_enable_lossless_compression_converting_svg_graphics_xps_documents": {
+      "title": "Specify Xpssaveoptions Enable Lossless Compression Converting Svg Graphics Xps Documents",
+      "filename": "specify_xpssaveoptions_enable_lossless_compression_converting_svg_graphics_xps_documents.cs",
+      "description": "Specify XpsSaveOptions to enable lossless compression when converting SVG graphics to XPS documents.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "svg_to_bmp_conversion_with_specified_pixel_format_adjusting_parameters": {
+      "title": "Svg To Bmp Conversion With Specified Pixel Format Adjusting Parameters",
+      "filename": "svg_to_bmp_conversion_with_specified_pixel_format_adjusting_parameters.cs",
+      "description": "Perform SVG to BMP conversion with a specified pixel format by adjusting the conversion parameters.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "bmp",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "test_svg_to_xps_conversion_quickly_by_sending_file_to_online_converter_endpoint": {
+      "title": "Test Svg To Xps Conversion Quickly By Sending File To Online Converter Endpoint",
+      "filename": "test_svg_to_xps_conversion_quickly_by_sending_file_to_online_converter_endpoint.cs",
+      "description": "Test SVG to XPS conversion quickly by sending the file to the online converter endpoint.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "transform_svg_to_high_resolution_tiff_using_custom_dpi_settings_converter": {
+      "title": "Transform Svg To High Resolution Tiff Using Custom Dpi Settings Converter",
+      "filename": "transform_svg_to_high_resolution_tiff_using_custom_dpi_settings_converter.cs",
+      "description": "Transform an SVG file into a high‑resolution TIFF image using custom DPI settings in the converter.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "tiff",
+        "svg",
+        "image",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "unit_tests_verify_svg_to_png_conversion_expected_dimensions": {
+      "title": "Unit Tests Verify Svg To Png Conversion Expected Dimensions",
+      "filename": "unit_tests_verify_svg_to_png_conversion_expected_dimensions.cs",
+      "description": "Write unit tests to verify that SVG to PNG conversion produces files of expected dimensions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "png",
+        "svg",
+        "image",
+        "saving-options",
+        "drawing",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.Delete",
+        "File.WriteAllText",
+        "Image.FromFile",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "use_filestream_write_xps_output_directly_to_network_share_with_appropriate_permissions": {
+      "title": "Use Filestream Write Xps Output Directly To Network Share With Appropriate Permissions",
+      "filename": "use_filestream_write_xps_output_directly_to_network_share_with_appropriate_permissions.cs",
+      "description": "Use a FileStream to write the XPS output directly to a network share with appropriate permissions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "network",
+        "saving-options",
+        "stream",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "FileStream",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "use_static_converter_convertsvg_sourcepath_destinationpath_one_line_svg_to_pdf": {
+      "title": "Use Static Converter Convertsvg Sourcepath Destinationpath One Line Svg To Pdf",
+      "filename": "use_static_converter_convertsvg_sourcepath_destinationpath_one_line_svg_to_pdf.cs",
+      "description": "Use static Converter.ConvertSVG(sourcePath, destinationPath) for one‑line SVG to PDF conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "pdf",
+        "svg",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertSVG",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "using_block_ensure_filestream_disposal_after_writing_converted_xps_data_to_disk": {
+      "title": "Using Block Ensure Filestream Disposal After Writing Converted Xps Data To Disk",
+      "filename": "using_block_ensure_filestream_disposal_after_writing_converted_xps_data_to_disk.cs",
+      "description": "Use a using block to ensure FileStream disposal after writing converted XPS data to disk.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "stream",
+        "epub",
+        "saving-options",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.OpenRead",
+        "FileStream",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "Streams.Add",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "write_method_svg_paths_dictionary_mapping_to_xps_byte_array": {
+      "title": "Write Method Svg Paths Dictionary Mapping To Xps Byte Array",
+      "filename": "write_method_svg_paths_dictionary_mapping_to_xps_byte_array.cs",
+      "description": "Write a method that takes SVG paths and returns a dictionary mapping each to its XPS byte array.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "xps",
+        "svg",
+        "saving-options",
+        "html",
+        "forms"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "File.Delete",
+        "File.ReadAllBytes",
+        "Guid.NewGuid",
+        "Path.Combine",
+        "Path.GetTempPath",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    },
+    "write_wrapper_function_abstracts_converter_convertsvg_calls_for_different_target_formats": {
+      "title": "Write Wrapper Function Abstracts Converter Convertsvg Calls For Different Target Formats",
+      "filename": "write_wrapper_function_abstracts_converter_convertsvg_calls_for_different_target_formats.cs",
+      "description": "Write a wrapper function that abstracts Converter.ConvertSVG calls for different target formats.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "svg",
+        "image",
+        "jpeg",
+        "pdf",
+        "saving-options",
+        "forms",
+        "html",
+        "xps"
+      ],
+      "apis_used": [
+        "ArgumentException",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "DocSaveOptions",
+        "ImageSaveOptions",
+        "PdfSaveOptions",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:32:59Z",
+      "status": "verified"
+    }
+  }
+}
