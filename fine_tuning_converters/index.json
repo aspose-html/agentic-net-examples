@@ -1,0 +1,3080 @@
+{
+  "category": "fine_tuning_converters",
+  "nuget_version": "26.x.x",
+  "last_updated": "2026-05-06T09:03:53Z",
+  "examples": {
+    "apply_custom_0_2_inch_left_margin_to_pdf_output_using_margin_left": {
+      "title": "Apply Custom 0 2 Inch Left Margin To Pdf Output Using Margin Left",
+      "filename": "apply_custom_0_2_inch_left_margin_to_pdf_output_using_margin_left.cs",
+      "description": "Apply a custom 0.2‑inch left margin to PDF output by setting PdfRenderingOptions.MarginLeft.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.Drawing.Length.FromInches",
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "apply_custom_1inch_top_margin_to_pdf_output_configuring_margin_top_before_rendering": {
+      "title": "Apply Custom 1Inch Top Margin To Pdf Output Configuring Margin Top Before Rendering",
+      "filename": "apply_custom_1inch_top_margin_to_pdf_output_configuring_margin_top_before_rendering.cs",
+      "description": "Apply a custom 1‑inch top margin to PDF output by configuring PdfRenderingOptions.MarginTop before rendering.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "apply_custom_600x800_pixel_page_size_to_pdf_output_before_rendering": {
+      "title": "Apply Custom 600X800 Pixel Page Size To Pdf Output Before Rendering",
+      "filename": "apply_custom_600x800_pixel_page_size_to_pdf_output_before_rendering.cs",
+      "description": "Apply a custom 600x800 pixel page size to PDF output by configuring PdfDevice.AnyPage before rendering.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "apply_custom_background_color_to_all_outputs_using_shared_rendering_options_instance_per_device": {
+      "title": "Apply Custom Background Color To All Outputs Using Shared Rendering Options Instance Per Device",
+      "filename": "apply_custom_background_color_to_all_outputs_using_shared_rendering_options_instance_per_device.cs",
+      "description": "Apply a custom background color to all outputs by passing a shared RenderingOptions instance to each device.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HtmlRenderer",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "apply_uniform_1centimeter_right_margin_to_all_docx_outputs_configuring_docrenderingoptions_globally": {
+      "title": "Apply Uniform 1Centimeter Right Margin To All Docx Outputs Configuring Docrenderingoptions Globally",
+      "filename": "apply_uniform_1centimeter_right_margin_to_all_docx_outputs_configuring_docrenderingoptions_globally.cs",
+      "description": "Apply a uniform 1‑centimeter right margin to all DOCX outputs by configuring DocRenderingOptions globally.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "DocSaveOptions",
+        "HTMLDocument",
+        "Margin",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "apply_uniform_2cm_top_margin_to_all_pdf_outputs_globally_configure_rendering_options": {
+      "title": "Apply Uniform 2Cm Top Margin To All Pdf Outputs Globally Configure Rendering Options",
+      "filename": "apply_uniform_2cm_top_margin_to_all_pdf_outputs_globally_configure_rendering_options.cs",
+      "description": "Apply a uniform 2‑centimeter top margin to all PDF outputs by configuring PdfRenderingOptions globally.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "apply_white_background_color_to_pdf_output_configure_background_color_before_rendering": {
+      "title": "Apply White Background Color To Pdf Output Configure Background Color Before Rendering",
+      "filename": "apply_white_background_color_to_pdf_output_configure_background_color_before_rendering.cs",
+      "description": "Apply a white background color to PDF output by configuring RenderingOptions.BackgroundColor before rendering.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_directory_html_files_to_high_resolution_jpgs_iterating_converthtml_with_image_rendering_options": {
+      "title": "Batch Convert Directory Html Files To High Resolution Jpgs Iterating Converthtml With Image Rendering Options",
+      "filename": "batch_convert_directory_html_files_to_high_resolution_jpgs_iterating_converthtml_with_image_rendering_options.cs",
+      "description": "Batch convert a directory of HTML files to high‑resolution JPGs by iterating over ConvertHTML with ImageRenderingOptions.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_directory_mhtml_files_to_jpg_setting_image_resolution_150_dpi": {
+      "title": "Batch Convert Directory Mhtml Files To Jpg Setting Image Resolution 150 Dpi",
+      "filename": "batch_convert_directory_mhtml_files_to_jpg_setting_image_resolution_150_dpi.cs",
+      "description": "Batch convert a directory of MHTML files to JPG, setting each image resolution to 150 DPI.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "image",
+        "jpeg",
+        "mhtml"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "ImageDevice",
+        "ImageRenderingOptions",
+        "MhtmlRenderer",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_epub_files_to_pdf_uniform_1inch_margin_all_sides_for_consistency": {
+      "title": "Batch Convert Epub Files To Pdf Uniform 1Inch Margin All Sides For Consistency",
+      "filename": "batch_convert_epub_files_to_pdf_uniform_1inch_margin_all_sides_for_consistency.cs",
+      "description": "Batch convert EPUB files to PDF, applying a uniform 1‑inch margin on all sides for consistency.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "epub",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_folder_html_files_to_pdf_using_converter_converthtml_foreach_loop": {
+      "title": "Batch Convert Folder Html Files To Pdf Using Converter Converthtml Foreach Loop",
+      "filename": "batch_convert_folder_html_files_to_pdf_using_converter_converthtml_foreach_loop.cs",
+      "description": "Batch convert a folder of HTML files to PDF using Converter.ConvertHTML inside a foreach loop.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_html_files_to_jpg_logging_resolution_and_background_color_settings_for_audit": {
+      "title": "Batch Convert Html Files To Jpg Logging Resolution And Background Color Settings For Audit",
+      "filename": "batch_convert_html_files_to_jpg_logging_resolution_and_background_color_settings_for_audit.cs",
+      "description": "Batch convert HTML files to JPG, logging each file's resolution and background color settings for audit.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "ImageSaveOptions",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_html_files_to_pdf_naming_each_output_with_original_filename_plus_suffix": {
+      "title": "Batch Convert Html Files To Pdf Naming Each Output With Original Filename Plus Suffix",
+      "filename": "batch_convert_html_files_to_pdf_naming_each_output_with_original_filename_plus_suffix.cs",
+      "description": "Batch convert HTML files to PDF, naming each output file with the original filename plus a suffix.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "CustomStreamProvider",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.Create",
+        "File.ReadAllText",
+        "HTMLDocument",
+        "MemoryStream",
+        "Path.Combine",
+        "Path.GetDirectoryName",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_html_files_to_pdf_with_progress_callback_monitor_conversion_status": {
+      "title": "Batch Convert Html Files To Pdf With Progress Callback Monitor Conversion Status",
+      "filename": "batch_convert_html_files_to_pdf_with_progress_callback_monitor_conversion_status.cs",
+      "description": "Batch convert HTML files to PDF with a progress callback to monitor conversion status.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Configuration",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_html_files_to_xps_with_uniform_0_4_inch_left_margin": {
+      "title": "Batch Convert Html Files To Xps With Uniform 0 4 Inch Left Margin",
+      "filename": "batch_convert_html_files_to_xps_with_uniform_0_4_inch_left_margin.cs",
+      "description": "Batch convert a set of HTML files to XPS, applying a uniform 0.4‑inch left margin to each file.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_mhtml_files_to_pdf_uniform_0_5inch_margin_all_sides": {
+      "title": "Batch Convert Mhtml Files To Pdf Uniform 0 5Inch Margin All Sides",
+      "filename": "batch_convert_mhtml_files_to_pdf_uniform_0_5inch_margin_all_sides.cs",
+      "description": "Batch convert a set of MHTML files to PDF, applying a uniform 0.5‑inch margin on all sides.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "mhtml"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.OpenRead",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_convert_mixed_html_mhtml_files_to_flattened_pdfs_loop_shared_options": {
+      "title": "Batch Convert Mixed Html Mhtml Files To Flattened Pdfs Loop Shared Options",
+      "filename": "batch_convert_mixed_html_mhtml_files_to_flattened_pdfs_loop_shared_options.cs",
+      "description": "Batch convert mixed HTML and MHTML files to flattened PDFs using a loop with shared PdfSaveOptions.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "mhtml"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Converters.Converter.ConvertMHTML",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Converter.ConvertMHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetExtension",
+        "Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_process_folder_svg_files_to_pdf_with_0_2_inch_margin_all_sides": {
+      "title": "Batch Process Folder Svg Files To Pdf With 0 2 Inch Margin All Sides",
+      "filename": "batch_process_folder_svg_files_to_pdf_with_0_2_inch_margin_all_sides.cs",
+      "description": "Batch process a folder of SVG files to PDF, applying a 0.2‑inch margin on all sides.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "System.IO.Directory.CreateDirectory",
+        "System.IO.Directory.Exists",
+        "System.IO.Directory.GetFiles",
+        "System.IO.Path.Combine",
+        "System.IO.Path.GetFileNameWithoutExtension"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_process_html_files_to_xps_with_audit_logging": {
+      "title": "Batch Process Html Files To Xps With Audit Logging",
+      "filename": "batch_process_html_files_to_xps_with_audit_logging.cs",
+      "description": "Batch process a collection of HTML files to XPS, logging each conversion result for audit purposes.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "batch_process_svg_files_to_pdf_applying_adjust_to_widest_page_each_conversion": {
+      "title": "Batch Process Svg Files To Pdf Applying Adjust To Widest Page Each Conversion",
+      "filename": "batch_process_svg_files_to_pdf_applying_adjust_to_widest_page_each_conversion.cs",
+      "description": "Batch process a list of SVG files to PDF, applying AdjustToWidestPage to each conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "Directory.CreateDirectory",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "configure_page_orientation_landscape_0_75_inch_margins_all_sides": {
+      "title": "Configure Page Orientation Landscape 0 75 Inch Margins All Sides",
+      "filename": "configure_page_orientation_landscape_0_75_inch_margins_all_sides.cs",
+      "description": "Configure DocRenderingOptions to set page orientation to Landscape and apply 0.75‑inch margins on all sides.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocRenderingOptions",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "configure_pdf_rendering_options_disable_background_rendering_resulting_pdf_transparent_background": {
+      "title": "Configure Pdf Rendering Options Disable Background Rendering Resulting Pdf Transparent Background",
+      "filename": "configure_pdf_rendering_options_disable_background_rendering_resulting_pdf_transparent_background.cs",
+      "description": "Configure PdfRenderingOptions to disable background rendering, resulting in a PDF with transparent background.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice",
+        "PdfRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "configure_pdf_rendering_options_set_left_and_right_margins_0_5_inches_balanced_layout": {
+      "title": "Configure Pdf Rendering Options Set Left And Right Margins 0 5 Inches Balanced Layout",
+      "filename": "configure_pdf_rendering_options_set_left_and_right_margins_0_5_inches_balanced_layout.cs",
+      "description": "Configure PdfRenderingOptions to set both left and right margins to 0.5 inches for balanced layout.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "configure_pdf_rendering_options_set_right_margin_0_75_inches_ensuring_consistent_right_hand_spacing": {
+      "title": "Configure Pdf Rendering Options Set Right Margin 0 75 Inches Ensuring Consistent Right Hand Spacing",
+      "filename": "configure_pdf_rendering_options_set_right_margin_0_75_inches_ensuring_consistent_right_hand_spacing.cs",
+      "description": "Configure PdfRenderingOptions to set right margin to 0.75 inches, ensuring consistent right‑hand spacing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "configure_pdf_rendering_options_set_top_bottom_margins_2_centimeters_uniform_spacing": {
+      "title": "Configure Pdf Rendering Options Set Top Bottom Margins 2 Centimeters Uniform Spacing",
+      "filename": "configure_pdf_rendering_options_set_top_bottom_margins_2_centimeters_uniform_spacing.cs",
+      "description": "Configure PdfRenderingOptions to set both top and bottom margins to 2 centimeters for uniform spacing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "configure_set_resolution_and_background_color_for_consistent_jpg_output_across_conversions": {
+      "title": "Configure Set Resolution And Background Color For Consistent Jpg Output Across Conversions",
+      "filename": "configure_set_resolution_and_background_color_for_consistent_jpg_output_across_conversions.cs",
+      "description": "Configure ImageRenderingOptions to set both resolution and background color for consistent JPG output across conversions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "configure_top_and_bottom_margins_0_25_inches_compact_pages": {
+      "title": "Configure Top And Bottom Margins 0 25 Inches Compact Pages",
+      "filename": "configure_top_and_bottom_margins_0_25_inches_compact_pages.cs",
+      "description": "Configure PdfRenderingOptions to set both top and bottom margins to 0.25 inches for compact pages.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_epub_to_pdf_preserving_embedded_fonts_default_rendering_behavior": {
+      "title": "Convert Epub To Pdf Preserving Embedded Fonts Default Rendering Behavior",
+      "filename": "convert_epub_to_pdf_preserving_embedded_fonts_default_rendering_behavior.cs",
+      "description": "Convert an EPUB document to PDF while preserving embedded fonts through default rendering behavior.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "epub",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_epub_to_pdf_set_left_and_right_margins_0_5_inches_balanced_appearance": {
+      "title": "Convert Epub To Pdf Set Left And Right Margins 0 5 Inches Balanced Appearance",
+      "filename": "convert_epub_to_pdf_set_left_and_right_margins_0_5_inches_balanced_appearance.cs",
+      "description": "Convert an EPUB to PDF and set both left and right margins to 0.5 inches for balanced appearance.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "epub",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "File.OpenRead",
+        "Path.Combine",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_epub_to_xps_using_epubrenderer_xpsdevice_specifying_1inch_page_margins": {
+      "title": "Convert Epub To Xps Using Epubrenderer Xpsdevice Specifying 1Inch Page Margins",
+      "filename": "convert_epub_to_xps_using_epubrenderer_xpsdevice_specifying_1inch_page_margins.cs",
+      "description": "Convert an EPUB to XPS using EpubRenderer and XpsDevice while specifying 1‑inch page margins.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "epub",
+        "html",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "EpubRenderer",
+        "File.OpenRead",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size",
+        "XpsDevice",
+        "XpsRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_file_to_pdf_set_background_color_light_blue_branding": {
+      "title": "Convert Html File To Pdf Set Background Color Light Blue Branding",
+      "filename": "convert_html_file_to_pdf_set_background_color_light_blue_branding.cs",
+      "description": "Convert an HTML file to PDF and set background color to light blue for branding purposes.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice",
+        "PdfRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_image_rendering_options_produce_jpg_files_from_remote_html_url_list": {
+      "title": "Convert Html Image Rendering Options Produce Jpg Files From Remote Html Url List",
+      "filename": "convert_html_image_rendering_options_produce_jpg_files_from_remote_html_url_list.cs",
+      "description": "Use ConvertHTML with ImageRenderingOptions to produce JPG files from a list of remote HTML URLs.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "HttpClient",
+        "ImageSaveOptions",
+        "Path.Combine"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_memory_stream_to_pdf_pdfsaveoptions_flattening_enabled_avoid_intermediate_files": {
+      "title": "Convert Html Memory Stream To Pdf Pdfsaveoptions Flattening Enabled Avoid Intermediate Files",
+      "filename": "convert_html_memory_stream_to_pdf_pdfsaveoptions_flattening_enabled_avoid_intermediate_files.cs",
+      "description": "Convert HTML content from a memory stream to PDF using PdfSaveOptions with flattening enabled, avoiding intermediate files.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "CustomStreamProvider",
+        "File.Create",
+        "HTMLDocument",
+        "MemoryStream",
+        "PdfSaveOptions",
+        "Streams.Add",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_to_docx_preserving_table_structures_default_options": {
+      "title": "Convert Html To Docx Preserving Table Structures Default Options",
+      "filename": "convert_html_to_docx_preserving_table_structures_default_options.cs",
+      "description": "Convert HTML to DOCX while preserving table structures by using default DocRenderingOptions.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocDevice",
+        "DocRenderingOptions",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_to_jpg_preserve_original_aspect_ratio_without_explicit_width_height": {
+      "title": "Convert Html To Jpg Preserve Original Aspect Ratio Without Explicit Width Height",
+      "filename": "convert_html_to_jpg_preserve_original_aspect_ratio_without_explicit_width_height.cs",
+      "description": "Convert HTML to JPG while preserving original aspect ratio by not specifying explicit width or height.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_to_pdf_disabling_background_rendering_transparent_background_document": {
+      "title": "Convert Html To Pdf Disabling Background Rendering Transparent Background Document",
+      "filename": "convert_html_to_pdf_disabling_background_rendering_transparent_background_document.cs",
+      "description": "Convert HTML to PDF while disabling background rendering to produce a transparent‑background document.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice",
+        "PdfRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_to_pdf_embed_all_fonts_using_default_rendering_options": {
+      "title": "Convert Html To Pdf Embed All Fonts Using Default Rendering Options",
+      "filename": "convert_html_to_pdf_embed_all_fonts_using_default_rendering_options.cs",
+      "description": "Convert HTML to PDF and embed all fonts automatically by relying on default PdfRenderingOptions behavior.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_to_pdf_with_custom_page_size_and_margins": {
+      "title": "Convert Html To Pdf With Custom Page Size And Margins",
+      "filename": "convert_html_to_pdf_with_custom_page_size_and_margins.cs",
+      "description": "Convert an HTML file to PDF using PdfRenderingOptions to set custom page size and margins.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.Drawing.Length.FromInches",
+        "Aspose.Html.Drawing.Margin",
+        "Aspose.Html.Drawing.Page",
+        "Aspose.Html.Drawing.Size",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Rendering.Pdf.PdfDevice",
+        "Aspose.Html.Rendering.Pdf.PdfRenderingOptions",
+        "Console.WriteLine",
+        "Drawing.Margin",
+        "Drawing.Page",
+        "Drawing.Size",
+        "Html.HTMLDocument",
+        "Length.FromInches",
+        "Pdf.PdfDevice",
+        "Pdf.PdfRenderingOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_to_xps_define_custom_top_bottom_margins_using_xps_rendering_options": {
+      "title": "Convert Html To Xps Define Custom Top Bottom Margins Using Xps Rendering Options",
+      "filename": "convert_html_to_xps_define_custom_top_bottom_margins_using_xps_rendering_options.cs",
+      "description": "Convert HTML to XPS using XpsRenderingOptions to define custom top and bottom margins.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Drawing.Length.FromInches",
+        "Aspose.Html.Drawing.Margin",
+        "Aspose.Html.Drawing.Page",
+        "Aspose.Html.Drawing.Size",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.XpsSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Drawing.Margin",
+        "Drawing.Page",
+        "Drawing.Size",
+        "Html.HTMLDocument",
+        "Length.FromInches",
+        "Saving.XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_html_with_xps_rendering_options_produce_xps_files_from_html_custom_bottom_margin": {
+      "title": "Convert Html With Xps Rendering Options Produce Xps Files From Html Custom Bottom Margin",
+      "filename": "convert_html_with_xps_rendering_options_produce_xps_files_from_html_custom_bottom_margin.cs",
+      "description": "Use ConvertHTML with XpsRenderingOptions to produce XPS files from HTML while applying custom bottom margin.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_markdown_to_html_inject_custom_css_head_save_styled_page": {
+      "title": "Convert Markdown To Html Inject Custom Css Head Save Styled Page",
+      "filename": "convert_markdown_to_html_inject_custom_css_head_save_styled_page.cs",
+      "description": "Convert a Markdown string to HTML, inject custom CSS into the head, and save the styled page.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "dom",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "DocumentElement.AppendChild",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_mhtml_to_pdf_with_custom_page_dimensions_pdfdevice_anypage": {
+      "title": "Convert Mhtml To Pdf With Custom Page Dimensions Pdfdevice Anypage",
+      "filename": "convert_mhtml_to_pdf_with_custom_page_dimensions_pdfdevice_anypage.cs",
+      "description": "Convert an MHTML document to PDF while applying custom page dimensions via PdfDevice.AnyPage property.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "mhtml",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.OpenRead",
+        "MhtmlRenderer",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_svg_file_pdf_automatically_adjust_page_size_widest_element_using_adjusttowidestpage": {
+      "title": "Convert Svg File Pdf Automatically Adjust Page Size Widest Element Using Adjusttowidestpage",
+      "filename": "convert_svg_file_pdf_automatically_adjust_page_size_widest_element_using_adjusttowidestpage.cs",
+      "description": "Convert an SVG file to PDF while automatically adjusting page size to the widest element using AdjustToWidestPage.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "drawing",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "SVGDocument",
+        "Size",
+        "SvgRenderer"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_svg_to_jpg_72dpi_transparent_background_web_thumbnails": {
+      "title": "Convert Svg To Jpg 72Dpi Transparent Background Web Thumbnails",
+      "filename": "convert_svg_to_jpg_72dpi_transparent_background_web_thumbnails.cs",
+      "description": "Convert an SVG file to JPG with 72 DPI resolution and transparent background for web thumbnails.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "drawing",
+        "forms",
+        "html",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "convert_svg_to_jpg_using_imagedevice_72dpi_web_optimized_image_size": {
+      "title": "Convert Svg To Jpg Using Imagedevice 72Dpi Web Optimized Image Size",
+      "filename": "convert_svg_to_jpg_using_imagedevice_72dpi_web_optimized_image_size.cs",
+      "description": "Convert SVG to JPG using ImageDevice, specifying 72 DPI resolution for web‑optimized image size.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "forms",
+        "html",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "create_image_device_jpg_output_600dpi_resolution_white_background_high_quality_prints": {
+      "title": "Create Image Device Jpg Output 600Dpi Resolution White Background High Quality Prints",
+      "filename": "create_image_device_jpg_output_600dpi_resolution_white_background_high_quality_prints.cs",
+      "description": "Create an ImageDevice for JPG output with 600 DPI resolution and white background for high‑quality prints.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "create_image_device_jpg_output_anti_aliasing_enabled_white_background_clean_visuals": {
+      "title": "Create Image Device Jpg Output Anti Aliasing Enabled White Background Clean Visuals",
+      "filename": "create_image_device_jpg_output_anti_aliasing_enabled_white_background_clean_visuals.cs",
+      "description": "Create an ImageDevice for JPG output with anti‑aliasing enabled and a white background for clean visuals.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "create_image_device_jpg_output_black_background_set_background_color": {
+      "title": "Create Image Device Jpg Output Black Background Set Background Color",
+      "filename": "create_image_device_jpg_output_black_background_set_background_color.cs",
+      "description": "Create an ImageDevice for JPG output with a black background by setting RenderingOptions.BackgroundColor.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "create_pdfdevice_custom_page_size_5_by_7_inches_for_small_format_pdf_generation": {
+      "title": "Create Pdfdevice Custom Page Size 5 By 7 Inches For Small Format Pdf Generation",
+      "filename": "create_pdfdevice_custom_page_size_5_by_7_inches_for_small_format_pdf_generation.cs",
+      "description": "Create a PdfDevice with custom page size of 5 by 7 inches for small‑format PDF generation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "create_pdfdevice_portrait_orientation_1inch_margins_all_sides": {
+      "title": "Create Pdfdevice Portrait Orientation 1Inch Margins All Sides",
+      "filename": "create_pdfdevice_portrait_orientation_1inch_margins_all_sides.cs",
+      "description": "Create a PdfDevice with custom page orientation set to Portrait and apply 1‑inch margins on all sides.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "create_pdfdevice_with_adjust_to_widest_page_disabled_keep_original_page_widths_conversion": {
+      "title": "Create Pdfdevice With Adjust To Widest Page Disabled Keep Original Page Widths Conversion",
+      "filename": "create_pdfdevice_with_adjust_to_widest_page_disabled_keep_original_page_widths_conversion.cs",
+      "description": "Create a PdfDevice with AdjustToWidestPage disabled to keep original page widths during conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Rendering.Pdf.PdfDevice",
+        "Aspose.Html.Rendering.Pdf.PdfRenderingOptions",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Pdf.PdfDevice",
+        "Pdf.PdfRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "create_style_element_with_css_rules_append_to_html_head_generate_final_document": {
+      "title": "Create Style Element With Css Rules Append To Html Head Generate Final Document",
+      "filename": "create_style_element_with_css_rules_append_to_html_head_generate_final_document.cs",
+      "description": "Create a <style> element with CSS rules, append it to the HTML head, and generate the final document.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocumentElement.InsertBefore",
+        "HTMLDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "detect_missing_css_files_during_html_conversion_fallback_to_default_styles_continue_processing_remaining_files": {
+      "title": "Detect Missing Css Files During Html Conversion Fallback To Default Styles Continue Processing Remaining Files",
+      "filename": "detect_missing_css_files_during_html_conversion_fallback_to_default_styles_continue_processing_remaining_files.cs",
+      "description": "Detect missing CSS files during HTML conversion, fallback to default styles, and continue processing remaining files.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "html-document"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.Exists",
+        "Directory.GetFiles",
+        "File.ReadAllText",
+        "Html.HTMLDocument",
+        "Path.ChangeExtension",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "dispose_html_document_and_pdf_save_options_objects_after_each_conversion_to_free_unmanaged_resources_promptly": {
+      "title": "Dispose Html Document And Pdf Save Options Objects After Each Conversion To Free Unmanaged Resources Promptly",
+      "filename": "dispose_html_document_and_pdf_save_options_objects_after_each_conversion_to_free_unmanaged_resources_promptly.cs",
+      "description": "Dispose of HtmlDocument and PdfSaveOptions objects after each conversion to free unmanaged resources promptly.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "each_conversion_verify_output_pdf_html_file_exists_not_empty_before_proceeding": {
+      "title": "Each Conversion Verify Output Pdf Html File Exists Not Empty Before Proceeding",
+      "filename": "each_conversion_verify_output_pdf_html_file_exists_not_empty_before_proceeding.cs",
+      "description": "After each conversion, verify that the output PDF or HTML file exists and is not empty before proceeding.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Exception",
+        "File.Exists",
+        "FileInfo",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "enable_anti_aliasing_for_image_conversion_to_produce_smoother_jpg_output_from_html_content": {
+      "title": "Enable Anti Aliasing For Image Conversion To Produce Smoother Jpg Output From Html Content",
+      "filename": "enable_anti_aliasing_for_image_conversion_to_produce_smoother_jpg_output_from_html_content.cs",
+      "description": "Enable anti‑aliasing for image conversion to produce smoother JPG output from HTML content.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "ensure_unicode_characters_render_correctly_setting_appropriate_encoding_loading_html_files_conversion": {
+      "title": "Ensure Unicode Characters Render Correctly Setting Appropriate Encoding Loading Html Files Conversion",
+      "filename": "ensure_unicode_characters_render_correctly_setting_appropriate_encoding_loading_html_files_conversion.cs",
+      "description": "Ensure Unicode characters render correctly by setting appropriate encoding when loading HTML files for conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "image",
+        "png"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Encoding.GetEncoding",
+        "File.ReadAllText",
+        "ImageSaveOptions",
+        "Path.GetDirectoryName",
+        "Path.GetFullPath",
+        "System.IO.File.ReadAllText",
+        "System.IO.Path.GetDirectoryName",
+        "System.IO.Path.GetFullPath",
+        "System.Text.Encoding.GetEncoding"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "generate_high_resolution_jpg_from_html_setting_image_rendering_options_resolution_dpi_300": {
+      "title": "Generate High Resolution Jpg From Html Setting Image Rendering Options Resolution Dpi 300",
+      "filename": "generate_high_resolution_jpg_from_html_setting_image_rendering_options_resolution_dpi_300.cs",
+      "description": "Generate a high‑resolution JPG from HTML by setting ImageRenderingOptions.ResolutionDpi to 300 DPI.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "generate_jpg_from_svg_using_imagedevice_300_dpi_white_background_color": {
+      "title": "Generate Jpg From Svg Using Imagedevice 300 Dpi White Background Color",
+      "filename": "generate_jpg_from_svg_using_imagedevice_300_dpi_white_background_color.cs",
+      "description": "Generate a JPG from SVG using ImageDevice with 300 DPI resolution and white background color.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "drawing",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertSVG",
+        "Console.WriteLine",
+        "Converter.ConvertSVG",
+        "ImageSaveOptions",
+        "SVGDocument"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "generate_unique_css_style_block_for_each_markdown_document_based_on_metadata_before_html_conversion": {
+      "title": "Generate Unique Css Style Block For Each Markdown Document Based On Metadata Before Html Conversion",
+      "filename": "generate_unique_css_style_block_for_each_markdown_document_based_on_metadata_before_html_conversion.cs",
+      "description": "Generate a unique CSS style block for each Markdown document based on its metadata before HTML conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "DocumentElement.AppendChild",
+        "MemoryStream",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "implement_asynchronous_batch_processing_convert_thousands_html_files_to_flattened_pdfs_without_blocking_ui_thread": {
+      "title": "Implement Asynchronous Batch Processing Convert Thousands Html Files To Flattened Pdfs Without Blocking Ui Thread",
+      "filename": "implement_asynchronous_batch_processing_convert_thousands_html_files_to_flattened_pdfs_without_blocking_ui_thread.cs",
+      "description": "Implement asynchronous batch processing to convert thousands of HTML files to flattened PDFs without blocking the UI thread.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions",
+        "Task.Run",
+        "Task.WhenAll"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "inspect_html_head_confirm_style_element_before_existing_links_css_injection": {
+      "title": "Inspect Html Head Confirm Style Element Before Existing Links Css Injection",
+      "filename": "inspect_html_head_confirm_style_element_before_existing_links_css_injection.cs",
+      "description": "After injecting CSS, inspect the generated HTML head to confirm the style element appears before existing links.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Math.Min"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "load_html_file_set_formfield_behaviour_flattened_convert_static_pdf": {
+      "title": "Load Html File Set Formfield Behaviour Flattened Convert Static Pdf",
+      "filename": "load_html_file_set_formfield_behaviour_flattened_convert_static_pdf.cs",
+      "description": "Load an HTML file, set PdfSaveOptions.FormFieldBehaviour to Flattened, and convert to static PDF.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "load_mhtml_document_configure_flattened_pdf_save_options_convert_non_interactive_pdf": {
+      "title": "Load Mhtml Document Configure Flattened Pdf Save Options Convert Non Interactive Pdf",
+      "filename": "load_mhtml_document_configure_flattened_pdf_save_options_convert_non_interactive_pdf.cs",
+      "description": "Load an MHTML document, configure PdfSaveOptions to Flattened, and convert it to a non‑interactive PDF.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "mhtml",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "load_shared_css_file_once_and_inject_into_each_generated_html_document_during_batch_markdown_conversion": {
+      "title": "Load Shared Css File Once And Inject Into Each Generated Html Document During Batch Markdown Conversion",
+      "filename": "load_shared_css_file_once_and_inject_into_each_generated_html_document_during_batch_markdown_conversion.cs",
+      "description": "Load a shared CSS file once, then inject it into each generated HTML document during batch Markdown conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "Directory.GetFiles",
+        "DocumentElement.AppendChild",
+        "File.ReadAllText",
+        "MemoryStream",
+        "Path.ChangeExtension",
+        "System.Text.Encoding.UTF8.GetBytes",
+        "UTF8.GetBytes"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "log_successful_conversions_with_source_and_destination_paths_and_timestamp_to_csv_audit": {
+      "title": "Log Successful Conversions With Source And Destination Paths And Timestamp To Csv Audit",
+      "filename": "log_successful_conversions_with_source_and_destination_paths_and_timestamp_to_csv_audit.cs",
+      "description": "Log each successful conversion with source path, destination path, and timestamp to a CSV audit file.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Now.ToString",
+        "PdfSaveOptions",
+        "StreamWriter"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "merge_three_html_files_into_single_pdf_invoking_htmlrenderer_renderto_sequentially_same_pdfdevice": {
+      "title": "Merge Three Html Files Into Single Pdf Invoking Htmlrenderer Renderto Sequentially Same Pdfdevice",
+      "filename": "merge_three_html_files_into_single_pdf_invoking_htmlrenderer_renderto_sequentially_same_pdfdevice.cs",
+      "description": "Merge three HTML files into a single PDF by invoking HtmlRenderer.RenderTo sequentially on the same PdfDevice.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Rendering.HtmlRenderer",
+        "Aspose.Html.Rendering.Pdf.PdfDevice",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Pdf.PdfDevice",
+        "Rendering.HtmlRenderer"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "open_resulting_pdf_confirm_interactive_form_fields_not_editable_successful_flattening": {
+      "title": "Open Resulting Pdf Confirm Interactive Form Fields Not Editable Successful Flattening",
+      "filename": "open_resulting_pdf_confirm_interactive_form_fields_not_editable_successful_flattening.cs",
+      "description": "Open the resulting PDF and confirm that interactive form fields are no longer editable, indicating successful flattening.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "process_directory_html_files_applying_identical_flattened_pdf_save_options_each_conversion": {
+      "title": "Process Directory Html Files Applying Identical Flattened Pdf Save Options Each Conversion",
+      "filename": "process_directory_html_files_applying_identical_flattened_pdf_save_options_each_conversion.cs",
+      "description": "Process a directory of HTML files, applying identical flattened PdfSaveOptions for each conversion.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "HTMLDocument",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "process_multiple_epub_files_in_parallel_convert_to_docx_using_epubrenderer_docdevice": {
+      "title": "Process Multiple Epub Files In Parallel Convert To Docx Using Epubrenderer Docdevice",
+      "filename": "process_multiple_epub_files_in_parallel_convert_to_docx_using_epubrenderer_docdevice.cs",
+      "description": "Process multiple EPUB files in parallel, converting each to DOCX using EpubRenderer and DocDevice.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "epub",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "DocDevice",
+        "DocRenderingOptions",
+        "EpubRenderer",
+        "File.OpenRead",
+        "Page",
+        "Parallel.ForEach",
+        "Path.Combine",
+        "Path.GetFileNameWithoutExtension",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "provide_base_url_converthtml_correctly_resolve_relative_links_resources_during_pdf_generation": {
+      "title": "Provide Base Url Converthtml Correctly Resolve Relative Links Resources During Pdf Generation",
+      "filename": "provide_base_url_converthtml_correctly_resolve_relative_links_resources_during_pdf_generation.cs",
+      "description": "Provide a base URL to ConvertHTML to correctly resolve relative links and resources during PDF generation.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "image",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "provide_base_url_in_htmlloadoptions_when_converting_mhtml_to_ensure_relative_links_resolve_correctly_in_pdf": {
+      "title": "Provide Base Url In Htmlloadoptions When Converting Mhtml To Ensure Relative Links Resolve Correctly In Pdf",
+      "filename": "provide_base_url_in_htmlloadoptions_when_converting_mhtml_to_ensure_relative_links_resolve_correctly_in_pdf.cs",
+      "description": "Provide a base URL in HtmlLoadOptions when converting MHTML to ensure relative links resolve correctly in the PDF.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "mhtml",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "read_markdown_file_into_stream_convert_to_html_save_output_to_target_folder": {
+      "title": "Read Markdown File Into Stream Convert To Html Save Output To Target Folder",
+      "filename": "read_markdown_file_into_stream_convert_to_html_save_output_to_target_folder.cs",
+      "description": "Read a Markdown file into a stream, convert to HTML, and save the output to a target folder.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "Directory.CreateDirectory",
+        "Directory.GetCurrentDirectory",
+        "Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_epub_to_docx_custom_page_size_8_5_by_13_inches": {
+      "title": "Render Epub To Docx Custom Page Size 8 5 By 13 Inches",
+      "filename": "render_epub_to_docx_custom_page_size_8_5_by_13_inches.cs",
+      "description": "Render an EPUB to DOCX while setting DocRenderingOptions.PageSize to custom 8.5 by 13 inches.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "epub",
+        "forms",
+        "html"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "DocSaveOptions",
+        "File.OpenRead",
+        "Length.FromInches",
+        "Page",
+        "Path.Combine",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_epub_to_pdf_top_bottom_margins_15_points_balanced_layout": {
+      "title": "Render Epub To Pdf Top Bottom Margins 15 Points Balanced Layout",
+      "filename": "render_epub_to_pdf_top_bottom_margins_15_points_balanced_layout.cs",
+      "description": "Render an EPUB to PDF and set both top and bottom margins to 15 points for balanced layout.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "epub",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "EpubRenderer",
+        "File.OpenRead",
+        "Length.FromPoints",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_epub_to_pdf_with_custom_top_margin_25_points_for_header_space": {
+      "title": "Render Epub To Pdf With Custom Top Margin 25 Points For Header Space",
+      "filename": "render_epub_to_pdf_with_custom_top_margin_25_points_for_header_space.cs",
+      "description": "Render an EPUB to PDF with custom top margin of 25 points to accommodate header space.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "epub",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.Drawing.Length.FromPoints",
+        "Aspose.Html.Drawing.Margin",
+        "Aspose.Html.Drawing.Page",
+        "Aspose.Html.Drawing.Size",
+        "Aspose.Html.Rendering.EpubRenderer",
+        "Aspose.Html.Rendering.Pdf.PdfDevice",
+        "Aspose.Html.Rendering.Pdf.PdfRenderingOptions",
+        "Console.WriteLine",
+        "Drawing.Margin",
+        "Drawing.Page",
+        "Drawing.Size",
+        "File.OpenRead",
+        "Length.FromPoints",
+        "Pdf.PdfDevice",
+        "Pdf.PdfRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_document_to_xps_landscape_orientation_pageorientation": {
+      "title": "Render Html Document To Xps Landscape Orientation Pageorientation",
+      "filename": "render_html_document_to_xps_landscape_orientation_pageorientation.cs",
+      "description": "Render an HTML document to XPS with landscape orientation by setting XpsRenderingOptions.PageOrientation.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Page",
+        "Size",
+        "XpsDevice",
+        "XpsRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_docx_custom_page_size_8_5by14_inches_docrenderingoptions": {
+      "title": "Render Html To Docx Custom Page Size 8 5By14 Inches Docrenderingoptions",
+      "filename": "render_html_to_docx_custom_page_size_8_5by14_inches_docrenderingoptions.cs",
+      "description": "Render HTML to DOCX with custom page size of 8.5 by 14 inches using DocRenderingOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Aspose.Html.Drawing.Length.FromInches",
+        "Aspose.Html.Drawing.Page",
+        "Aspose.Html.Drawing.Size",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Rendering.Doc.DocDevice",
+        "Aspose.Html.Rendering.Doc.DocRenderingOptions",
+        "Console.WriteLine",
+        "Doc.DocDevice",
+        "Doc.DocRenderingOptions",
+        "Drawing.Page",
+        "Drawing.Size",
+        "Html.HTMLDocument",
+        "Length.FromInches"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_docx_with_custom_page_orientation_landscape": {
+      "title": "Render Html To Docx With Custom Page Orientation Landscape",
+      "filename": "render_html_to_docx_with_custom_page_orientation_landscape.cs",
+      "description": "Render HTML to DOCX with custom page orientation set to Landscape via DocRenderingOptions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocDevice",
+        "DocRenderingOptions",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_docx_with_portrait_orientation_and_1inch_page_margins": {
+      "title": "Render Html To Docx With Portrait Orientation And 1Inch Page Margins",
+      "filename": "render_html_to_docx_with_portrait_orientation_and_1inch_page_margins.cs",
+      "description": "Render HTML to DOCX with DocRenderingOptions specifying portrait orientation and 1‑inch page margins.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocDevice",
+        "DocRenderingOptions",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_pdf_custom_background_light_gray_subtle_visual_effect": {
+      "title": "Render Html To Pdf Custom Background Light Gray Subtle Visual Effect",
+      "filename": "render_html_to_pdf_custom_background_light_gray_subtle_visual_effect.cs",
+      "description": "Render HTML to PDF with custom background color set to light gray for subtle visual effect.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "PdfDevice",
+        "PdfRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_pdf_custom_page_orientation_landscape_0_5_inch_margins_all_sides": {
+      "title": "Render Html To Pdf Custom Page Orientation Landscape 0 5 Inch Margins All Sides",
+      "filename": "render_html_to_pdf_custom_page_orientation_landscape_0_5_inch_margins_all_sides.cs",
+      "description": "Render HTML to PDF with custom page orientation set to Landscape and 0.5‑inch margins on all sides.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Drawing.Length.FromInches",
+        "Aspose.Html.Drawing.Margin",
+        "Aspose.Html.Drawing.Page",
+        "Aspose.Html.Drawing.Size",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Drawing.Margin",
+        "Drawing.Page",
+        "Drawing.Size",
+        "Html.HTMLDocument",
+        "Length.FromInches",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_pdf_custom_right_margin_12_points_for_binding_requirements": {
+      "title": "Render Html To Pdf Custom Right Margin 12 Points For Binding Requirements",
+      "filename": "render_html_to_pdf_custom_right_margin_12_points_for_binding_requirements.cs",
+      "description": "Render HTML to PDF with custom right margin of 12 points to accommodate binding requirements.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_pdf_embed_external_css_files_ensure_default_rendering_includes_linked_resources": {
+      "title": "Render Html To Pdf Embed External Css Files Ensure Default Rendering Includes Linked Resources",
+      "filename": "render_html_to_pdf_embed_external_css_files_ensure_default_rendering_includes_linked_resources.cs",
+      "description": "Render HTML to PDF and embed all external CSS files by ensuring default rendering includes linked resources.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "css",
+        "dom",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Path.Combine",
+        "PdfDevice",
+        "System.IO.Path.Combine"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_pdf_with_adjust_to_widest_page_enabled_automatically_fit_content_each_page": {
+      "title": "Render Html To Pdf With Adjust To Widest Page Enabled Automatically Fit Content Each Page",
+      "filename": "render_html_to_pdf_with_adjust_to_widest_page_enabled_automatically_fit_content_each_page.cs",
+      "description": "Render HTML to PDF with AdjustToWidestPage enabled to automatically fit content on each page.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_xps_custom_left_margin_8pt_align_content_precisely": {
+      "title": "Render Html To Xps Custom Left Margin 8Pt Align Content Precisely",
+      "filename": "render_html_to_xps_custom_left_margin_8pt_align_content_precisely.cs",
+      "description": "Render HTML to XPS with custom left margin of 8 points to align content precisely.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_html_to_xps_with_custom_left_margin_of_10_millimeters": {
+      "title": "Render Html To Xps With Custom Left Margin Of 10 Millimeters",
+      "filename": "render_html_to_xps_with_custom_left_margin_of_10_millimeters.cs",
+      "description": "Render HTML to XPS with custom left margin of 10 millimeters by adjusting XpsRenderingOptions.MarginLeft.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "Size",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_mhtml_document_to_jpg_300_dpi_resolution_white_background_print_ready_images": {
+      "title": "Render Mhtml Document To Jpg 300 Dpi Resolution White Background Print Ready Images",
+      "filename": "render_mhtml_document_to_jpg_300_dpi_resolution_white_background_print_ready_images.cs",
+      "description": "Render an MHTML document to JPG with 300 DPI resolution and white background for print‑ready images.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_mhtml_document_to_pdf_custom_page_orientation_portrait_vertical_layout": {
+      "title": "Render Mhtml Document To Pdf Custom Page Orientation Portrait Vertical Layout",
+      "filename": "render_mhtml_document_to_pdf_custom_page_orientation_portrait_vertical_layout.cs",
+      "description": "Render an MHTML document to PDF with a custom page orientation set to Portrait for vertical layout.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "mhtml",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.OpenRead",
+        "MhtmlRenderer",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_mhtml_file_to_xps_with_adjust_to_widest_page_true_optimal_page_fitting": {
+      "title": "Render Mhtml File To Xps With Adjust To Widest Page True Optimal Page Fitting",
+      "filename": "render_mhtml_file_to_xps_with_adjust_to_widest_page_true_optimal_page_fitting.cs",
+      "description": "Render an MHTML file to XPS with AdjustToWidestPage true to ensure optimal page fitting.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "mhtml",
+        "rendering",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "File.OpenRead",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_multiple_html_files_to_single_docx_document_sequentially_invoking_render_to_docdevice": {
+      "title": "Render Multiple Html Files To Single Docx Document Sequentially Invoking Render To Docdevice",
+      "filename": "render_multiple_html_files_to_single_docx_document_sequentially_invoking_render_to_docdevice.cs",
+      "description": "Render multiple HTML files into a single DOCX document by sequentially invoking HtmlRenderer.RenderTo on a DocDevice.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocDevice",
+        "DocRenderingOptions",
+        "HTMLDocument"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_multiple_html_files_to_single_xps_document_sequentially_using_htmlrenderer_renderto_one_xpsdevice": {
+      "title": "Render Multiple Html Files To Single Xps Document Sequentially Using Htmlrenderer Renderto One Xpsdevice",
+      "filename": "render_multiple_html_files_to_single_xps_document_sequentially_using_htmlrenderer_renderto_one_xpsdevice.cs",
+      "description": "Render multiple HTML files into a single XPS document by sequentially calling HtmlRenderer.RenderTo on one XpsDevice.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "html-document",
+        "rendering",
+        "xps"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "XpsDevice"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_multiple_mhtml_files_into_single_pdf_using_one_pdfdevice_and_mhtmlrenderer_renderto_each": {
+      "title": "Render Multiple Mhtml Files Into Single Pdf Using One Pdfdevice And Mhtmlrenderer Renderto Each",
+      "filename": "render_multiple_mhtml_files_into_single_pdf_using_one_pdfdevice_and_mhtmlrenderer_renderto_each.cs",
+      "description": "Render multiple MHTML files into a single PDF by opening one PdfDevice and invoking MhtmlRenderer.RenderTo for each.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "html",
+        "mhtml",
+        "pdf",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "File.OpenRead",
+        "MhtmlRenderer",
+        "PdfDevice"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_svg_image_to_pdf_using_pdfdevice_anypage_600x500_pixels": {
+      "title": "Render Svg Image To Pdf Using Pdfdevice Anypage 600X500 Pixels",
+      "filename": "render_svg_image_to_pdf_using_pdfdevice_anypage_600x500_pixels.cs",
+      "description": "Render an SVG image to PDF by creating PdfDevice with AnyPage set to 600x500 pixels.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "drawing",
+        "html",
+        "image",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "SVGDocument",
+        "Size",
+        "SvgRenderer"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "render_svg_to_pdf_custom_background_color_light_gray_pdfdevice": {
+      "title": "Render Svg To Pdf Custom Background Color Light Gray Pdfdevice",
+      "filename": "render_svg_to_pdf_custom_background_color_light_gray_pdfdevice.cs",
+      "description": "Render an SVG to PDF with a custom background color of light gray using PdfDevice.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "dom",
+        "drawing",
+        "html",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "SVGDocument",
+        "Size",
+        "SvgRenderer"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "resize_embedded_images_in_html_before_pdf_conversion_reduce_final_pdf_size_preserving_quality": {
+      "title": "Resize Embedded Images In Html Before Pdf Conversion Reduce Final Pdf Size Preserving Quality",
+      "filename": "resize_embedded_images_in_html_before_pdf_conversion_reduce_final_pdf_size_preserving_quality.cs",
+      "description": "Resize embedded images in HTML before PDF conversion to reduce final PDF size while preserving quality.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "dom",
+        "drawing",
+        "html",
+        "html-document",
+        "image"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.Drawing.Margin",
+        "Aspose.Html.Drawing.Page",
+        "Aspose.Html.Drawing.Size",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Drawing.Margin",
+        "Drawing.Page",
+        "Drawing.Size",
+        "Html.HTMLDocument",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_anti_aliasing_false_for_faster_jpg_generation_when_visual_quality_secondary": {
+      "title": "Set Anti Aliasing False For Faster Jpg Generation When Visual Quality Secondary",
+      "filename": "set_anti_aliasing_false_for_faster_jpg_generation_when_visual_quality_secondary.cs",
+      "description": "Set ImageRenderingOptions.AntiAliasing to false for faster JPG generation when visual quality is secondary.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_anti_aliasing_true_resolution_dpi_300_high_quality_jpg_conversion": {
+      "title": "Set Anti Aliasing True Resolution Dpi 300 High Quality Jpg Conversion",
+      "filename": "set_anti_aliasing_true_resolution_dpi_300_high_quality_jpg_conversion.cs",
+      "description": "Set ImageRenderingOptions.AntiAliasing to true and ResolutionDpi to 300 for high‑quality JPG conversion.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Rendering.Image.ImageDevice",
+        "Aspose.Html.Rendering.Image.ImageRenderingOptions",
+        "Console.WriteLine",
+        "Html.HTMLDocument",
+        "Image.ImageDevice",
+        "Image.ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_css_media_type_print_pdf_conversion_match_printed_page_layout_conventions": {
+      "title": "Set Css Media Type Print Pdf Conversion Match Printed Page Layout Conventions",
+      "filename": "set_css_media_type_print_pdf_conversion_match_printed_page_layout_conventions.cs",
+      "description": "Set CSS media type to Print for PDF conversion to match printed page layout conventions.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.PdfSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.HTMLDocument",
+        "Saving.PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_css_media_type_screen_converting_html_to_pdf_emulate_on_screen_appearance": {
+      "title": "Set Css Media Type Screen Converting Html To Pdf Emulate On Screen Appearance",
+      "filename": "set_css_media_type_screen_converting_html_to_pdf_emulate_on_screen_appearance.cs",
+      "description": "Set CSS media type to Screen when converting HTML to PDF to emulate on‑screen appearance.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_cssoptions_media_type_to_print_for_xps_conversion_reflect_printed_media_styling": {
+      "title": "Set Cssoptions Media Type To Print For Xps Conversion Reflect Printed Media Styling",
+      "filename": "set_cssoptions_media_type_to_print_for_xps_conversion_reflect_printed_media_styling.cs",
+      "description": "Set CssOptions.MediaType to Print for XPS conversion to reflect printed media styling.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "html-document",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Aspose.Html.Configuration",
+        "Aspose.Html.Converters.Converter.ConvertHTML",
+        "Aspose.Html.HTMLDocument",
+        "Aspose.Html.Saving.XpsSaveOptions",
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "Html.Configuration",
+        "Html.HTMLDocument",
+        "Saving.XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_cssoptions_mediatype_screen_when_converting_html_to_jpg_capture_onscreen_appearance": {
+      "title": "Set Cssoptions Mediatype Screen When Converting Html To Jpg Capture Onscreen Appearance",
+      "filename": "set_cssoptions_mediatype_screen_when_converting_html_to_jpg_capture_onscreen_appearance.cs",
+      "description": "Set CssOptions.MediaType to Screen when converting HTML to JPG to capture on‑screen appearance.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "forms",
+        "html",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "ImageSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_cssoptions_mediatype_to_screen_when_converting_html_to_docx_retain_onscreen_styling": {
+      "title": "Set Cssoptions Mediatype To Screen When Converting Html To Docx Retain Onscreen Styling",
+      "filename": "set_cssoptions_mediatype_to_screen_when_converting_html_to_docx_retain_onscreen_styling.cs",
+      "description": "Set CssOptions.MediaType to Screen when converting HTML to DOCX to retain on‑screen styling.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "css",
+        "html",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "DocSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_margin_bottom_0_3_inches_tighter_bottom_spacing_pdf_documents": {
+      "title": "Set Margin Bottom 0 3 Inches Tighter Bottom Spacing Pdf Documents",
+      "filename": "set_margin_bottom_0_3_inches_tighter_bottom_spacing_pdf_documents.cs",
+      "description": "Set PdfRenderingOptions.MarginBottom to 0.3 inches for tighter bottom spacing in PDF documents.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_pdf_rendering_options_page_size_custom_dimensions_7_by_10_inches_niche_document_formats": {
+      "title": "Set Pdf Rendering Options Page Size Custom Dimensions 7 By 10 Inches Niche Document Formats",
+      "filename": "set_pdf_rendering_options_page_size_custom_dimensions_7_by_10_inches_niche_document_formats.cs",
+      "description": "Set PdfRenderingOptions.PageSize to custom dimensions of 7 by 10 inches for niche document formats.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfSaveOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_pdfsaveoptions_compressionlevel_balance_file_size_quality_flattening_pdfs_html_sources": {
+      "title": "Set Pdfsaveoptions Compressionlevel Balance File Size Quality Flattening Pdfs Html Sources",
+      "filename": "set_pdfsaveoptions_compressionlevel_balance_file_size_quality_flattening_pdfs_html_sources.cs",
+      "description": "Set PdfSaveOptions.CompressionLevel to balance file size and quality when flattening PDFs from HTML sources.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "jpeg",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_pdfsaveoptions_page_size_margin_before_converting_html_to_pdf_control_page_layout": {
+      "title": "Set Pdfsaveoptions Page Size Margin Before Converting Html To Pdf Control Page Layout",
+      "filename": "set_pdfsaveoptions_page_size_margin_before_converting_html_to_pdf_control_page_layout.cs",
+      "description": "Set PdfSaveOptions.PageSize and Margin before converting HTML to PDF to control page layout.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "Length.FromInches",
+        "Margin",
+        "Page",
+        "PdfSaveOptions",
+        "Size"
+      ],
+      "difficulty": "intermediate",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_pdfsaveoptions_title_and_author_before_conversion_embed_custom_metadata_into_flattened_pdf": {
+      "title": "Set Pdfsaveoptions Title And Author Before Conversion Embed Custom Metadata Into Flattened Pdf",
+      "filename": "set_pdfsaveoptions_title_and_author_before_conversion_embed_custom_metadata_into_flattened_pdf.cs",
+      "description": "Set PdfSaveOptions.Title and Author before conversion to embed custom metadata into the flattened PDF.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "metadata",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "set_resolution_dpi_200_for_moderate_quality_jpg_conversion_from_html_content_in_resulting_image": {
+      "title": "Set Resolution Dpi 200 For Moderate Quality Jpg Conversion From Html Content In Resulting Image",
+      "filename": "set_resolution_dpi_200_for_moderate_quality_jpg_conversion_from_html_content_in_resulting_image.cs",
+      "description": "Set ImageRenderingOptions.ResolutionDpi to 200 for moderate‑quality JPG conversion from HTML content in the resulting image.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "specify_pdfsaveoptions_pdfversion_1_7_when_flattening_pdfs_compatibility_modern_viewers": {
+      "title": "Specify Pdfsaveoptions Pdfversion 1 7 When Flattening Pdfs Compatibility Modern Viewers",
+      "filename": "specify_pdfsaveoptions_pdfversion_1_7_when_flattening_pdfs_compatibility_modern_viewers.cs",
+      "description": "Specify PdfSaveOptions.PdfVersion 1.7 when flattening PDFs to ensure compatibility with modern viewers.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "stream_large_markdown_files_line_by_line_avoid_loading_entire_content_into_memory": {
+      "title": "Stream Large Markdown Files Line By Line Avoid Loading Entire Content Into Memory",
+      "filename": "stream_large_markdown_files_line_by_line_avoid_loading_entire_content_into_memory.cs",
+      "description": "Stream large Markdown files line by line into ConvertMarkdown to avoid loading the entire content into memory.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "markdown"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMarkdown",
+        "File.OpenRead"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "transform_epub_to_docx_using_epubrenderer_docdevice_custom_margin_settings": {
+      "title": "Transform Epub To Docx Using Epubrenderer Docdevice Custom Margin Settings",
+      "filename": "transform_epub_to_docx_using_epubrenderer_docdevice_custom_margin_settings.cs",
+      "description": "Transform an EPUB file into DOCX using EpubRenderer and DocDevice with custom margin settings.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "epub",
+        "forms",
+        "html",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocDevice",
+        "DocRenderingOptions",
+        "EpubRenderer",
+        "File.OpenRead",
+        "Margin",
+        "Page",
+        "Path.Combine",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "use_converthtml_to_generate_pdf_files_from_html_with_custom_background_color": {
+      "title": "Use Converthtml To Generate Pdf Files From Html With Custom Background Color",
+      "filename": "use_converthtml_to_generate_pdf_files_from_html_with_custom_background_color.cs",
+      "description": "Use ConvertHTML with PdfRenderingOptions to generate PDF files from HTML while applying a custom background color.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "use_htmlrenderer_renderto_imagedevice_produce_jpg_from_html_300_dpi_resolution": {
+      "title": "Use Htmlrenderer Renderto Imagedevice Produce Jpg From Html 300 Dpi Resolution",
+      "filename": "use_htmlrenderer_renderto_imagedevice_produce_jpg_from_html_300_dpi_resolution.cs",
+      "description": "Use HtmlRenderer.RenderTo with an ImageDevice to produce a JPG from HTML while specifying 300 DPI resolution.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "use_htmlrenderer_renderto_imagedevice_produce_jpg_from_html_while_setting_anti_aliasing": {
+      "title": "Use Htmlrenderer Renderto Imagedevice Produce Jpg From Html While Setting Anti Aliasing",
+      "filename": "use_htmlrenderer_renderto_imagedevice_produce_jpg_from_html_while_setting_anti_aliasing.cs",
+      "description": "Use HtmlRenderer.RenderTo with an ImageDevice to produce a JPG from HTML while setting anti‑aliasing.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "forms",
+        "html",
+        "html-document",
+        "image",
+        "jpeg"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HtmlRenderer",
+        "ImageDevice",
+        "ImageRenderingOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "use_htmlrenderer_renderto_pdfdevice_shared_renderingoptions_apply_common_settings_across_multiple_conversions": {
+      "title": "Use Htmlrenderer Renderto Pdfdevice Shared Renderingoptions Apply Common Settings Across Multiple Conversions",
+      "filename": "use_htmlrenderer_renderto_pdfdevice_shared_renderingoptions_apply_common_settings_across_multiple_conversions.cs",
+      "description": "Use HtmlRenderer.RenderTo with a PdfDevice and shared RenderingOptions to apply common settings across multiple conversions.",
+      "tags": [
+        "aspose-html",
+        "csharp",
+        "drawing",
+        "html",
+        "html-document",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "HTMLDocument",
+        "HtmlRenderer",
+        "Page",
+        "PdfDevice",
+        "PdfRenderingOptions",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "use_htmlrenderer_renderto_with_docdevice_to_convert_html_to_docx_applying_custom_margins": {
+      "title": "Use Htmlrenderer Renderto With Docdevice To Convert Html To Docx Applying Custom Margins",
+      "filename": "use_htmlrenderer_renderto_with_docdevice_to_convert_html_to_docx_applying_custom_margins.cs",
+      "description": "Use HtmlRenderer.RenderTo with a DocDevice to convert HTML to DOCX while applying custom margins.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "drawing",
+        "forms",
+        "html",
+        "html-document",
+        "rendering"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "DocDevice",
+        "DocRenderingOptions",
+        "HTMLDocument",
+        "Margin",
+        "Page",
+        "Size"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "verify_flattened_pdf_programmatically_checking_form_fields_merged_into_single_static_layer": {
+      "title": "Verify Flattened Pdf Programmatically Checking Form Fields Merged Into Single Static Layer",
+      "filename": "verify_flattened_pdf_programmatically_checking_form_fields_merged_into_single_static_layer.cs",
+      "description": "Verify flattened PDF by programmatically checking that form fields are merged into a single static layer.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "forms",
+        "html",
+        "mhtml",
+        "pdf"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertMHTML",
+        "PdfSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "wrap_batch_conversion_loop_try_catch_capture_log_unexpected_errors": {
+      "title": "Wrap Batch Conversion Loop Try Catch Capture Log Unexpected Errors",
+      "filename": "wrap_batch_conversion_loop_try_catch_capture_log_unexpected_errors.cs",
+      "description": "Wrap the entire batch conversion loop in a try‑catch block to capture and log any unexpected errors.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "epub",
+        "html",
+        "saving-options",
+        "stream",
+        "xps"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertEPUB",
+        "CustomStreamProvider",
+        "Directory.CreateDirectory",
+        "Directory.GetFiles",
+        "File.Create",
+        "File.OpenRead",
+        "MemoryStream",
+        "Path.Combine",
+        "Path.GetFileName",
+        "Path.GetFileNameWithoutExtension",
+        "Streams.Add",
+        "XpsSaveOptions"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "wrap_converthtml_call_in_try_catch_block_to_handle_conversion_errors_and_log_details": {
+      "title": "Wrap Converthtml Call In Try Catch Block To Handle Conversion Errors And Log Details",
+      "filename": "wrap_converthtml_call_in_try_catch_block_to_handle_conversion_errors_and_log_details.cs",
+      "description": "Wrap each ConvertHTML call in a try‑catch block to handle conversion errors and log details.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "mhtml",
+        "saving-options"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "MHTMLSaveOptions"
+      ],
+      "difficulty": "beginner",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    },
+    "write_pdf_output_of_converthtml_directly_to_memorystream_for_further_processing_without_temporary_file": {
+      "title": "Write Pdf Output Of Converthtml Directly To Memorystream For Further Processing Without Temporary File",
+      "filename": "write_pdf_output_of_converthtml_directly_to_memorystream_for_further_processing_without_temporary_file.cs",
+      "description": "Write the PDF output of ConvertHTML directly to a MemoryStream for further processing without creating a temporary file.",
+      "tags": [
+        "aspose-html",
+        "conversion",
+        "csharp",
+        "html",
+        "html-document",
+        "pdf",
+        "saving-options",
+        "stream"
+      ],
+      "apis_used": [
+        "Console.WriteLine",
+        "Converter.ConvertHTML",
+        "HTMLDocument",
+        "MemoryStream",
+        "MemoryStreamProvider",
+        "PdfSaveOptions",
+        "Streams.Add"
+      ],
+      "difficulty": "advanced",
+      "generated_at": "2026-05-06T09:03:53Z",
+      "status": "verified"
+    }
+  }
+}
