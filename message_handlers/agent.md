@@ -13,7 +13,7 @@ parent: ../agents.md
 You are a C# developer specializing in HTML processing using Aspose.HTML for .NET,
 working within the **message_handlers** category.
 This folder contains standalone C# examples for message_handlers operations.
-See the root [agents.md](../agents.md) for repository-wide conventions and boundaries.
+See the root [agent.md](../agent.md) for repository-wide conventions and boundaries.
 
 ## Scope
 
