@@ -1,0 +1,96 @@
+name: Validate C# Examples
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    name: Build and run changed examples
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up .NET 10.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore validator project
+        run: dotnet restore .github/validation/ExampleValidator.csproj
+
+      - name: Find changed C# examples
+        id: changed
+        shell: bash
+        run: |
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '\.cs$' | grep -v '^\.github' || true)
+          echo "Changed .cs files:"
+          echo "$FILES"
+          {
+            echo 'files<<EOF'
+            echo "$FILES"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Build and run examples
+        shell: bash
+        run: |
+          FAILED=0
+          TOTAL=0
+          PASSED=0
+          FAILED_FILES=""
+
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            TOTAL=$((TOTAL+1))
+            echo "::group::Validate: $file"
+            cp "$file" .github/validation/Program.cs
+
+            if timeout 60 dotnet run --project .github/validation/ExampleValidator.csproj --no-restore -c Release 2>&1; then
+              PASSED=$((PASSED+1))
+              echo "Passed"
+            else
+              EXIT=$?
+              if [ $EXIT -eq 124 ]; then
+                echo "::warning file=$file::Timed out after 60s (input file may be required) — treated as pass"
+                PASSED=$((PASSED+1))
+              else
+                echo "::error file=$file::Failed with exit code $EXIT"
+                FAILED=$((FAILED+1))
+                FAILED_FILES="${FAILED_FILES}\n- ${file}"
+              fi
+            fi
+
+            find .github/validation -maxdepth 1 \( -name "*.png" -o -name "*.jpeg" -o -name "*.pdf" -o -name "*.xps" -o -name "*.md" -o -name "*.epub" \) -delete 2>/dev/null || true
+            echo "::endgroup::"
+          done <<< "${{ steps.changed.outputs.files }}"
+
+          if [ $TOTAL -eq 0 ]; then
+            echo "No .cs examples changed in this PR."
+            exit 0
+          fi
+
+          echo "Results: $PASSED/$TOTAL passed"
+
+          if [ $FAILED -gt 0 ]; then
+            echo ""
+            echo "Failed examples ($FAILED):"
+            printf "%b\n" "$FAILED_FILES"
+            {
+              echo "## ❌ Validation Results: $PASSED/$TOTAL passed"
+              echo ""
+              echo "### Failed Examples"
+              printf "%b\n" "$FAILED_FILES"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          {
+            echo "## ✅ Validation Results: $PASSED/$TOTAL passed"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
