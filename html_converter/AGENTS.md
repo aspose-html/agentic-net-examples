@@ -55,9 +55,8 @@ See the root [AGENTS.md](../AGENTS.md) for repository-wide conventions and bound
 | System.Security.Cryptography | Cryptographic streams for secure output |
 | System.Net.Mail | Email composition (attachments) |
 | System.Reflection | Reflection for dynamic option setting |
-| System.IO.Compression | Compression utilities (gzip, zip) |
+| System.IO.Compression | Compression utilities (gzip, zip); also the correct way to inspect an XPS file's internal parts (e.g. counting pages via `.fpage` entries) with `ZipFile.OpenRead`/`ZipArchive`, since XPS is an OPC/zip-based format -- do NOT use `System.IO.Packaging.Package`/`PackagePart` for this, it requires an extra NuGet reference this environment's build/validation does not include |
 | Aspose.Html.Rendering.Doc | DOC rendering device |
-| System.IO.Packaging | Packaging for DOCX, XPS, etc. |
 | System.Xml | XML handling (configuration files) |
 | System.Net | General networking |
 | System.Drawing.Imaging | Advanced image format settings |
@@ -83,7 +82,6 @@ using System.Text.Json;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO.Compression;
-using System.IO.Packaging;
 using System.Xml;
 using System.Net.Sockets;
 using System.IO.MemoryMappedFiles;

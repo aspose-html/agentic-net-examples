@@ -2,7 +2,7 @@
 
 using System;
 using System.IO;
-using System.IO.Packaging;
+using System.IO.Compression;
 using Aspose.Html;
 using Aspose.Html.Converters;
 using Aspose.Html.Saving;
@@ -23,17 +23,21 @@ class Program
             string outputDir = "ExtractedGraphics";
             Directory.CreateDirectory(outputDir);
 
-            using (Package package = Package.Open(xpsPath, FileMode.Open, FileAccess.Read))
+            // An XPS file is an OPC (zip-based) package, so its per-page
+            // vector graphics parts can be extracted with ZipArchive
+            // directly, without the separate System.IO.Packaging assembly.
+            using (ZipArchive archive = ZipFile.OpenRead(xpsPath))
             {
-                foreach (PackagePart part in package.GetParts())
+                foreach (ZipArchiveEntry entry in archive.Entries)
                 {
-                    if (part.Uri.OriginalString.EndsWith(".fpage", StringComparison.OrdinalIgnoreCase))
+                    if (entry.FullName.EndsWith(".fpage", StringComparison.OrdinalIgnoreCase))
                     {
-                        string fileName = Path.GetFileName(part.Uri.OriginalString);
+                        string fileName = Path.GetFileName(entry.FullName);
                         string destPath = Path.Combine(outputDir, fileName);
                         using (FileStream fs = new FileStream(destPath, FileMode.Create, FileAccess.Write))
+                        using (Stream entryStream = entry.Open())
                         {
-                            part.GetStream().CopyTo(fs);
+                            entryStream.CopyTo(fs);
                         }
                     }
                 }
