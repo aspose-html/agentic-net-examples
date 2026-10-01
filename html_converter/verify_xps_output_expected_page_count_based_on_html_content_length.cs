@@ -2,7 +2,7 @@
 
 using System;
 using System.IO;
-using System.IO.Packaging;
+using System.IO.Compression;
 using Aspose.Html;
 using Aspose.Html.Drawing;
 using Aspose.Html.Rendering.Xps;
@@ -50,15 +50,17 @@ class Program
         }
     }
 
-    // Helper method to count FixedPage parts in an XPS package
+    // Helper method to count FixedPage parts in an XPS package. An XPS file
+    // is an OPC (zip-based) package, so ZipArchive can enumerate its parts
+    // without requiring the separate System.IO.Packaging assembly.
     static int CountXpsPages(string xpsPath)
     {
         int count = 0;
-        using (Package package = Package.Open(xpsPath, FileMode.Open, FileAccess.Read))
+        using (ZipArchive archive = ZipFile.OpenRead(xpsPath))
         {
-            foreach (PackagePart part in package.GetParts())
+            foreach (ZipArchiveEntry entry in archive.Entries)
             {
-                if (part.Uri.OriginalString.EndsWith(".fpage", StringComparison.OrdinalIgnoreCase))
+                if (entry.FullName.EndsWith(".fpage", StringComparison.OrdinalIgnoreCase))
                 {
                     count++;
                 }

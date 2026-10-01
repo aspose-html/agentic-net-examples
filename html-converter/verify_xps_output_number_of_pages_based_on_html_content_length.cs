@@ -2,7 +2,7 @@
 
 using System;
 using System.IO;
-using System.IO.Packaging;
+using System.IO.Compression;
 using System.Linq;
 
 class Program
@@ -38,12 +38,14 @@ class Program
             Aspose.Html.Rendering.Xps.XpsDevice device = new Aspose.Html.Rendering.Xps.XpsDevice(options, xpsPath);
             document.RenderTo(device);
 
-            // Count pages in the generated XPS file
+            // Count pages in the generated XPS file -- an XPS file is an OPC
+            // (zip-based) package, so ZipArchive can enumerate its parts
+            // without requiring the separate System.IO.Packaging assembly.
             int actualPageCount;
-            using (Package package = Package.Open(xpsPath, FileMode.Open, FileAccess.Read))
+            using (ZipArchive archive = ZipFile.OpenRead(xpsPath))
             {
-                actualPageCount = package.GetParts()
-                    .Count(p => p.Uri.OriginalString.EndsWith(".fpage", StringComparison.OrdinalIgnoreCase));
+                actualPageCount = archive.Entries
+                    .Count(e => e.FullName.EndsWith(".fpage", StringComparison.OrdinalIgnoreCase));
             }
 
             // Estimate expected pages (simple heuristic: 30 paragraphs per page)
