@@ -2,6 +2,9 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Collections;
 
 class Program
 {
@@ -9,40 +12,35 @@ class Program
     {
         try
         {
-            string htmlPath = "input.html";
-            string outputPath = "output.html";
-
-            // Create a minimal sample HTML file if it does not exist
+            string htmlPath = "sample.html";
             if (!File.Exists(htmlPath))
             {
-                string sampleHtml = "<html><body>" +
-                                    "<img src='image1.svg'/>" +
-                                    "<img src='photo.jpg'/>" +
-                                    "<img src='vector.SVG'/>" +
+                string sampleHtml = "<!DOCTYPE html><html><body>" +
+                                    "<img src=\"image1.svg\" />" +
+                                    "<img src=\"photo.jpg\" />" +
+                                    "<img src=\"vector.svg\" />" +
+                                    "<img src=\"icon.png\" />" +
                                     "</body></html>";
                 File.WriteAllText(htmlPath, sampleHtml);
             }
 
-            // Load the HTML document
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
 
-            // Get all <img> elements
             Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
 
-            // Iterate backwards to safely remove elements
             for (int i = images.Length - 1; i >= 0; i--)
             {
-                Aspose.Html.Dom.Element imgElement = (Aspose.Html.Dom.Element)images[i];
-                string src = imgElement.GetAttribute("src");
+                Aspose.Html.Dom.Element img = images[i];
+                string src = img.GetAttribute("src");
                 if (src == null || !src.EndsWith(".svg", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Remove <img> elements whose src does not end with .svg
-                    imgElement.ParentNode.RemoveChild(imgElement);
+                    img.ParentNode.RemoveChild(img);
                 }
             }
 
-            // Save the modified document
+            string outputPath = "output.html";
             document.Save(outputPath);
+            Console.WriteLine("Filtered HTML saved to: " + outputPath);
         }
         catch (Exception ex)
         {

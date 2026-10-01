@@ -2,6 +2,9 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -11,7 +14,10 @@ class Program
         {
             // Create a minimal HTML file with SVG elements
             string htmlPath = "sample.html";
-            string htmlContent = "<html><body><svg width='100' height='100'></svg><div>text</div><svg></svg></body></html>";
+            string htmlContent = "<html><body>" +
+                                 "<svg width='100' height='100'></svg>" +
+                                 "<svg></svg>" +
+                                 "</body></html>";
             File.WriteAllText(htmlPath, htmlContent);
 
             // Load the HTML document
@@ -23,8 +29,16 @@ class Program
             // Iterate over the SVG collection
             for (int i = 0; i < svgs.Length; i++)
             {
-                var node = svgs[i];
-                Console.WriteLine($"SVG {i}: NodeName = {node.NodeName}");
+                // Cast to HTMLElement to access properties
+                Aspose.Html.HTMLElement element = svgs[i] as Aspose.Html.HTMLElement;
+                if (element != null)
+                {
+                    Console.WriteLine($"SVG {i}: TagName = {element.TagName}");
+                }
+                else
+                {
+                    Console.WriteLine($"SVG {i}: Unable to cast element.");
+                }
             }
         }
         catch (Exception ex)
