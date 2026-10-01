@@ -2,9 +2,9 @@
 
 > Build-validated, standalone C# console examples for Aspose.HTML for .NET 26.8.
 
-- Examples: 1809
+- Examples: 1807
 - Categories: 18
-- Coding-agent instructions: ./agents.md
+- Coding-agent instructions: ./AGENTS.md
 - Structured index: ./index.json
 - Product documentation: https://docs.aspose.com/html/net/
 - API reference: https://reference.aspose.com/html/net/
@@ -17,7 +17,7 @@
 - [extract-images-from-website](./extract-images-from-website/): 37 standalone examples; instructions in [agents.md](./extract-images-from-website/agents.md)
 - [extract-svg-from-website](./extract-svg-from-website/): 30 standalone examples; instructions in [agents.md](./extract-svg-from-website/agents.md)
 - [fine-tuning-converters](./fine-tuning-converters/): 121 standalone examples; instructions in [agents.md](./fine-tuning-converters/agents.md)
-- [html-converter](./html-converter/): 200 standalone examples; instructions in [agents.md](./html-converter/agents.md)
+- [html-converter](./html-converter/): 198 standalone examples; instructions in [agents.md](./html-converter/agents.md)
 - [html-navigation](./html-navigation/): 120 standalone examples; instructions in [agents.md](./html-navigation/agents.md)
 - [markdown-converter](./markdown-converter/): 79 standalone examples; instructions in [agents.md](./markdown-converter/agents.md)
 - [markdown-processing](./markdown-processing/): 120 standalone examples; instructions in [agents.md](./markdown-processing/agents.md)

@@ -2,7 +2,7 @@
 
 Thank you for contributing to the Aspose.HTML for .NET agentic examples repository.
 
-This repository is **mostly generated** by the Aspose.HTML Examples Generator. The generator produces `.cs` examples, the root and per-category `agents.md` guides, `index.json`, `README.md`, and `CONTRIBUTING.md`. Manual contributions are welcome for one-off fixes and additions, but should follow the rules below so the next regeneration does not undo your changes.
+This repository is **mostly generated** by the Aspose.HTML Examples Generator. The generator produces `.cs` examples, the root `AGENTS.md` and per-category `agents.md` guides, `index.json`, `README.md`, and `CONTRIBUTING.md`. Manual contributions are welcome for one-off fixes and additions, but should follow the rules below so the next regeneration does not undo your changes.
 
 ## How to Add or Fix a Standalone `.cs` Example
 
@@ -19,7 +19,7 @@ This repository is **mostly generated** by the Aspose.HTML Examples Generator. T
 
 The generator emits these files. **Do not hand-edit them** — the next regeneration overwrites manual changes:
 
-- `agents.md` (root and every category folder)
+- `AGENTS.md` (root), `agents.md` (every category folder)
 - `index.json` (root)
 - `README.md` (root)
 - `CONTRIBUTING.md` (root)
@@ -61,6 +61,6 @@ When opening a PR, describe:
 - The exact validation commands you ran and the outcome.
 - Whether you ran the binary (vs. only compiling).
 - Any input files your example needs that are not in the repo.
-- Confirmation that you did **not** hand-edit generated metadata (`agents.md`, `index.json`, `README.md`).
+- Confirmation that you did **not** hand-edit generated metadata (`AGENTS.md`, `agents.md`, `index.json`, `README.md`).
 
 PRs that touch only generated files without a corresponding generator change will be asked to redirect upstream.

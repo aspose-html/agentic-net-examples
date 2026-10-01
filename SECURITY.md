@@ -46,7 +46,7 @@ Instead, report privately via one of:
 - **In scope**: security issues in the example `.cs` files (unsafe patterns
   that could enable injection, path traversal, insecure cryptography use,
   denial of service, etc.), issues in the generated agent docs
-  (`agents.md`, `.well-known/agent.json`), or in the tooling
+  (`AGENTS.md`, `.well-known/agent.json`), or in the tooling
   that produced the examples.
 - **Out of scope**: vulnerabilities in the Aspose.HTML for .NET library
   itself. Please report those directly to Aspose at

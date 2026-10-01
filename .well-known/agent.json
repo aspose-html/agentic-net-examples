@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "name": "Aspose.HTML for .NET Examples Agent",
-  "description": "Provides 1809 build-validated, standalone C# code examples for HTML document conversion and DOM manipulation using Aspose.HTML for .NET. Covers conversion to PDF, image, Markdown, XPS and EPUB formats, plus DOM/XPath querying and web content extraction, across 18 categories.",
+  "description": "Provides 1807 build-validated, standalone C# code examples for HTML document conversion and DOM manipulation using Aspose.HTML for .NET. Covers conversion to PDF, image, Markdown, XPS and EPUB formats, plus DOM/XPath querying and web content extraction, across 18 categories.",
   "capabilities": [
     "Generate C# examples for converting HTML to PDF, image (PNG/JPEG), XPS, Markdown, and EPUB",
     "Generate C# examples for parsing and querying the DOM (XPath, NodeIterator, TreeWalker)",
@@ -18,7 +18,7 @@
     "C# source file (.cs)",
     "standalone .NET 10.0 console application"
   ],
-  "agent_instructions": "./agents.md",
+  "agent_instructions": "./AGENTS.md",
   "example_index": "./index.json",
   "categories": [
     {
@@ -54,7 +54,7 @@
     {
       "slug": "html-converter",
       "display_name": "Html Converter",
-      "example_count": 200
+      "example_count": 198
     },
     {
       "slug": "html-navigation",
@@ -112,7 +112,7 @@
       "example_count": 45
     }
   ],
-  "total_examples": 1809,
+  "total_examples": 1807,
   "package_version": "26.8",
   "documentation_url": "https://docs.aspose.com/html/net/",
   "api_reference": "https://reference.aspose.com/html/net/",

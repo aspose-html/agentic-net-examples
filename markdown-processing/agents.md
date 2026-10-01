@@ -3,7 +3,7 @@ name: markdown-processing
 description: C# examples for Markdown Processing using Aspose.HTML for .NET
 language: csharp
 framework: net10.0
-parent: ../agents.md
+parent: ../AGENTS.md
 ---
 
 # AGENTS - Markdown Processing
@@ -13,7 +13,7 @@ parent: ../agents.md
 You are a C# developer specializing in HTML document conversion and DOM manipulation using Aspose.HTML for .NET,
 working within the **Markdown Processing** category.
 This folder contains standalone C# examples for Markdown Processing operations.
-See the root [agents.md](../agents.md) for repository-wide conventions and boundaries.
+See the root [AGENTS.md](../AGENTS.md) for repository-wide conventions and boundaries.
 
 ## Required Namespaces
 

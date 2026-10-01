@@ -3,7 +3,7 @@
   "platform": "net",
   "framework": "net10.0",
   "package_version": "26.8",
-  "total_examples": 1809,
+  "total_examples": 1807,
   "total_categories": 18,
   "last_updated": "2026-10-01",
   "categories": [
@@ -626,7 +626,7 @@
     {
       "name": "html-converter",
       "display_name": "Html Converter",
-      "file_count": 200,
+      "file_count": 198,
       "all_files": [
         "add_error_handling_catch_html_conversion_exceptions_log_conversion_failures_diagnostics.cs",
         "apply_css_media_print_image_save_options_before_html_jpeg_conversion_accurate_print_layout.cs",
@@ -819,8 +819,6 @@
         "validate_output_bmp_file_size_greater_than_zero_after_conversion_ensure_successful_rendering.cs",
         "validate_output_png_file_exists_after_conversion_throw_error_if_missing.cs",
         "verify_automatic_paragraph_handling_correctly_converts_html_paragraphs_to_markdown_default_settings.cs",
-        "verify_xps_expected_page_count_based_on_html_content_length.cs",
-        "verify_xps_output_expected_number_pages_based_html_content_length.cs",
         "verify_xps_output_number_of_pages_based_on_html_content_length.cs",
         "write_memory_stream_tiff_conversion_to_file_stream_and_log_file_size.cs",
         "write_memorystream_from_bmp_conversion_to_filestream_and_verify_file_integrity.cs",

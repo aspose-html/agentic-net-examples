@@ -3,7 +3,7 @@ name: data-extraction
 description: C# examples for Data Extraction using Aspose.HTML for .NET
 language: csharp
 framework: net10.0
-parent: ../agents.md
+parent: ../AGENTS.md
 ---
 
 # AGENTS - Data Extraction
@@ -13,7 +13,7 @@ parent: ../agents.md
 You are a C# developer specializing in HTML document conversion and DOM manipulation using Aspose.HTML for .NET,
 working within the **Data Extraction** category.
 This folder contains standalone C# examples for Data Extraction operations.
-See the root [agents.md](../agents.md) for repository-wide conventions and boundaries.
+See the root [AGENTS.md](../AGENTS.md) for repository-wide conventions and boundaries.
 
 ## Required Namespaces
 
