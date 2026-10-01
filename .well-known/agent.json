@@ -1,0 +1,120 @@
+{
+  "schema_version": "0.1",
+  "name": "Aspose.HTML for .NET Examples Agent",
+  "description": "Provides 1809 build-validated, standalone C# code examples for HTML document conversion and DOM manipulation using Aspose.HTML for .NET. Covers conversion to PDF, image, Markdown, XPS and EPUB formats, plus DOM/XPath querying and web content extraction, across 18 categories.",
+  "capabilities": [
+    "Generate C# examples for converting HTML to PDF, image (PNG/JPEG), XPS, Markdown, and EPUB",
+    "Generate C# examples for parsing and querying the DOM (XPath, NodeIterator, TreeWalker)",
+    "Generate C# examples for extracting images, SVG, and other assets from HTML/web content",
+    "Generate C# examples for advanced HTML editing and DOM mutation (MutationObserver, Canvas)",
+    "Generate C# examples for fine-tuning conversion output (page size, margins, rendering options)",
+    "Generate C# examples for loading HTML from local files, strings, or remote URLs",
+    "Generate C# examples for custom in-memory output via ICreateStreamProvider"
+  ],
+  "input_formats": [
+    "natural language task description"
+  ],
+  "output_formats": [
+    "C# source file (.cs)",
+    "standalone .NET 10.0 console application"
+  ],
+  "agent_instructions": "./agents.md",
+  "example_index": "./index.json",
+  "categories": [
+    {
+      "slug": "advanced-html-editing",
+      "display_name": "Advanced Html Editing",
+      "example_count": 37
+    },
+    {
+      "slug": "data-extraction",
+      "display_name": "Data Extraction",
+      "example_count": 81
+    },
+    {
+      "slug": "epub-converter",
+      "display_name": "Epub Converter",
+      "example_count": 143
+    },
+    {
+      "slug": "extract-images-from-website",
+      "display_name": "Extract Images From Website",
+      "example_count": 37
+    },
+    {
+      "slug": "extract-svg-from-website",
+      "display_name": "Extract Svg From Website",
+      "example_count": 30
+    },
+    {
+      "slug": "fine-tuning-converters",
+      "display_name": "Fine Tuning Converters",
+      "example_count": 121
+    },
+    {
+      "slug": "html-converter",
+      "display_name": "Html Converter",
+      "example_count": 200
+    },
+    {
+      "slug": "html-navigation",
+      "display_name": "Html Navigation",
+      "example_count": 120
+    },
+    {
+      "slug": "markdown-converter",
+      "display_name": "Markdown Converter",
+      "example_count": 79
+    },
+    {
+      "slug": "markdown-processing",
+      "display_name": "Markdown Processing",
+      "example_count": 120
+    },
+    {
+      "slug": "message-handlers",
+      "display_name": "Message Handlers",
+      "example_count": 98
+    },
+    {
+      "slug": "mhtml-converter",
+      "display_name": "Mhtml Converter",
+      "example_count": 107
+    },
+    {
+      "slug": "save-file-from-url",
+      "display_name": "Save File From Url",
+      "example_count": 28
+    },
+    {
+      "slug": "svg-converter",
+      "display_name": "Svg Converter",
+      "example_count": 105
+    },
+    {
+      "slug": "web-accessibility",
+      "display_name": "Web Accessibility",
+      "example_count": 96
+    },
+    {
+      "slug": "website-to-html",
+      "display_name": "Website to Html",
+      "example_count": 30
+    },
+    {
+      "slug": "working-with-html-documents",
+      "display_name": "Working With Html Documents",
+      "example_count": 332
+    },
+    {
+      "slug": "working-with-html-templates",
+      "display_name": "Working With Html Templates",
+      "example_count": 45
+    }
+  ],
+  "total_examples": 1809,
+  "package_version": "26.8",
+  "documentation_url": "https://docs.aspose.com/html/net/",
+  "api_reference": "https://reference.aspose.com/html/net/",
+  "nuget": "https://www.nuget.org/packages/Aspose.HTML/"
+}

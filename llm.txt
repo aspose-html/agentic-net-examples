@@ -1,0 +1,41 @@
+# Aspose.HTML for .NET Examples
+
+> Build-validated, standalone C# console examples for Aspose.HTML for .NET 26.8.
+
+- Examples: 1809
+- Categories: 18
+- Coding-agent instructions: ./agents.md
+- Structured index: ./index.json
+- Product documentation: https://docs.aspose.com/html/net/
+- API reference: https://reference.aspose.com/html/net/
+
+## Categories
+
+- [advanced-html-editing](./advanced-html-editing/): 37 standalone examples; instructions in [agents.md](./advanced-html-editing/agents.md)
+- [data-extraction](./data-extraction/): 81 standalone examples; instructions in [agents.md](./data-extraction/agents.md)
+- [epub-converter](./epub-converter/): 143 standalone examples; instructions in [agents.md](./epub-converter/agents.md)
+- [extract-images-from-website](./extract-images-from-website/): 37 standalone examples; instructions in [agents.md](./extract-images-from-website/agents.md)
+- [extract-svg-from-website](./extract-svg-from-website/): 30 standalone examples; instructions in [agents.md](./extract-svg-from-website/agents.md)
+- [fine-tuning-converters](./fine-tuning-converters/): 121 standalone examples; instructions in [agents.md](./fine-tuning-converters/agents.md)
+- [html-converter](./html-converter/): 200 standalone examples; instructions in [agents.md](./html-converter/agents.md)
+- [html-navigation](./html-navigation/): 120 standalone examples; instructions in [agents.md](./html-navigation/agents.md)
+- [markdown-converter](./markdown-converter/): 79 standalone examples; instructions in [agents.md](./markdown-converter/agents.md)
+- [markdown-processing](./markdown-processing/): 120 standalone examples; instructions in [agents.md](./markdown-processing/agents.md)
+- [message-handlers](./message-handlers/): 98 standalone examples; instructions in [agents.md](./message-handlers/agents.md)
+- [mhtml-converter](./mhtml-converter/): 107 standalone examples; instructions in [agents.md](./mhtml-converter/agents.md)
+- [save-file-from-url](./save-file-from-url/): 28 standalone examples; instructions in [agents.md](./save-file-from-url/agents.md)
+- [svg-converter](./svg-converter/): 105 standalone examples; instructions in [agents.md](./svg-converter/agents.md)
+- [web-accessibility](./web-accessibility/): 96 standalone examples; instructions in [agents.md](./web-accessibility/agents.md)
+- [website-to-html](./website-to-html/): 30 standalone examples; instructions in [agents.md](./website-to-html/agents.md)
+- [working-with-html-documents](./working-with-html-documents/): 332 standalone examples; instructions in [agents.md](./working-with-html-documents/agents.md)
+- [working-with-html-templates](./working-with-html-templates/): 45 standalone examples; instructions in [agents.md](./working-with-html-templates/agents.md)
+
+## Related Agentic .NET Repositories
+
+- Aspose.Words: https://github.com/aspose-words/agentic-net-examples
+- Aspose.Slides: https://github.com/aspose-slides/agentic-net-examples
+- Aspose.PDF: https://github.com/aspose-pdf/agentic-net-examples
+- Aspose.Imaging: https://github.com/aspose-imaging/agentic-net-examples
+- Aspose.BarCode: https://github.com/aspose-barcode/agentic-net-examples
+- Aspose.Cells: https://github.com/aspose-cells/agentic-net-examples
+- Aspose.Email: https://github.com/aspose-email/agentic-net-examples

@@ -1,0 +1,144 @@
+---
+name: web-accessibility
+description: C# examples for Web Accessibility using Aspose.HTML for .NET
+language: csharp
+framework: net10.0
+parent: ../agents.md
+---
+
+# AGENTS - Web Accessibility
+
+## Persona
+
+You are a C# developer specializing in HTML document conversion and DOM manipulation using Aspose.HTML for .NET,
+working within the **Web Accessibility** category.
+This folder contains standalone C# examples for Web Accessibility operations.
+See the root [agents.md](../agents.md) for repository-wide conventions and boundaries.
+
+## Required Namespaces
+
+- `using System;`
+- `using System.IO;`
+- `using Aspose.Html;`
+- `using Aspose.Html.Dom;`
+- `using Aspose.Html.Converters;`
+
+## Files in this folder
+
+| File | Key APIs | Description |
+|------|----------|-------------|
+| [access_validationresult_errors_collection_count_total_accessibility_errors_found_document.cs](./access_validationresult_errors_collection_count_total_accessibility_errors_found_document.cs) | `Accessibility` | Access ValidationResult.Errors collection to count total accessibility errors found in the... |
+| [access_validationresult_warnings_collection_count_total_accessibility_warnings_html_page.cs](./access_validationresult_warnings_collection_count_total_accessibility_warnings_html_page.cs) | `Accessibility` | Access ValidationResult.Warnings collection to count total accessibility warnings reported... |
+| [add_missing_track_element_with_kind_captions_and_src_to_video_programmatically.cs](./add_missing_track_element_with_kind_captions_and_src_to_video_programmatically.cs) |  | Add a missing <track> element with kind="captions" and appropriate src attribute to a vide... |
+| [apply_cancellation_token_to_validation_process_for_graceful_termination_during_long_batch_runs.cs](./apply_cancellation_token_to_validation_process_for_graceful_termination_during_long_batch_runs.cs) |  | Apply a cancellation token to the validation process to allow graceful termination during ... |
+| [call_validationresult_savetostring_obtain_formatted_string_errors_warnings.cs](./call_validationresult_savetostring_obtain_formatted_string_errors_warnings.cs) |  | Call ValidationResult.SaveToString to obtain a formatted string of errors and warnings. |
+| [check_missing_track_elements_kind_captions_in_video_tags_using_validation_report.cs](./check_missing_track_elements_kind_captions_in_video_tags_using_validation_report.cs) |  | Check for missing <track> elements with kind="captions" in video tags using the validation... |
+| [combine_validation_findings_with_seo_metrics_to_identify_pages_with_accessibility_and_ranking_issues.cs](./combine_validation_findings_with_seo_metrics_to_identify_pages_with_accessibility_and_ranking_issues.cs) | `Accessibility` | Combine validation findings with SEO metrics to identify pages with both accessibility and... |
+| [compare_two_validationresult_objects_detect_regressions_after_modifying_html_content_same_project.cs](./compare_two_validationresult_objects_detect_regressions_after_modifying_html_content_same_project.cs) |  | Compare two ValidationResult objects to detect regressions after modifying HTML content in... |
+| [configure_accessibilityvalidator_custom_settings_before_validating_html_document_application.cs](./configure_accessibilityvalidator_custom_settings_before_validating_html_document_application.cs) | `HTMLDocument`, `Accessibility` | Configure an AccessibilityValidator with custom settings before validating an HTML documen... |
+| [configure_validator_ignore_selected_rule_codes_allowing_custom_compliance_thresholds_during_checks.cs](./configure_validator_ignore_selected_rule_codes_allowing_custom_compliance_thresholds_during_checks.cs) |  | Configure the validator to ignore selected rule codes, allowing custom compliance threshol... |
+| [configure_validator_static_rule_repository_consistent_rule_application_across_runs.cs](./configure_validator_static_rule_repository_consistent_rule_application_across_runs.cs) |  | Configure the validator to use a static rule repository for consistent rule application ac... |
+| [configure_validator_treat_caption_missing_warnings_as_errors_adjust_severity_settings.cs](./configure_validator_treat_caption_missing_warnings_as_errors_adjust_severity_settings.cs) |  | Configure the validator to treat caption missing warnings as errors by adjusting severity ... |
+| [create_custom_rule_subset_selecting_specific_wcag_criteria_from_accessibilityrules_before_validation.cs](./create_custom_rule_subset_selecting_specific_wcag_criteria_from_accessibilityrules_before_validation.cs) | `Accessibility` | Create a custom rule subset by selecting specific WCAG criteria from AccessibilityRules be... |
+| [create_powershell_script_loads_dotnet_library_validates_html_file_prints_json_results.cs](./create_powershell_script_loads_dotnet_library_validates_html_file_prints_json_results.cs) | `HTMLDocument` | Create a PowerShell script that loads the .NET library, validates an HTML file, and prints... |
+| [create_static_accessibilityvalidator_instance_and_reuse_to_validate_multiple_html_files_efficiently.cs](./create_static_accessibilityvalidator_instance_and_reuse_to_validate_multiple_html_files_efficiently.cs) | `Accessibility` | Create a static AccessibilityValidator instance and reuse it to validate multiple HTML fil... |
+| [create_validator_instance_using_createvalidator_before_loading_html_document_for_accessibility.cs](./create_validator_instance_using_createvalidator_before_loading_html_document_for_accessibility.cs) | `HTMLDocument`, `Accessibility` | Create a validator instance using CreateValidator() before loading any HTML document for a... |
+| [detect_absent_caption_files_referenced_by_track_elements_log_file_paths.cs](./detect_absent_caption_files_referenced_by_track_elements_log_file_paths.cs) |  | Detect absent caption files referenced by <track> elements and log their file paths. |
+| [develop_command_line_tool_accepting_input_path_and_output_format_arguments_to_perform_validation_on_demand.cs](./develop_command_line_tool_accepting_input_path_and_output_format_arguments_to_perform_validation_on_demand.cs) |  | Develop a command‑line tool accepting input path and output format arguments to perform va... |
+| [embed_validation_results_string_into_email_body_notify_stakeholders_accessibility_status.cs](./embed_validation_results_string_into_email_body_notify_stakeholders_accessibility_status.cs) | `Accessibility` | Embed validation results string into an email body to notify stakeholders of accessibility... |
+| [embed_vtt_caption_file_into_html_document_and_reference_with_new_track_element.cs](./embed_vtt_caption_file_into_html_document_and_reference_with_new_track_element.cs) | `HTMLDocument` | Embed a .vtt caption file into the HTML document and reference it via a newly created <tra... |
+| [ensure_caption_tracks_contain_synchronized_timestamps_matching_associated_media_timeline.cs](./ensure_caption_tracks_contain_synchronized_timestamps_matching_associated_media_timeline.cs) |  | Ensure caption tracks contain synchronized timestamps matching the associated media timeli... |
+| [exclude_keyboard_navigation_warnings_from_final_report_apply_result_filtering_option.cs](./exclude_keyboard_navigation_warnings_from_final_report_apply_result_filtering_option.cs) |  | Exclude keyboard navigation warnings from the final report by applying a result‑filtering ... |
+| [execute_validate_method_assess_multimedia_accessibility_loaded_html_document.cs](./execute_validate_method_assess_multimedia_accessibility_loaded_html_document.cs) | `HTMLDocument`, `Accessibility` | Execute the Validate method to assess multimedia accessibility of the loaded HTML document... |
+| [execute_validator_validate_with_file_path_to_run_accessibility_checks_on_page.cs](./execute_validator_validate_with_file_path_to_run_accessibility_checks_on_page.cs) | `Accessibility` | Execute validator.Validate with the file path to run accessibility checks on the page. |
+| [export_validation_results_formatted_string_developer_review.cs](./export_validation_results_formatted_string_developer_review.cs) |  | Export validation results as a formatted string using SaveToString for developer review. |
+| [fail_build_if_critical_accessibility_errors_detected_enforce_quality_gates.cs](./fail_build_if_critical_accessibility_errors_detected_enforce_quality_gates.cs) | `Accessibility` | Fail the build if any critical accessibility errors are detected to enforce quality gates. |
+| [fail_ci_build_validationresult_contains_error_level_findings_enforce_accessibility_standards.cs](./fail_ci_build_validationresult_contains_error_level_findings_enforce_accessibility_standards.cs) | `Accessibility` | Fail a CI build when ValidationResult contains any error‑level findings to enforce accessi... |
+| [fetch_html_content_url_list_validate_pages_save_results_xml_files.cs](./fetch_html_content_url_list_validate_pages_save_results_xml_files.cs) | `HttpClient` | Fetch HTML content from a list of URLs, validate each page, and save results as XML files. |
+| [filter_errors_by_target_type_separate_html_element_issues_from_css_problems.cs](./filter_errors_by_target_type_separate_html_element_issues_from_css_problems.cs) |  | Filter errors by Target.TargetTypes to separate HTML element issues from CSS related probl... |
+| [filter_rule_set_include_only_error_level_criteria_before_validation_focus_critical_problems.cs](./filter_rule_set_include_only_error_level_criteria_before_validation_focus_critical_problems.cs) |  | Filter the rule set to include only error‑level criteria before validation to focus on cri... |
+| [filter_validation_results_audio_description_warnings_video_improvements.cs](./filter_validation_results_audio_description_warnings_video_improvements.cs) |  | Filter validation results to display only audio‑description warnings for targeted video im... |
+| [filter_validation_results_display_only_caption_related_warnings_focused_remediation.cs](./filter_validation_results_display_only_caption_related_warnings_focused_remediation.cs) |  | Filter validation results to display only caption‑related warnings for focused remediation... |
+| [filter_warnings_by_specific_ruleid_values_to_focus_particular_accessibility_techniques.cs](./filter_warnings_by_specific_ruleid_values_to_focus_particular_accessibility_techniques.cs) | `Accessibility` | Filter warnings by specific RuleId values to focus on particular accessibility techniques. |
+| [generate_detailed_validation_report_json_save_to_specified_output_directory.cs](./generate_detailed_validation_report_json_save_to_specified_output_directory.cs) |  | Generate a detailed validation report in JSON format and save it to a specified output dir... |
+| [generate_markdown_report_from_validationresult_to_post_in_pull_request_comments.cs](./generate_markdown_report_from_validationresult_to_post_in_pull_request_comments.cs) | `MarkdownSaveOptions` | Generate a markdown report from ValidationResult to post directly in pull‑request comments... |
+| [generate_plain_text_summary_validation_findings_review_developers.cs](./generate_plain_text_summary_validation_findings_review_developers.cs) |  | Generate a plain‑text summary of validation findings for quick review by developers. |
+| [generate_summary_report_aggregates_total_errors_all_processed_html_documents_batch.cs](./generate_summary_report_aggregates_total_errors_all_processed_html_documents_batch.cs) | `HTMLDocument` | Generate a summary report that aggregates total errors across all processed HTML documents... |
+| [identify_video_elements_lacking_audio_description_tracks_by_filtering_validation_messages_for_description_warnings.cs](./identify_video_elements_lacking_audio_description_tracks_by_filtering_validation_messages_for_description_warnings.cs) |  | Identify video elements lacking audio description tracks by filtering validation messages ... |
+| [implement_retry_mechanism_validating_remote_html_content_transient_network_failures.cs](./implement_retry_mechanism_validating_remote_html_content_transient_network_failures.cs) |  | Implement a retry mechanism when validating remote HTML content that may experience transi... |
+| [incorporate_color_contrast_verification_results_into_overall_validation_summary_for_comprehensive_reporting.cs](./incorporate_color_contrast_verification_results_into_overall_validation_summary_for_comprehensive_reporting.cs) |  | Incorporate color contrast verification results into the overall validation summary for co... |
+| [initialize_htmldocument_from_file_path_and_validate_using_default_validator.cs](./initialize_htmldocument_from_file_path_and_validate_using_default_validator.cs) | `HTMLDocument` | Initialize an HTMLDocument from a file path and validate it using the default validator. |
+| [inject_accessibilityvalidator_dependency_injection_enable_flexible_configuration_aspnet_core_applications.cs](./inject_accessibilityvalidator_dependency_injection_enable_flexible_configuration_aspnet_core_applications.cs) | `Configuration`, `Accessibility` | Inject AccessibilityValidator via dependency injection to enable flexible configuration in... |
+| [instantiate_accessibilityvalidator_using_createvalidator_before_loading_any_html_document.cs](./instantiate_accessibilityvalidator_using_createvalidator_before_loading_any_html_document.cs) | `HTMLDocument`, `Accessibility` | Instantiate an AccessibilityValidator using CreateValidator before loading any HTML docume... |
+| [integrate_accessibility_validation_into_aspose_html_workflows_multimedia_processing_pipeline.cs](./integrate_accessibility_validation_into_aspose_html_workflows_multimedia_processing_pipeline.cs) | `Accessibility` | Integrate accessibility validation into Aspose.HTML workflows as part of the multimedia pr... |
+| [integrate_validation_step_into_ci_cd_pipeline_using_command_line_invocation_validator.cs](./integrate_validation_step_into_ci_cd_pipeline_using_command_line_invocation_validator.cs) |  | Integrate the validation step into a CI/CD pipeline using a command‑line invocation of the... |
+| [integrate_validation_step_into_github_actions_workflow_to_automatically_test_pull_requests.cs](./integrate_validation_step_into_github_actions_workflow_to_automatically_test_pull_requests.cs) |  | Integrate the validation step into a GitHub Actions workflow to automatically test pull re... |
+| [iterate_accessibility_rules_advisory_techniques_list_improvement_suggestions_each_identified_issue.cs](./iterate_accessibility_rules_advisory_techniques_list_improvement_suggestions_each_identified_issue.cs) | `Accessibility` | Iterate AccessibilityRules.AdvisoryTechniques to list improvement suggestions for each ide... |
+| [iterate_through_validationresult_details_to_log_each_rule_identifier_and_its_pass_or_fail_status.cs](./iterate_through_validationresult_details_to_log_each_rule_identifier_and_its_pass_or_fail_status.cs) |  | Iterate through ValidationResult.Details to log each rule identifier and its pass or fail ... |
+| [load_html_content_from_string_into_validator_for_in_memory_validation.cs](./load_html_content_from_string_into_validator_for_in_memory_validation.cs) | `HTMLDocument` | Load HTML content from a string variable into the validator for in‑memory validation scena... |
+| [load_html_content_string_create_document_accessibility_validation.cs](./load_html_content_string_create_document_accessibility_validation.cs) | `HTMLDocument`, `Accessibility` | Load HTML content from a string, create a document object, and run accessibility validatio... |
+| [load_html_file_from_disk_into_validator_with_file_path_argument.cs](./load_html_file_from_disk_into_validator_with_file_path_argument.cs) | `HTMLDocument` | Load an HTML file from disk into the validator using the Load method with a file path argu... |
+| [load_html_file_from_local_path_into_validator_for_wcag_analysis.cs](./load_html_file_from_local_path_into_validator_for_wcag_analysis.cs) | `HTMLDocument` | Load an HTML file from a local path into the validator for WCAG analysis. |
+| [load_html_from_stream_object_into_validator_support_network_memory_sources.cs](./load_html_from_stream_object_into_validator_support_network_memory_sources.cs) | `HTMLDocument` | Load HTML from a Stream object into the validator to support network or memory‑based sourc... |
+| [log_validation_messages_to_file_for_further_analysis_and_troubleshooting_developers.cs](./log_validation_messages_to_file_for_further_analysis_and_troubleshooting_developers.cs) |  | Log all validation messages to a file for further analysis and troubleshooting by develope... |
+| [modify_video_elements_include_keyboard_focusable_controls_add_tabindex_attributes_needed.cs](./modify_video_elements_include_keyboard_focusable_controls_add_tabindex_attributes_needed.cs) |  | Modify video elements to include keyboard‑focusable controls by adding tabindex attributes... |
+| [prioritize_remediation_tasks_severity_levels_advisory_technique_impact_scores.cs](./prioritize_remediation_tasks_severity_levels_advisory_technique_impact_scores.cs) |  | Prioritize remediation tasks based on severity levels and advisory technique impact scores... |
+| [process_batch_html_files_in_folder_validating_each_file_sequentially_aggregating_results.cs](./process_batch_html_files_in_folder_validating_each_file_sequentially_aggregating_results.cs) |  | Process a batch of HTML files in a folder, validating each file sequentially and aggregati... |
+| [process_html_files_parallel_using_task_parallel_library_improve_validation_throughput_large_projects.cs](./process_html_files_parallel_using_task_parallel_library_improve_validation_throughput_large_projects.cs) |  | Process HTML files in parallel using Task Parallel Library to improve validation throughpu... |
+| [process_html_folder_validate_each_output_individual_json_reports_to_target_directory.cs](./process_html_folder_validate_each_output_individual_json_reports_to_target_directory.cs) |  | Process a folder of HTML files, validate each, and output individual JSON reports to a tar... |
+| [publish_validation_summaries_to_dashboard_for_continuous_monitoring_website_accessibility_status.cs](./publish_validation_summaries_to_dashboard_for_continuous_monitoring_website_accessibility_status.cs) | `Accessibility` | Publish validation summaries to a dashboard for continuous monitoring of website accessibi... |
+| [query_specific_rule_by_code_accessibilityrules_getrule_show_detailed_guidance.cs](./query_specific_rule_by_code_accessibilityrules_getrule_show_detailed_guidance.cs) | `Accessibility` | Query a specific rule by code using AccessibilityRules.GetRule to show detailed guidance. |
+| [re_run_validation_after_html_modifications_confirm_previously_reported_issues_resolved.cs](./re_run_validation_after_html_modifications_confirm_previously_reported_issues_resolved.cs) |  | Re‑run validation after HTML modifications to confirm that previously reported issues are ... |
+| [read_validationresult_description_obtain_high_level_summary_accessibility_check_outcome.cs](./read_validationresult_description_obtain_high_level_summary_accessibility_check_outcome.cs) | `Accessibility` | Read ValidationResult.Description to obtain a high‑level summary of the accessibility chec... |
+| [redirect_console_output_of_validation_issues_to_log_file_for_persistent_storage.cs](./redirect_console_output_of_validation_issues_to_log_file_for_persistent_storage.cs) |  | Redirect console output of validation issues to a log file for persistent storage. |
+| [retrieve_contrast_ratio_values_for_specific_foreground_and_background_colors_log_failures.cs](./retrieve_contrast_ratio_values_for_specific_foreground_and_background_colors_log_failures.cs) |  | Retrieve contrast ratio values for specific foreground and background colors and log any f... |
+| [retrieve_validationresult_returned_by_validate_and_store_for_further_processing.cs](./retrieve_validationresult_returned_by_validate_and_store_for_further_processing.cs) |  | Retrieve the ValidationResult returned by Validate and store it for further processing. |
+| [run_batch_validation_on_all_html_files_in_project_folder_and_produce_consolidated_json_report.cs](./run_batch_validation_on_all_html_files_in_project_folder_and_produce_consolidated_json_report.cs) |  | Run batch validation on all HTML files in a project folder and produce a consolidated JSON... |
+| [run_default_accessibility_validation_direct_console_output_debug_logger_development_monitoring.cs](./run_default_accessibility_validation_direct_console_output_debug_logger_development_monitoring.cs) | `Accessibility` | Run default accessibility validation and direct console output to a debug logger for devel... |
+| [run_validation_nightly_build_process_ensure_continuous_accessibility_compliance.cs](./run_validation_nightly_build_process_ensure_continuous_accessibility_compliance.cs) | `Accessibility` | Run validation as part of a nightly build process to ensure continuous accessibility compl... |
+| [save_complete_validation_report_to_string_using_validationresult_savetostring_method_for_later_processing.cs](./save_complete_validation_report_to_string_using_validationresult_savetostring_method_for_later_processing.cs) |  | Save the complete validation report to a string using ValidationResult.SaveToString method... |
+| [save_validation_results_to_json_file_for_later_analysis_and_integration_with_reporting_tools.cs](./save_validation_results_to_json_file_for_later_analysis_and_integration_with_reporting_tools.cs) |  | Save validation results to a JSON file for later analysis and integration with reporting t... |
+| [save_validation_results_to_xml_for_legacy_system_compatibility.cs](./save_validation_results_to_xml_for_legacy_system_compatibility.cs) |  | Save validation results to an XML file for compatibility with legacy systems and workflows... |
+| [schedule_windows_task_scheduler_job_runs_batch_validation_all_html_files_nightly.cs](./schedule_windows_task_scheduler_job_runs_batch_validation_all_html_files_nightly.cs) |  | Schedule a Windows Task Scheduler job that runs batch validation on all HTML files nightly... |
+| [select_desired_output_format_enumeration_before_saving_results.cs](./select_desired_output_format_enumeration_before_saving_results.cs) |  | Select the desired output format by using the ValidationResultSaveFormat enumeration befor... |
+| [serialize_validationresult_to_json_using_custom_serialization_for_external_tool_integration.cs](./serialize_validationresult_to_json_using_custom_serialization_for_external_tool_integration.cs) |  | Serialize the ValidationResult to JSON using custom serialization for external tool integr... |
+| [serialize_validationresult_to_xml_using_custom_serialization_for_legacy_system_compatibility.cs](./serialize_validationresult_to_xml_using_custom_serialization_for_legacy_system_compatibility.cs) |  | Serialize the ValidationResult to XML using custom serialization for legacy system compati... |
+| [set_custom_issue_severity_threshold_high_priority_accessibility_problems.cs](./set_custom_issue_severity_threshold_high_priority_accessibility_problems.cs) | `Accessibility` | Set a custom issue severity threshold so that only high‑priority accessibility problems ar... |
+| [stream_validation_results_to_network_socket_using_custom_textwriter_for_remote_monitoring.cs](./stream_validation_results_to_network_socket_using_custom_textwriter_for_remote_monitoring.cs) |  | Stream validation results to a network socket using a custom TextWriter for remote monitor... |
+| [transform_validation_json_output_xslt_generate_human_readable_html_report.cs](./transform_validation_json_output_xslt_generate_human_readable_html_report.cs) |  | Transform validation JSON output using XSLT to generate a human‑readable HTML report. |
+| [update_audio_element_include_track_element_captions_set_kind_captions_correctly.cs](./update_audio_element_include_track_element_captions_set_kind_captions_correctly.cs) |  | Update an audio element to include a <track> element for captions and set kind="captions" ... |
+| [use_accessibilityrules_getall_fetch_all_wcag_rule_codes_and_descriptions_for_ui_display.cs](./use_accessibilityrules_getall_fetch_all_wcag_rule_codes_and_descriptions_for_ui_display.cs) | `HttpClient`, `Accessibility` | Use AccessibilityRules.GetAll to fetch all WCAG rule codes and descriptions for UI display... |
+| [use_online_color_contrast_checker_api_programmatically_verify_contrast_ratios_identified_elements.cs](./use_online_color_contrast_checker_api_programmatically_verify_contrast_ratios_identified_elements.cs) |  | Use the online Color Contrast Checker API to programmatically verify contrast ratios for i... |
+| [use_stringbuilder_textwriter_capture_xml_validation_output_in_memory.cs](./use_stringbuilder_textwriter_capture_xml_validation_output_in_memory.cs) |  | Use a StringBuilder with a TextWriter to capture XML validation output in memory. |
+| [use_validator_aspnet_core_controller_check_uploaded_html_files_multimedia_accessibility_before_storage.cs](./use_validator_aspnet_core_controller_check_uploaded_html_files_multimedia_accessibility_before_storage.cs) | `HTMLDocument`, `Accessibility` | Use the validator in an ASP.NET Core controller to check uploaded HTML files for multimedi... |
+| [use_validator_azure_devops_pipeline_task_publish_validation_report_build_artifact.cs](./use_validator_azure_devops_pipeline_task_publish_validation_report_build_artifact.cs) |  | Use the validator in an Azure DevOps pipeline task to publish a validation report as a bui... |
+| [use_validator_in_github_actions_workflow_to_automatically_fail_builds_when_caption_issues_detected.cs](./use_validator_in_github_actions_workflow_to_automatically_fail_builds_when_caption_issues_detected.cs) |  | Use the validator in a GitHub Actions workflow to automatically fail builds when caption i... |
+| [use_validator_within_unit_test_assert_no_multimedia_accessibility_issues_in_sample_html.cs](./use_validator_within_unit_test_assert_no_multimedia_accessibility_issues_in_sample_html.cs) | `Accessibility` | Use the validator within a unit test to assert that no multimedia accessibility issues exi... |
+| [validate_html_documents_retrieved_from_remote_url_loading_content_into_validator.cs](./validate_html_documents_retrieved_from_remote_url_loading_content_into_validator.cs) | `HTMLDocument`, `HttpClient`, `Url` | Validate HTML documents retrieved from a remote URL by loading the URL content into the va... |
+| [validate_html_generated_by_razor_view_at_runtime_and_log_detected_accessibility_issues.cs](./validate_html_generated_by_razor_view_at_runtime_and_log_detected_accessibility_issues.cs) | `Accessibility` | Validate HTML generated by a Razor view at runtime and log any accessibility issues detect... |
+| [validator_console_application_process_html_file_paths_command_line_arguments.cs](./validator_console_application_process_html_file_paths_command_line_arguments.cs) |  | Use the validator in a console application to process a list of HTML file paths via comman... |
+| [verify_each_track_element_includes_valid_srclang_attribute_for_accessibility_standards.cs](./verify_each_track_element_includes_valid_srclang_attribute_for_accessibility_standards.cs) | `Accessibility` | Verify that each <track> element includes a valid srclang attribute to meet accessibility ... |
+| [write_formatted_validation_string_file_archival_reporting.cs](./write_formatted_validation_string_file_archival_reporting.cs) |  | Write the formatted validation string to a text file for archival and reporting. |
+| [write_method_returning_error_messages_for_rule_identifier.cs](./write_method_returning_error_messages_for_rule_identifier.cs) |  | Write a method that returns a list of error messages for a specified rule identifier. |
+| [write_method_returns_warning_counts_grouped_target_element_type_analysis.cs](./write_method_returns_warning_counts_grouped_target_element_type_analysis.cs) |  | Write a method that returns warning counts grouped by each target element type for analysi... |
+| [write_validation_results_to_json_file_using_json_format.cs](./write_validation_results_to_json_file_using_json_format.cs) |  | Write validation results to a JSON file by calling ValidationResult.SaveTo with Json forma... |
+| [write_validation_results_to_xml_using_validationresult_saveto_xml_format.cs](./write_validation_results_to_xml_using_validationresult_saveto_xml_format.cs) |  | Write validation results to an XML file by calling ValidationResult.SaveTo with Xml format... |
+
+## Category Statistics
+- Total examples: 96
+- Failed: 0
+- Pass rate: 100.0%
+
+## Key API Surface
+
+- `Converter`
+- `HTMLDocument`
+- `HTMLSaveOptions`
+
+## Failed Tasks
+
+All tasks passed ✅
+
+<!-- AUTOGENERATED:START -->
+Updated: 2026-10-01 | Examples: 96
+<!-- AUTOGENERATED:END -->
