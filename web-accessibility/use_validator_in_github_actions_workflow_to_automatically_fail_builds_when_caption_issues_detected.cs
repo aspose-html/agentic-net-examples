@@ -10,7 +10,8 @@ class Program
         {
             Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
             Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("<html><body><img src='image.png'></body></html>"))
+            Aspose.Html.Url baseUri = new Aspose.Html.Url("about:blank");
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("<html><body><img src='image.png' alt='Decorative illustration'></body></html>", baseUri))
             {
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
                 if (!validationResult.Success)
