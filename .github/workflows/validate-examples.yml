@@ -28,7 +28,7 @@ jobs:
         id: changed
         shell: bash
         run: |
-          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '\.cs$' | grep -v '^\.github' || true)
+          FILES=$(git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD | grep '\.cs$' | grep -v '^\.github' || true)
           echo "Changed .cs files:"
           echo "$FILES"
           {
