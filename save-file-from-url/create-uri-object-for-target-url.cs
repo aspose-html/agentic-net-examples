@@ -8,12 +8,12 @@ class Program
     {
         try
         {
-            var targetUri = new System.Uri("https://www.example.com");
-            Console.WriteLine($"Target URL: {targetUri}");
+            var targetUri = new Uri("https://www.example.com");
+            Console.WriteLine("Created Uri: " + targetUri);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

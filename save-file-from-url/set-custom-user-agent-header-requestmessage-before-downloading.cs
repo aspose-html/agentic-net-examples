@@ -1,12 +1,6 @@
 // Set custom User-Agent header in RequestMessage before downloading.
 
 using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Net;
-using Aspose.Html.Services;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -14,24 +8,23 @@ class Program
     {
         try
         {
-            string url = "https://example.com";
-            string outputPath = "output.pdf";
-
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
             network.MessageHandlers.Add(new UserAgentHandler());
 
+            string url = "https://example.com";
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
                 Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                string outputPath = "output.pdf";
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
             }
 
-            System.Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
