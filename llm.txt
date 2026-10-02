@@ -1,6 +1,6 @@
 # Aspose.HTML for .NET Examples
 
-> Build-validated, standalone C# console examples for Aspose.HTML for .NET 26.8.
+> Build-validated, standalone C# console examples for Aspose.HTML for .NET 26.9.
 
 - Examples: 1807
 - Categories: 18
