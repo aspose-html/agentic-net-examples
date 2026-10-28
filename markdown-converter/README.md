@@ -100,6 +100,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Markdown Processing](../markdown-processing/) -- processing precedes conversion
+- [Html Converter](../html-converter/) -- shares conversion infrastructure
+- [Fine Tuning Converters](../fine-tuning-converters/) -- conversion can be fine‑tuned
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

@@ -58,6 +58,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Working With Html Documents](../working-with-html-documents/) -- covers core document manipulation
+- [Working With Html Templates](../working-with-html-templates/) -- template editing uses similar APIs
+- [Html Navigation](../html-navigation/) -- navigation often precedes editing
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

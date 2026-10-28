@@ -141,6 +141,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Markdown Converter](../markdown-converter/) -- conversion follows processing
+- [Html Converter](../html-converter/) -- HTML output often target of processing
+- [Working With Html Documents](../working-with-html-documents/) -- processed markdown becomes HTML docs
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)
