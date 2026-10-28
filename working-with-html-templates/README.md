@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-45-green)](./)
 
-Standalone, build-validated C# code examples for **Working With Html Templates** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore Aspose.HTML for .NET examples that demonstrate how to bind HTML attributes and styles to XML or JSON data, control element visibility, and manage CSS classes directly within templates. Learn to configure TemplateLoadOptions for loading external CSS, network shares with authentication, and secure template loading by ignoring script tags. Convert populated templates—including conditional attributes, foreach loops, and embedded SVG graphics—into final HTML or PNG outputs using the ConvertTemplate method.
 
 ## Examples (45 files)
 
@@ -71,6 +71,20 @@ dotnet run
 - [Working With Html Documents](../working-with-html-documents/) -- templates are specialized documents
 - [Advanced Html Editing](../advanced-html-editing/) -- editing templates uses same APIs
 - [Html Navigation](../html-navigation/) -- navigation helps modify template placeholders
+
+## FAQ
+
+**How do I bind the href attribute of anchor tags to values from an XML data source?**
+
+Use attribute binding as shown in the example 'apply-attribute-binding-set-href-attribute-anchor-tags-from-xml-link-data.cs', which reads link data from XML and sets the href attribute on each <a> tag.
+
+**Which TemplateLoadOptions settings allow loading an HTML template that references external CSS files?**
+
+Set TemplateLoadOptions.EnableExternalCss to true, demonstrated in 'apply-templateloadoptions-enable-loading-html-templates-external-css-references-styling.cs'.
+
+**How can I prevent script tags from being processed when loading a template for security reasons?**
+
+Configure TemplateLoadOptions.IgnoreScriptTags = true, as illustrated in 'configure-templateloadoptions-ignore-script-tags-during-template-loading-for-security.cs'.
 
 ## Resources
 

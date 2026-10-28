@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-98-green)](./)
 
-Standalone, build-validated C# code examples for **Message Handlers** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+The Message Handlers collection demonstrates how to extend Aspose.HTML for .NET with custom HTTP pipeline components—adding or modifying headers, logging request duration, implementing retry and timeout policies, and handling authentication or error conditions such as aborting on a 500 response. Each example provides a ready‑to‑use handler that can be plugged into the conversion request pipeline to control network behavior and diagnostics.
 
 ## Examples (98 files)
 
@@ -124,6 +124,20 @@ dotnet run
 - [Web Accessibility](../web-accessibility/) -- accessibility checks rely on message events
 - [Save File From Url](../save-file-from-url/) -- downloading uses message handling
 - [Html Navigation](../html-navigation/) -- navigation generates network messages
+
+## FAQ
+
+**How can I abort the Aspose.HTML pipeline when the server returns a 500 status code?**
+
+Use the ErrorShortCircuitHandler example, which inspects the HttpResponseMessage status code and throws an exception when it equals 500, causing the pipeline to stop processing further handlers.
+
+**What is the simplest way to add a correlation‑ID or any custom header to every outgoing request?**
+
+Create a custom MessageHandler (e.g., AddCorrelationIdHeaderMessageHandler or AddCustomHeaderMessageHandler) that overrides SendAsync, injects the desired header into the HttpRequestMessage, and register the handler in HtmlConversionOptions before the network service.
+
+**How do I retry a failed network request up to three times before aborting?**
+
+Implement a custom retry handler as shown in the "add‑custom‑handler‑retries‑failed‑network‑requests‑up‑to‑three‑times‑before‑aborting" example; it catches network‑related exceptions, loops up to three attempts, and re‑issues the request, then passes control to the next handler.
 
 ## Resources
 

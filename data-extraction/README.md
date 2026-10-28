@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-81-green)](./)
 
-Standalone, build-validated C# code examples for **Data Extraction** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore Aspose.HTML for .NET data‑extraction techniques, from iterating over document images, link icons and inline SVG elements to building robust command‑line tools. Learn how to apply custom NodeFilters, implement retry logic with exponential backoff, batch‑download resources, limit extraction counts, and configure HttpClient headers such as User‑Agent.
 
 ## Examples (81 files)
 
@@ -107,6 +107,20 @@ dotnet run
 - [Extract Images From Website](../extract-images-from-website/) -- image extraction is a data extraction use‑case
 - [Extract Svg From Website](../extract-svg-from-website/) -- SVG extraction follows similar pattern
 - [Save File From Url](../save-file-from-url/) -- saving resources is part of extraction workflow
+
+## FAQ
+
+**How do I iterate over all <img> elements in a loaded HTML document?**
+
+Use the document's Images collection (e.g., document.Images) and loop through each Image element.
+
+**Which CLI option lets me skip downloading files that already exist in the output folder?**
+
+Add the custom flag defined in the example (e.g., --skip-existing) which checks the output directory before saving each file.
+
+**How can I extract only <script> tags while ignoring other elements?**
+
+Create a custom NodeFilter that returns true only for nodes with TagName "script" and apply it during DOM traversal.
 
 ## Resources
 

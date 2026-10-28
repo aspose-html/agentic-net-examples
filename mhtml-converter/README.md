@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-107-green)](./)
 
-Standalone, build-validated C# code examples for **Mhtml Converter** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore a collection of Aspose.HTML for .NET C# samples that demonstrate converting MHTML documents to PNG, PDF, GIF, XPS, and DOCX while fine‑tuning output with custom color profiles, lossless compression, background settings, JPEG subsampling, and encryption. Learn how to benchmark conversion performance, enforce OpenXML strict compliance, and automatically clean up source files after successful conversion.
 
 ## Examples (107 files)
 
@@ -133,6 +133,20 @@ dotnet run
 - [Html Converter](../html-converter/) -- both convert HTML based formats
 - [Website To Html](../website-to-html/) -- source HTML is needed for MHTML
 - [Fine Tuning Converters](../fine-tuning-converters/) -- conversion options can be customized
+
+## FAQ
+
+**How do I apply a custom color profile when exporting MHTML to PNG?**
+
+Create an ImageSaveOptions instance, set its ColorProfile property to the desired ICC profile, and pass the options to the Save method that converts the MHTML document to PNG.
+
+**How can I add password protection to a PDF generated from MHTML?**
+
+Use PdfSaveOptions, enable encryption via the EncryptionOptions property, set UserPassword (and optionally OwnerPassword), then save the MHTML document as PDF with those options.
+
+**What is the recommended way to delete the source MHTML file after a successful PDF conversion?**
+
+After calling document.Save with PdfSaveOptions and confirming no exception was thrown, call System.IO.File.Delete on the original MHTML file path to free up space.
 
 ## Resources
 

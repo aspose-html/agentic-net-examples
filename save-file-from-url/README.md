@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-28-green)](./)
 
-Standalone, build-validated C# code examples for **Save File From Url** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore practical Aspose.HTML for .NET C# snippets that show how to download files from URLs, manage authentication, timeouts, redirects, and error handling, and save them safely. Learn to create Uri objects, use Document.SendAsync for asynchronous downloads, append timestamps or extract names to prevent overwrites, and batch‑download multiple files with retry logic.
 
 ## Examples (28 files)
 
@@ -54,6 +54,20 @@ dotnet run
 - [Website To Html](../website-to-html/) -- fetching page content precedes saving
 - [Extract Images From Website](../extract-images-from-website/) -- image saving uses same download logic
 - [Message Handlers](../message-handlers/) -- network messages are handled during download
+
+## FAQ
+
+**How can I prevent overwriting an existing file when saving a downloaded document?**
+
+Create a unique file name by appending a timestamp to the original name before saving, as demonstrated in the "append‑timestamp‑saved‑file‑name‑avoid‑overwriting‑existing‑files.cs" example.
+
+**What is the correct way to download a protected file that requires basic authentication?**
+
+Configure the RequestMessage with the appropriate username and password credentials before sending the request, as shown in the "configure‑basic‑authentication‑credentials‑requestmessage‑protected‑resources.cs" example.
+
+**How do I perform an asynchronous download and ensure the response is received before writing the file?**
+
+Use Document.SendAsync with the await keyword to get the response, then copy the response stream to a FileStream for saving, illustrated in the "asynchronous‑file‑download‑using‑document‑sendasync‑await‑response‑before‑saving.cs" example.
 
 ## Resources
 

@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-96-green)](./)
 
-Standalone, build-validated C# code examples for **Web Accessibility** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore practical C# examples for Aspose.HTML that demonstrate how to validate web accessibility, count errors and warnings, and customize the validation process. Learn to programmatically add missing caption tracks, apply cancellation tokens, adjust rule severity, ignore specific rules, and combine accessibility findings with SEO metrics for comprehensive site analysis.
 
 ## Examples (96 files)
 
@@ -122,6 +122,20 @@ dotnet run
 - [Advanced Html Editing](../advanced-html-editing/) -- editing improves accessibility
 - [Html Navigation](../html-navigation/) -- navigation impacts accessible flow
 - [Working With Html Documents](../working-with-html-documents/) -- accessibility checks run on documents
+
+## FAQ
+
+**How do I count the total number of accessibility errors in an HTML document using Aspose.HTML?**
+
+Run the validator, obtain the ValidationResult, and read ValidationResult.Errors.Count to get the total error count.
+
+**How can I add a missing <track> element with kind="captions" to a video tag programmatically?**
+
+Create a new HtmlTrackElement, set its Kind to "captions" and Src to the caption file URL, then append it to the target HtmlVideoElement in the DOM.
+
+**How can I configure the validator to ignore specific rule codes or change severity for missing captions?**
+
+Use the validator's Settings to add rule codes to IgnoredRuleCodes or modify the SeverityMap for the "MissingCaption" rule, treating it as an error or warning as needed.
 
 ## Resources
 

@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-30-green)](./)
 
-Standalone, build-validated C# code examples for **Extract Svg From Website** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+These Aspose.HTML for .NET examples demonstrate how to extract SVG graphics from web pages, covering inline SVG extraction via the OuterHTML property, downloading external SVG files with HttpClient, caching them locally, skipping duplicate markup, and generating summary CSV reports. The snippets also show reusable methods, batch processing of multiple URLs, and exposing a public API that returns file paths for all extracted SVGs.
 
 ## Examples (30 files)
 
@@ -56,6 +56,20 @@ dotnet run
 - [Extract Images From Website](../extract-images-from-website/) -- parallel graphic extraction tasks
 - [Svg Converter](../svg-converter/) -- often followed by SVG format conversion
 - [Website To Html](../website-to-html/) -- needs page source to locate SVGs
+
+## FAQ
+
+**How do I extract the markup of inline SVG elements from a page using Aspose.HTML?**
+
+Locate the <svg> elements (or <img> tags referencing SVG) in the HtmlDocument and read each element’s OuterHTML property, which returns the complete SVG markup as a string.
+
+**What technique should I use to prevent redundant network requests when downloading external SVG files?**
+
+Cache each downloaded SVG file on disk; before issuing an HttpClient GetAsync call, check if the file already exists locally and skip the download if it does.
+
+**How can I filter image elements to process only external SVG files?**
+
+Use document.Images to get all <img> elements, then keep only those whose src attribute ends with ".svg" before proceeding with download or extraction.
 
 ## Resources
 

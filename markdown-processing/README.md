@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-120-green)](./)
 
-Standalone, build-validated C# code examples for **Markdown Processing** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore practical C# snippets for Aspose.HTML that enhance Markdown files with metadata, comments, and custom attributes. Learn how to prepend author or timestamp comments, inject YAML front‑matter, add SEO‑friendly attributes, generate bullet lists, and automatically enrich images and code blocks for better rendering and discoverability.
 
 ## Examples (120 files)
 
@@ -146,6 +146,20 @@ dotnet run
 - [Markdown Converter](../markdown-converter/) -- conversion follows processing
 - [Html Converter](../html-converter/) -- HTML output often target of processing
 - [Working With Html Documents](../working-with-html-documents/) -- processed markdown becomes HTML docs
+
+## FAQ
+
+**How can I add a custom attribute to heading nodes for SEO without changing the visible text?**
+
+Traverse the Markdown document’s heading nodes with Aspose.HTML, set a custom attribute (e.g., data‑seo) on each node, and leave the inner text untouched so the visual content remains the same.
+
+**What is the easiest way to insert a YAML front‑matter block with custom metadata at the top of a Markdown file?**
+
+Create a YAML string containing the desired fields (author, tags, etc.) and prepend it to the Markdown content before saving the document using Aspose.HTML.
+
+**How do I automatically add missing alt text to images that lack descriptions?**
+
+Iterate over image nodes, check for an absent or empty alt attribute, and assign a default placeholder such as "Image description not provided" to ensure every image has alt text.
 
 ## Resources
 

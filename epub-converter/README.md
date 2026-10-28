@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-143-green)](./)
 
-Standalone, build-validated C# code examples for **Epub Converter** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore Aspose.HTML for .NET C# examples that demonstrate converting EPUB books to various image formats—GIF, PNG, JPEG, BMP, and TIFF—using batch processing, ImageSaveOptions, and the Converter API. Learn how to control DPI, embed color profiles, apply transparent backgrounds, limit file size, and handle page‑range or chapter conversions, including DRM‑free EPUB handling.
 
 ## Examples (143 files)
 
@@ -169,6 +169,20 @@ dotnet run
 - [Html Converter](../html-converter/) -- both convert HTML to other formats
 - [Markdown Converter](../markdown-converter/) -- similar conversion pipeline concepts
 - [Fine Tuning Converters](../fine-tuning-converters/) -- custom settings apply to EPUB conversion
+
+## FAQ
+
+**How can I batch convert a collection of EPUB files to TIFF using default conversion settings?**
+
+Iterate over the EPUB collection with a foreach loop and call Converter.ConvertEPUB for each file, passing the default conversion settings to generate TIFF output.
+
+**What ImageSaveOptions settings ensure a uniform DPI across all pages of a GIF created from an EPUB?**
+
+Set the same DpiX and DpiY values (or use the UniformDpi property) in ImageSaveOptions before calling Converter.ConvertEPUB, which applies the DPI consistently to every GIF page.
+
+**How do I embed a color profile in a GIF generated from an EPUB for accurate colors?**
+
+Configure ImageSaveOptions to embed the desired color profile (e.g., set ColorProfile = ColorProfile.SRGB) before converting the EPUB to GIF with Converter.ConvertEPUB.
 
 ## Resources
 

@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-79-green)](./)
 
-Standalone, build-validated C# code examples for **Markdown Converter** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore a collection of Aspose.HTML for .NET C# examples that demonstrate converting Markdown documents to PDF, DOCX, XPS, JPEG, GIF, BMP and TIFF. Learn how to batch‑process files, recursively scan subfolders, apply custom PdfSaveOptions, ImageSaveOptions (resolution, background color, color palette, quality) and preserve metadata or timestamps, as well as enable command‑line and configuration flags for fine‑tuned conversion pipelines.
 
 ## Examples (79 files)
 
@@ -105,6 +105,20 @@ dotnet run
 - [Markdown Processing](../markdown-processing/) -- processing precedes conversion
 - [Html Converter](../html-converter/) -- shares conversion infrastructure
 - [Fine Tuning Converters](../fine-tuning-converters/) -- conversion can be fine‑tuned
+
+## FAQ
+
+**How can I use a custom JSON file to override default PDF conversion settings when converting Markdown?**
+
+Add a command‑line option that loads a PdfSaveOptions object from the JSON file and passes it to the conversion API, allowing you to set metadata, author, title, etc., before converting the Markdown to PDF.
+
+**What is the easiest way to convert all Markdown files in a directory and its subfolders to another format?**
+
+Implement a recursive directory scan that enumerates *.md files in the root folder and all subfolders, then loop through each file and invoke the appropriate conversion method (e.g., to PDF, DOCX, JPEG, GIF, BMP, TIFF).
+
+**How do I apply custom image settings such as resolution, background color, or a color palette when converting Markdown to GIF or BMP?**
+
+Create an ImageSaveOptions instance, set properties like Resolution, BackgroundColor, or CustomColorPalette, and pass this options object to the conversion call that renders the Markdown as a GIF or BMP image.
 
 ## Resources
 
