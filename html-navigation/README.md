@@ -141,6 +141,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Working With Html Documents](../working-with-html-documents/) -- navigation works on document objects
+- [Advanced Html Editing](../advanced-html-editing/) -- editing may require navigating DOM
+- [Message Handlers](../message-handlers/) -- navigation triggers network messages
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

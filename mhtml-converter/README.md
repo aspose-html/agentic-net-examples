@@ -128,6 +128,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Html Converter](../html-converter/) -- both convert HTML based formats
+- [Website To Html](../website-to-html/) -- source HTML is needed for MHTML
+- [Fine Tuning Converters](../fine-tuning-converters/) -- conversion options can be customized
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

@@ -58,6 +58,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Extract Svg From Website](../extract-svg-from-website/) -- both pull graphic assets from sites
+- [Save File From Url](../save-file-from-url/) -- saving downloaded images uses same API
+- [Website To Html](../website-to-html/) -- initial HTML fetch is required
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

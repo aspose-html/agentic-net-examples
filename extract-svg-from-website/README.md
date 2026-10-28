@@ -51,6 +51,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Extract Images From Website](../extract-images-from-website/) -- parallel graphic extraction tasks
+- [Svg Converter](../svg-converter/) -- often followed by SVG format conversion
+- [Website To Html](../website-to-html/) -- needs page source to locate SVGs
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

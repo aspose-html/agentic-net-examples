@@ -117,6 +117,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Advanced Html Editing](../advanced-html-editing/) -- editing improves accessibility
+- [Html Navigation](../html-navigation/) -- navigation impacts accessible flow
+- [Working With Html Documents](../working-with-html-documents/) -- accessibility checks run on documents
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

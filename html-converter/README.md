@@ -219,6 +219,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Markdown Converter](../markdown-converter/) -- both transform HTML content
+- [Svg Converter](../svg-converter/) -- SVG conversion often chained after HTML
+- [Fine Tuning Converters](../fine-tuning-converters/) -- allows detailed conversion control
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

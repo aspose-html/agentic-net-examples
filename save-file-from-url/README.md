@@ -49,6 +49,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Website To Html](../website-to-html/) -- fetching page content precedes saving
+- [Extract Images From Website](../extract-images-from-website/) -- image saving uses same download logic
+- [Message Handlers](../message-handlers/) -- network messages are handled during download
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

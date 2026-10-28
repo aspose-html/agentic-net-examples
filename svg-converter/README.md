@@ -126,6 +126,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Html Converter](../html-converter/) -- often used after HTML to SVG conversion
+- [Extract Svg From Website](../extract-svg-from-website/) -- converts extracted SVGs
+- [Fine Tuning Converters](../fine-tuning-converters/) -- conversion parameters can be tuned
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

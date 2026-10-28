@@ -102,6 +102,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Extract Images From Website](../extract-images-from-website/) -- image extraction is a data extraction use‑case
+- [Extract Svg From Website](../extract-svg-from-website/) -- SVG extraction follows similar pattern
+- [Save File From Url](../save-file-from-url/) -- saving resources is part of extraction workflow
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

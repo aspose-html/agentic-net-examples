@@ -119,6 +119,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Web Accessibility](../web-accessibility/) -- accessibility checks rely on message events
+- [Save File From Url](../save-file-from-url/) -- downloading uses message handling
+- [Html Navigation](../html-navigation/) -- navigation generates network messages
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

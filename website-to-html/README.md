@@ -51,6 +51,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Save File From Url](../save-file-from-url/) -- both involve downloading web resources
+- [Extract Images From Website](../extract-images-from-website/) -- image extraction follows HTML fetch
+- [Html Converter](../html-converter/) -- fetched HTML may be converted further
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

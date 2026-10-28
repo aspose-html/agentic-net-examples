@@ -142,6 +142,12 @@ dotnet add package Aspose.HTML
 dotnet run
 ```
 
+## Related Examples
+
+- [Html Converter](../html-converter/) -- adjusts HTML conversion options
+- [Markdown Converter](../markdown-converter/) -- tuning applies to markdown output
+- [Epub Converter](../epub-converter/) -- custom settings for EPUB generation
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)
