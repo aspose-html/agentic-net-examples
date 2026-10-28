@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-332-green)](./)
 
-Standalone, build-validated C# code examples for **Working With Html Documents** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore practical Aspose.HTML for .NET examples that show how to manipulate HTML documents programmatically—adding comments, meta tags, CSS rules, and image elements, as well as applying styles to specific nodes. Learn to export the modified documents to various formats like HTML, PDF, and high‑resolution PNG while controlling settings such as DPI and preserving comments.
 
 ## Examples (332 files)
 
@@ -358,6 +358,20 @@ dotnet run
 - [Advanced Html Editing](../advanced-html-editing/) -- editing is performed on documents
 - [Html Navigation](../html-navigation/) -- navigation traverses document structure
 - [Working With Html Templates](../working-with-html-templates/) -- templates are a type of document
+
+## FAQ
+
+**How can I add a comment node before a style element in the head section and keep it when exporting?**
+
+Create a comment node, insert it before the <style> element in the document's head, and use the export options that preserve comments when saving the HTML.
+
+**What steps are needed to add a meta viewport tag and then convert the page to a high‑resolution PNG?**
+
+Insert a <meta name="viewport" ...> tag into the head, then call the conversion API specifying a high DPI or resolution to generate the PNG.
+
+**How do I set a custom DPI of 120 when saving an HTML document to PDF to balance file size and quality?**
+
+Configure the PDF save options with Dpi = 120 before invoking the Save method, which produces a PDF with reduced file size while maintaining acceptable visual quality.
 
 ## Resources
 

@@ -57,6 +57,20 @@ dotnet run
 - [Extract Images From Website](../extract-images-from-website/) -- image extraction follows HTML fetch
 - [Html Converter](../html-converter/) -- fetched HTML may be converted further
 
+## FAQ
+
+**How can I convert several website URLs at once and save each as a separate HTML file?**
+
+Use the "convert-multiple-website-urls-batch-mode-storing-each-result-separate-html-files.cs" example, which runs batch conversion and writes each page to its own HTML file.
+
+**What example shows adding a custom CSS stylesheet to override the site’s original styling during conversion?**
+
+See "apply-custom-css-stylesheet-during-conversion-to-override-default-website-styling.cs" – it injects a user‑provided CSS file into the generated HTML.
+
+**Is there a sample that creates a sitemap XML file together with the HTML output?**
+
+Yes, the "generate-sitemap-xml-file-alongside-html-output-map-converted-pages.cs" example generates a sitemap.xml that maps all converted pages alongside the HTML files.
+
 ## Resources
 
 - 📖 [Aspose.HTML for .NET Documentation](https://docs.aspose.com/html/net/)

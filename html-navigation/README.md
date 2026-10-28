@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-120-green)](./)
 
-Standalone, build-validated C# code examples for **Html Navigation** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore practical Aspose.HTML for .NET C# snippets that enhance navigation, accessibility, and SEO by programmatically adding missing attributes such as aria‑label, crossorigin, data‑tracking, language, alt, charset, DOCTYPE and nofollow. Learn how to append external stylesheets, clone menu elements, and batch‑process HTML files to extract heading hierarchies into JSON outlines, all with concise, ready‑to‑run code examples.
 
 ## Examples (120 files)
 
@@ -146,6 +146,20 @@ dotnet run
 - [Working With Html Documents](../working-with-html-documents/) -- navigation works on document objects
 - [Advanced Html Editing](../advanced-html-editing/) -- editing may require navigating DOM
 - [Message Handlers](../message-handlers/) -- navigation triggers network messages
+
+## FAQ
+
+**How can I add aria‑label attributes to navigation links that lack descriptive text?**
+
+Use Aspose.HTML to select all navigation (<nav>) anchor elements without inner text and set an appropriate aria‑label attribute on each, ensuring screen readers convey meaningful link descriptions.
+
+**What is the method to batch‑process a folder of HTML files and save each file's heading hierarchy as a JSON outline?**
+
+Iterate through the folder with Aspose.HTML, load each HTML document, traverse heading tags (h1‑h6) to build a nested hierarchy, serialize the structure to JSON, and write it to a corresponding .json file.
+
+**How do I insert a missing charset meta tag based on the detected file encoding?**
+
+Detect the document’s encoding via Aspose.HTML, create a <meta charset="..."> element with the detected value, and prepend it to the <head> section of the HTML file.
 
 ## Resources
 

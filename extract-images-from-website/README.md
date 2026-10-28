@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-37-green)](./)
 
-Standalone, build-validated C# code examples for **Extract Images From Website** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore practical Aspose.HTML for .NET C# examples that show how to extract images and icons from web pages, handle missing src attributes, add retry logic for network glitches, and manage downloads with HttpClient or WebClient. Learn to apply domain‑based naming, batch process multiple URLs, configure proxy settings, convert images to Base64, archive results into ZIP files, and generate documentation for reusable extraction methods.
 
 ## Examples (37 files)
 
@@ -63,6 +63,20 @@ dotnet run
 - [Extract Svg From Website](../extract-svg-from-website/) -- both pull graphic assets from sites
 - [Save File From Url](../save-file-from-url/) -- saving downloaded images uses same API
 - [Website To Html](../website-to-html/) -- initial HTML fetch is required
+
+## FAQ
+
+**How can I handle missing src attributes during image extraction without stopping the workflow?**
+
+Use the provided example that adds error handling for missing src attributes and logs warnings, allowing the extraction process to continue uninterrupted.
+
+**What is the recommended way to retry downloads when transient network failures occur?**
+
+Implement the retry‑logic pattern shown in the example, which wraps image or icon download calls in a loop with exponential back‑off to automatically retry transient failures.
+
+**How do I package all extracted images and icons for easy distribution?**
+
+Follow the archive‑all‑extracted‑images‑icons example, which creates a ZIP file containing every downloaded image and icon after extraction.
 
 ## Resources
 

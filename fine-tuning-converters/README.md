@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-121-green)](./)
 
-Standalone, build-validated C# code examples for **Fine Tuning Converters** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+The Fine Tuning Converters collection demonstrates how to fine‑adjust Aspose.HTML for .NET rendering options such as custom margins, page size, background color, DPI, and batch processing for HTML‑to‑PDF/DOCX/JPG conversions. It includes per‑file settings, global configuration, and asynchronous techniques to keep UI threads responsive.
 
 ## Examples (121 files)
 
@@ -147,6 +147,20 @@ dotnet run
 - [Html Converter](../html-converter/) -- adjusts HTML conversion options
 - [Markdown Converter](../markdown-converter/) -- tuning applies to markdown output
 - [Epub Converter](../epub-converter/) -- custom settings for EPUB generation
+
+## FAQ
+
+**How can I set a custom 0.2‑inch left margin for a PDF output?**
+
+Create a PdfRenderingOptions instance, set its MarginLeft property to 0.2 (inches), and pass this options object to the Converter when rendering the PDF.
+
+**How do I apply the same margin to all PDF files without configuring each conversion separately?**
+
+Configure PdfRenderingOptions globally—set the desired margin properties (e.g., MarginTop, MarginRight) once, reuse the same options instance for every conversion, and the settings will apply to all PDFs.
+
+**How can I convert thousands of HTML files to flattened PDFs without blocking the UI thread?**
+
+Implement asynchronous batch processing using async/await; run Converter.ConvertHTML for each file inside a background task or Task.Run loop, allowing the UI thread to remain responsive.
 
 ## Resources
 

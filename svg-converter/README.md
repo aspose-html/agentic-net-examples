@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-105-green)](./)
 
-Standalone, build-validated C# code examples for **Svg Converter** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+The Svg Converter examples demonstrate converting SVG files to PDF, PNG, TIFF, XPS, BMP, GIF, DOCX, and JPEG with Aspose.HTML for .NET. They illustrate single‑file tweaks such as adding a PDF table of contents, adjusting gamma for brighter PNGs, and applying LZW or XPS compression, plus batch processing patterns that use per‑file save options and performance benchmarking.
 
 ## Examples (105 files)
 
@@ -131,6 +131,20 @@ dotnet run
 - [Html Converter](../html-converter/) -- often used after HTML to SVG conversion
 - [Extract Svg From Website](../extract-svg-from-website/) -- converts extracted SVGs
 - [Fine Tuning Converters](../fine-tuning-converters/) -- conversion parameters can be tuned
+
+## FAQ
+
+**How can I add a table of contents when converting an SVG to PDF with Aspose.HTML?**
+
+Create a PdfSaveOptions object, set its Outlines property to define the desired TOC structure, and pass this options instance to the PDF save operation.
+
+**Which ImageSaveOptions setting improves PNG brightness during SVG conversion?**
+
+Set the Gamma property of ImageSaveOptions to a higher value (e.g., 2.2) before saving the SVG as PNG to increase brightness.
+
+**How do I apply LZW compression while converting SVG to TIFF?**
+
+Configure ImageSaveOptions.Compression = CompressionType.Lzw and use these options when calling Converter.ConvertSVG or Document.Save to produce a compressed TIFF file.
 
 ## Resources
 

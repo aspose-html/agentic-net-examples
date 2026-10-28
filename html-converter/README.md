@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-198-green)](./)
 
-Standalone, build-validated C# code examples for **Html Converter** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+Explore Aspose.HTML for .NET examples that demonstrate converting HTML to various formats—images (JPEG, BMP, TIFF, PNG, GIF), PDF, XPS, and Markdown—while controlling output with CSS media types, custom templates, and security settings. Learn how to apply print or screen media in ImageSaveOptions, enforce PDF password protection, handle conversion exceptions, and perform asynchronous operations for responsive applications.
 
 ## Examples (198 files)
 
@@ -224,6 +224,20 @@ dotnet run
 - [Markdown Converter](../markdown-converter/) -- both transform HTML content
 - [Svg Converter](../svg-converter/) -- SVG conversion often chained after HTML
 - [Fine Tuning Converters](../fine-tuning-converters/) -- allows detailed conversion control
+
+## FAQ
+
+**How do I apply a specific CSS media type when converting HTML to an image?**
+
+Set the desired media type (e.g., "print" or "screen") in ImageSaveOptions before calling Converter.ConvertHTML, then convert to the target image format such as JPEG, PNG, or GIF.
+
+**What steps are required to add password protection to a PDF generated from HTML?**
+
+Create a PdfSaveOptions instance, set its Permissions (and optionally UserPassword) properties, and pass it to Converter.ConvertHTML during the HTML‑to‑PDF conversion.
+
+**How can I catch and log conversion failures when using Converter.ConvertHTML?**
+
+Wrap the Converter.ConvertHTML call in a try‑catch block for ConverterException (or a more specific exception type), and log the exception details inside the catch to aid diagnostics.
 
 ## Resources
 

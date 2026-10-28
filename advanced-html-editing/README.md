@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 [![Examples](https://img.shields.io/badge/examples-37-green)](./)
 
-Standalone, build-validated C# code examples for **Advanced Html Editing** using [Aspose.HTML for .NET](https://products.aspose.com/html/net/). Each file is a complete console application — copy it, run `dotnet run`, and it works.
+The Advanced Html Editing examples demonstrate how to work with HTML5 canvas using Aspose.HTML for .NET, including gradient fills, rotated text, high‑resolution rendering, batch watermarking, and conversion to JPEG or PDF. They also show how to fine‑tune output with HtmlLoadOptions, ImageSaveOptions and PdfSaveOptions, and how to apply -aspose- CSS rules for canvas styling in PDFs.
 
 ## Examples (37 files)
 
@@ -63,6 +63,20 @@ dotnet run
 - [Working With Html Documents](../working-with-html-documents/) -- covers core document manipulation
 - [Working With Html Templates](../working-with-html-templates/) -- template editing uses similar APIs
 - [Html Navigation](../html-navigation/) -- navigation often precedes editing
+
+## FAQ
+
+**How can I set the JPEG DPI to 300 when rendering a high‑resolution canvas?**
+
+Create an ImageSaveOptions object, set DpiX and DpiY to 300, then pass it to the Save method after rendering the canvas to JPEG.
+
+**How do I disable external resources while converting a canvas‑rich HTML document to JPEG safely?**
+
+Configure HtmlLoadOptions with ResourceLoading set to HtmlResourceLoading.DisableExternalResources, load the HTML with these options, render the canvas and save as JPEG.
+
+**How can I add a background color or drop shadow to all canvas elements in a PDF using CSS?**
+
+Define a CSS rule that uses the -aspose- selector (e.g., "canvas { -aspose-background: #ff0000; }" or "canvas { -aspose-drop-shadow: 5px 5px 10px rgba(0,0,0,0.5); }") and include it in the HTML before converting to PDF.
 
 ## Resources
 
