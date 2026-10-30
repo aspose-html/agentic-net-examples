@@ -2,95 +2,56 @@
 
 using System;
 using System.IO;
-using System.Collections.Generic;
 using System.IO.Compression;
-using System.Drawing;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Drawing;
+using Aspose.Html.Converters;
 
-public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+class Program
 {
-    private readonly List<(string Name, MemoryStream Stream)> _streams = new List<(string, MemoryStream)>();
-    public IReadOnlyList<(string Name, MemoryStream Stream)> Streams => _streams;
-
-    public Stream GetStream(string name, string extension)
-    {
-        var ms = new MemoryStream();
-        _streams.Add((name + extension, ms));
-        return ms;
-    }
-
-    public Stream GetStream(string name, string extension, int page)
-    {
-        var ms = new MemoryStream();
-        _streams.Add((name + "_" + page + extension, ms));
-        return ms;
-    }
-
-    public void ReleaseStream(Stream stream)
-    {
-        // No action needed
-    }
-
-    public void Dispose()
-    {
-        foreach (var (_, stream) in _streams)
-        {
-            stream.Dispose();
-        }
-        _streams.Clear();
-    }
-}
-
-public class Program
-{
-    public static void Main()
+    static void Main()
     {
         try
         {
+            // Define input EPUB file and output directories
             string inputPath = "sample.epub";
+            string outputDir = "output";
             string zipPath = "output.zip";
 
-            if (!File.Exists(inputPath))
-            {
-                File.WriteAllBytes(inputPath, new byte[0]);
-            }
+            // Ensure output directory exists
+            System.IO.Directory.CreateDirectory(outputDir);
 
-            using (Stream epubStream = File.OpenRead(inputPath))
+            // Open EPUB file stream
+            using (System.IO.Stream epubStream = System.IO.File.OpenRead(inputPath))
             {
-                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff)
+                // Configure image save options for TIFF
+                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Tiff)
                 {
-                    Compression = Aspose.Html.Rendering.Image.Compression.None,
+                    Compression = Compression.None,
                     UseAntialiasing = true,
                     HorizontalResolution = 300,
                     VerticalResolution = 300,
-                    BackgroundColor = Color.White
+                    BackgroundColor = System.Drawing.Color.White
                 };
+                options.PageSetup.AnyPage = new Page(new Size(800, 1000), new Margin(0, 0, 0, 0));
 
-                var provider = new MemoryStreamProvider();
-
-                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
-
-                using (var zipFile = File.Create(zipPath))
-                using (var archive = new ZipArchive(zipFile, ZipArchiveMode.Create))
-                {
-                    foreach (var entryInfo in provider.Streams)
-                    {
-                        entryInfo.Stream.Position = 0;
-                        var zipEntry = archive.CreateEntry(entryInfo.Name);
-                        using (var entryStream = zipEntry.Open())
-                        {
-                            entryInfo.Stream.CopyTo(entryStream);
-                        }
-                    }
-                }
-
-                provider.Dispose();
+                // Convert EPUB pages to TIFF images saved in outputDir
+                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, outputDir);
             }
 
-            Console.WriteLine("Conversion and archiving completed successfully.");
+            // Create ZIP archive containing all generated TIFF files
+            if (System.IO.File.Exists(zipPath))
+            {
+                System.IO.File.Delete(zipPath);
+            }
+            System.IO.Compression.ZipFile.CreateFromDirectory(outputDir, zipPath);
+
+            Console.WriteLine("EPUB conversion to TIFF completed and archived to: " + zipPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

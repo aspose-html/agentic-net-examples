@@ -2,6 +2,10 @@
 
 using System;
 using System.IO;
+using System.Drawing;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -9,21 +13,29 @@ class Program
     {
         try
         {
+            // Input EPUB file path
             string inputPath = "sample.epub";
+            // Output TIFF thumbnail path
             string outputPath = "thumbnail.tiff";
 
-            using (Stream stream = File.OpenRead(inputPath))
+            // Open EPUB file stream
+            using (FileStream stream = File.OpenRead(inputPath))
             {
-                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff);
-                options.UseAntialiasing = true;
-                options.HorizontalResolution = 96;
-                options.VerticalResolution = 96;
-                options.BackgroundColor = System.Drawing.Color.White;
+                // Configure image save options for TIFF
+                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Tiff)
+                {
+                    Compression = Compression.None,
+                    UseAntialiasing = true,
+                    HorizontalResolution = 300,
+                    VerticalResolution = 300,
+                    BackgroundColor = Color.White
+                };
 
+                // Convert the opening page of the EPUB to a TIFF thumbnail
                 Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
 
-            Console.WriteLine("Thumbnail saved to " + outputPath);
+            Console.WriteLine("Thumbnail saved to: " + Path.GetFullPath(outputPath));
         }
         catch (Exception ex)
         {

@@ -2,12 +2,14 @@
 
 using System;
 using System.IO;
-using System.Drawing;
 using Aspose.Html;
-using Aspose.Html.Services;
+using Aspose.Html;
+using Aspose.Html.Converters;
 using Aspose.Html.Saving;
 using Aspose.Html.Rendering.Image;
-using Aspose.Html.Converters;
+using Aspose.Html.Rendering;
+using Aspose.Html.Services;
+using System.Drawing;
 
 class Program
 {
@@ -16,32 +18,33 @@ class Program
         try
         {
             string inputPath = "sample.epub";
-            string outputPath = "output_page.bmp";
+            string outputPath = "output.bmp";
 
-            if (!File.Exists(inputPath))
-            {
-                File.WriteAllBytes(inputPath, new byte[0]);
-            }
-
+            // Open EPUB file stream
             using (Stream stream = File.OpenRead(inputPath))
             {
+                // Create configuration and inject custom stylesheet
                 Configuration configuration = new Configuration();
                 IUserAgentService userAgent = (IUserAgentService)configuration.GetService(typeof(IUserAgentService));
-                userAgent.UserStyleSheet = "body { background-color: aliceblue; } h1 { color: red; }";
+                userAgent.UserStyleSheet = "body { background-color: aliceblue; }";
 
+                // Set image save options for BMP with custom appearance
                 ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Bmp);
                 options.UseAntialiasing = true;
                 options.HorizontalResolution = 400;
                 options.VerticalResolution = 400;
                 options.BackgroundColor = Color.AliceBlue;
+                options.Css.MediaType = MediaType.Print;
 
+                // Convert EPUB to BMP
                 Aspose.Html.Converters.Converter.ConvertEPUB(stream, configuration, options, outputPath);
-                Console.WriteLine($"EPUB converted to BMP at '{outputPath}'.");
             }
+
+            Console.WriteLine("Conversion completed: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

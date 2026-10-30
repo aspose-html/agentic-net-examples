@@ -2,31 +2,36 @@
 
 using System;
 
-class Program
+namespace AsposeHtmlGifDpiExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            string htmlPath = "sample.html";
-            string outputPath = "output.gif";
-
-            if (!System.IO.File.Exists(htmlPath))
+            try
             {
-                System.IO.File.WriteAllText(htmlPath, "<html><body><h1>Hello GIF</h1></body></html>");
+                string htmlPath = "sample.html";
+                string outputPath = "output.gif";
+
+                if (!System.IO.File.Exists(htmlPath))
+                {
+                    System.IO.File.WriteAllText(htmlPath, "<html><body><h1>Hello GIF</h1></body></html>");
+                }
+
+                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
+
+                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+                options.HorizontalResolution = 300;
+                options.VerticalResolution = 300;
+
+                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+                Console.WriteLine("Conversion completed: " + outputPath);
             }
-
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
-
-            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
-            options.HorizontalResolution = 300;
-            options.VerticalResolution = 300;
-
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

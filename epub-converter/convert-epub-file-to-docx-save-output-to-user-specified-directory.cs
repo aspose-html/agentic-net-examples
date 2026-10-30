@@ -1,26 +1,29 @@
 // Convert an EPUB file to DOCX and save the output to a user‑specified directory.
 
 using System;
+using System.IO;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
             string sourcePath = "sample.epub";
             string outputDirectory = "output";
-            System.IO.Directory.CreateDirectory(outputDirectory);
-            string outputPath = System.IO.Path.Combine(outputDirectory, "sample.docx");
+            Directory.CreateDirectory(outputDirectory);
+            string outputPath = Path.Combine(outputDirectory, "result.docx");
 
-            Aspose.Html.Saving.DocSaveOptions options = new Aspose.Html.Saving.DocSaveOptions();
+            DocSaveOptions options = new DocSaveOptions();
             Aspose.Html.Converters.Converter.ConvertEPUB(sourcePath, options, outputPath);
 
-            Console.WriteLine("EPUB successfully converted to DOCX: " + outputPath);
+            Console.WriteLine("Conversion completed. Output saved to: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Conversion failed: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

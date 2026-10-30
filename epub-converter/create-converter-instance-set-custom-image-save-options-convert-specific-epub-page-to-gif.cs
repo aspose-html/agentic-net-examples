@@ -9,33 +9,25 @@ class Program
     {
         try
         {
-            // Input EPUB file (ensure this file exists in the working directory)
             string inputPath = "sample.epub";
+            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.gif");
 
-            // Prepare output directory and file path
-            string outputDir = "output";
-            Directory.CreateDirectory(outputDir);
-            string outputPath = Path.Combine(outputDir, "page1.gif");
-
-            // Open the EPUB file stream
             using (FileStream stream = File.OpenRead(inputPath))
             {
-                // Configure image save options for GIF format
-                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
                 options.UseAntialiasing = true;
                 options.HorizontalResolution = 300;
                 options.VerticalResolution = 300;
 
-                // Optional: set page size for any page
-                options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(
-                    new Aspose.Html.Drawing.Size(800, 600),
-                    new Aspose.Html.Drawing.Margin(0, 0, 0, 0));
+                var pageSize = new Aspose.Html.Drawing.Size(800, 600);
+                var margin = new Aspose.Html.Drawing.Margin(10, 10, 10, 10);
+                var page = new Aspose.Html.Drawing.Page(pageSize, margin);
+                options.PageSetup.AnyPage = page;
 
-                // Convert the EPUB to GIF
                 Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
 
-            Console.WriteLine("EPUB page converted to GIF successfully.");
+            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {

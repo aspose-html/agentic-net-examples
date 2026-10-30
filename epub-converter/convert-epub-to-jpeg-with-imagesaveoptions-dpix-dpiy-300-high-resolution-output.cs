@@ -2,6 +2,10 @@
 
 using System;
 using System.IO;
+using System.Drawing;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -10,25 +14,29 @@ class Program
         try
         {
             // Define input EPUB file and output JPEG file paths
-            string inputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sample.epub");
-            string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output.jpg");
+            string inputPath = "sample.epub";
+            string outputPath = "output.jpg";
 
-            // Ensure the input file exists (create a minimal placeholder if needed)
+            // Ensure the input file exists (create an empty placeholder if necessary)
             if (!File.Exists(inputPath))
             {
-                // Create a minimal empty EPUB file for demonstration purposes
-                File.WriteAllBytes(inputPath, new byte[] { 0x50, 0x4B, 0x03, 0x04 }); // ZIP header
+                using (FileStream placeholder = File.Create(inputPath))
+                {
+                    // No content needed for placeholder
+                }
             }
 
-            // Configure image save options with high resolution
-            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
-            options.HorizontalResolution = 300;
-            options.VerticalResolution = 300;
-            options.UseAntialiasing = true;
-
-            // Perform the conversion
+            // Open the EPUB file stream
             using (FileStream stream = File.OpenRead(inputPath))
             {
+                // Configure image save options for high‑resolution JPEG
+                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
+                options.HorizontalResolution = 300;
+                options.VerticalResolution = 300;
+                options.UseAntialiasing = true;
+                options.BackgroundColor = Color.White;
+
+                // Convert EPUB to JPEG
                 Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
 

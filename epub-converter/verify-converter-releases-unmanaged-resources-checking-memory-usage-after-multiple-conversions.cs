@@ -2,34 +2,39 @@
 
 using System;
 using System.IO;
+using System.Text;
 using System.Collections.Generic;
 using Aspose.Html.IO;
 
-class CustomStreamProvider : Aspose.Html.IO.ICreateStreamProvider, System.IDisposable
+class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
-    public System.Collections.Generic.List<System.IO.MemoryStream> Streams { get; } = new System.Collections.Generic.List<System.IO.MemoryStream>();
-    public System.IO.Stream GetStream(string name, string extension)
+    public List<MemoryStream> Streams { get; } = new List<MemoryStream>();
+
+    public Stream GetStream(string name, string extension)
     {
-        System.IO.MemoryStream ms = new System.IO.MemoryStream();
+        MemoryStream ms = new MemoryStream();
         Streams.Add(ms);
         return ms;
     }
-    public System.IO.Stream GetStream(string name, string extension, int page)
+
+    public Stream GetStream(string name, string extension, int page)
     {
-        System.IO.MemoryStream ms = new System.IO.MemoryStream();
+        MemoryStream ms = new MemoryStream();
         Streams.Add(ms);
         return ms;
     }
-    public void ReleaseStream(System.IO.Stream stream)
+
+    public void ReleaseStream(Stream stream)
     {
         if (stream != null)
         {
             stream.Flush();
         }
     }
+
     public void Dispose()
     {
-        foreach (System.IO.MemoryStream ms in Streams)
+        foreach (MemoryStream ms in Streams)
         {
             ms.Dispose();
         }
@@ -42,46 +47,34 @@ class Program
     {
         try
         {
-            const string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
-            const string baseUri = "about:blank";
-            const string outputPathTemplate = "output_{0}.pdf";
-
-            long initialMemory = System.GC.GetTotalMemory(true);
-            System.Console.WriteLine($"Initial memory: {initialMemory}");
-
-            for (int i = 0; i < 10; i++)
+            string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
+            byte[] htmlBytes = Encoding.UTF8.GetBytes(htmlContent);
+            using (MemoryStream htmlStream = new MemoryStream(htmlBytes))
             {
-                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
-                CustomStreamProvider provider = new CustomStreamProvider();
-                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-
-                Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
-
-                System.IO.MemoryStream resultStream = provider.Streams[0];
-                resultStream.Position = 0;
-
-                string outputPath = string.Format(outputPathTemplate, i);
-                using (System.IO.FileStream fileStream = new System.IO.FileStream(outputPath, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlStream, "about:blank");
+                const int iterations = 5;
+                long baseline = GC.GetTotalMemory(true);
+                Console.WriteLine($"Baseline memory: {baseline} bytes");
+                for (int i = 0; i < iterations; i++)
                 {
-                    resultStream.CopyTo(fileStream);
+                    MemoryStreamProvider provider = new MemoryStreamProvider();
+                    Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
+                    MemoryStream resultStream = provider.Streams[0];
+                    resultStream.Position = 0;
+                    // Optionally process resultStream here
+                    provider.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
+                    long currentMemory = GC.GetTotalMemory(true);
+                    Console.WriteLine($"Iteration {i + 1}, total memory: {currentMemory} bytes");
                 }
-
-                provider.Dispose();
-                document.Dispose();
-
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
-
-                long afterMemory = System.GC.GetTotalMemory(true);
-                System.Console.WriteLine($"Iteration {i + 1}, memory: {afterMemory}");
             }
-
-            long finalMemory = System.GC.GetTotalMemory(true);
-            System.Console.WriteLine($"Final memory: {finalMemory}");
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

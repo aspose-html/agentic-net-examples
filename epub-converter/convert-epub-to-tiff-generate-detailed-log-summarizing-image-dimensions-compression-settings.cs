@@ -1,54 +1,48 @@
 // Convert EPUB to TIFF and generate a detailed log entry summarizing image dimensions and compression settings.
 
-namespace Example
+using System;
+using System.IO;
+
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
+            string inputPath = "sample.epub";
+            string outputPath = "output.tiff";
+
+            using (System.IO.Stream stream = System.IO.File.OpenRead(inputPath))
             {
-                string inputPath = "sample.epub";
-                string outputPath = "output.tiff";
-
-                if (!System.IO.File.Exists(inputPath))
+                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff)
                 {
-                    System.IO.File.WriteAllBytes(inputPath, new byte[0]);
-                }
+                    Compression = Aspose.Html.Rendering.Image.Compression.None,
+                    UseAntialiasing = true,
+                    HorizontalResolution = 300,
+                    VerticalResolution = 300,
+                    BackgroundColor = System.Drawing.Color.White
+                };
 
-                using (System.IO.FileStream stream = System.IO.File.OpenRead(inputPath))
-                {
-                    var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff)
-                    {
-                        Compression = Aspose.Html.Rendering.Image.Compression.None,
-                        UseAntialiasing = true,
-                        HorizontalResolution = 300,
-                        VerticalResolution = 300,
-                        BackgroundColor = System.Drawing.Color.White
-                    };
+                var page = new Aspose.Html.Drawing.Page(
+                    new Aspose.Html.Drawing.Size(800, 1200),
+                    new Aspose.Html.Drawing.Margin(0, 0, 0, 0));
 
-                    options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(
-                        new Aspose.Html.Drawing.Size(800, 1200),
-                        new Aspose.Html.Drawing.Margin(0, 0, 0, 0));
+                options.PageSetup.AnyPage = page;
 
-                    Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
-                }
-
-                System.Text.StringBuilder logBuilder = new System.Text.StringBuilder();
-                logBuilder.AppendLine("EPUB to TIFF conversion completed.");
-                logBuilder.AppendLine($"Output file: {outputPath}");
-                logBuilder.AppendLine("Image settings:");
-                logBuilder.AppendLine("  Dimensions: 800x1200");
-                logBuilder.AppendLine("  Horizontal Resolution: 300 DPI");
-                logBuilder.AppendLine("  Vertical Resolution: 300 DPI");
-                logBuilder.AppendLine("  Compression: None");
-                logBuilder.AppendLine("  Background Color: White");
-                System.Console.WriteLine(logBuilder.ToString());
+                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
-            catch (System.Exception ex)
-            {
-                System.Console.WriteLine($"Error: {ex.Message}");
-            }
+
+            Console.WriteLine("EPUB to TIFF conversion completed.");
+            Console.WriteLine("Output file: " + outputPath);
+            Console.WriteLine("Image format: TIFF");
+            Console.WriteLine("Page size: 800x1200 pixels");
+            Console.WriteLine("Compression: None");
+            Console.WriteLine("Resolution: 300 DPI (horizontal) x 300 DPI (vertical)");
+            Console.WriteLine("Background color: White");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

@@ -1,33 +1,40 @@
 // Set ImageSaveOptions.CompressionLevel to optimize GIF file size without sacrificing visual quality significantly.
 
-namespace AsposeHtmlGifExample
+using System;
+using System.IO;
+
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
+            // Define input HTML and output GIF paths
+            string htmlPath = "sample.html";
+            string outputPath = "output.gif";
+
+            // Create a minimal HTML file if it does not exist
+            if (!File.Exists(htmlPath))
             {
-                string htmlPath = "sample.html";
-                string outputPath = "output.gif";
-
-                if (!System.IO.File.Exists(htmlPath))
-                {
-                    System.IO.File.WriteAllText(htmlPath, "<html><body><h1>Hello, GIF!</h1></body></html>");
-                }
-
-                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
-                options.HorizontalResolution = 96;
-                options.VerticalResolution = 96;
-
-                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
-                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-                System.Console.WriteLine("GIF image saved to " + outputPath);
+                File.WriteAllText(htmlPath, "<html><body><h1>Sample GIF Conversion</h1></body></html>");
             }
-            catch (System.Exception ex)
-            {
-                System.Console.WriteLine(ex.Message);
-            }
+
+            // Configure image save options for GIF
+            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+            options.HorizontalResolution = 96;
+            options.VerticalResolution = 96;
+
+            // Load the HTML document
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
+
+            // Convert HTML to GIF
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+            Console.WriteLine("GIF conversion completed successfully.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
         }
     }
 }

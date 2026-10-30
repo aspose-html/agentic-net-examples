@@ -5,9 +5,10 @@ using System.IO;
 using System.Collections.Generic;
 using Aspose.Html.IO;
 using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
 using Aspose.Html.Converters;
 
-class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+class MemoryStreamProvider : ICreateStreamProvider, IDisposable
 {
     private readonly List<MemoryStream> _streams = new List<MemoryStream>();
 
@@ -29,7 +30,10 @@ class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 
     public void ReleaseStream(Stream stream)
     {
-        // No action needed; streams are retained for later use.
+        if (stream != null)
+        {
+            stream.Flush();
+        }
     }
 
     public void Dispose()
@@ -48,36 +52,36 @@ class Program
     {
         try
         {
-            // Input EPUB file path
             string inputPath = "sample.epub";
-            // Ensure the input file exists (for demonstration, create an empty file if missing)
+            string outputDir = "output";
+
+            // Ensure the output directory exists
+            Directory.CreateDirectory(outputDir);
+
+            // If the sample EPUB does not exist, create a minimal placeholder file
             if (!File.Exists(inputPath))
             {
-                File.WriteAllBytes(inputPath, new byte[0]);
+                // Create an empty EPUB file (not a valid EPUB, but serves as placeholder)
+                using (var placeholder = File.Create(inputPath)) { }
             }
 
             using (Stream epubStream = File.OpenRead(inputPath))
             {
-                // Configure image save options (default format is PNG)
-                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
-
-                // Create custom stream provider to capture each page as a separate stream
+                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Png);
                 using (MemoryStreamProvider provider = new MemoryStreamProvider())
                 {
-                    // Convert EPUB to images, one stream per page
                     Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
 
-                    // Save each generated stream to a separate PNG file
-                    for (int i = 0; i < provider.Streams.Count; i++)
+                    int pageIndex = 1;
+                    foreach (MemoryStream ms in provider.Streams)
                     {
-                        MemoryStream pageStream = provider.Streams[i];
-                        pageStream.Position = 0; // Rewind before reading
-
-                        string outputPath = $"page_{i + 1}.png";
+                        ms.Position = 0;
+                        string outputPath = Path.Combine(outputDir, $"page_{pageIndex}.png");
                         using (FileStream fileStream = File.Create(outputPath))
                         {
-                            pageStream.CopyTo(fileStream);
+                            ms.CopyTo(fileStream);
                         }
+                        pageIndex++;
                     }
                 }
             }
