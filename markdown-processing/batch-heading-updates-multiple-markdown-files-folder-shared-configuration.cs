@@ -1,8 +1,8 @@
 // Perform batch heading updates across multiple Markdown files in a folder using a shared configuration.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 using System.Text.Json;
 using Aspose.Html;
 
@@ -19,33 +19,22 @@ class Program
     {
         try
         {
-            string inputFolder = "InputMarkdown";
-            string outputFolder = "OutputJson";
+            string inputFolder = "Input";
+            string outputFolder = "Output";
 
-            if (!Directory.Exists(inputFolder))
-                Directory.CreateDirectory(inputFolder);
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
-            // Create a sample markdown file if none exist
-            if (Directory.GetFiles(inputFolder, "*.md").Length == 0)
+            foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
             {
-                string samplePath = Path.Combine(inputFolder, "sample.md");
-                File.WriteAllText(samplePath, "# Title\n## Section 1\n### Subsection A\n## Section 2\n");
-            }
-
-            foreach (string mdPath in Directory.GetFiles(inputFolder, "*.md"))
-            {
-                // Load markdown as HTML document (Aspose.Html can parse markdown files)
-                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(mdPath);
-
+                var document = new Aspose.Html.HTMLDocument(htmlPath);
                 var headings = document.QuerySelectorAll("h1, h2, h3, h4, h5, h6");
                 var root = new List<OutlineNode>();
                 var stack = new Stack<OutlineNode>();
 
                 for (int i = 0; i < headings.Length; i++)
                 {
-                    Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)headings[i];
+                    var element = (Aspose.Html.HTMLElement)headings[i];
                     string tag = element.TagName.ToLower();
                     int level = int.Parse(tag.Substring(1));
 
@@ -68,15 +57,13 @@ class Program
                 }
 
                 string json = JsonSerializer.Serialize(root, new JsonSerializerOptions { WriteIndented = true });
-                string jsonPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(mdPath) + ".json");
+                string jsonPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".json");
                 File.WriteAllText(jsonPath, json);
             }
-
-            Console.WriteLine("Processing completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 }

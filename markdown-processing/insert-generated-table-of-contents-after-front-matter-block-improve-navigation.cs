@@ -12,23 +12,24 @@ class Program
             Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument();
             Aspose.Html.HTMLElement body = doc.Body;
 
-            // Front‑matter comment
-            Aspose.Html.Dom.Comment frontMatter = doc.CreateComment(" Front Matter ");
-            body.AppendChild(frontMatter);
-
-            // First heading (h1)
+            // Front‑matter heading (h1)
             Aspose.Html.HTMLHeadingElement h1 = (Aspose.Html.HTMLHeadingElement)doc.CreateElement("h1");
-            h1.SetAttribute("id", "section1");
-            h1.AppendChild(doc.CreateTextNode("Section 1"));
+            h1.SetAttribute("id", "intro");
+            h1.AppendChild(doc.CreateTextNode("Document Title"));
             body.AppendChild(h1);
 
-            // Second heading (h2)
-            Aspose.Html.HTMLHeadingElement h2 = (Aspose.Html.HTMLHeadingElement)doc.CreateElement("h2");
-            h2.SetAttribute("id", "section2");
-            h2.AppendChild(doc.CreateTextNode("Section 2"));
-            body.AppendChild(h2);
+            // Sections (h2)
+            Aspose.Html.HTMLHeadingElement h2Section1 = (Aspose.Html.HTMLHeadingElement)doc.CreateElement("h2");
+            h2Section1.SetAttribute("id", "section1");
+            h2Section1.AppendChild(doc.CreateTextNode("Section 1"));
+            body.AppendChild(h2Section1);
 
-            // Table of contents (ul)
+            Aspose.Html.HTMLHeadingElement h2Section2 = (Aspose.Html.HTMLHeadingElement)doc.CreateElement("h2");
+            h2Section2.SetAttribute("id", "section2");
+            h2Section2.AppendChild(doc.CreateTextNode("Section 2"));
+            body.AppendChild(h2Section2);
+
+            // Generate Table of Contents (ul)
             Aspose.Html.HTMLElement ul = (Aspose.Html.HTMLElement)doc.CreateElement("ul");
 
             // TOC entry for Section 1
@@ -47,10 +48,10 @@ class Program
             li2.AppendChild(a2);
             ul.AppendChild(li2);
 
-            // Insert TOC after front‑matter comment
-            Aspose.Html.Dom.Node next = frontMatter.NextSibling;
-            if (next != null)
-                body.InsertBefore(ul, next);
+            // Insert TOC after the front‑matter heading
+            Aspose.Html.Dom.Node nextSibling = h1.NextSibling;
+            if (nextSibling != null)
+                body.InsertBefore(ul, nextSibling);
             else
                 body.AppendChild(ul);
 

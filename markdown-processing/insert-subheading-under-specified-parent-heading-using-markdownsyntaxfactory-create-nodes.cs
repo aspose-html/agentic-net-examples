@@ -1,8 +1,6 @@
 // Insert a subheading under a specified parent heading using the MarkdownSyntaxFactory to create nodes.
 
 using System;
-using System.IO;
-using System.Text;
 
 class Program
 {
@@ -10,25 +8,25 @@ class Program
     {
         try
         {
-            // Build markdown content
-            var markdownBuilder = new StringBuilder();
-            markdownBuilder.AppendLine("# Parent Heading");
-            markdownBuilder.AppendLine("## Subheading");
-            string markdown = markdownBuilder.ToString();
+            string outputPath = "output.html";
 
-            // Convert markdown to HTML document
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(markdown)))
-            {
-                Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(stream, "about:blank");
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument();
+            Aspose.Html.HTMLElement body = document.Body;
 
-                // Save the resulting HTML
-                string outputPath = "output.html";
-                document.Save(outputPath);
+            Aspose.Html.HTMLHeadingElement parentHeading = (Aspose.Html.HTMLHeadingElement)document.CreateElement("h1");
+            Aspose.Html.Dom.Text parentText = document.CreateTextNode("Parent Heading");
+            parentHeading.AppendChild(parentText);
 
-                // Output result to console
-                Console.WriteLine(document.DocumentElement.OuterHTML);
-                Console.WriteLine("Conversion completed. HTML saved at " + outputPath);
-            }
+            Aspose.Html.HTMLHeadingElement subHeading = (Aspose.Html.HTMLHeadingElement)document.CreateElement("h2");
+            Aspose.Html.Dom.Text subText = document.CreateTextNode("Subheading");
+            subHeading.AppendChild(subText);
+
+            body.AppendChild(parentHeading);
+            body.AppendChild(subHeading);
+
+            document.Save(outputPath);
+
+            Console.WriteLine("HTML saved at " + outputPath);
         }
         catch (Exception ex)
         {
