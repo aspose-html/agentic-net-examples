@@ -14,8 +14,8 @@ class Program
     {
         try
         {
-            string inputFolder = "InputMarkdown";
-            string outputFolder = "OutputImages";
+            string inputFolder = Path.Combine(Directory.GetCurrentDirectory(), "MarkdownInput");
+            string outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "JpegOutput");
 
             Directory.CreateDirectory(inputFolder);
             Directory.CreateDirectory(outputFolder);
@@ -24,27 +24,36 @@ class Program
             string samplePath = Path.Combine(inputFolder, "sample.md");
             if (!File.Exists(samplePath))
             {
-                File.WriteAllText(samplePath, "# Sample Markdown\n\nThis is a test.");
+                File.WriteAllText(samplePath, "# Sample Markdown\n\nThis is a **test** markdown file.");
             }
 
             HashSet<string> processedFiles = new HashSet<string>();
 
             for (int i = 0; i < 5; i++)
             {
-                string[] mdFiles = Directory.GetFiles(inputFolder, "*.md");
-                foreach (string mdPath in mdFiles)
+                string[] markdownFiles = Directory.GetFiles(inputFolder, "*.md");
+                foreach (string mdPath in markdownFiles)
                 {
-                    if (!processedFiles.Contains(mdPath))
-                    {
-                        using (Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(mdPath))
-                        {
-                            ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
-                            string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(mdPath) + ".jpg");
-                            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-                        }
-                        processedFiles.Add(mdPath);
-                    }
+                    if (processedFiles.Contains(mdPath))
+                        continue;
+
+                    // Convert Markdown to HTMLDocument
+                    Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(mdPath);
+
+                    // Set up JPEG save options
+                    ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
+
+                    // Determine output JPEG path
+                    string outputPath = Path.Combine(outputFolder,
+                        Path.GetFileNameWithoutExtension(mdPath) + ".jpg");
+
+                    // Convert HTMLDocument to JPEG
+                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+                    // Mark as processed
+                    processedFiles.Add(mdPath);
                 }
+
                 Thread.Sleep(200);
             }
         }

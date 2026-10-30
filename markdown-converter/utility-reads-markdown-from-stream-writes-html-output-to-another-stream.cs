@@ -3,39 +3,46 @@
 using System;
 using System.IO;
 using System.Text;
+using Aspose.Html;
+using Aspose.Html.Converters;
 
-class Program
+namespace AsposeHtmlExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            // Prepare output directory
-            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "Output");
-            Directory.CreateDirectory(outputDir);
+            try
+            {
+                // Prepare output directory
+                string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
+                Directory.CreateDirectory(outputDir);
 
-            // Sample markdown content
-            string markdown = "# Hello World\nThis is a **markdown** sample.";
+                // Sample markdown content
+                string markdown = "# Hello World\nThis is a **markdown** sample.";
 
-            // Write markdown to a temporary file
-            string markdownPath = Path.Combine(outputDir, "sample.md");
-            File.WriteAllText(markdownPath, markdown, Encoding.UTF8);
+                // Write markdown to a temporary file
+                string markdownPath = Path.Combine(outputDir, "sample.md");
+                File.WriteAllText(markdownPath, markdown, Encoding.UTF8);
 
-            // Define HTML output path
-            string htmlPath = Path.Combine(outputDir, "output.html");
+                // Convert markdown file to HTMLDocument
+                HTMLDocument htmlDoc = Aspose.Html.Converters.Converter.ConvertMarkdown(markdownPath);
 
-            // Convert markdown file to HTML file
-            Aspose.Html.Converters.Converter.ConvertMarkdown(markdownPath, htmlPath);
+                // Save HTMLDocument to an HTML file
+                string htmlPath = Path.Combine(outputDir, "result.html");
+                htmlDoc.Save(htmlPath);
 
-            // Read and display the generated HTML
-            string html = File.ReadAllText(htmlPath, Encoding.UTF8);
-            Console.WriteLine("Conversion completed. HTML content:");
-            Console.WriteLine(html);
-            Console.WriteLine("HTML saved to: " + htmlPath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
+                // Read and display the generated HTML (optional)
+                string html = File.ReadAllText(htmlPath, Encoding.UTF8);
+                Console.WriteLine(html);
+
+                // Cleanup
+                htmlDoc.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

@@ -10,26 +10,22 @@ class Program
         try
         {
             string sourcePath = "sample.md";
-            File.WriteAllText(sourcePath, "# Sample Heading\nThis is a sample markdown document.");
-
             string savePath = "output.xps";
 
-            // Convert Markdown to HTMLDocument
+            // Create a sample markdown file that references a custom font.
+            string markdownContent = "# Sample\n\n<span style=\"font-family: 'MyCustomFont';\">Custom Font Text</span>\n\n<style>@font-face {font-family: 'MyCustomFont'; src: url('C:\\\\Windows\\\\Fonts\\\\arial.ttf');}</style>";
+            File.WriteAllText(sourcePath, markdownContent);
+
+            // Convert Markdown to HTMLDocument.
             Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath);
 
-            // Add custom font via CSS
-            Aspose.Html.HTMLElement style = (Aspose.Html.HTMLElement)document.CreateElement("style");
-            style.InnerHTML = "@font-face { font-family: 'CustomFont'; src: url('customfont.ttf'); } body { font-family: 'CustomFont'; }";
-
-            // Append the style element to the head
-            Aspose.Html.HTMLElement head = (Aspose.Html.HTMLElement)document.GetElementsByTagName("head")[0];
-            head.AppendChild(style);
-
-            // Set XPS save options (default options will embed referenced fonts)
+            // Set up XPS save options.
             Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
 
-            // Convert HTMLDocument to XPS
+            // Convert HTMLDocument to XPS, embedding the custom font.
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, savePath);
+
+            Console.WriteLine("Conversion completed. XPS saved to: " + Path.GetFullPath(savePath));
         }
         catch (Exception ex)
         {

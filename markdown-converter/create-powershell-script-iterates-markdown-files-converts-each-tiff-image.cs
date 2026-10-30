@@ -2,47 +2,50 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Converters;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
 
-class Program
+namespace MarkdownToTiffExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main()
         {
-            string inputDir = Path.Combine(Directory.GetCurrentDirectory(), "MarkdownFiles");
-            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "TiffOutput");
+            try
+            {
+                string inputDir = "MarkdownFiles";
+                string outputDir = "OutputImages";
 
-            if (!Directory.Exists(inputDir))
                 Directory.CreateDirectory(inputDir);
-            if (!Directory.Exists(outputDir))
                 Directory.CreateDirectory(outputDir);
 
-            // Create a sample markdown file if none exist
-            string[] existingFiles = Directory.GetFiles(inputDir, "*.md");
-            if (existingFiles.Length == 0)
-            {
-                string samplePath = Path.Combine(inputDir, "sample.md");
-                File.WriteAllText(samplePath, "# Sample Markdown\r\nThis is a *test*.");
-                existingFiles = new[] { samplePath };
-            }
-
-            foreach (string sourcePath in existingFiles)
-            {
-                string fileNameWithoutExt = Path.GetFileNameWithoutExtension(sourcePath);
-                string savePath = Path.Combine(outputDir, fileNameWithoutExt + ".tiff");
-
-                using (Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath))
+                // Create a sample markdown file if none exist
+                string[] mdFiles = Directory.GetFiles(inputDir, "*.md");
+                if (mdFiles.Length == 0)
                 {
-                    Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff);
-                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, savePath);
+                    string samplePath = Path.Combine(inputDir, "sample.md");
+                    File.WriteAllText(samplePath, "# Sample Markdown\r\nThis is a test.");
+                    mdFiles = new[] { samplePath };
                 }
 
-                Console.WriteLine($"Converted '{sourcePath}' to TIFF at '{savePath}'.");
+                foreach (string sourcePath in mdFiles)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(sourcePath);
+                    string savePath = Path.Combine(outputDir, fileName + ".tiff");
+
+                    HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath);
+                    ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Tiff);
+                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, savePath);
+
+                    Console.WriteLine($"Converted '{sourcePath}' to '{savePath}'.");
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

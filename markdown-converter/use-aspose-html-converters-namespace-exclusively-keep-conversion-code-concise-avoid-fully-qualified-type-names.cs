@@ -1,6 +1,7 @@
 // Use Aspose.Html.Converters namespace exclusively to keep conversion code concise and avoid fully qualified type names.
 
 using System;
+using System.IO;
 
 class Program
 {
@@ -8,20 +9,24 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><h1>Hello Aspose.HTML</h1></body></html>";
-            string baseUri = "about:blank";
-            string outputPath = "output.xps";
+            string htmlPath = "sample.html";
+            string pdfPath = "output.pdf";
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
-            Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
+            if (!File.Exists(htmlPath))
+            {
+                string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+                File.WriteAllText(htmlPath, htmlContent);
+            }
 
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
 
-            Console.WriteLine("Conversion completed successfully. Output saved to " + outputPath);
+            Aspose.Html.Converters.Converter.ConvertHTML(htmlPath, options, pdfPath);
+
+            Console.WriteLine($"HTML file '{htmlPath}' was successfully converted to PDF at '{pdfPath}'.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

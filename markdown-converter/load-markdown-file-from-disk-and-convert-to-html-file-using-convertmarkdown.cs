@@ -1,30 +1,27 @@
 // Load a Markdown file from disk and convert it to an HTML file using ConvertMarkdown.
 
-using System;
-using System.IO;
-
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main()
     {
         try
         {
             string sourcePath = "sample.md";
-            string savePath = "sample.html";
+            string savePath = "output.html";
 
-            if (!File.Exists(sourcePath))
+            if (!System.IO.File.Exists(sourcePath))
             {
-                string markdownContent = "# Hello World\r\nThis is a sample markdown file.";
-                File.WriteAllText(sourcePath, markdownContent);
+                string sampleContent = "# Hello World\r\nThis is a sample markdown file.";
+                System.IO.File.WriteAllText(sourcePath, sampleContent);
             }
 
             Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath, savePath);
 
-            Console.WriteLine("Conversion completed. HTML saved at " + Path.GetFullPath(savePath));
+            System.Console.WriteLine("Conversion completed. HTML saved at " + savePath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

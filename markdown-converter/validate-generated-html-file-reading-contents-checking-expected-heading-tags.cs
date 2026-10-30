@@ -3,46 +3,39 @@
 using System;
 using System.IO;
 using Aspose.Html;
+using Aspose.Html.Collections;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Define file path
-            string htmlPath = "sample.html";
+            // Define the path for the sample HTML file
+            string htmlFilePath = "sample.html";
 
-            // Create sample HTML content with headings
-            string htmlContent = @"<!DOCTYPE html>
-<html>
-<head><title>Test Document</title></head>
-<body>
-<h1>Main Heading</h1>
-<h2>Sub Heading</h2>
-<p>Some paragraph text.</p>
-</body>
-</html>";
+            // Create a minimal HTML file if it does not exist
+            if (!File.Exists(htmlFilePath))
+            {
+                string sampleContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Title</h1><h2>Subtitle</h2></body></html>";
+                File.WriteAllText(htmlFilePath, sampleContent);
+            }
 
-            // Write the sample HTML to a file
-            File.WriteAllText(htmlPath, htmlContent);
+            // Load the HTML document from the file
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlFilePath);
 
-            // Load the HTML document using Aspose.Html (demonstration purpose)
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
+            // Retrieve heading elements
+            Aspose.Html.Collections.HTMLCollection h1Elements = document.GetElementsByTagName("h1");
+            Aspose.Html.Collections.HTMLCollection h2Elements = document.GetElementsByTagName("h2");
 
-            // Read raw file content for validation
-            string fileText = File.ReadAllText(htmlPath);
-
-            // Check for expected heading tags
-            bool hasH1 = fileText.Contains("<h1>", StringComparison.OrdinalIgnoreCase) &&
-                         fileText.Contains("</h1>", StringComparison.OrdinalIgnoreCase);
-            bool hasH2 = fileText.Contains("<h2>", StringComparison.OrdinalIgnoreCase) &&
-                         fileText.Contains("</h2>", StringComparison.OrdinalIgnoreCase);
+            // Validate presence of expected headings
+            bool hasH1 = h1Elements != null && h1Elements.Length > 0;
+            bool hasH2 = h2Elements != null && h2Elements.Length > 0;
 
             // Output validation results
-            Console.WriteLine($"File '{htmlPath}' validation results:");
-            Console.WriteLine($"- Contains <h1> tag: {(hasH1 ? "Yes" : "No")}");
-            Console.WriteLine($"- Contains <h2> tag: {(hasH2 ? "Yes" : "No")}");
+            Console.WriteLine("HTML Validation Results:");
+            Console.WriteLine($"- <h1> present: {hasH1}");
+            Console.WriteLine($"- <h2> present: {hasH2}");
         }
         catch (Exception ex)
         {

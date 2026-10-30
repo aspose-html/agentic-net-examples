@@ -9,21 +9,28 @@ class Program
     {
         try
         {
-            string inputDir = "InputMarkdown";
-            string outputDir = "OutputTiff";
+            string inputDir = "Input";
+            string outputDir = "Output";
 
             Directory.CreateDirectory(inputDir);
             Directory.CreateDirectory(outputDir);
 
-            // Create a sample markdown file if none exist
-            if (Directory.GetFiles(inputDir, "*.md").Length == 0)
+            // Create sample markdown files if none exist
+            string[] sampleFiles = new string[]
             {
-                string samplePath = Path.Combine(inputDir, "sample.md");
-                string sampleContent = "# Sample Markdown\r\n\r\nThis is a **test** markdown file.";
-                File.WriteAllText(samplePath, sampleContent);
-            }
+                Path.Combine(inputDir, "sample1.md"),
+                Path.Combine(inputDir, "sample2.md")
+            };
 
-            foreach (string sourcePath in Directory.GetFiles(inputDir, "*.md"))
+            if (!File.Exists(sampleFiles[0]))
+                File.WriteAllText(sampleFiles[0], "# Sample 1\r\nThis is a test markdown file.");
+
+            if (!File.Exists(sampleFiles[1]))
+                File.WriteAllText(sampleFiles[1], "# Sample 2\r\nAnother test markdown file.");
+
+            string[] markdownFiles = Directory.GetFiles(inputDir, "*.md");
+
+            foreach (string sourcePath in markdownFiles)
             {
                 string fileNameWithoutExt = Path.GetFileNameWithoutExtension(sourcePath);
                 string savePath = Path.Combine(outputDir, fileNameWithoutExt + ".tiff");
@@ -31,10 +38,12 @@ class Program
                 using (Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath))
                 {
                     Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff);
+                    options.Compression = Aspose.Html.Rendering.Image.Compression.None; // use default compression
+
                     Aspose.Html.Converters.Converter.ConvertHTML(document, options, savePath);
                 }
 
-                Console.WriteLine($"Converted '{sourcePath}' to '{savePath}'.");
+                Console.WriteLine($"Converted '{sourcePath}' to TIFF at '{savePath}'.");
             }
         }
         catch (Exception ex)

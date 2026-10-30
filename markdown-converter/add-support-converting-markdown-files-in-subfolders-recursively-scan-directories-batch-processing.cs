@@ -1,53 +1,44 @@
 // Add support for converting Markdown files located in subfolders by recursively scanning directories during batch processing.
 
 using System;
+using System.IO;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
             string inputFolder = "InputMarkdown";
             string outputFolder = "OutputHtml";
 
-            // Ensure input and output directories exist
-            System.IO.Directory.CreateDirectory(inputFolder);
-            System.IO.Directory.CreateDirectory(outputFolder);
+            // Ensure directories exist
+            if (!Directory.Exists(inputFolder))
+                Directory.CreateDirectory(inputFolder);
+            if (!Directory.Exists(outputFolder))
+                Directory.CreateDirectory(outputFolder);
 
-            // Create sample markdown file in root
-            string sampleRootPath = System.IO.Path.Combine(inputFolder, "sample.md");
-            System.IO.File.WriteAllText(sampleRootPath, "# Sample\r\nHello World!");
-
-            // Create subfolder and sample markdown file inside it
-            string subFolder = System.IO.Path.Combine(inputFolder, "Sub");
-            System.IO.Directory.CreateDirectory(subFolder);
-            string sampleSubPath = System.IO.Path.Combine(subFolder, "subsample.md");
-            System.IO.File.WriteAllText(sampleSubPath, "## Sub Sample\r\nThis is a subfolder markdown.");
-
-            // Recursively process all markdown files
-            foreach (string mdPath in System.IO.Directory.GetFiles(inputFolder, "*.md", System.IO.SearchOption.AllDirectories))
+            // Create a sample markdown file in a subfolder
+            string subFolder = Path.Combine(inputFolder, "SubFolder");
+            Directory.CreateDirectory(subFolder);
+            string sampleMarkdownPath = Path.Combine(subFolder, "sample.md");
+            if (!File.Exists(sampleMarkdownPath))
             {
-                // Determine relative path to preserve folder structure in output
-                string relativePath = mdPath.Substring(inputFolder.Length).TrimStart(System.IO.Path.DirectorySeparatorChar);
-                string outputPath = System.IO.Path.Combine(outputFolder, System.IO.Path.ChangeExtension(relativePath, ".html"));
-
-                // Ensure the output directory exists
-                string outputDir = System.IO.Path.GetDirectoryName(outputPath);
-                if (!System.IO.Directory.Exists(outputDir))
-                {
-                    System.IO.Directory.CreateDirectory(outputDir);
-                }
-
-                // Convert markdown to HTML
-                Aspose.Html.Converters.Converter.ConvertMarkdown(mdPath, outputPath);
+                string markdownContent = "# Sample Markdown\r\nThis is a *test* markdown file.";
+                File.WriteAllText(sampleMarkdownPath, markdownContent);
             }
 
-            Console.WriteLine("Markdown conversion completed successfully.");
+            // Recursively process all markdown files
+            foreach (string markdownPath in Directory.GetFiles(inputFolder, "*.md", SearchOption.AllDirectories))
+            {
+                string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(markdownPath) + ".html");
+                Aspose.Html.Converters.Converter.ConvertMarkdown(markdownPath, outputPath);
+                Console.WriteLine($"Converted '{markdownPath}' to '{outputPath}'.");
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

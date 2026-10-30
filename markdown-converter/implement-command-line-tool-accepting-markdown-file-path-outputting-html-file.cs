@@ -1,48 +1,36 @@
 // Implement a command‑line tool that accepts a Markdown file path and outputs an HTML file.
 
-namespace MyApp
+using System;
+using System.IO;
+using Aspose.Html.Converters;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        try
         {
-            try
+            string inputPath = "sample.md";
+            string outputPath = "output.html";
+
+            if (args.Length >= 1 && !string.IsNullOrWhiteSpace(args[0]))
+                inputPath = args[0];
+            if (args.Length >= 2 && !string.IsNullOrWhiteSpace(args[1]))
+                outputPath = args[1];
+
+            if (!File.Exists(inputPath))
             {
-                string sourcePath;
-                string outputPath;
-
-                if (args.Length >= 1)
-                {
-                    sourcePath = args[0];
-                }
-                else
-                {
-                    sourcePath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "sample.md");
-                }
-
-                if (args.Length >= 2)
-                {
-                    outputPath = args[1];
-                }
-                else
-                {
-                    outputPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "output.html");
-                }
-
-                if (!System.IO.File.Exists(sourcePath))
-                {
-                    string sampleContent = "# Sample Markdown\r\n\r\nThis is a *sample* markdown file.";
-                    System.IO.File.WriteAllText(sourcePath, sampleContent);
-                }
-
-                Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath, outputPath);
-
-                System.Console.WriteLine("Conversion completed. HTML saved to: " + outputPath);
+                string sampleContent = "# Sample Markdown\r\n\r\nThis is a *sample* markdown file.";
+                File.WriteAllText(inputPath, sampleContent);
+                Console.WriteLine($"Created sample markdown file at '{inputPath}'.");
             }
-            catch (System.Exception ex)
-            {
-                System.Console.Error.WriteLine("Error: " + ex.Message);
-            }
+
+            Aspose.Html.Converters.Converter.ConvertMarkdown(inputPath, outputPath);
+            Console.WriteLine($"Markdown file '{inputPath}' has been converted to HTML at '{outputPath}'.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

@@ -9,16 +9,16 @@ class Program
     {
         try
         {
-            string markdown = "# Sample Title\n\nThis is a **markdown** text.";
-            string tempMdPath = Path.Combine(Path.GetTempPath(), "sample.md");
-            File.WriteAllText(tempMdPath, markdown);
+            string markdownContent = "# Sample Title\n\nThis is a **markdown** text.";
+            string markdownPath = "sample.md";
+            File.WriteAllText(markdownPath, markdownContent);
 
-            Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(tempMdPath);
+            Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(markdownPath);
 
             Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff);
             options.Compression = Aspose.Html.Rendering.Image.Compression.None;
 
-            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.tiff");
+            string outputPath = "output.tiff";
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
 
             Console.WriteLine("Conversion completed. TIFF saved at " + outputPath);

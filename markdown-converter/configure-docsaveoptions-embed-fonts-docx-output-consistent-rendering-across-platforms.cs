@@ -2,7 +2,8 @@
 
 using System;
 using System.IO;
-using Aspose.Html;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 using Aspose.Html.Rendering.Doc;
 
 class Program
@@ -12,26 +13,19 @@ class Program
         try
         {
             string sourcePath = "sample.html";
-            string outputPath = "output.docx";
-
-            // Create a minimal HTML file if it does not exist
             if (!File.Exists(sourcePath))
             {
-                File.WriteAllText(sourcePath, "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>Sample</title></head><body><p>Hello, Aspose.HTML!</p></body></html>");
+                File.WriteAllText(sourcePath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello, World!</p></body></html>");
             }
 
-            // Load the HTML document
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(sourcePath);
+            string outputPath = "output.docx";
 
-            // Configure rendering options to embed fonts fully
-            Aspose.Html.Rendering.Doc.DocRenderingOptions docOptions = new Aspose.Html.Rendering.Doc.DocRenderingOptions();
-            docOptions.FontEmbeddingRule = Aspose.Html.Rendering.Doc.FontEmbeddingRule.Full;
+            DocSaveOptions options = new DocSaveOptions();
+            options.FontEmbeddingRule = FontEmbeddingRule.Full;
 
-            // Create a DOCX rendering device
-            Aspose.Html.Rendering.Doc.DocDevice device = new Aspose.Html.Rendering.Doc.DocDevice(docOptions, outputPath);
+            Aspose.Html.Converters.Converter.ConvertHTML(sourcePath, options, outputPath);
 
-            // Render the document to DOCX
-            document.RenderTo(device);
+            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {
