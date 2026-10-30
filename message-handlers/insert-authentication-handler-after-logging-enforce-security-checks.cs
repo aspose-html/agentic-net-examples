@@ -2,7 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using Aspose.Html;
+using Aspose.Html.Net;
+using Aspose.Html.Services;
 
 class AuthHandler : Aspose.Html.Net.MessageHandler
 {
@@ -34,20 +38,25 @@ class Program
     {
         try
         {
-            var configuration = new Aspose.Html.Configuration();
-            var network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            var logger = new LogHandler();
+            string inputPath = "sample.html";
+            string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
+            File.WriteAllText(inputPath, htmlContent);
+
+            string outputPath = "output.html";
+
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+
+            LogHandler logger = new LogHandler();
             network.MessageHandlers.Add(logger);
             network.MessageHandlers.Add(new AuthHandler());
 
-            string htmlContent = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-            using (var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath, configuration))
             {
-                string outputPath = "output.html";
                 document.Save(outputPath);
             }
 
-            foreach (var entry in logger.Logs)
+            foreach (string entry in logger.Logs)
             {
                 Console.WriteLine(entry);
             }

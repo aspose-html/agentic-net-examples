@@ -2,7 +2,7 @@
 
 using System;
 
-class CustomUserAgentHandler : Aspose.Html.Net.MessageHandler
+class UserAgentHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
@@ -17,34 +17,22 @@ class Program
     {
         try
         {
-            // Create configuration
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-
-            // Get network service and add the custom handler
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            network.MessageHandlers.Add(new CustomUserAgentHandler());
+            network.MessageHandlers.Add(new UserAgentHandler());
 
-            // Sample HTML content
-            string htmlContent = "<html><body><h1>Hello, World!</h1></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", "about:blank", configuration);
 
-            // Load HTML document with the custom configuration
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank", configuration))
-            {
-                // Set PDF save options
-                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+            string outputPath = "output.pdf";
 
-                // Output file path
-                string outputPath = "output.pdf";
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
 
-                // Convert HTML to PDF
-                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-            }
-
-            Console.WriteLine("Conversion completed successfully.");
+            System.Console.WriteLine("Conversion completed: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

@@ -2,49 +2,45 @@
 
 using System;
 using System.Net;
-using System.Net.Http;
 using Aspose.Html;
 using Aspose.Html.Net;
 using Aspose.Html.Services;
-using Aspose.Html.IO;
 
-class NtlmAuthHandler : Aspose.Html.Net.MessageHandler
+class CredentialHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        string authHeader = context.Request.Headers["Authorization"];
-        if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("NTLM", StringComparison.OrdinalIgnoreCase))
-        {
-            context.Response.StatusCode = System.Net.HttpStatusCode.Unauthorized;
-            return;
-        }
+        // Configure NTLM credentials
+        string domain = "MYDOMAIN";
+        string username = "myuser";
+        string password = "mypassword";
+
+        context.Request.Credentials = new NetworkCredential(username, password, domain);
+        // Continue processing the request
         Next(context);
     }
 }
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Create configuration and obtain network service
+            // Create configuration and add the custom credential handler
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            // Add custom NTLM authentication handler
-            network.MessageHandlers.Add(new NtlmAuthHandler());
+            network.MessageHandlers.Add(new CredentialHandler());
 
-            // Prepare request with NTLM credentials
-            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("http://example.com/protected");
-            request.Credentials = new NetworkCredential("username", "password", "DOMAIN");
+            // Prepare request with pre-authentication enabled
+            string url = "https://example.com";
+            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(url);
             request.PreAuthenticate = true;
 
-            // Load HTML document using the request and configuration
+            // Load the document using the request and configuration
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
             {
-                // Save the loaded document to a local file
-                document.Save("output.html");
-                Console.WriteLine("Document saved successfully.");
+                Console.WriteLine("Document title: " + document.Title);
             }
         }
         catch (Exception ex)

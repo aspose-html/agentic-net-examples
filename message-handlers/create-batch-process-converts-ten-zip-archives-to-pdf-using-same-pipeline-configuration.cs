@@ -8,12 +8,12 @@ public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        context.Request.Timeout = System.TimeSpan.FromSeconds(30);
+        context.Request.Timeout = TimeSpan.FromSeconds(30);
         Next(context);
     }
 }
 
-public class Program
+public static class ConfigurationFactory
 {
     public static Aspose.Html.Configuration CreateConfiguration()
     {
@@ -22,40 +22,34 @@ public class Program
         networkService.MessageHandlers.Add(new TimeoutHandler());
         return configuration;
     }
+}
 
-    public static void Main(string[] args)
+public class Program
+{
+    public static void Main()
     {
         try
         {
-            // Prepare sample ZIP files
-            string baseDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "AsposeHtmlZipBatch");
-            System.IO.Directory.CreateDirectory(baseDir);
-            string[] zipPaths = new string[10];
-            for (int i = 0; i < 10; i++)
+            string[] zipPaths = new string[]
             {
-                string zipPath = System.IO.Path.Combine(baseDir, $"sample{i + 1}.zip");
-                zipPaths[i] = zipPath;
-                if (!System.IO.File.Exists(zipPath))
-                {
-                    using (FileStream zipToOpen = new FileStream(zipPath, FileMode.Create))
-                    using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Create))
-                    {
-                        ZipArchiveEntry entry = archive.CreateEntry("index.html");
-                        using (Stream entryStream = entry.Open())
-                        using (StreamWriter writer = new StreamWriter(entryStream))
-                        {
-                            writer.Write("<!DOCTYPE html><html><body><h1>Sample " + (i + 1) + "</h1></body></html>");
-                        }
-                    }
-                }
-            }
+                "sample1.zip",
+                "sample2.zip",
+                "sample3.zip",
+                "sample4.zip",
+                "sample5.zip",
+                "sample6.zip",
+                "sample7.zip",
+                "sample8.zip",
+                "sample9.zip",
+                "sample10.zip"
+            };
 
-            // Process each ZIP archive
             foreach (string zipPath in zipPaths)
             {
-                string extractDirectory = System.IO.Path.Combine(System.IO.Path.GetTempPath(), System.IO.Path.GetFileNameWithoutExtension(zipPath));
-                System.IO.Directory.CreateDirectory(extractDirectory);
-                using (FileStream zipStream = System.IO.File.OpenRead(zipPath))
+                string extractDirectory = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(zipPath));
+                Directory.CreateDirectory(extractDirectory);
+
+                using (FileStream zipStream = File.OpenRead(zipPath))
                 using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
                 {
                     foreach (ZipArchiveEntry entry in archive.Entries)
@@ -63,25 +57,26 @@ public class Program
                         if (entry.FullName.EndsWith(".html", StringComparison.OrdinalIgnoreCase) ||
                             entry.FullName.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
                         {
-                            string entryPath = System.IO.Path.Combine(extractDirectory, entry.FullName);
-                            string entryFolder = System.IO.Path.GetDirectoryName(entryPath);
+                            string entryPath = Path.Combine(extractDirectory, entry.FullName);
+                            string entryFolder = Path.GetDirectoryName(entryPath);
                             if (!string.IsNullOrEmpty(entryFolder))
-                                System.IO.Directory.CreateDirectory(entryFolder);
+                                Directory.CreateDirectory(entryFolder);
                             entry.ExtractToFile(entryPath, true);
                         }
                     }
                 }
 
-                string[] htmlFiles = System.IO.Directory.GetFiles(extractDirectory, "*.html", SearchOption.AllDirectories);
+                string[] htmlFiles = Directory.GetFiles(extractDirectory, "*.html", SearchOption.AllDirectories);
                 if (htmlFiles.Length == 0)
                 {
-                    htmlFiles = System.IO.Directory.GetFiles(extractDirectory, "*.htm", SearchOption.AllDirectories);
+                    htmlFiles = Directory.GetFiles(extractDirectory, "*.htm", SearchOption.AllDirectories);
                     if (htmlFiles.Length == 0)
-                        throw new System.IO.FileNotFoundException("No HTML file found after ZIP extraction.", zipPath);
+                        throw new FileNotFoundException("No HTML file found after ZIP extraction.", zipPath);
                 }
 
-                Aspose.Html.Configuration configuration = CreateConfiguration();
-                string outputPdfPath = System.IO.Path.ChangeExtension(zipPath, ".pdf");
+                Aspose.Html.Configuration configuration = ConfigurationFactory.CreateConfiguration();
+                string outputPdfPath = Path.ChangeExtension(zipPath, ".pdf");
+
                 using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlFiles[0], configuration))
                 using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPdfPath))
                 {
@@ -93,7 +88,7 @@ public class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

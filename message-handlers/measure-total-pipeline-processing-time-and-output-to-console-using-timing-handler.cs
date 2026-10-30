@@ -5,7 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using Aspose.Html.Net;
 
-public sealed class TimingHandler : Aspose.Html.Net.MessageHandler
+public sealed class TimingMessageHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
@@ -18,25 +18,23 @@ public sealed class TimingHandler : Aspose.Html.Net.MessageHandler
 
 public class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
         try
         {
             string inputHtmlPath = "sample.html";
             string outputPdfPath = "output.pdf";
 
-            // Create a minimal HTML file if it does not exist
             if (!File.Exists(inputHtmlPath))
             {
-                File.WriteAllText(inputHtmlPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+                File.WriteAllText(inputHtmlPath, sampleHtml);
             }
 
-            // Configure Aspose.HTML and add the timing handler
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Add(new TimingHandler());
+            networkService.MessageHandlers.Add(new TimingMessageHandler());
 
-            // Measure total conversion time
             Stopwatch conversionTimer = Stopwatch.StartNew();
 
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputHtmlPath, configuration))

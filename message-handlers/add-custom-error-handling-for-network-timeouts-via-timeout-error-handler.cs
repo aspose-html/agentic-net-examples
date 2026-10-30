@@ -13,21 +13,18 @@ public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
 
 public class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
         try
         {
-            // Create configuration and add the timeout handler
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
             networkService.MessageHandlers.Add(new TimeoutHandler());
 
-            // Create request with a URL
             Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://example.com");
-            request.Timeout = System.TimeSpan.FromSeconds(10);
+            request.Timeout = System.TimeSpan.FromSeconds(5);
 
-            // Load the document using the request and configuration
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request))
             {
                 string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
                 System.Console.WriteLine(html);

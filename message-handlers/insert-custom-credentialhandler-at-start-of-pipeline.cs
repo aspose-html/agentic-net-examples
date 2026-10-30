@@ -1,10 +1,15 @@
 // Insert the custom CredentialHandler at the start of the pipeline using configuration.MessageHandlers.Insert.
 
 using System;
+using System.Net;
+using Aspose.Html;
+using Aspose.Html.Net;
+using Aspose.Html.Services;
 
-class MyCredentialHandler : Aspose.Html.Net.MessageHandler
+class CustomCredentialHandler : Aspose.Html.Net.MessageHandler
 {
-    private readonly System.Net.NetworkCredential _credential = new System.Net.NetworkCredential("user", "password");
+    private readonly NetworkCredential _credential = new NetworkCredential("username", "password");
+
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
         context.Request.Credentials = _credential;
@@ -18,16 +23,21 @@ class Program
     {
         try
         {
+            // Create configuration
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            network.MessageHandlers.Insert(0, new MyCredentialHandler());
 
+            // Get network service and insert the custom handler at the start of the pipeline
+            INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            network.MessageHandlers.Insert(0, new CustomCredentialHandler());
+
+            // Load an HTML document using the configuration with the custom handler
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
             {
-                document.Save("output.html");
+                // Save the document to a file
+                string outputPath = "output.html";
+                document.Save(outputPath);
+                Console.WriteLine("Document saved to: " + outputPath);
             }
-
-            Console.WriteLine("HTML document saved successfully.");
         }
         catch (Exception ex)
         {

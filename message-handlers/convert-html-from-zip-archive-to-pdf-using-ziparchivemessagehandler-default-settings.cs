@@ -15,19 +15,19 @@ class Program
             // Define paths
             string zipPath = Path.Combine(Path.GetTempPath(), "sample.zip");
             string extractDir = Path.Combine(Path.GetTempPath(), "ExtractedHtml");
-            string outputPdf = Path.Combine(Path.GetTempPath(), "output.pdf");
+            string outputPdfPath = Path.Combine(Path.GetTempPath(), "output.pdf");
 
             // Create a sample ZIP with an HTML file if it does not exist
             if (!File.Exists(zipPath))
             {
-                using (FileStream zipToCreate = new FileStream(zipPath, FileMode.Create))
-                using (ZipArchive archive = new ZipArchive(zipToCreate, ZipArchiveMode.Update))
+                using (FileStream zipToOpen = new FileStream(zipPath, FileMode.Create))
+                using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
                 {
                     ZipArchiveEntry entry = archive.CreateEntry("index.html");
                     using (Stream entryStream = entry.Open())
                     using (StreamWriter writer = new StreamWriter(entryStream))
                     {
-                        writer.Write("<html><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                        writer.Write("<!DOCTYPE html><html><body><h1>Hello from ZIP</h1></body></html>");
                     }
                 }
             }
@@ -67,19 +67,15 @@ class Program
             }
             string htmlPath = htmlFiles[0];
 
-            // Configure Aspose.HTML
-            Configuration configuration = new Configuration();
-
-            // Load the HTML document
-            using (HTMLDocument document = new HTMLDocument(htmlPath, configuration))
-            // Create PDF device
-            using (PdfDevice device = new PdfDevice(outputPdf))
+            // Convert HTML to PDF
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
+            using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPdfPath))
             {
-                // Render HTML to PDF
                 document.RenderTo(device);
             }
 
-            Console.WriteLine("PDF successfully created at: " + outputPdf);
+            Console.WriteLine("PDF successfully created at: " + outputPdfPath);
         }
         catch (Exception ex)
         {

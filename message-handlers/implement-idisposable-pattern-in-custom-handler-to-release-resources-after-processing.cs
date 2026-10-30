@@ -2,14 +2,14 @@
 
 using System;
 using System.IO;
-using Aspose.Html;
 using Aspose.Html.Net;
 using Aspose.Html.Services;
+using Aspose.Html;
 
 sealed class CustomHandler : Aspose.Html.Net.MessageHandler, IDisposable
 {
     private bool disposed;
-    private readonly MemoryStream resource = new MemoryStream();
+    private readonly System.IO.MemoryStream resource = new System.IO.MemoryStream();
 
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
@@ -29,7 +29,7 @@ sealed class CustomHandler : Aspose.Html.Net.MessageHandler, IDisposable
     public void Dispose()
     {
         Dispose(true);
-        GC.SuppressFinalize(this);
+        System.GC.SuppressFinalize(this);
     }
 }
 
@@ -39,28 +39,30 @@ class Program
     {
         try
         {
+            // Define input and output paths
             string htmlPath = "sample.html";
             string outputPath = "output.pdf";
 
             // Create a minimal HTML file if it does not exist
-            if (!File.Exists(htmlPath))
+            if (!System.IO.File.Exists(htmlPath))
             {
-                File.WriteAllText(htmlPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                System.IO.File.WriteAllText(htmlPath, "<html><body><h1>Hello World</h1></body></html>");
             }
 
-            // Configure Aspose.HTML and add the custom handler
+            // Configure Aspose.HTML
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
             network.MessageHandlers.Add(new CustomHandler());
 
-            // Load the HTML document and render it to PDF
+            // Load the HTML document
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
+            // Render to PDF
             using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
             {
                 document.RenderTo(device);
             }
 
-            Console.WriteLine("PDF generated successfully at: " + Path.GetFullPath(outputPath));
+            Console.WriteLine("PDF conversion completed successfully.");
         }
         catch (Exception ex)
         {

@@ -2,13 +2,16 @@
 
 using System;
 using System.Net;
+using Aspose.Html;
+using Aspose.Html.Net;
+using Aspose.Html.Services;
 
 class DigestHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
         Next(context);
-        if (context.Response.StatusCode != HttpStatusCode.Unauthorized)
+        if (context.Response.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             return;
 
         string wwwAuth = context.Response.Headers["WWW-Authenticate"];
@@ -19,41 +22,46 @@ class DigestHandler : Aspose.Html.Net.MessageHandler
         foreach (string part in wwwAuth.Split(','))
         {
             string trimmed = part.Trim();
-            if (trimmed.StartsWith("nonce=", StringComparison.OrdinalIgnoreCase))
+            if (trimmed.StartsWith("nonce=", System.StringComparison.OrdinalIgnoreCase))
             {
-                int start = trimmed.IndexOf('=') + 1;
-                string value = trimmed.Substring(start).Trim('\"');
-                nonce = value;
+                if (trimmed.Length > 6 && trimmed[6] == '\"')
+                {
+                    nonce = trimmed.Substring(7, trimmed.Length - 8);
+                }
+                else
+                {
+                    nonce = trimmed.Substring(6);
+                }
                 break;
             }
         }
 
-        Console.WriteLine("Server nonce: " + nonce);
+        System.Console.WriteLine("Server nonce: " + nonce);
     }
 }
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            var configuration = new Aspose.Html.Configuration();
-            var network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
             network.MessageHandlers.Add(new DigestHandler());
 
-            var request = new Aspose.Html.Net.RequestMessage("http://example.com/protected");
-            request.Credentials = new NetworkCredential("user", "password");
+            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://httpbin.org/digest-auth/auth/user/passwd");
+            request.Credentials = new System.Net.NetworkCredential("user", "passwd");
             request.PreAuthenticate = true;
 
-            using (var document = new Aspose.Html.HTMLDocument(request, configuration))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
             {
-                Console.WriteLine("Document loaded successfully.");
+                // Document loaded; handler will output the nonce.
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

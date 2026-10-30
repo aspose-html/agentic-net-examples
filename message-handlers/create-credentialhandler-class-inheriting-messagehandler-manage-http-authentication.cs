@@ -27,20 +27,17 @@ class Program
             // Create configuration
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
 
-            // Get network service
+            // Get network service and add credential handler
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-
-            // Add credential handler with sample credentials
-            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("user", "password");
-            network.MessageHandlers.Add(new CredentialHandler(credentials));
+            network.MessageHandlers.Add(new CredentialHandler(new System.Net.NetworkCredential("user", "password")));
 
             // Create request message
             Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://example.com");
 
-            // Load HTML document using request and configuration
+            // Load document with request and configuration
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
             {
-                Console.WriteLine("Document loaded successfully.");
+                Console.WriteLine("Document title: " + document.Title);
             }
         }
         catch (Exception ex)

@@ -1,12 +1,6 @@
 // Add a custom header indicating conversion version to response using a version‑header handler.
 
 using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Net;
-using Aspose.Html.Services;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class VersionHeaderHandler : Aspose.Html.Net.MessageHandler
 {
@@ -23,32 +17,22 @@ class Program
     {
         try
         {
-            // Prepare sample HTML file
-            string inputPath = "sample.html";
-            string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
-            File.WriteAllText(inputPath, htmlContent);
-
-            // Output PDF path
-            string outputPath = "output.pdf";
-
-            // Configure Aspose.HTML with custom handler
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
             network.MessageHandlers.Add(new VersionHeaderHandler());
 
-            // Load HTML document
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath, configuration))
+            string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank", configuration))
             {
-                // Convert to PDF
                 Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                string outputPath = "output.pdf";
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                System.Console.WriteLine("Conversion completed. PDF saved at " + outputPath);
             }
-
-            Console.WriteLine("Conversion completed. PDF saved at " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
