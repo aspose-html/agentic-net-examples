@@ -11,7 +11,7 @@ class AcceptLanguageHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        context.Request.Headers["Accept-Language"] = "en-US,en;q=0.9";
+        context.Request.Headers["Accept-Language"] = "en-US";
         Next(context);
     }
 }
@@ -22,17 +22,17 @@ class Program
     {
         try
         {
-            var configuration = new Aspose.Html.Configuration();
-            var network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
             network.MessageHandlers.Add(new AcceptLanguageHandler());
 
             string url = "https://example.com";
-            using (var document = new Aspose.Html.HTMLDocument(url, configuration))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
-                var options = new Aspose.Html.Saving.PdfSaveOptions();
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
                 string outputPath = "output.pdf";
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-                Console.WriteLine("Conversion completed successfully.");
+                Console.WriteLine("PDF saved to " + outputPath);
             }
         }
         catch (Exception ex)

@@ -2,12 +2,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
+using Aspose.Html.Net;
+using Aspose.Html.Services;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
+using Aspose.Html;
 
-class MyHandler : Aspose.Html.Net.MessageHandler
+class CustomHandler : Aspose.Html.Net.MessageHandler
 {
     public static List<string> capturedHeaders = new List<string>();
-
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
         Next(context);
@@ -25,67 +28,53 @@ class Program
 {
     static string GetMimeTypeForDocumentOptions(object options)
     {
-        if (options is Aspose.Html.Saving.PdfSaveOptions)
-            return "application/pdf";
-        if (options is Aspose.Html.Saving.DocSaveOptions)
-            return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-        if (options is Aspose.Html.Saving.XpsSaveOptions)
-            return "application/vnd.ms-xpsdocument";
-        return string.Empty;
+        if (options is Aspose.Html.Saving.PdfSaveOptions) return "application/pdf";
+        if (options is Aspose.Html.Saving.DocSaveOptions) return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+        if (options is Aspose.Html.Saving.XpsSaveOptions) return "application/vnd.ms-xpsdocument";
+        return "application/octet-stream";
     }
 
     static void Main()
     {
         try
         {
-            // Input URL and output file
-            string url = "https://example.com/sample.html";
-            string outputPath = Path.Combine(Path.GetTempPath(), "output.pdf");
+            string url = "https://example.com";
+            string outputPath = "output.pdf";
 
-            // Ensure output directory exists
-            string outputDir = Path.GetDirectoryName(outputPath);
-            if (!Directory.Exists(outputDir))
-                Directory.CreateDirectory(outputDir);
-
-            // Configure network service with custom handler to capture headers
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Add(new MyHandler());
+            networkService.MessageHandlers.Add(new CustomHandler());
 
-            // Load HTML document from URL using the configuration
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
-                // Verify Content-Type header matches expected MIME type for PDF
-                string contentType = null;
-                foreach (string header in MyHandler.capturedHeaders)
+                string expectedMime = GetMimeTypeForDocumentOptions(new Aspose.Html.Saving.PdfSaveOptions());
+                string actualMime = null;
+                foreach (string header in CustomHandler.capturedHeaders)
                 {
                     if (header.StartsWith("Content-Type:", StringComparison.OrdinalIgnoreCase))
                     {
-                        int colonIndex = header.IndexOf(':');
-                        if (colonIndex >= 0 && colonIndex + 1 < header.Length)
-                        {
-                            contentType = header.Substring(colonIndex + 1).Trim();
-                        }
+                        actualMime = header.Substring("Content-Type:".Length).Trim();
                         break;
                     }
                 }
 
-                Aspose.Html.Saving.PdfSaveOptions pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
-                string expectedMime = GetMimeTypeForDocumentOptions(pdfOptions);
-
-                if (!string.IsNullOrEmpty(contentType) && !string.Equals(contentType, expectedMime, StringComparison.OrdinalIgnoreCase))
+                if (actualMime == null)
                 {
-                    Console.WriteLine($"Warning: Content-Type header '{contentType}' does not match expected '{expectedMime}'.");
+                    System.Console.WriteLine("Content-Type header not found.");
+                }
+                else if (!actualMime.Equals(expectedMime, StringComparison.OrdinalIgnoreCase))
+                {
+                    System.Console.WriteLine($"Warning: Expected MIME '{expectedMime}' but got '{actualMime}'.");
                 }
 
-                // Convert and save the document as PDF
-                Aspose.Html.Converters.Converter.ConvertHTML(document, pdfOptions, outputPath);
-                Console.WriteLine($"Document saved to: {outputPath}");
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                System.Console.WriteLine("Conversion completed: " + outputPath);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

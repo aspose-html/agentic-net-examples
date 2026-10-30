@@ -1,8 +1,11 @@
 // Implement error handling that retries the download up to three times for transient network errors.
 
 using System;
+using Aspose.Html;
+using Aspose.Html.Net;
+using Aspose.Html.Services;
 
-public class RetryHandler : Aspose.Html.Net.MessageHandler
+class RetryHandler : Aspose.Html.Net.MessageHandler
 {
     private readonly int _maxRetries;
     public RetryHandler(int maxRetries)
@@ -21,26 +24,20 @@ public class RetryHandler : Aspose.Html.Net.MessageHandler
     }
 }
 
-public class Program
+class Program
 {
-    public static void Main(string[] args)
+    static void Main()
     {
         try
         {
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Add(new RetryHandler(3));
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            network.MessageHandlers.Add(new RetryHandler(3));
 
-            string url = "https://example.com";
-            string outputPath = "output.pdf";
-
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
-            using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
             {
-                document.RenderTo(device);
+                Console.WriteLine("Document loaded successfully.");
             }
-
-            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {

@@ -1,6 +1,13 @@
 // Set the Referer header in RequestMessage before sending the request.
 
-using System;
+class RefererHandler : Aspose.Html.Net.MessageHandler
+{
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    {
+        context.Request.Headers["Referer"] = "https://example.com/";
+        Next(context);
+    }
+}
 
 class Program
 {
@@ -8,30 +15,21 @@ class Program
     {
         try
         {
-            var configuration = new Aspose.Html.Configuration();
-            var networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Add(new RefererHeaderHandler());
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            networkService.MessageHandlers.Add(new RefererHandler());
 
-            string url = "https://www.example.org/";
-            using (var document = new Aspose.Html.HTMLDocument(url, configuration))
+            string url = "https://httpbin.org/headers";
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
                 string outputPath = "output.html";
                 document.Save(outputPath);
-                Console.WriteLine($"Document saved to {outputPath}");
+                System.Console.WriteLine("Document saved to " + outputPath);
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine("Error: " + ex.Message);
         }
-    }
-}
-
-class RefererHeaderHandler : Aspose.Html.Net.MessageHandler
-{
-    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
-    {
-        context.Request.Headers["Referer"] = "https://example.com/";
-        Next(context);
     }
 }

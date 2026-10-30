@@ -2,25 +2,20 @@
 
 using System;
 using System.IO;
-using System.Threading.Tasks;
-using Aspose.Html;
-using Aspose.Html.Net;
 
 class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
         try
         {
-            string url = "https://example.com/sample.bin";
-            string outputPath = "downloaded_file.bin";
+            string url = "https://example.com/sample.html";
+            string outputPath = "downloaded.html";
 
-            using (HTMLDocument document = new HTMLDocument())
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument())
             {
-                Url requestUrl = new Url(url);
-                RequestMessage request = new RequestMessage(requestUrl);
-
-                ResponseMessage response = await Task.Run(() => document.Context.Network.Send(request));
+                Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(new Aspose.Html.Url(url));
+                Aspose.Html.Net.ResponseMessage response = document.Context.Network.Send(request);
 
                 if (response.IsSuccess)
                 {
@@ -30,7 +25,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine($"Failed to download file. Status code: {response.StatusCode}");
+                    Console.WriteLine($"Download failed. Status code: {response.StatusCode}");
                 }
             }
         }

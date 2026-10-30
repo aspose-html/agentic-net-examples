@@ -3,51 +3,54 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
-using Aspose.Html;
-using Aspose.Html.Net;
 
 class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
         try
         {
-            List<string> urls = new List<string>
+            // List of URLs to download
+            List<string> urlList = new List<string>
             {
                 "https://example.com/file1.txt",
-                "https://example.com/file2.jpg"
+                "https://example.com/file2.txt",
+                "https://example.com/file3.txt"
             };
 
+            // Output directory
             string outputDir = "DownloadedFiles";
             Directory.CreateDirectory(outputDir);
 
+            // Create a single HTMLDocument to use its network context
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument())
             {
-                foreach (string urlString in urls)
+                for (int i = 0; i < urlList.Count; i++)
                 {
+                    string urlString = urlList[i];
                     Aspose.Html.Url url = new Aspose.Html.Url(urlString);
                     Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(url);
                     Aspose.Html.Net.ResponseMessage response = document.Context.Network.Send(request);
 
-                    if (response.IsSuccess)
+                    bool isSuccess = response.IsSuccess;
+                    if (!isSuccess)
                     {
-                        byte[] contentBytes = response.Content.ReadAsByteArray();
-
-                        string fileName = Path.GetFileName(urlString);
-                        if (string.IsNullOrEmpty(fileName))
-                        {
-                            fileName = $"file_{Guid.NewGuid()}.bin";
-                        }
-
-                        string savePath = Path.Combine(outputDir, fileName);
-                        File.WriteAllBytes(savePath, contentBytes);
-                        Console.WriteLine($"Saved: {savePath}");
+                        Console.WriteLine($"Failed to download: {urlString}");
+                        continue;
                     }
-                    else
+
+                    byte[] contentBytes = response.Content.ReadAsByteArray();
+
+                    // Determine a unique file name
+                    string fileName = Path.GetFileName(new Uri(urlString).AbsolutePath);
+                    if (string.IsNullOrEmpty(fileName))
                     {
-                        Console.WriteLine($"Failed to download: {urlString}, Status: {response.StatusCode}");
+                        fileName = $"downloaded_{i}";
                     }
+
+                    string outputPath = Path.Combine(outputDir, fileName);
+                    File.WriteAllBytes(outputPath, contentBytes);
+                    Console.WriteLine($"Saved: {outputPath}");
                 }
             }
         }

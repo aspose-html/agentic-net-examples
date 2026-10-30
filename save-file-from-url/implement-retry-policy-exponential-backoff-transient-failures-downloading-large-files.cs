@@ -1,13 +1,23 @@
 // Implement a retry policy with exponential backoff for transient failures when downloading large files.
 
 using System;
+using System.IO;
 using System.Threading;
 using Aspose.Html;
 using Aspose.Html.Net;
 using Aspose.Html.Services;
 using Aspose.Html.Rendering.Pdf;
 
-public sealed class RetryHandler : Aspose.Html.Net.MessageHandler
+public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
+{
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    {
+        context.Request.Timeout = System.TimeSpan.FromSeconds(30);
+        Next(context);
+    }
+}
+
+public class RetryHandler : Aspose.Html.Net.MessageHandler
 {
     private readonly int _maxRetries;
 
@@ -21,17 +31,15 @@ public sealed class RetryHandler : Aspose.Html.Net.MessageHandler
         for (int attempt = 0; attempt <= _maxRetries; attempt++)
         {
             Next(context);
-
             int statusCode = (int)context.Response.StatusCode;
             if (statusCode < 500)
             {
-                // Success or non‑transient error, stop retrying
                 break;
             }
 
-            // Transient server error, apply exponential backoff before next attempt
-            int delayMilliseconds = (int)Math.Pow(2, attempt) * 1000; // 1s, 2s, 4s, ...
-            Thread.Sleep(delayMilliseconds);
+            // Exponential backoff: 2^attempt seconds
+            int delaySeconds = (int)Math.Pow(2, attempt);
+            Thread.Sleep(delaySeconds * 1000);
         }
     }
 }
@@ -42,26 +50,27 @@ public class Program
     {
         try
         {
-            // Input URL of a large file (HTML page) to download
-            string url = "https://example.com/largefile.html";
-            // Output PDF path
-            string outputPath = "downloaded.pdf";
-            // Maximum retry attempts
-            int maxAttempts = 5;
+            string inputUrl = "https://example.com/large.html";
+            string outputPath = "output.pdf";
+            int maxRetries = 3;
 
-            // Configure Aspose.HTML with the retry handler
+            // Create configuration and configure network service with handlers
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Insert(0, new RetryHandler(maxAttempts));
+            networkService.MessageHandlers.Add(new TimeoutHandler());
+            networkService.MessageHandlers.Add(new RetryHandler(maxRetries));
 
-            // Load the document and render to PDF
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
-            using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
+            // Load the remote HTML document using the configured handlers
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputUrl, configuration))
             {
-                document.RenderTo(device);
+                // Render the document to PDF
+                using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
+                {
+                    document.RenderTo(device);
+                }
             }
 
-            Console.WriteLine("Download and conversion completed successfully.");
+            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {
