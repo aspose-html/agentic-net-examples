@@ -2,7 +2,12 @@
 
 using System;
 using System.IO;
-using System.Security;
+using System.Text.Json;
+using System.Xml.Linq;
+using Aspose.Html;
+using Aspose.Html.Accessibility;
+using Aspose.Html.Accessibility.Results;
+using Aspose.Html.Accessibility.Saving;
 
 class Program
 {
@@ -10,33 +15,46 @@ class Program
     {
         try
         {
-            string outputDirectory = "Output";
+            // Define paths
+            string inputHtmlPath = Path.Combine(Directory.GetCurrentDirectory(), "input.html");
+            string outputDirectory = Path.Combine(Directory.GetCurrentDirectory(), "output");
+            string jsonReportPath = Path.Combine(outputDirectory, "validation_report.json");
+
+            // Ensure output directory exists
             Directory.CreateDirectory(outputDirectory);
 
-            string inputHtmlPath = "sample.html";
+            // Create a minimal HTML file if it does not exist
             if (!File.Exists(inputHtmlPath))
             {
                 string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello World</h1></body></html>";
                 File.WriteAllText(inputHtmlPath, sampleHtml);
             }
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputHtmlPath))
+            // Load HTML document
+            using (HTMLDocument document = new HTMLDocument(inputHtmlPath))
             {
-                Aspose.Html.Accessibility.AccessibilityValidator validator = new Aspose.Html.Accessibility.WebAccessibility().CreateValidator();
-                Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
-                string xmlReport = validationResult.SaveToString();
-                string escapedXml = SecurityElement.Escape(xmlReport);
-                string jsonReport = $"{{\"validationReport\": \"{escapedXml}\"}}";
+                // Create validator
+                AccessibilityValidator validator = new WebAccessibility().CreateValidator();
 
-                string jsonPath = Path.Combine(outputDirectory, "validationReport.json");
-                File.WriteAllText(jsonPath, jsonReport);
+                // Perform validation
+                ValidationResult validationResult = validator.Validate(document);
+
+                // Get XML representation of the result
+                string xmlReport = validationResult.SaveToString();
+
+                // Convert XML to JSON (simple wrapper)
+                var jsonObject = new { xmlReport = xmlReport };
+                string jsonContent = JsonSerializer.Serialize(jsonObject, new JsonSerializerOptions { WriteIndented = true });
+
+                // Save JSON report
+                File.WriteAllText(jsonReportPath, jsonContent);
             }
 
-            Console.WriteLine("Validation report saved successfully.");
+            Console.WriteLine("Validation report saved to: " + jsonReportPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

@@ -1,61 +1,73 @@
 // Process a batch of HTML files in a folder, validating each file sequentially and aggregating results.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 using Aspose.Html;
-using Aspose.Html.Saving;
-using Aspose.Html.Rendering.Image;
-using Aspose.Html.Converters;
+using Aspose.Html.Accessibility;
+using Aspose.Html.Accessibility.Results;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
             string inputFolder = "InputHtml";
-            string outputFolder = "OutputImages";
-            Directory.CreateDirectory(outputFolder);
+            Directory.CreateDirectory(inputFolder);
 
-            int total = 0;
-            int success = 0;
-            int failure = 0;
+            // Create a sample HTML file if the folder is empty
+            if (Directory.GetFiles(inputFolder, "*.html").Length == 0)
+            {
+                string samplePath = Path.Combine(inputFolder, "sample.html");
+                File.WriteAllText(samplePath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello</h1></body></html>");
+            }
+
+            int totalFiles = 0;
+            int successCount = 0;
             List<string> errorMessages = new List<string>();
+
+            // Create validator
+            WebAccessibility webAccessibility = new WebAccessibility();
+            var validator = webAccessibility.CreateValidator();
 
             foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
             {
-                total++;
-                try
+                totalFiles++;
+                using (HTMLDocument document = new HTMLDocument(htmlPath))
                 {
-                    using (HTMLDocument document = new HTMLDocument(htmlPath))
+                    ValidationResult result = validator.Validate(document);
+                    if (result.Success)
                     {
-                        ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
-                        string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".jpg");
-                        Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                        successCount++;
                     }
-                    success++;
-                }
-                catch (Exception ex)
-                {
-                    failure++;
-                    errorMessages.Add($"File '{htmlPath}' error: {ex.Message}");
+                    else
+                    {
+                        foreach (RuleValidationResult rule in result.Details)
+                        {
+                            foreach (IError error in rule.Errors)
+                            {
+                                errorMessages.Add($"{htmlPath}: {error.ErrorMessage}");
+                            }
+                        }
+                    }
                 }
             }
 
-            Console.WriteLine($"Processed {total} files. Success: {success}, Failed: {failure}.");
+            Console.WriteLine($"Processed {totalFiles} file(s). Successful: {successCount}. Failed: {totalFiles - successCount}.");
+
             if (errorMessages.Count > 0)
             {
-                Console.WriteLine("Errors:");
+                Console.WriteLine("Validation errors:");
                 foreach (string msg in errorMessages)
                 {
                     Console.WriteLine(msg);
                 }
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine($"Unexpected error: {e.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

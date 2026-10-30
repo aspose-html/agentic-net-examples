@@ -2,6 +2,32 @@
 
 using System;
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            // Create WebAccessibility and validator
+            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+
+            // Inject validator into service
+            AccessibilityService service = new AccessibilityService(validator);
+
+            // Sample HTML content
+            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><img src=''></body></html>";
+
+            // Perform validation
+            service.ValidateHtml(htmlContent);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+}
+
 class AccessibilityService
 {
     private readonly Aspose.Html.Accessibility.AccessibilityValidator _validator;
@@ -11,14 +37,15 @@ class AccessibilityService
         _validator = validator;
     }
 
-    public void Validate(string htmlContent)
+    public void ValidateHtml(string htmlContent)
     {
+        // Load HTML from string using two-argument constructor
         using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
         {
             Aspose.Html.Accessibility.Results.ValidationResult validationResult = _validator.Validate(document);
             if (validationResult.Success)
             {
-                System.Console.WriteLine("Accessibility validation succeeded.");
+                Console.WriteLine("HTML passed accessibility validation.");
             }
             else
             {
@@ -28,32 +55,11 @@ class AccessibilityService
                     {
                         foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                         {
-                            System.Console.WriteLine(techResult.Error.ErrorMessage);
+                            Console.WriteLine(techResult.Error.ErrorMessage);
                         }
                     }
                 }
             }
-        }
-    }
-}
-
-class Program
-{
-    static void Main()
-    {
-        try
-        {
-            string html = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Sample</h1></body></html>";
-
-            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
-
-            AccessibilityService service = new AccessibilityService(validator);
-            service.Validate(html);
-        }
-        catch (Exception ex)
-        {
-            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

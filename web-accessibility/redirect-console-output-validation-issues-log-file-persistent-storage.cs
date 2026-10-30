@@ -1,43 +1,38 @@
 // Redirect console output of validation issues to a log file for persistent storage.
 
-using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Accessibility;
-using Aspose.Html.Accessibility.Results;
-
-class Program
+namespace Example
 {
-    static void Main(string[] args)
+    class Program
     {
-        string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello</h1></body></html>";
-        string logPath = "validation_log.txt";
-
-        try
+        static void Main(string[] args)
         {
-            using (StreamWriter logWriter = new StreamWriter(logPath, false))
+            try
             {
-                logWriter.AutoFlush = true;
-                TextWriter originalOut = Console.Out;
-                Console.SetOut(logWriter);
-
-                using (HTMLDocument document = new HTMLDocument(htmlContent, "about:blank"))
+                string logPath = "validation_log.txt";
+                using (System.IO.StreamWriter logWriter = new System.IO.StreamWriter(logPath, false))
                 {
-                    AccessibilityValidator validator = new WebAccessibility().CreateValidator();
-                    ValidationResult result = validator.Validate(document);
+                    System.IO.TextWriter originalOut = System.Console.Out;
+                    System.Console.SetOut(logWriter);
 
-                    foreach (RuleValidationResult detail in result.Details)
+                    string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='missing.jpg'></body></html>";
+                    using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
                     {
-                        Console.WriteLine(detail.ToString());
+                        Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+                        Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator();
+                        Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+                        string resultXml = validationResult.SaveToString();
+                        System.Console.WriteLine(resultXml);
                     }
+
+                    System.Console.SetOut(originalOut);
                 }
 
-                Console.SetOut(originalOut);
+                System.Console.WriteLine("Validation completed. Log written to validation_log.txt");
             }
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine($"Error: {ex.Message}");
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

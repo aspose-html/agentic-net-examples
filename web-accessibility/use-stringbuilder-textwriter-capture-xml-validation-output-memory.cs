@@ -3,6 +3,10 @@
 using System;
 using System.Text;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Accessibility;
+using Aspose.Html.Accessibility.Results;
+using Aspose.Html.Accessibility.Saving;
 
 class Program
 {
@@ -10,33 +14,25 @@ class Program
     {
         try
         {
-            // Sample HTML content
             string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello</h1></body></html>";
-
-            // Load HTML document from string
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                // Create accessibility validator
-                Aspose.Html.Accessibility.AccessibilityValidator validator = new Aspose.Html.Accessibility.WebAccessibility().CreateValidator();
+                Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+                Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator();
+                ValidationResult validationResult = validator.Validate(document);
 
-                // Perform validation
-                Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
-
-                // Capture XML validation output in memory
-                StringBuilder sb = new StringBuilder();
-                using (StringWriter sw = new StringWriter(sb))
+                StringBuilder sb = new System.Text.StringBuilder();
+                using (StringWriter sw = new System.IO.StringWriter(sb))
                 {
                     validationResult.SaveTo(sw, Aspose.Html.Accessibility.Saving.ValidationResultSaveFormat.XML);
                 }
 
-                // Output the captured XML
-                Console.WriteLine("Accessibility Validation Result (XML):");
                 Console.WriteLine(sb.ToString());
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

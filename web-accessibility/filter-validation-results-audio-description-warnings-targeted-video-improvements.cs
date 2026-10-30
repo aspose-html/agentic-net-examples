@@ -8,40 +8,38 @@ class Program
     {
         try
         {
-            // Sample HTML content with a video element (no audio description)
-            string htmlContent = "<html><body><video src='sample.mp4'></video></body></html>";
-
-            // Create a WebAccessibility instance
-            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-
-            // Create a validator that runs all checks
-            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
-
-            // Load the HTML document from the inline content
+            // Sample HTML content with a video element
+            string htmlContent = "<html><body><video src='movie.mp4'></video></body></html>";
+            // Create HTMLDocument from inline content
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
+                // Initialize WebAccessibility and validator
+                Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+                Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+
                 // Perform validation
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
 
-                // If validation failed, process the details
                 if (!validationResult.Success)
                 {
                     foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
                     {
                         if (!ruleResult.Success)
                         {
+                            // Iterate over errors (or warnings if available) and filter for audio‑description messages
                             foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                             {
-                                // Filter for audio‑description related warnings
-                                if (techResult.Error.ErrorMessage != null &&
-                                    techResult.Error.ErrorMessage.IndexOf("audio", StringComparison.OrdinalIgnoreCase) >= 0)
+                                if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
                                 {
-                                    if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
+                                    // Filter messages containing "audio description"
+                                    if (techResult.Error.ErrorMessage != null &&
+                                        techResult.Error.ErrorMessage.IndexOf("audio description", StringComparison.OrdinalIgnoreCase) >= 0)
                                     {
                                         Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
                                         string tagName = element.TagName;
+                                        // Example attribute to display (e.g., "src")
                                         string attributeValue = element.GetAttribute("src");
-                                        System.Console.WriteLine($"Tag: {tagName}, Attribute: {attributeValue}, Message: {techResult.Error.ErrorMessage}");
+                                        Console.WriteLine($"Tag: {tagName}, Attribute: {attributeValue}, Message: {techResult.Error.ErrorMessage}");
                                     }
                                 }
                             }
@@ -50,13 +48,13 @@ class Program
                 }
                 else
                 {
-                    System.Console.WriteLine("No accessibility issues detected.");
+                    Console.WriteLine("No accessibility issues detected.");
                 }
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

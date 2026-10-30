@@ -2,18 +2,25 @@
 
 using System;
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><video src=\"movie.mp4\"></video><audio src=\"sound.mp3\"></audio></body></html>";
+            // Sample HTML containing an image without alt attribute
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='image.png'></body></html>";
+
+            // Load the HTML document from the string (base URI is required)
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
+                // Create a WebAccessibility instance and a validator for all rules
                 Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
                 Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+
+                // Perform validation
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+
                 if (!validationResult.Success)
                 {
                     foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
@@ -26,8 +33,8 @@ class Program
                                 {
                                     Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
                                     string tagName = element.TagName;
-                                    string srcValue = element.GetAttribute("src");
-                                    System.Console.WriteLine($"Tag: {tagName}, Attribute: {srcValue}, Message: {techResult.Error.ErrorMessage}");
+                                    string altValue = element.GetAttribute("alt");
+                                    Console.WriteLine($"Tag: {tagName}, Alt attribute: {altValue}, Message: {techResult.Error.ErrorMessage}");
                                 }
                             }
                         }
@@ -35,13 +42,13 @@ class Program
                 }
                 else
                 {
-                    System.Console.WriteLine("Document passed accessibility validation.");
+                    Console.WriteLine("Accessibility validation succeeded. No issues found.");
                 }
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

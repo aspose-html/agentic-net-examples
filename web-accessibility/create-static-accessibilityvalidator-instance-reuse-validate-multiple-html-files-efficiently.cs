@@ -16,30 +16,31 @@ class Program
         try
         {
             // Prepare sample HTML files
-            string inputDir = Path.Combine(Directory.GetCurrentDirectory(), "HTMLSamples");
+            string inputDir = Path.Combine(Directory.GetCurrentDirectory(), "InputHtml");
             Directory.CreateDirectory(inputDir);
 
-            string file1 = Path.Combine(inputDir, "sample1.html");
-            string file2 = Path.Combine(inputDir, "sample2.html");
+            string filePath1 = Path.Combine(inputDir, "sample1.html");
+            string filePath2 = Path.Combine(inputDir, "sample2.html");
 
-            File.WriteAllText(file1, "<!DOCTYPE html><html><head><title>Sample 1</title></head><body><h1>Test 1</h1></body></html>");
-            File.WriteAllText(file2, "<!DOCTYPE html><html><head><title>Sample 2</title></head><body><img src=\"missing.jpg\" alt=\"\"/></body></html>");
+            File.WriteAllText(filePath1, "<!DOCTYPE html><html><head><title>Sample 1</title></head><body><h1>Test 1</h1></body></html>");
+            File.WriteAllText(filePath2, "<!DOCTYPE html><html><head><title>Sample 2</title></head><body><img src=\"missing.jpg\" alt=\"\" /></body></html>");
 
-            List<string> htmlFiles = new List<string> { file1, file2 };
+            List<string> htmlFiles = new List<string> { filePath1, filePath2 };
 
             int index = 1;
-            foreach (string htmlPath in htmlFiles)
+            foreach (string htmlFile in htmlFiles)
             {
-                using (HTMLDocument document = new HTMLDocument(htmlPath))
+                using (HTMLDocument document = new HTMLDocument(htmlFile))
                 {
                     ValidationResult validationResult = validator.Validate(document);
+
                     if (validationResult.Success)
                     {
-                        Console.WriteLine($"File {index}: Validation succeeded.");
+                        Console.WriteLine($"File {index}: '{htmlFile}' passed accessibility validation.");
                     }
                     else
                     {
-                        Console.WriteLine($"File {index}: Validation failed with the following errors:");
+                        Console.WriteLine($"File {index}: '{htmlFile}' has accessibility issues:");
                         foreach (RuleValidationResult ruleResult in validationResult.Details)
                         {
                             if (!ruleResult.Success)
@@ -57,7 +58,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

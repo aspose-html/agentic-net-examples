@@ -1,6 +1,10 @@
 // Detect absent caption files referenced by <track> elements and log their file paths.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Dom.XPath;
 
 class Program
 {
@@ -11,46 +15,44 @@ class Program
             string inputPath = "sample.html";
             string logPath = "missing_captions.log";
 
-            // Create a minimal sample HTML file if it does not exist
-            if (!System.IO.File.Exists(inputPath))
-            {
-                string sampleHtml = "<!DOCTYPE html><html><head><title>Test</title></head><body><video controls><track src=\"missing1.vtt\" kind=\"subtitles\" srclang=\"en\" label=\"English\"><track src=\"existing.vtt\" kind=\"subtitles\" srclang=\"en\" label=\"English\"></video></body></html>";
-                System.IO.File.WriteAllText(inputPath, sampleHtml);
-                // Create an existing caption file for demonstration
-                System.IO.File.WriteAllText("existing.vtt", "WEBVTT\n\n00:00.000 --> 00:05.000\nHello");
-            }
+            // Create a minimal HTML file with a <track> element referencing a non‑existent caption file
+            string sampleHtml = "<!DOCTYPE html><html><head><title>Test</title></head><body>" +
+                                "<video controls>" +
+                                "<source src=\"video.mp4\" type=\"video/mp4\">" +
+                                "<track src=\"missing.vtt\" kind=\"subtitles\" srclang=\"en\" label=\"English\">" +
+                                "</video>" +
+                                "</body></html>";
+            File.WriteAllText(inputPath, sampleHtml);
+
+            // Ensure the log file is empty before starting
+            if (File.Exists(logPath))
+                File.Delete(logPath);
 
             // Load the HTML document
-            Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(inputPath);
+            HTMLDocument document = new HTMLDocument(inputPath);
 
             // Find all <track> elements
-            Aspose.Html.Dom.XPath.IXPathResult result = doc.Evaluate("//track", doc, doc.CreateNSResolver(doc), Aspose.Html.Dom.XPath.XPathResultType.Any, null);
+            IXPathResult result = document.Evaluate("//track", document, document.CreateNSResolver(document), XPathResultType.Any, null);
 
-            Aspose.Html.Dom.Node node;
+            Node node;
             while ((node = result.IterateNext()) != null)
             {
-                Aspose.Html.Dom.Element element = node as Aspose.Html.Dom.Element;
+                Element element = node as Element;
                 if (element != null)
                 {
                     string src = element.GetAttribute("src");
-                    if (!string.IsNullOrEmpty(src))
+                    if (!string.IsNullOrEmpty(src) && !File.Exists(src))
                     {
-                        // Resolve the caption file path relative to the HTML file location
-                        string baseDir = System.IO.Path.GetDirectoryName(System.IO.Path.GetFullPath(inputPath));
-                        string captionPath = System.IO.Path.Combine(baseDir, src);
-                        if (!System.IO.File.Exists(captionPath))
-                        {
-                            System.IO.File.AppendAllText(logPath, captionPath + System.Environment.NewLine);
-                        }
+                        File.AppendAllText(logPath, src + Environment.NewLine);
                     }
                 }
             }
 
-            System.Console.WriteLine("Processing completed. Check log at " + logPath);
+            Console.WriteLine("Processing completed. Missing caption files (if any) are logged to: " + Path.GetFullPath(logPath));
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

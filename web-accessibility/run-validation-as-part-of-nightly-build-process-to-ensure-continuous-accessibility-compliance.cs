@@ -4,15 +4,16 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Accessibility Test</h1></body></html>";
+            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Sample Content</h1></body></html>";
+
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
                 Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-                Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+                var validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
 
                 if (validationResult.Success)

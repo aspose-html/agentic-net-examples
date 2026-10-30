@@ -2,52 +2,53 @@
 
 using System;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Aspose.Html;
-using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Sample HTML content with a paragraph
-            string htmlContent = "<!DOCTYPE html><html><head><style>p{color:#FFFFFF;background-color:#0000FF;}</style></head><body></body></html>";
+            // Sample HTML with inline styles
+            string htmlContent = "<html><body><p style='color:#ffffff;background-color:#000000;'>Sample text</p></body></html>";
 
-            // Load HTML document from inline content
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Load HTML from string using two‑argument constructor (content, baseUri)
+            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
 
-            // Get the first paragraph element
-            Aspose.Html.HTMLElement paragraph = (Aspose.Html.HTMLElement)document.GetElementsByTagName("p")[0];
-
-            // Retrieve foreground and background colors
-            string foregroundColor = paragraph.Style.Color; // e.g., "#FFFFFF"
-            string backgroundColor = paragraph.Style.BackgroundColor; // e.g., "#0000FF"
-
-            // Prepare request to the online Color Contrast Checker API
-            // Example API endpoint (replace with actual if needed)
-            string apiUrl = $"https://webaim.org/resources/contrastchecker/?fcolor={foregroundColor.TrimStart('#')}&bcolor={backgroundColor.TrimStart('#')}&api";
-
-            // Call the API synchronously
-            using (HttpClient client = new HttpClient())
+            // Get the first <p> element
+            Aspose.Html.Collections.HTMLCollection paragraphs = document.GetElementsByTagName("p");
+            if (paragraphs.Length > 0)
             {
-                Task<string> responseTask = client.GetStringAsync(apiUrl);
-                responseTask.Wait();
-                string apiResult = responseTask.Result;
+                HTMLElement paragraph = (HTMLElement)paragraphs[0];
 
-                Console.WriteLine("Contrast Checker API response:");
+                // Extract color values from style
+                string textColor = paragraph.Style.Color;               // e.g., "#ffffff"
+                string backgroundColor = paragraph.Style.BackgroundColor; // e.g., "#000000"
+
+                // Prepare request to the online Color Contrast Checker API (WebAIM)
+                // API expects colors without the leading '#'
+                string textColorParam = string.IsNullOrEmpty(textColor) ? "000000" : textColor.TrimStart('#');
+                string bgColorParam = string.IsNullOrEmpty(backgroundColor) ? "ffffff" : backgroundColor.TrimStart('#');
+                string requestUri = "https://webaim.org/resources/contrastchecker/?fcolor=" + textColorParam + "&bcolor=" + bgColorParam + "&api";
+
+                // Call the API
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(requestUri).Result;
+                string apiResult = response.Content.ReadAsStringAsync().Result;
+
+                // Output the API response
+                Console.WriteLine("Contrast check result:");
                 Console.WriteLine(apiResult);
             }
-
-            // Optionally, save the document to verify output
-            string outputPath = "output.html";
-            document.Save(outputPath);
-            Console.WriteLine($"HTML document saved to: {outputPath}");
+            else
+            {
+                Console.WriteLine("No <p> elements found in the document.");
+            }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
