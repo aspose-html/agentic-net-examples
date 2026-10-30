@@ -1,26 +1,41 @@
 // Use ImageSaveOptions to specify color depth when converting Markdown to BMP format.
 
-public class Program
+using System;
+using System.IO;
+
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
-            string markdownPath = "sample.md";
-            string markdownContent = "### Hello, World!\r\n[visit applications](https://products.aspose.app/html/family)";
-            System.IO.File.WriteAllText(markdownPath, markdownContent);
+            // Sample markdown content
+            string markdown = "### Hello, World!\n[visit applications](https://products.aspose.app/html/family)";
 
-            using (Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(markdownPath))
-            {
-                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Bmp);
-                string outputPath = "output.bmp";
-                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-                System.Console.WriteLine("Conversion completed. Output saved to " + outputPath);
-            }
+            // Create a temporary markdown file
+            string inputPath = Path.Combine(Path.GetTempPath(), "sample.md");
+            File.WriteAllText(inputPath, markdown);
+
+            // Convert markdown to HTMLDocument
+            Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(inputPath);
+
+            // Set up image save options for BMP format
+            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Bmp);
+            // Example of setting additional options (color depth is not directly supported)
+            options.HorizontalResolution = 300;
+            options.VerticalResolution = 300;
+
+            // Define output BMP file path
+            string outputPath = Path.Combine(Path.GetTempPath(), "output.bmp");
+
+            // Convert HTML to BMP image
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+            Console.WriteLine("Conversion completed. BMP saved to: " + outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

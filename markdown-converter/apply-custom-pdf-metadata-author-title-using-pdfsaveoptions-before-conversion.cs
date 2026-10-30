@@ -1,26 +1,41 @@
 // Apply custom PDF metadata such as author and title using PdfSaveOptions before conversion.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Pdf;
 
-class Program
+namespace AsposeHtmlPdfMetadataExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello, World!</h1></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            try
+            {
+                // Prepare sample HTML content
+                string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello World</h1></body></html>";
+                // Load HTML document from string (base URI is not required for this example)
+                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-            options.DocumentInfo.Author = "John Doe";
-            options.DocumentInfo.Title = "Sample PDF";
+                // Configure PDF save options with custom metadata
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                options.DocumentInfo.Author = "John Doe";
+                options.DocumentInfo.Title = "Sample PDF Document";
 
-            string outputPath = "sample.pdf";
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
+                // Define output PDF path
+                string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.pdf");
+
+                // Convert HTML to PDF with the specified options
+                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+                Console.WriteLine($"PDF successfully created at: {outputPath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

@@ -3,34 +3,36 @@
 using System;
 using System.IO;
 
-namespace AsposeHtmlExample
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
+            string sourcePath = "sample.md";
+            string savePath = "output.xps";
+
+            // Create a minimal markdown file if it does not exist
+            if (!File.Exists(sourcePath))
             {
-                string sourcePath = "sample.md";
-                string savePath = "output.xps";
-
-                if (!File.Exists(sourcePath))
-                {
-                    File.WriteAllText(sourcePath, "# Sample Markdown\n\nThis is a **markdown** document converted to XPS.");
-                }
-
-                using (Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath))
-                {
-                    Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
-                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, savePath);
-                }
-
-                Console.WriteLine("Conversion completed. XPS saved at " + Path.GetFullPath(savePath));
+                File.WriteAllText(sourcePath, "# Hello World\nThis is a sample markdown file.");
             }
-            catch (Exception ex)
+
+            // Convert Markdown to HTMLDocument
+            using (Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath))
             {
-                Console.WriteLine("Error: " + ex.Message);
+                // Prepare XPS save options
+                Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
+
+                // Convert HTMLDocument to XPS
+                Aspose.Html.Converters.Converter.ConvertHTML(document, options, savePath);
             }
+
+            Console.WriteLine("Conversion completed. XPS saved at " + Path.GetFullPath(savePath));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
