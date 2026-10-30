@@ -6,6 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Aspose.HTML" Version="26.9" />
+    <PackageReference Include="Aspose.HTML" Version="26.10.0" />
   </ItemGroup>
 </Project>
