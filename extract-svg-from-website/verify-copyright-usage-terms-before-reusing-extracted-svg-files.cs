@@ -1,11 +1,12 @@
 // Verify copyright and usage terms before reusing extracted SVG files.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 using Aspose.Html;
-using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 using Aspose.Html.Dom.Svg;
+using Aspose.Html.Collections;
 
 class Program
 {
@@ -13,48 +14,62 @@ class Program
     {
         try
         {
-            // Sample HTML containing SVG elements
-            string htmlContent = "<html><body>" +
-                                 "<svg width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\" fill=\"red\" /></svg>" +
-                                 "<svg width=\"100\" height=\"100\"><rect width=\"80\" height=\"80\" x=\"10\" y=\"10\" style=\"fill:blue;stroke:black;stroke-width:2\"/></svg>" +
-                                 "<svg width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\" fill=\"red\" /></svg>" + // duplicate
-                                 "</body></html>";
+            // Prepare sample HTML file with SVG elements
+            string htmlPath = "sample.html";
+            string htmlContent = @"<!DOCTYPE html>
+<html>
+<head><title>Sample SVGs</title></head>
+<body>
+    <svg width=""100"" height=""100"" data-license=""CC-BY-4.0"">
+        <circle cx=""50"" cy=""50"" r=""40"" stroke=""green"" stroke-width=""4"" fill=""yellow"" />
+    </svg>
+    <svg width=""200"" height=""200"">
+        <rect width=""200"" height=""200"" style=""fill:blue;stroke:pink;stroke-width:5;opacity:0.5"" />
+    </svg>
+</body>
+</html>";
+            File.WriteAllText(htmlPath, htmlContent);
 
-            // Load HTML document from inline content
-            string baseUri = "about:blank";
-            HTMLDocument document = new HTMLDocument(htmlContent, baseUri);
+            // Load the HTML document
+            HTMLDocument document = new HTMLDocument(htmlPath);
 
             // Get all SVG elements
             HTMLCollection svgs = document.GetElementsByTagName("svg");
 
-            // Track unique SVG markup
+            // Track processed SVG markup to avoid duplicates
             HashSet<string> seenMarkups = new HashSet<string>();
-
-            // Ensure output directory exists
-            string outputDir = "ExtractedSvgs";
-            Directory.CreateDirectory(outputDir);
 
             for (int i = 0; i < svgs.Length; i++)
             {
-                // Cast to HTMLElement to access OuterHTML
                 HTMLElement svgElement = (HTMLElement)svgs[i];
                 string markup = svgElement.OuterHTML;
 
-                // Skip duplicates
+                // Skip duplicate SVGs
                 if (!seenMarkups.Add(markup))
                     continue;
 
-                // Save each unique SVG to a file
-                string outputPath = Path.Combine(outputDir, $"svg_{i}.svg");
-                SVGDocument svgDoc = new SVGDocument(markup, baseUri);
-                svgDoc.Save(outputPath);
+                // Verify usage terms (e.g., presence of a data-license attribute)
+                string license = svgElement.GetAttribute("data-license");
+                if (string.IsNullOrEmpty(license))
+                {
+                    Console.WriteLine($"Warning: SVG #{i + 1} does not specify a usage license.");
+                }
+                else
+                {
+                    Console.WriteLine($"SVG #{i + 1} license: {license}");
+                }
 
-                Console.WriteLine($"Saved SVG to {outputPath}");
+                // Save the SVG to a separate file
+                string outputPath = $"extracted_svg_{i + 1}.svg";
+                SVGDocument svgDoc = new SVGDocument(markup, "about:blank");
+                svgDoc.Save(new Aspose.Html.Saving.ResourceHandlers.FileSystemResourceHandler(outputPath));
+
+                Console.WriteLine($"Saved SVG #{i + 1} to '{outputPath}'.");
             }
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

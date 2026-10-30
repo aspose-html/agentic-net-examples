@@ -3,8 +3,8 @@
 using System;
 using System.IO;
 using Aspose.Html;
-using Aspose.Html.Dom;
 using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -13,9 +13,12 @@ class Program
         try
         {
             string htmlPath = "sample.html";
+            string outputPath = "output.html";
+
+            // Create a minimal sample HTML file if it does not exist
             if (!File.Exists(htmlPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><body>" +
+                string sampleHtml = "<!DOCTYPE html><html><head><title>Test</title></head><body>" +
                                     "<img src=\"image1.svg\" />" +
                                     "<img src=\"photo.jpg\" />" +
                                     "<img src=\"vector.svg\" />" +
@@ -24,13 +27,16 @@ class Program
                 File.WriteAllText(htmlPath, sampleHtml);
             }
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
+            // Load the HTML document
+            HTMLDocument document = new HTMLDocument(htmlPath);
 
-            Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
+            // Get all <img> elements
+            HTMLCollection images = document.GetElementsByTagName("img");
 
+            // Iterate backwards to safely remove non‑SVG images
             for (int i = images.Length - 1; i >= 0; i--)
             {
-                Aspose.Html.Dom.Element img = images[i];
+                Element img = images[i];
                 string src = img.GetAttribute("src");
                 if (src == null || !src.EndsWith(".svg", StringComparison.OrdinalIgnoreCase))
                 {
@@ -38,9 +44,9 @@ class Program
                 }
             }
 
-            string outputPath = "output.html";
+            // Save the modified document
             document.Save(outputPath);
-            Console.WriteLine("Filtered HTML saved to: " + outputPath);
+            Console.WriteLine($"Filtered HTML saved to '{outputPath}'.");
         }
         catch (Exception ex)
         {

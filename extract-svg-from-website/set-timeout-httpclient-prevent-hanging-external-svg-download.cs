@@ -10,17 +10,16 @@ class Program
         {
             string url = "https://example.com/sample.svg";
             Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(url);
-            request.Timeout = System.TimeSpan.FromSeconds(5);
+            request.Timeout = System.TimeSpan.FromSeconds(10);
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request))
             {
-                string outputPath = "sample.svg";
-                document.Save(outputPath);
-                System.Console.WriteLine($"SVG saved to {outputPath}");
+                string html = ((Aspose.Html.HTMLElement)document.DocumentElement).OuterHTML;
+                Console.WriteLine("Loaded SVG document outer HTML length: " + html.Length);
             }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
