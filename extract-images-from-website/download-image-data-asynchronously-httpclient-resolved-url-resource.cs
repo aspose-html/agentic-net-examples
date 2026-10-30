@@ -18,11 +18,15 @@ class Program
             string inputPath = "sample.html";
             string outputDir = "downloaded_images";
 
-            // Create a minimal sample HTML file if it does not exist
+            // Ensure sample HTML file exists
+            Directory.CreateDirectory(Path.GetDirectoryName(inputPath));
             if (!File.Exists(inputPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><body><img src=\"https://example.com/image.png\" /></body></html>";
-                File.WriteAllText(inputPath, sampleHtml);
+                string htmlContent = "<html><body>" +
+                                     "<img src=\"https://via.placeholder.com/150.png\" />" +
+                                     "<img src=\"https://via.placeholder.com/100.jpg\" />" +
+                                     "</body></html>";
+                File.WriteAllText(inputPath, htmlContent);
             }
 
             Directory.CreateDirectory(outputDir);
@@ -41,15 +45,11 @@ class Program
                     Url imageUrl = new Url(src, document.BaseURI);
                     string urlString = imageUrl.ToString();
                     string extension = Path.GetExtension(urlString);
+
                     if (!extension.Equals(".png", StringComparison.OrdinalIgnoreCase) &&
                         !extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".svg", StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".webp", StringComparison.OrdinalIgnoreCase))
-                    {
+                        !extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase))
                         continue;
-                    }
 
                     byte[] imageBytes = await httpClient.GetByteArrayAsync(urlString);
                     string fileName = Path.GetFileName(urlString);
@@ -57,8 +57,6 @@ class Program
                     File.WriteAllBytes(savePath, imageBytes);
                 }
             }
-
-            Console.WriteLine("Image download completed.");
         }
         catch (Exception ex)
         {

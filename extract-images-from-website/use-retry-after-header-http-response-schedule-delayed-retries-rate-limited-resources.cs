@@ -1,64 +1,83 @@
 // Use a retry‑after header from HTTP response to schedule delayed retries for rate‑limited resources.
 
-namespace Example
-{
-    class Program
-    {
-        static void Main()
-        {
-            try
-            {
-                Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-                Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-                network.MessageHandlers.Add(new RetryAfterHandler(3));
+using System;
+using System.Threading;
 
-                string url = "https://example.com/rate-limited-resource";
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
-                {
-                    string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                    System.Console.WriteLine(html);
-                }
-            }
-            catch (System.Exception ex)
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            // Create configuration and attach custom retry‑after handler
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            network.MessageHandlers.Add(new RetryAfterHandler(3));
+
+            // Load a URL that may return 429 with a Retry-After header
+            string url = "https://httpbin.org/response-headers?Retry-After=2&status=429";
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
-                System.Console.WriteLine("Error: " + ex.Message);
+                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                Console.WriteLine(html);
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
+}
 
-    class RetryAfterHandler : Aspose.Html.Net.MessageHandler
+// Custom message handler that respects the Retry-After header
+class RetryAfterHandler : Aspose.Html.Net.MessageHandler
+{
+    private readonly int _maxRetries;
+
+    public RetryAfterHandler(int maxRetries)
     {
-        private readonly int _maxRetries;
-        public RetryAfterHandler(int maxRetries)
-        {
-            _maxRetries = maxRetries;
-        }
+        _maxRetries = maxRetries;
+    }
 
-        public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    {
+        for (int attempt = 0; attempt <= _maxRetries; attempt++)
         {
-            for (int attempt = 0; attempt <= _maxRetries; attempt++)
+            // Perform the request
+            Next(context);
+
+            int statusCode = (int)context.Response.StatusCode;
+
+            // If request succeeded or is not a rate‑limit response, exit loop
+            if (statusCode < 500 && statusCode != 429)
+                break;
+
+            // Handle 429 Too Many Requests with Retry-After header
+            if (statusCode == 429)
             {
-                Next(context);
-                int status = (int)context.Response.StatusCode;
-                if (status != 429)
-                {
-                    break;
-                }
-
-                string retryAfter = null;
+                string retryAfterValue = null;
                 try
                 {
-                    retryAfter = context.Response.Headers["Retry-After"];
+                    // Attempt to read the header; indexer returns null if missing
+                    retryAfterValue = context.Response.Headers["Retry-After"];
                 }
-                catch { }
-
-                int delaySeconds = 5;
-                if (!string.IsNullOrEmpty(retryAfter) && int.TryParse(retryAfter, out int secs))
+                catch
                 {
-                    delaySeconds = secs;
+                    // Ignore any exception while accessing headers
                 }
 
-                System.Threading.Thread.Sleep(System.TimeSpan.FromSeconds(delaySeconds));
+                int delaySeconds = 2; // default fallback
+                if (!string.IsNullOrEmpty(retryAfterValue) && int.TryParse(retryAfterValue, out int parsed))
+                {
+                    delaySeconds = parsed;
+                }
+
+                Thread.Sleep(TimeSpan.FromSeconds(delaySeconds));
+            }
+            else
+            {
+                // For other server errors, optionally break or continue; here we break
+                break;
             }
         }
     }

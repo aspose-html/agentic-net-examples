@@ -3,51 +3,50 @@
 using System;
 using System.IO;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Aspose.Html;
 using Aspose.Html.Collections;
 using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         try
         {
-            // Prepare input HTML file
-            string inputHtmlPath = Path.Combine(Directory.GetCurrentDirectory(), "sample.html");
-            if (!File.Exists(inputHtmlPath))
-            {
-                string htmlContent = "<html><body>" +
-                                     "<img src=\"https://via.placeholder.com/150.png\" />" +
-                                     "<img src=\"https://via.placeholder.com/200.jpg\" />" +
-                                     "</body></html>";
-                File.WriteAllText(inputHtmlPath, htmlContent);
-            }
-
             // Prepare output directory
             string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "DownloadedImages");
             Directory.CreateDirectory(outputDir);
 
-            // Load HTML document
-            using (HTMLDocument document = new HTMLDocument(inputHtmlPath))
+            // Sample HTML content with image URLs
+            string htmlContent = "<html><body>" +
+                                 "<img src=\"https://via.placeholder.com/150\" />" +
+                                 "<img src=\"https://via.placeholder.com/200.png\" />" +
+                                 "</body></html>";
+
+            // Load HTML document from string with a base URI
+            using (HTMLDocument document = new HTMLDocument(htmlContent, "https://example.com"))
             using (HttpClient httpClient = new HttpClient())
             {
                 HTMLCollection images = document.GetElementsByTagName("img");
                 for (int i = 0; i < images.Length; i++)
                 {
-                    Element imageElement = (Element)images[i];
-                    string src = imageElement.GetAttribute("src");
+                    Element imgElement = (Element)images[i];
+                    string src = imgElement.GetAttribute("src");
                     if (string.IsNullOrWhiteSpace(src))
                         continue;
 
+                    // Resolve absolute URL
                     Uri baseUri = new Uri(document.BaseURI.ToString(), UriKind.Absolute);
                     Uri resolvedUri = new Uri(baseUri, src);
 
-                    byte[] imageBytes = httpClient.GetByteArrayAsync(resolvedUri).GetAwaiter().GetResult();
+                    // Download image bytes
+                    byte[] imageBytes = await httpClient.GetByteArrayAsync(resolvedUri);
 
+                    // Preserve original file name
                     string fileName = Path.GetFileName(resolvedUri.LocalPath);
                     if (string.IsNullOrEmpty(fileName))
-                        fileName = Guid.NewGuid().ToString();
+                        fileName = $"image_{i}.bin";
 
                     string savePath = Path.Combine(outputDir, fileName);
                     File.WriteAllBytes(savePath, imageBytes);

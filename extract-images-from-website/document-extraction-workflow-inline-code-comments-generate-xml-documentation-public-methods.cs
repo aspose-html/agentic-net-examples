@@ -1,167 +1,96 @@
 // Document the extraction workflow with inline code comments and generate XML documentation for public methods.
 
 using System;
-using System.IO;
-using System.Collections.Generic;
 
-namespace AsposeHtmlExample
+namespace AsposeHtmlExtractionExample
 {
     /// <summary>
-    /// Demonstrates accessibility validation, XPath extraction, and network header capture using Aspose.HTML for .NET.
+    /// Provides methods to extract image sources from HTML content and validate accessibility.
     /// </summary>
-    class Program
+    public static class HTMLProcessor
     {
-        static void Main()
-        {
-            const string inputHtmlPath = "sample.html";
-            const string outputHtmlPath = "output.html";
-            const string logPath = "log.txt";
-
-            try
-            {
-                // Prepare a minimal HTML file.
-                if (!File.Exists(inputHtmlPath))
-                {
-                    string sampleHtml = @"<!DOCTYPE html>
-<html>
-<head><title>Sample</title></head>
-<body>
-    <h1>Test Document</h1>
-    <img src='image1.png' alt='Image 1' />
-    <img src='image2.jpg' alt='Image 2' />
-</body>
-</html>";
-                    File.WriteAllText(inputHtmlPath, sampleHtml);
-                }
-
-                // Clear previous log.
-                if (File.Exists(logPath))
-                {
-                    File.Delete(logPath);
-                }
-
-                ValidateDocument(inputHtmlPath, logPath);
-                ExtractImageSources(inputHtmlPath, logPath);
-                ProcessDocumentWithNetworkHandler(inputHtmlPath, outputHtmlPath, logPath);
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine($"Error: {ex.Message}");
-            }
-        }
-
         /// <summary>
-        /// Performs accessibility validation on the specified HTML document and logs the result in XML format.
+        /// Extracts all image URLs from the specified HTML content, validates the document for accessibility,
+        /// logs the validation report and image sources, and saves the processed document to a file.
         /// </summary>
-        /// <param name="htmlPath">Path to the HTML file to validate.</param>
-        /// <param name="logPath">Path to the log file where validation output will be appended.</param>
-        public static void ValidateDocument(string htmlPath, string logPath)
+        /// <param name="htmlContent">The HTML markup to process.</param>
+        /// <param name="logPath">The file path where the log will be written.</param>
+        /// <param name="outputPath">The file path where the processed HTML document will be saved.</param>
+        public static void PerformExtraction(string htmlContent, string logPath, string outputPath)
         {
-            // Load the document.
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
-            {
-                // Create the validator.
-                Aspose.Html.Accessibility.AccessibilityValidator validator =
-                    new Aspose.Html.Accessibility.WebAccessibility().CreateValidator();
+            // Ensure the log file starts empty.
+            System.IO.File.WriteAllText(logPath, string.Empty + System.Environment.NewLine);
 
-                // Run validation.
+            // Load the HTML content using the two‑argument constructor (content, baseUri).
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
+            {
+                // -----------------------------------------------------------------
+                // Accessibility validation
+                // -----------------------------------------------------------------
+                // Create a validator via the WebAccessibility factory.
+                Aspose.Html.Accessibility.AccessibilityValidator validator = new Aspose.Html.Accessibility.WebAccessibility().CreateValidator();
+
+                // Validate the document and obtain the result.
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
 
-                // Save validation result as XML to a string.
-                using (StringWriter sw = new StringWriter())
+                // Serialize the validation result to XML and append it to the log.
+                using (System.IO.StringWriter stringWriter = new System.IO.StringWriter())
                 {
-                    validationResult.SaveTo(sw, Aspose.Html.Accessibility.Saving.ValidationResultSaveFormat.XML);
-                    File.AppendAllText(logPath, sw.ToString() + Environment.NewLine);
+                    validationResult.SaveTo(stringWriter, Aspose.Html.Accessibility.Saving.ValidationResultSaveFormat.XML);
+                    System.IO.File.AppendAllText(logPath, stringWriter.ToString() + System.Environment.NewLine);
                 }
-            }
-        }
 
-        /// <summary>
-        /// Extracts the src attribute of all &lt;img&gt; elements using XPath and logs each value.
-        /// </summary>
-        /// <param name="htmlPath">Path to the HTML file to process.</param>
-        /// <param name="logPath">Path to the log file where image sources will be appended.</param>
-        public static void ExtractImageSources(string htmlPath, string logPath)
-        {
-            using (Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(htmlPath))
-            {
-                // Evaluate XPath to select all img elements.
-                Aspose.Html.Dom.XPath.IXPathResult result = doc.Evaluate(
+                // -----------------------------------------------------------------
+                // XPath extraction of <img> elements
+                // -----------------------------------------------------------------
+                // Evaluate an XPath expression that selects all img elements.
+                Aspose.Html.Dom.XPath.IXPathResult xpathResult = document.Evaluate(
                     "//img",
-                    doc,
-                    doc.CreateNSResolver(doc),
+                    document,
+                    document.CreateNSResolver(document),
                     Aspose.Html.Dom.XPath.XPathResultType.Any,
                     null);
 
+                // Iterate over the result set and log each image's src attribute.
                 Aspose.Html.Dom.Node node;
-                while ((node = result.IterateNext()) != null)
+                while ((node = xpathResult.IterateNext()) != null)
                 {
                     Aspose.Html.HTMLImageElement img = (Aspose.Html.HTMLImageElement)node;
-                    File.AppendAllText(logPath, img.Src + Environment.NewLine);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Loads the HTML document with a custom network message handler that captures response headers,
-        /// inserts them as a comment node at the top of the document, and saves the modified document.
-        /// </summary>
-        /// <param name="htmlPath">Path to the HTML file to load.</param>
-        /// <param name="outputPath">Path where the processed HTML document will be saved.</param>
-        /// <param name="logPath">Path to the log file where captured headers will be appended.</param>
-        public static void ProcessDocumentWithNetworkHandler(string htmlPath, string outputPath, string logPath)
-        {
-            // Configure Aspose.HTML with a custom network service.
-            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Add(new NetworkMessageHandler());
-
-            // Load the document using the custom configuration.
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
-            {
-                // If any headers were captured, insert them as a comment node.
-                if (NetworkMessageHandler.CapturedHeaders.Count > 0)
-                {
-                    string commentText = "\n" + string.Join("\n", NetworkMessageHandler.CapturedHeaders) + "\n";
-                    var commentNode = document.CreateComment(commentText);
-                    document.InsertBefore(commentNode, document.DocumentElement);
+                    System.IO.File.AppendAllText(logPath, img.Src + System.Environment.NewLine);
                 }
 
-                // Save the modified document.
+                // -----------------------------------------------------------------
+                // Save the (potentially modified) document to the specified output path.
+                // -----------------------------------------------------------------
                 document.Save(outputPath);
-            }
-
-            // Log captured headers.
-            if (NetworkMessageHandler.CapturedHeaders.Count > 0)
-            {
-                File.AppendAllText(logPath, "Captured Headers:" + Environment.NewLine);
-                foreach (string header in NetworkMessageHandler.CapturedHeaders)
-                {
-                    File.AppendAllText(logPath, header + Environment.NewLine);
-                }
             }
         }
     }
 
-    /// <summary>
-    /// Custom message handler that records all response headers from network operations.
-    /// </summary>
-    class NetworkMessageHandler : Aspose.Html.Net.MessageHandler
+    class Program
     {
-        public static List<string> CapturedHeaders = new List<string>();
-
-        public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+        static void Main(string[] args)
         {
-            // Continue the request pipeline.
-            Next(context);
-
-            // Capture response headers.
-            foreach (object headerItem in context.Response.Headers)
+            try
             {
-                if (headerItem != null)
-                {
-                    CapturedHeaders.Add(headerItem.ToString());
-                }
+                // Sample HTML containing two images.
+                string sampleHtml = "<html><body><img src='image1.png'/><img src='image2.jpg'/></body></html>";
+
+                // Define deterministic file paths for log and output.
+                string logFilePath = "extraction_log.txt";
+                string outputFilePath = "processed_document.html";
+
+                // Perform the extraction workflow.
+                HTMLProcessor.PerformExtraction(sampleHtml, logFilePath, outputFilePath);
+
+                System.Console.WriteLine("Extraction completed successfully.");
+                System.Console.WriteLine("Log written to: " + logFilePath);
+                System.Console.WriteLine("Processed HTML saved to: " + outputFilePath);
+            }
+            catch (System.Exception ex)
+            {
+                // Print a clear error message if something goes wrong.
+                System.Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
     }

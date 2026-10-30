@@ -8,33 +8,33 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><body>" +
-                                 "<img src='a.jpg' data-important='true'/>" +
-                                 "<img src='b.jpg'/>" +
-                                 "<p>Sample paragraph.</p>" +
-                                 "</body></html>";
+            string html = @"<html><body>" +
+                          "<img src='image1.jpg' data-important='true'/>" +
+                          "<img src='image2.jpg'/>" +
+                          "<img src='image3.png' data-important='true'/>" +
+                          "</body></html>";
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
             {
-                Aspose.Html.Collections.NodeList selectedNodes = document.QuerySelectorAll("img[data-important='true']");
+                Aspose.Html.Collections.NodeList importantImages = document.QuerySelectorAll("img[data-important='true']");
 
-                foreach (Aspose.Html.Dom.Node node in selectedNodes)
+                Console.WriteLine($"Found {importantImages.Length} important image(s).");
+
+                for (int i = 0; i < importantImages.Length; i++)
                 {
-                    Aspose.Html.Dom.Element element = node as Aspose.Html.Dom.Element;
-                    if (element != null && element.ParentNode != null)
+                    Aspose.Html.Dom.Node node = importantImages[i];
+                    if (node.NodeType == Aspose.Html.Dom.Node.ELEMENT_NODE)
                     {
-                        element.ParentNode.RemoveChild(element);
+                        Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)node;
+                        string src = element.GetAttribute("src");
+                        Console.WriteLine($"Image {i + 1} src: {src}");
                     }
                 }
-
-                string outputPath = "output.html";
-                document.Save(outputPath);
-                Console.WriteLine("Modified document saved to: " + outputPath);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

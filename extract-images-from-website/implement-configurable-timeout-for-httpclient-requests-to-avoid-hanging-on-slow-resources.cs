@@ -2,9 +2,9 @@
 
 using System;
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
@@ -13,17 +13,19 @@ class Program
             request.Timeout = System.TimeSpan.FromSeconds(10);
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request))
             {
-                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                Console.WriteLine(html);
+                string html = document.DocumentElement != null
+                    ? ((Aspose.Html.HTMLElement)document.DocumentElement).OuterHTML
+                    : string.Empty;
+                System.Console.WriteLine(html);
             }
         }
         catch (System.TimeoutException)
         {
-            Console.WriteLine("The request timed out.");
+            System.Console.WriteLine("The request timed out.");
         }
         catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

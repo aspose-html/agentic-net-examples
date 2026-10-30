@@ -1,8 +1,8 @@
 // Filter extracted images by file extension, downloading only PNG and JPEG formats.
 
 using System;
-using System.Net.Http;
 using System.IO;
+using System.Net.Http;
 using Aspose.Html;
 using Aspose.Html.Collections;
 using Aspose.Html.Dom;
@@ -10,20 +10,27 @@ using Aspose.Html.Net;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string htmlContent = "<html><body>" +
-                                 "<img src='https://example.com/image1.png'/>" +
-                                 "<img src='https://example.com/image2.jpg'/>" +
-                                 "<img src='https://example.com/image3.gif'/>" +
-                                 "</body></html>";
+            // Prepare sample HTML file
+            string inputHtmlPath = "sample.html";
+            string htmlContent = @"<html><body>" +
+                                 @"<img src=""https://via.placeholder.com/150.png"" />" +
+                                 @"<img src=""https://via.placeholder.com/150.jpg"" />" +
+                                 @"<img src=""https://via.placeholder.com/150.gif"" />" +
+                                 @"</body></html>";
+            File.WriteAllText(inputHtmlPath, htmlContent);
 
-            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+            // Load HTML document
+            HTMLDocument document = new HTMLDocument(inputHtmlPath);
+
+            // Get all img elements
             HTMLCollection images = document.GetElementsByTagName("img");
 
-            string outputDir = "ExtractedImages";
+            // Output directory for downloaded images
+            string outputDir = "output_images";
             Directory.CreateDirectory(outputDir);
 
             using (HttpClient httpClient = new HttpClient())
