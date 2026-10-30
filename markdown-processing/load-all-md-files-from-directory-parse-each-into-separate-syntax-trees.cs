@@ -1,10 +1,10 @@
 // Load all .md files from a directory and parse each into separate syntax trees.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 using System.Text.Json;
-using Aspose.Html;
+using System.Linq;
 
 class Program
 {
@@ -13,46 +13,34 @@ class Program
         try
         {
             string inputFolder = "InputMarkdown";
-            string outputFolder = "OutputJson";
-
             if (!Directory.Exists(inputFolder))
-            {
                 Directory.CreateDirectory(inputFolder);
-                // Create a sample markdown file
-                string samplePath = Path.Combine(inputFolder, "sample.md");
-                File.WriteAllText(samplePath, "# Title\n## Section 1\nContent line\n### Subsection\n## Section 2");
-            }
 
-            if (!Directory.Exists(outputFolder))
-                Directory.CreateDirectory(outputFolder);
+            // Create a sample markdown file if none exist
+            if (Directory.GetFiles(inputFolder, "*.md").Length == 0)
+            {
+                string samplePath = Path.Combine(inputFolder, "sample.md");
+                File.WriteAllText(samplePath, "# Sample Title\n\n## Subsection\nContent line");
+            }
 
             foreach (string mdPath in Directory.GetFiles(inputFolder, "*.md"))
             {
-                // Load markdown content (as plain text)
                 string[] lines = File.ReadAllLines(mdPath);
+                var root = new List<SyntaxNode>();
+                var stack = new Stack<SyntaxNode>();
 
-                // Optional: create a dummy HTMLDocument to satisfy Aspose.HTML usage
-                // Using two-argument constructor with base URI to avoid file-not-found errors
-                HTMLDocument dummyDoc = new HTMLDocument(string.Empty, "about:blank");
-
-                var root = new List<OutlineNode>();
-                var stack = new Stack<OutlineNode>();
-
-                foreach (string rawLine in lines)
+                foreach (string line in lines)
                 {
-                    string line = rawLine.TrimStart();
                     if (line.StartsWith("#"))
                     {
-                        int level = 0;
-                        while (level < line.Length && line[level] == '#')
-                            level++;
+                        int level = line.TakeWhile(c => c == '#').Count();
                         string text = line.Substring(level).Trim();
 
-                        OutlineNode node = new OutlineNode
+                        var node = new SyntaxNode
                         {
                             Text = text,
                             Level = level,
-                            Children = new List<OutlineNode>()
+                            Children = new List<SyntaxNode>()
                         };
 
                         while (stack.Count > 0 && stack.Peek().Level >= level)
@@ -68,7 +56,7 @@ class Program
                 }
 
                 string json = JsonSerializer.Serialize(root, new JsonSerializerOptions { WriteIndented = true });
-                string jsonPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(mdPath) + ".json");
+                string jsonPath = Path.Combine(inputFolder, Path.GetFileNameWithoutExtension(mdPath) + ".json");
                 File.WriteAllText(jsonPath, json);
             }
         }
@@ -79,9 +67,9 @@ class Program
     }
 }
 
-class OutlineNode
+class SyntaxNode
 {
     public string Text { get; set; }
     public int Level { get; set; }
-    public List<OutlineNode> Children { get; set; }
+    public List<SyntaxNode> Children { get; set; }
 }

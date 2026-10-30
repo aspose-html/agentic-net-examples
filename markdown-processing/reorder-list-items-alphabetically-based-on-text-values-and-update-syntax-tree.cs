@@ -5,68 +5,59 @@ using System.Collections.Generic;
 using System.IO;
 using Aspose.Html;
 using Aspose.Html.Dom;
+using Aspose.Html.Dom;
 using Aspose.Html;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Prepare input HTML content
-            string inputHtml = "<html><body><ul><li>Banana</li><li>Apple</li><li>Cherry</li></ul></body></html>";
-
-            // Load document using two‑argument constructor (content, baseUri)
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputHtml, "about:blank");
-
-            // Find the first <ul> element
-            Aspose.Html.HTMLElement ul = (Aspose.Html.HTMLElement)document.QuerySelector("ul");
-            if (ul == null)
-                throw new InvalidOperationException("No <ul> element found in the document.");
-
-            // Collect text of all <li> children
-            List<string> items = new List<string>();
-            Aspose.Html.Collections.NodeList liNodes = ul.QuerySelectorAll("li");
-            for (int i = 0; i < liNodes.Length; i++)
+            string inputFolder = "InputHtml";
+            string outputFolder = "OutputHtml";
+            if (!Directory.Exists(outputFolder)) Directory.CreateDirectory(outputFolder);
+            if (!Directory.Exists(inputFolder))
             {
-                Aspose.Html.HTMLElement li = (Aspose.Html.HTMLElement)liNodes[i];
-                items.Add(li.TextContent.Trim());
+                Directory.CreateDirectory(inputFolder);
+                // create a sample HTML file
+                string samplePath = Path.Combine(inputFolder, "sample.html");
+                File.WriteAllText(samplePath, "<html><body><ul><li>Banana</li><li>Apple</li><li>Cherry</li></ul></body></html>");
             }
 
-            // Sort items alphabetically
-            items.Sort(StringComparer.Ordinal);
-
-            // Remove existing <li> children
-            Aspose.Html.Dom.Node child = ul.FirstChild;
-            while (child != null)
+            foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
             {
-                Aspose.Html.Dom.Node next = child.NextSibling;
-                if (child.NodeName.Equals("li", StringComparison.OrdinalIgnoreCase))
+                HTMLDocument document = new HTMLDocument(htmlPath);
+                Aspose.Html.Collections.NodeList listNodes = document.QuerySelectorAll("ul, ol");
+                for (int i = 0; i < listNodes.Length; i++)
                 {
-                    ul.RemoveChild(child);
+                    Element listElement = (Element)listNodes[i];
+                    Aspose.Html.Collections.NodeList liNodes = listElement.QuerySelectorAll("li");
+                    List<HTMLElement> items = new List<HTMLElement>();
+                    for (int j = 0; j < liNodes.Length; j++)
+                    {
+                        HTMLElement li = (HTMLElement)liNodes[j];
+                        items.Add(li);
+                    }
+
+                    items.Sort((a, b) => string.Compare(a.TextContent.Trim(), b.TextContent.Trim(), StringComparison.Ordinal));
+
+                    // Remove existing <li> elements
+                    foreach (HTMLElement li in items)
+                    {
+                        listElement.RemoveChild(li);
+                    }
+
+                    // Append sorted <li> elements
+                    foreach (HTMLElement li in items)
+                    {
+                        listElement.AppendChild(li);
+                    }
                 }
-                child = next;
+
+                string outputPath = Path.Combine(outputFolder, Path.GetFileName(htmlPath));
+                document.Save(outputPath);
             }
-
-            // Append sorted <li> elements
-            foreach (string text in items)
-            {
-                Aspose.Html.HTMLElement li = (Aspose.Html.HTMLElement)document.CreateElement("li");
-                Aspose.Html.Dom.Text textNode = document.CreateTextNode(text);
-                li.AppendChild(textNode);
-                ul.AppendChild(li);
-            }
-
-            // Prepare output folder and file
-            string outputFolder = "Output";
-            if (!System.IO.Directory.Exists(outputFolder))
-                System.IO.Directory.CreateDirectory(outputFolder);
-            string outputPath = System.IO.Path.Combine(outputFolder, "sorted.html");
-
-            // Save the modified document
-            document.Save(outputPath);
-
-            Console.WriteLine("Sorted HTML saved to: " + outputPath);
         }
         catch (Exception ex)
         {

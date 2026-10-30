@@ -8,43 +8,42 @@ class Program
     {
         try
         {
-            string html = "<html><body><p>First.</p><p>Second.</p><p>Third.</p></body></html>";
-            var document = new Aspose.Html.HTMLDocument(html, "about:blank");
-            var body = document.Body;
-            var node = body.FirstChild;
-            while (node != null)
+            string htmlContent = "<html><body><p>First</p><p>Second</p><p>Third</p><div>Other</div><p>Fourth</p><p>Fifth</p></body></html>";
+            string baseUri = "about:blank";
+            Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+            Aspose.Html.HTMLElement body = doc.Body;
+
+            bool IsParagraph(Aspose.Html.Dom.Node node)
             {
-                var next = node.NextSibling;
-                if (node is Aspose.Html.HTMLParagraphElement && next is Aspose.Html.HTMLParagraphElement)
-                {
-                    var firstP = (Aspose.Html.HTMLParagraphElement)node;
-                    var secondP = (Aspose.Html.HTMLParagraphElement)next;
+                if (node.NodeType != Aspose.Html.Dom.Node.ELEMENT_NODE)
+                    return false;
+                Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)node;
+                return string.Equals(element.TagName, "p", StringComparison.OrdinalIgnoreCase);
+            }
 
-                    var spaceNode = document.CreateTextNode(" ");
-                    firstP.AppendChild(spaceNode);
-
-                    var child = secondP.FirstChild;
-                    while (child != null)
-                    {
-                        var nextChild = child.NextSibling;
-                        secondP.RemoveChild(child);
-                        firstP.AppendChild(child);
-                        child = nextChild;
-                    }
-
-                    body.RemoveChild(secondP);
+            for (int i = 0; i < body.ChildNodes.Length; i++)
+            {
+                Aspose.Html.Dom.Node currentNode = body.ChildNodes[i];
+                if (!IsParagraph(currentNode))
                     continue;
+
+                Aspose.Html.HTMLParagraphElement currentPara = (Aspose.Html.HTMLParagraphElement)currentNode;
+
+                while (i + 1 < body.ChildNodes.Length && IsParagraph(body.ChildNodes[i + 1]))
+                {
+                    Aspose.Html.HTMLParagraphElement nextPara = (Aspose.Html.HTMLParagraphElement)body.ChildNodes[i + 1];
+                    currentPara.TextContent = currentPara.TextContent + " " + nextPara.TextContent;
+                    body.RemoveChild(nextPara);
                 }
-                node = next;
             }
 
             string outputPath = "merged.html";
-            document.Save(outputPath);
-            Console.WriteLine("Merged HTML saved to " + outputPath);
+            doc.Save(outputPath);
+            Console.WriteLine($"Document saved to {outputPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

@@ -3,8 +3,8 @@
 using System;
 using System.IO;
 using Aspose.Html;
-using Aspose.Html.Dom;
 using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -12,41 +12,39 @@ class Program
     {
         try
         {
-            string inputPath = "input.html";
-            string outputPath = "output.html";
+            string inputPath = "input.md";
+            string outputPath = "output.md";
 
-            // Create a minimal HTML file with a list if it does not exist
+            // Create a minimal markdown file if it does not exist
             if (!File.Exists(inputPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><head><meta charset=\"utf-8\"/></head><body><ul><li>Apple</li><li>Banana</li><li>Cherry</li></ul></body></html>";
-                File.WriteAllText(inputPath, sampleHtml);
+                string sampleMarkdown = "# Sample List\n\n- Item 1\n- Item 2\n- Item 3\n";
+                File.WriteAllText(inputPath, sampleMarkdown);
             }
 
-            // Load the document
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            // Load the markdown document
+            HTMLDocument document = new HTMLDocument(inputPath);
 
-            // Get all <li> elements
+            // Find all list items (<li>) and remove the one with specific text
             HTMLCollection listItems = document.GetElementsByTagName("li");
-
-            // Text of the item to remove
-            string targetText = "Banana";
-
-            // Iterate backwards and remove matching item
             for (int i = listItems.Length - 1; i >= 0; i--)
             {
-                Aspose.Html.Dom.Element li = (Aspose.Html.Dom.Element)listItems[i];
-                if (li.TextContent == targetText && li.ParentNode != null)
+                Element li = (Element)listItems[i];
+                if (li.TextContent != null && li.TextContent.Trim() == "Item 2")
                 {
-                    li.ParentNode.RemoveChild(li);
+                    if (li.ParentNode != null)
+                    {
+                        li.ParentNode.RemoveChild(li);
+                    }
                 }
             }
 
-            // Save the modified document
+            // Save the modified document back to markdown
             document.Save(outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 }

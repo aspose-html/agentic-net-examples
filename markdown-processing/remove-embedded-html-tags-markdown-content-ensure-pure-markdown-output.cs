@@ -2,8 +2,7 @@
 
 using System;
 using System.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
+using System.Text.RegularExpressions;
 
 class Program
 {
@@ -11,34 +10,22 @@ class Program
     {
         try
         {
-            // Sample markdown content that includes embedded HTML tags
-            string markdownWithHtml = "This is **bold** text.<br><p>Paragraph with <em>HTML</em> tags.</p>";
-
-            // Base URI required by the converter (no relative resources in this example)
+            string htmlContent = "<html><body><h1>Hello</h1><p>This is <b>bold</b> text.</p></body></html>";
             string baseUri = "about:blank";
-
-            // Options for converting HTML to Markdown
-            MarkdownSaveOptions options = new MarkdownSaveOptions();
-
-            // Temporary file to store the conversion result
+            Aspose.Html.Saving.MarkdownSaveOptions options = new Aspose.Html.Saving.MarkdownSaveOptions();
             string tempPath = Path.GetTempFileName();
-
-            // Convert the mixed content (treated as HTML) to pure Markdown
-            Aspose.Html.Converters.Converter.ConvertHTML(markdownWithHtml, baseUri, options, tempPath);
-
-            // Read the resulting pure Markdown
-            string pureMarkdown = File.ReadAllText(tempPath);
-
-            // Clean up the temporary file
+            Aspose.Html.Converters.Converter.ConvertHTML(htmlContent, baseUri, options, tempPath);
+            string markdown = File.ReadAllText(tempPath);
             File.Delete(tempPath);
-
-            // Output the cleaned Markdown
-            Console.WriteLine("Pure Markdown output:");
-            Console.WriteLine(pureMarkdown);
+            string cleanedMarkdown = Regex.Replace(markdown, "<.*?>", string.Empty);
+            Console.WriteLine("Original Markdown:");
+            Console.WriteLine(markdown);
+            Console.WriteLine("Cleaned Markdown:");
+            Console.WriteLine(cleanedMarkdown);
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

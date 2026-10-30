@@ -1,59 +1,59 @@
 // Add a bullet list generated from an array of strings at a designated location in the document.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Create output directory
-            string outputDir = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "output");
-            System.IO.Directory.CreateDirectory(outputDir);
-            string outputPath = System.IO.Path.Combine(outputDir, "result.html");
+            // Prepare output directory and file path
+            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "Output");
+            Directory.CreateDirectory(outputDir);
+            string outputPath = Path.Combine(outputDir, "result.html");
 
-            // Initialize HTML document
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument();
-            Aspose.Html.HTMLElement body = document.Body;
+            // Create a new HTML document
+            HTMLDocument document = new HTMLDocument();
+            HTMLElement body = document.Body;
 
             // Add a heading
-            Aspose.Html.HTMLHeadingElement h1 = (Aspose.Html.HTMLHeadingElement)document.CreateElement("h1");
+            HTMLHeadingElement h1 = (HTMLHeadingElement)document.CreateElement("h1");
             h1.AppendChild(document.CreateTextNode("Sample Document"));
             body.AppendChild(h1);
 
             // Add a paragraph
-            Aspose.Html.HTMLParagraphElement p = (Aspose.Html.HTMLParagraphElement)document.CreateElement("p");
-            p.AppendChild(document.CreateTextNode("Below is a generated bullet list:"));
-            body.AppendChild(p);
+            HTMLParagraphElement paragraph = (HTMLParagraphElement)document.CreateElement("p");
+            paragraph.AppendChild(document.CreateTextNode("Below is a list of items:"));
+            body.AppendChild(paragraph);
 
-            // Array of items for the bullet list
-            string[] items = new string[] { "First item", "Second item", "Third item" };
+            // Array of strings to be turned into a bullet list
+            string[] items = new string[] { "Item 1", "Item 2", "Item 3" };
 
-            // Create unordered list element
-            Aspose.Html.HTMLElement ul = (Aspose.Html.HTMLElement)document.CreateElement("ul");
+            // Create the unordered list element
+            HTMLElement ul = (HTMLElement)document.CreateElement("ul");
 
-            // Populate list items
+            // Populate the list with <li> elements
             for (int i = 0; i < items.Length; i++)
             {
-                Aspose.Html.HTMLElement li = (Aspose.Html.HTMLElement)document.CreateElement("li");
+                HTMLElement li = (HTMLElement)document.CreateElement("li");
                 li.AppendChild(document.CreateTextNode(items[i]));
                 ul.AppendChild(li);
             }
 
-            // Insert the list at the beginning of the body
-            Aspose.Html.Dom.Node firstChild = body.FirstChild;
-            if (firstChild != null)
-                body.InsertBefore(ul, firstChild);
-            else
-                body.AppendChild(ul);
+            // Append the list to the body (after the paragraph)
+            body.AppendChild(ul);
 
-            // Save the document
+            // Save the document to the specified path
             document.Save(outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

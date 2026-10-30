@@ -9,7 +9,7 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><h1>Hello *World*</h1></body></html>";
+            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Title *with* markdown _characters_</h1><p>This is a paragraph with `code` and ~strikethrough~.</p></body></html>";
             string baseUri = "about:blank";
 
             Aspose.Html.Saving.MarkdownSaveOptions options = new Aspose.Html.Saving.MarkdownSaveOptions();
@@ -21,16 +21,27 @@ class Program
             string markdown = File.ReadAllText(tempPath);
             File.Delete(tempPath);
 
+            // Escape markdown special characters
+            string escaped = markdown
+                .Replace("\\", "\\\\")
+                .Replace("*", "\\*")
+                .Replace("_", "\\_")
+                .Replace("`", "\\`")
+                .Replace("~", "\\~")
+                .Replace("#", "\\#")
+                .Replace("[", "\\[")
+                .Replace("]", "\\]")
+                .Replace(">", "\\>")
+                .Replace("|", "\\|");
+
             string outputPath = "output.md";
-            File.WriteAllText(outputPath, markdown);
+            File.WriteAllText(outputPath, escaped);
 
             Console.WriteLine("Conversion completed. Markdown saved at " + outputPath);
-            Console.WriteLine("Markdown content:");
-            Console.WriteLine(markdown);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
