@@ -2,42 +2,50 @@
 
 using System;
 using System.IO;
+using System.Drawing;
 using Aspose.Html.Dom.Svg;
 using Aspose.Html.Saving;
 using Aspose.Html.Rendering.Image;
 using Aspose.Html.Converters;
-using System.Drawing;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string inputPath = "sample.svg";
+            // Input SVG file path
+            string svgPath = "sample.svg";
+            // Output JPEG file path
             string outputPath = "thumbnail.jpg";
 
-            if (!File.Exists(inputPath))
+            // Create a minimal SVG file if it does not exist
+            if (!File.Exists(svgPath))
             {
-                string svgContent = "<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='red'/></svg>";
-                File.WriteAllText(inputPath, svgContent);
+                string svgContent = @"<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
+    <rect width='200' height='200' fill='red' />
+</svg>";
+                File.WriteAllText(svgPath, svgContent);
             }
 
-            SVGDocument document = new SVGDocument(inputPath);
+            // Load the SVG document
+            Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath);
 
-            ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
+            // Configure image save options
+            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
+            options.UseAntialiasing = true;
             options.HorizontalResolution = 72;
             options.VerticalResolution = 72;
-            options.BackgroundColor = Color.Transparent;
-            options.UseAntialiasing = true;
+            options.BackgroundColor = System.Drawing.Color.Transparent;
 
+            // Convert SVG to JPEG
             Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath);
 
-            Console.WriteLine("Conversion completed: " + outputPath);
+            Console.WriteLine($"SVG has been successfully converted to JPEG at '{outputPath}'.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

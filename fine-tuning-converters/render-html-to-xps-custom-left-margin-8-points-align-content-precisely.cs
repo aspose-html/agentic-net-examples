@@ -4,7 +4,7 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
@@ -15,27 +15,25 @@ class Program
             options.BackgroundColor = System.Drawing.Color.White;
 
             var pageSize = new Aspose.Html.Drawing.Size(
-                Aspose.Html.Drawing.Length.FromInches(8),
+                Aspose.Html.Drawing.Length.FromInches(8.5),
                 Aspose.Html.Drawing.Length.FromInches(11));
 
             var margin = new Aspose.Html.Drawing.Margin(
-                Aspose.Html.Drawing.Length.FromPoints(8), // left margin: 8 points
-                Aspose.Html.Drawing.Length.FromPoints(0), // top
-                Aspose.Html.Drawing.Length.FromPoints(0), // right
-                Aspose.Html.Drawing.Length.FromPoints(0)  // bottom
-            );
+                Aspose.Html.Drawing.Length.FromInches(8.0 / 72), // left margin: 8 points
+                Aspose.Html.Drawing.Length.FromInches(0),       // top
+                Aspose.Html.Drawing.Length.FromInches(0),       // right
+                Aspose.Html.Drawing.Length.FromInches(0));      // bottom
 
-            var page = new Aspose.Html.Drawing.Page(pageSize, margin);
-            options.PageSetup.AnyPage = page;
+            options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(pageSize, margin);
 
             string outputPath = "output.xps";
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
 
-            Console.WriteLine("HTML successfully rendered to XPS at: " + outputPath);
+            Console.WriteLine("HTML successfully converted to XPS: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred: " + ex.Message);
+            Console.WriteLine("Error during conversion: " + ex.Message);
         }
     }
 }

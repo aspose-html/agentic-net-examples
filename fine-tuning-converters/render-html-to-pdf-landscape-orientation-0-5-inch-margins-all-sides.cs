@@ -8,21 +8,32 @@ class Program
     {
         try
         {
-            string html = "<html><body><h1>Hello, PDF!</h1></body></html>";
-            var document = new Aspose.Html.HTMLDocument(html, "about:blank");
-            var options = new Aspose.Html.Saving.PdfSaveOptions();
+            // Sample HTML content
+            string html = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
 
-            var size = new Aspose.Html.Drawing.Size(
-                Aspose.Html.Drawing.Length.FromInches(11),
-                Aspose.Html.Drawing.Length.FromInches(8.5));
+            // Create HTML document from inline content
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
 
-            var margin = new Aspose.Html.Drawing.Margin(36, 36, 36, 36);
-            var page = new Aspose.Html.Drawing.Page(size, margin);
+            // Define page size (Landscape A4) and 0.5‑inch margins (36 points)
+            Aspose.Html.Drawing.Size pageSize = new Aspose.Html.Drawing.Size(
+                Aspose.Html.Drawing.Length.FromInches(11.69),
+                Aspose.Html.Drawing.Length.FromInches(8.27));
+
+            Aspose.Html.Drawing.Margin pageMargin = new Aspose.Html.Drawing.Margin(36, 36, 36, 36);
+
+            Aspose.Html.Drawing.Page page = new Aspose.Html.Drawing.Page(pageSize, pageMargin);
+
+            // Set PDF save options with custom page setup
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
             options.PageSetup.AnyPage = page;
 
+            // Output PDF path
             string outputPath = "output.pdf";
+
+            // Convert HTML to PDF
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-            Console.WriteLine("PDF created successfully at " + outputPath);
+
+            Console.WriteLine("PDF successfully created at: " + outputPath);
         }
         catch (Exception ex)
         {

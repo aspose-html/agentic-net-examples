@@ -1,6 +1,8 @@
 // Render HTML to PDF with custom background color set to light gray for subtle visual effect.
 
 using System;
+using System.IO;
+using System.Drawing;
 
 class Program
 {
@@ -8,20 +10,22 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            string htmlContent = "<html><body><h1>Hello, PDF!</h1></body></html>";
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
             Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
             options.BackgroundColor = System.Drawing.Color.LightGray;
-            options.HorizontalResolution = 96;
-            options.VerticalResolution = 96;
+            options.HorizontalResolution = 300;
+            options.VerticalResolution = 300;
 
-            string outputPath = "sample.pdf";
+            string outputPath = "output.pdf";
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+            Console.WriteLine("PDF generated at: " + Path.GetFullPath(outputPath));
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

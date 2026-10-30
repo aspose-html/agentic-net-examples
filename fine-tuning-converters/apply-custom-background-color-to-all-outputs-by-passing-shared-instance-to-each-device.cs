@@ -9,37 +9,35 @@ class Program
     {
         try
         {
-            string html1 = "<html><body><h1>Document 1</h1></body></html>";
-            string html2 = "<html><body><h1>Document 2</h1></body></html>";
-            string html3 = "<html><body><h1>Document 3</h1></body></html>";
+            // Sample HTML contents
+            string html1 = "<html><body><h1>Document 1</h1><p>This is the first document.</p></body></html>";
+            string html2 = "<html><body><h1>Document 2</h1><p>This is the second document.</p></body></html>";
+            string html3 = "<html><body><h1>Document 3</h1><p>This is the third document.</p></body></html>";
             string baseUri = "about:blank";
+            string outputPath = "output.pdf";
 
+            // Create HTML documents from inline content
             Aspose.Html.HTMLDocument document1 = new Aspose.Html.HTMLDocument(html1, baseUri);
             Aspose.Html.HTMLDocument document2 = new Aspose.Html.HTMLDocument(html2, baseUri);
             Aspose.Html.HTMLDocument document3 = new Aspose.Html.HTMLDocument(html3, baseUri);
 
+            // Shared rendering options with custom background color
             Aspose.Html.Rendering.Pdf.PdfRenderingOptions options = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
-            options.BackgroundColor = Color.AliceBlue;
+            options.BackgroundColor = Color.AliceBlue; // Custom background color
 
-            Aspose.Html.Drawing.Size pageSize = new Aspose.Html.Drawing.Size(595, 842);
-            Aspose.Html.Drawing.Page page = new Aspose.Html.Drawing.Page(pageSize);
+            // Page setup (optional)
+            Aspose.Html.Drawing.Size size = new Aspose.Html.Drawing.Size(800, 600);
+            Aspose.Html.Drawing.Page page = new Aspose.Html.Drawing.Page(size);
             options.PageSetup.AnyPage = page;
 
-            string outputPath1 = "output1.pdf";
-            string outputPath2 = "output2.pdf";
-            string outputPath3 = "output3.pdf";
-
-            Aspose.Html.Rendering.Pdf.PdfDevice device1 = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath1);
-            Aspose.Html.Rendering.Pdf.PdfDevice device2 = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath2);
-            Aspose.Html.Rendering.Pdf.PdfDevice device3 = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath3);
-
+            // Create renderer and device using the shared options
             Aspose.Html.Rendering.HtmlRenderer renderer = new Aspose.Html.Rendering.HtmlRenderer();
+            Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath);
 
-            renderer.Render(device1, document1);
-            renderer.Render(device2, document2);
-            renderer.Render(device3, document3);
+            // Render all documents to the same PDF using the shared options
+            renderer.Render(device, document1, document2, document3);
 
-            Console.WriteLine("PDF files generated with custom background color.");
+            Console.WriteLine("PDF generated successfully at: " + outputPath);
         }
         catch (Exception ex)
         {

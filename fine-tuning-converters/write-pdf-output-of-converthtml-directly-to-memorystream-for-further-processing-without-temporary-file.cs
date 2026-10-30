@@ -3,9 +3,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Aspose.Html;
 using Aspose.Html.IO;
-using Aspose.Html.Converters;
 using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
 class CustomStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
@@ -44,11 +45,11 @@ class CustomStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string html = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            string html = "<html><body><h1>Hello, PDF!</h1></body></html>";
             string baseUrl = "about:blank";
 
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, baseUrl);
@@ -62,13 +63,11 @@ class Program
             pdfStream.Position = 0;
 
             byte[] pdfBytes = pdfStream.ToArray();
-            System.Console.WriteLine("PDF generated in memory. Size: " + pdfBytes.Length + " bytes.");
-
-            provider.Dispose();
+            Console.WriteLine("PDF conversion succeeded. Byte size: " + pdfBytes.Length);
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

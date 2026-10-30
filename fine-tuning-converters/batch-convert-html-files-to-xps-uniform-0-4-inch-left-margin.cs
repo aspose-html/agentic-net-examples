@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using System.Drawing;
 
 class Program
 {
@@ -12,15 +13,14 @@ class Program
             string inputFolder = "InputHtml";
             string outputFolder = "OutputXps";
 
-            // Ensure output directory exists
+            Directory.CreateDirectory(inputFolder);
             Directory.CreateDirectory(outputFolder);
 
-            // Create sample input if none exist
+            // Create a sample HTML file if none exist
             if (Directory.GetFiles(inputFolder, "*.html").Length == 0)
             {
-                Directory.CreateDirectory(inputFolder);
                 string samplePath = Path.Combine(inputFolder, "sample.html");
-                File.WriteAllText(samplePath, "<html><body><h1>Sample HTML</h1><p>This is a test.</p></body></html>");
+                File.WriteAllText(samplePath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, World!</h1></body></html>");
             }
 
             foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
@@ -29,28 +29,21 @@ class Program
                 {
                     Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
                     options.BackgroundColor = System.Drawing.Color.White;
+                    options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(
+                        new Aspose.Html.Drawing.Size(
+                            Aspose.Html.Drawing.Length.FromInches(8.5),
+                            Aspose.Html.Drawing.Length.FromInches(11)),
+                        new Aspose.Html.Drawing.Margin(
+                            Aspose.Html.Drawing.Length.FromInches(0.4),
+                            Aspose.Html.Drawing.Length.FromInches(0),
+                            Aspose.Html.Drawing.Length.FromInches(0),
+                            Aspose.Html.Drawing.Length.FromInches(0)));
 
-                    Aspose.Html.Drawing.Size pageSize = new Aspose.Html.Drawing.Size(
-                        Aspose.Html.Drawing.Length.FromInches(8.5),
-                        Aspose.Html.Drawing.Length.FromInches(11));
-
-                    Aspose.Html.Drawing.Margin margin = new Aspose.Html.Drawing.Margin(
-                        Aspose.Html.Drawing.Length.FromInches(0.4), // left margin
-                        Aspose.Html.Drawing.Length.FromInches(0),   // top margin
-                        Aspose.Html.Drawing.Length.FromInches(0),   // right margin
-                        Aspose.Html.Drawing.Length.FromInches(0));  // bottom margin
-
-                    Aspose.Html.Drawing.Page page = new Aspose.Html.Drawing.Page(pageSize, margin);
-                    options.PageSetup.AnyPage = page;
-
-                    string outputPath = Path.Combine(outputFolder,
-                        Path.GetFileNameWithoutExtension(htmlPath) + ".xps");
-
+                    string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".xps");
                     Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                    Console.WriteLine($"Converted '{htmlPath}' to '{outputPath}'.");
                 }
             }
-
-            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {

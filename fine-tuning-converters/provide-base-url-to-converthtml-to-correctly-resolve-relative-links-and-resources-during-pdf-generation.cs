@@ -1,24 +1,26 @@
 // Provide a base URL to ConvertHTML to correctly resolve relative links and resources during PDF generation.
 
-namespace AsposeHtmlExample
+using System;
+
+namespace HTMLToPdfExample
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             try
             {
-                string html = "<html><body><img src='images/pic.png' alt='Sample Image'></body></html>";
-                string baseUrl = "file:///C:/temp/";
+                string html = "<html><head><title>Test</title></head><body><h1>Hello World</h1><img src='images/logo.png' alt='Logo'></body></html>";
+                string baseUrl = "https://example.com/";
                 Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, baseUrl);
                 Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
                 string outputPath = "output.pdf";
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-                System.Console.WriteLine("PDF generated successfully at " + outputPath);
+                Console.WriteLine("PDF generated successfully at " + outputPath);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                System.Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
     }

@@ -1,6 +1,12 @@
 // Batch convert HTML files to JPG, logging each file's resolution and background color settings for audit.
 
 using System;
+using System.IO;
+using System.Drawing;
+using Aspose.Html;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -8,45 +14,49 @@ class Program
     {
         try
         {
-            string inputFolder = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "InputHtml");
-            string outputFolder = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "OutputJpg");
-            System.IO.Directory.CreateDirectory(inputFolder);
-            System.IO.Directory.CreateDirectory(outputFolder);
+            // Prepare output directory
+            string outputDir = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "output");
+            System.IO.Directory.CreateDirectory(outputDir);
 
-            // Create sample HTML files if none exist
-            string[] sampleFiles = new string[] { "sample1.html", "sample2.html" };
-            foreach (string fileName in sampleFiles)
+            // Input files
+            string[] inputs = new string[] { "sample1.html", "sample2.html" };
+
+            // Ensure sample input files exist
+            for (int i = 0; i < inputs.Length; i++)
             {
-                string filePath = System.IO.Path.Combine(inputFolder, fileName);
-                if (!System.IO.File.Exists(filePath))
+                string path = inputs[i];
+                if (!System.IO.File.Exists(path))
                 {
-                    string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>" + fileName + "</h1></body></html>";
-                    System.IO.File.WriteAllText(filePath, htmlContent);
+                    System.IO.File.WriteAllText(path, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Sample " + (i + 1) + "</h1></body></html>");
                 }
             }
 
-            foreach (string htmlPath in System.IO.Directory.GetFiles(inputFolder, "*.html"))
+            // Process each file
+            for (int i = 0; i < inputs.Length; i++)
             {
-                using (var document = new Aspose.Html.HTMLDocument(htmlPath))
+                string inputPath = inputs[i];
+
+                using (var document = new Aspose.Html.HTMLDocument(inputPath, System.IO.Directory.GetCurrentDirectory()))
                 {
+                    // Configure image options
                     var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
                     options.HorizontalResolution = 300;
                     options.VerticalResolution = 300;
                     options.BackgroundColor = System.Drawing.Color.Beige;
 
-                    string outputPath = System.IO.Path.Combine(outputFolder,
-                        System.IO.Path.GetFileNameWithoutExtension(htmlPath) + ".jpg");
+                    string outputPath = System.IO.Path.Combine(outputDir, System.IO.Path.GetFileNameWithoutExtension(inputPath) + ".jpg");
 
+                    // Convert
                     Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
 
-                    Console.WriteLine($"Converted '{htmlPath}' to '{outputPath}'.");
-                    Console.WriteLine($"Resolution: {options.HorizontalResolution}x{options.VerticalResolution} DPI, BackgroundColor: {options.BackgroundColor}");
+                    // Log audit information
+                    System.Console.WriteLine($"Converted '{inputPath}' to '{outputPath}'. Resolution: {options.HorizontalResolution}x{options.VerticalResolution} DPI, BackgroundColor: {options.BackgroundColor.Name}");
                 }
             }
         }
         catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
