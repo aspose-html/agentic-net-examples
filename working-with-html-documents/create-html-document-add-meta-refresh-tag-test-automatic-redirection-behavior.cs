@@ -3,7 +3,6 @@
 using System;
 using System.IO;
 using System.Threading;
-using Aspose.Html;
 
 class Program
 {
@@ -11,39 +10,69 @@ class Program
     {
         try
         {
-            // Create target page (page2.html)
-            string page2Path = Path.Combine(Path.GetTempPath(), "page2.html");
-            string page2Content = "<html><body><h1>Redirected Page</h1></body></html>";
-            File.WriteAllText(page2Path, page2Content);
-
-            // Create source page with meta refresh to page2.html
-            string page1Path = Path.Combine(Path.GetTempPath(), "page1.html");
-            string page1Content = $"<html><head><meta http-equiv=\"refresh\" content=\"0;url={page2Path}\"></head><body>Redirecting...</body></html>";
-            File.WriteAllText(page1Path, page1Content);
-
-            using (AutoResetEvent resetEvent = new AutoResetEvent(false))
-            using (HTMLDocument document = new HTMLDocument())
+            // Create HTML document and add a meta refresh tag
+            string filePath = "redirect.html";
+            using (Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument())
             {
-                string htmlResult = string.Empty;
-                document.OnReadyStateChange += (sender, e) =>
+                // Ensure <html> element exists
+                Aspose.Html.Dom.Element htmlElem = doc.DocumentElement;
+                if (htmlElem == null)
                 {
-                    if (document.ReadyState == "complete")
+                    htmlElem = doc.CreateElement("html");
+                    doc.AppendChild(htmlElem);
+                }
+
+                // Get or create <head>
+                Aspose.Html.Collections.HTMLCollection headCollection = doc.GetElementsByTagName("head");
+                Aspose.Html.Dom.Element head = headCollection.Length > 0 ? (Aspose.Html.Dom.Element)headCollection[0] : null;
+                if (head == null)
+                {
+                    head = doc.CreateElement("head");
+                    htmlElem.AppendChild(head);
+                }
+
+                // Create meta refresh element
+                Aspose.Html.Dom.Element meta = doc.CreateElement("meta");
+                meta.SetAttribute("http-equiv", "refresh");
+                meta.SetAttribute("content", "0;url=https://example.com");
+                head.AppendChild(meta);
+
+                // Get or create <body>
+                Aspose.Html.Collections.HTMLCollection bodyCollection = doc.GetElementsByTagName("body");
+                Aspose.Html.Dom.Element body = bodyCollection.Length > 0 ? (Aspose.Html.Dom.Element)bodyCollection[0] : null;
+                if (body == null)
+                {
+                    body = doc.CreateElement("body");
+                    htmlElem.AppendChild(body);
+                }
+                body.TextContent = "Redirecting...";
+
+                // Save the document to a file
+                doc.Save(filePath);
+            }
+
+            // Navigate to the saved document to test automatic redirection
+            using (System.Threading.AutoResetEvent resetEvent = new System.Threading.AutoResetEvent(false))
+            using (Aspose.Html.HTMLDocument navDoc = new Aspose.Html.HTMLDocument())
+            {
+                string result = string.Empty;
+                navDoc.OnReadyStateChange += (sender, e) =>
+                {
+                    if (navDoc.ReadyState == "complete")
                     {
-                        htmlResult = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                        result = navDoc.DocumentElement != null ? navDoc.DocumentElement.OuterHTML : string.Empty;
                         resetEvent.Set();
                     }
                 };
-
-                document.Navigate(page1Path);
+                navDoc.Navigate(filePath);
                 resetEvent.WaitOne();
-
-                Console.WriteLine("Final document HTML after redirection:");
-                Console.WriteLine(htmlResult);
+                System.Console.WriteLine("Navigated document outer HTML:");
+                System.Console.WriteLine(result);
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

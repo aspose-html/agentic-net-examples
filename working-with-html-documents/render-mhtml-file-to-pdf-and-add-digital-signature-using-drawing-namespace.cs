@@ -1,35 +1,47 @@
 // Render an MHTML file to PDF and add a digital signature using the drawing namespace.
 
+using System;
+using System.IO;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
+
 class Program
 {
     static void Main()
     {
         try
         {
-            string inputPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "sample.mht");
-            string outputPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "result.pdf");
+            // Define input MHTML and output PDF paths
+            string inputPath = Path.Combine(Directory.GetCurrentDirectory(), "sample.mhtml");
+            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "result.pdf");
 
-            if (!System.IO.File.Exists(inputPath))
+            // Create a minimal MHTML file if it does not exist
+            if (!File.Exists(inputPath))
             {
-                System.IO.File.WriteAllText(inputPath, "<html><body><h1>Sample MHTML</h1></body></html>");
+                string htmlContent = "<html><body><h1>Sample Document</h1></body></html>";
+                File.WriteAllText(inputPath, htmlContent);
             }
 
-            using (System.IO.FileStream stream = System.IO.File.OpenRead(inputPath))
+            // Open the MHTML file as a stream
+            using (FileStream stream = File.OpenRead(inputPath))
             {
-                Aspose.Html.Rendering.Pdf.PdfRenderingOptions options = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
-                options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(new Aspose.Html.Drawing.Size(595, 842));
-                options.BackgroundColor = System.Drawing.Color.White;
+                // Set PDF save options (flatten form fields as an example)
+                PdfSaveOptions options = new PdfSaveOptions
+                {
+                    FormFieldBehaviour = Aspose.Html.Rendering.Pdf.FormFieldBehaviour.Flattened
+                };
 
-                Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath);
-                Aspose.Html.Rendering.MhtmlRenderer renderer = new Aspose.Html.Rendering.MhtmlRenderer();
-                renderer.Render(device, stream);
+                // Convert MHTML to PDF
+                Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
             }
 
-            System.Console.WriteLine("MHTML rendered to PDF successfully.");
+            Console.WriteLine("MHTML has been successfully rendered to PDF at:");
+            Console.WriteLine(outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred:");
+            Console.WriteLine(ex.Message);
         }
     }
 }

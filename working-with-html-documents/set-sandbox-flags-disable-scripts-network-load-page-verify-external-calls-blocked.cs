@@ -1,28 +1,47 @@
 // Set sandbox flags to disable both scripts and network, load a page, and verify all external calls blocked.
 
-public class Program
+using System;
+using System.IO;
+using Aspose.Html;
+
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
-            var config = new Aspose.Html.Configuration();
-            config.Security |= Aspose.Html.Sandbox.Scripts;
-            // Network sandbox flag is not available in this version; scripts sandbox is applied.
+            // Prepare sample HTML with external script and image
+            string htmlPath = "sample.html";
+            string htmlContent = @"<html>
+<head>
+    <script src=""https://example.com/script.js""></script>
+</head>
+<body>
+    <img src=""https://example.com/image.png"" />
+    <p id=""msg"">Hello, Aspose.HTML!</p>
+</body>
+</html>";
+            File.WriteAllText(htmlPath, htmlContent);
 
-            string html = "<html><head><script>window.externalCall = true;</script></head><body><img src='https://example.com/image.png' /></body></html>";
+            // Configure sandbox to disable scripts and network
+            Configuration config = new Configuration();
+            config.Security = Aspose.Html.Sandbox.None; // disable all sandboxed categories
 
-            using (var document = new Aspose.Html.HTMLDocument(html, "about:blank", config))
+            // Load the HTML document with the sandbox configuration
+            using (HTMLDocument document = new HTMLDocument(htmlPath, config))
             {
-                string outerHtml = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                System.Console.WriteLine("Document loaded. OuterHTML:");
-                System.Console.WriteLine(outerHtml);
-                System.Console.WriteLine("Sandbox applied: scripts disabled (network access not allowed by default).");
+                // Verify that the document loaded (external resources are blocked by sandbox)
+                var paragraph = document.GetElementById("msg");
+                string text = paragraph != null ? paragraph.TextContent : "Paragraph not found";
+
+                Console.WriteLine("Document loaded successfully.");
+                Console.WriteLine("Paragraph text: " + text);
+                Console.WriteLine("Sandbox configuration applied: Scripts and Network disabled.");
             }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

@@ -2,9 +2,9 @@
 
 using System;
 
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
@@ -13,17 +13,17 @@ public class Program
             request.Timeout = System.TimeSpan.FromSeconds(10);
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request);
             string html = ((Aspose.Html.HTMLElement)document.DocumentElement).OuterHTML;
-            System.Console.WriteLine(html);
+            Console.WriteLine(html);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            if (ex.Message.Contains("timed out"))
+            if (ex.Message.Contains("timeout"))
             {
-                System.Console.WriteLine("Network timeout occurred while loading the HTML document.");
+                Console.WriteLine("Network timeout occurred.");
             }
             else
             {
-                System.Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }

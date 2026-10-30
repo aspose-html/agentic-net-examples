@@ -1,25 +1,24 @@
 // Use Unit.GetValue to retrieve inch measurements from pixel counts for precise ruler drawing.
 
-using System;
-
 class Program
 {
     static void Main()
     {
         try
         {
-            double pixelCount = 300.0;
-            double inches = pixelCount / 96.0;
-            Console.WriteLine($"Pixel count: {pixelCount} => Inches: {inches:F4}");
+            double pixelCount = 192.0;
+            double inches = Aspose.Html.Drawing.Unit.FromPixels(pixelCount).GetValue(Aspose.Html.Drawing.UnitType.In);
+            System.Console.WriteLine($"Pixel count: {pixelCount} => Inches: {inches:F4}");
 
-            string htmlContent = $"<!DOCTYPE html><html><body><div style='width:{inches}in; height:0.2in; background:#000;'></div></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            document.Save("ruler.html");
-            Console.WriteLine("Ruler HTML saved to ruler.html");
+            double widthPixels = 800;
+            double heightPixels = 600;
+            double widthInches = Aspose.Html.Drawing.Unit.FromPixels(widthPixels).GetValue(Aspose.Html.Drawing.UnitType.In);
+            double heightInches = Aspose.Html.Drawing.Unit.FromPixels(heightPixels).GetValue(Aspose.Html.Drawing.UnitType.In);
+            System.Console.WriteLine($"Width: {widthPixels} px = {widthInches:F4} in, Height: {heightPixels} px = {heightInches:F4} in");
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

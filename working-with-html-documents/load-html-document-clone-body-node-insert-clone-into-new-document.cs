@@ -1,6 +1,10 @@
 // Load an HTML document, clone its body node, and insert the clone into a new document.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -8,40 +12,38 @@ class Program
     {
         try
         {
-            // Define file paths
+            // Prepare sample input HTML file
             string inputPath = "input.html";
-            string outputPath = "output.html";
+            string originalOutputPath = "original.html";
+            string clonedOutputPath = "cloned.html";
 
-            // Create a minimal sample HTML file if it does not exist
-            if (!System.IO.File.Exists(inputPath))
+            if (!File.Exists(inputPath))
             {
                 string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello World</p></body></html>";
-                System.IO.File.WriteAllText(inputPath, sampleHtml);
+                File.WriteAllText(inputPath, sampleHtml);
             }
 
-            // Load the source HTML document
-            Aspose.Html.HTMLDocument srcDoc = new Aspose.Html.HTMLDocument(inputPath);
+            // Load the original HTML document
+            HTMLDocument document = new HTMLDocument(inputPath);
+            document.Save(originalOutputPath);
 
-            // Get the <body> element from the source document
-            Aspose.Html.HTMLElement srcBody = (Aspose.Html.HTMLElement)srcDoc.GetElementsByTagName("body")[0];
+            // Access the body element
+            HTMLCollection bodyCollection = document.GetElementsByTagName("body");
+            HTMLElement body = (HTMLElement)bodyCollection[0];
 
             // Clone the body node (deep clone)
-            Aspose.Html.Dom.Node clonedBody = srcBody.CloneNode(true);
+            HTMLElement clonedBody = (HTMLElement)body.CloneNode(true);
 
             // Create a new empty HTML document
-            Aspose.Html.HTMLDocument newDoc = new Aspose.Html.HTMLDocument();
+            HTMLDocument newDocument = new HTMLDocument();
 
-            // Remove the default body from the new document
-            Aspose.Html.HTMLElement defaultBody = newDoc.Body;
-            defaultBody.ParentNode.RemoveChild(defaultBody);
+            // Insert the cloned body into the new document
+            newDocument.Body.AppendChild(clonedBody);
 
-            // Append the cloned body to the new document's <html> element
-            newDoc.DocumentElement.AppendChild(clonedBody);
-
-            // Save the new document to a file
-            newDoc.Save(outputPath);
+            // Save the new document
+            newDocument.Save(clonedOutputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
             System.Console.WriteLine(ex.Message);
         }

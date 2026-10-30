@@ -6,7 +6,7 @@ using Aspose.Html;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
@@ -14,17 +14,16 @@ class Program
 
             if (!File.Exists(inputPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello World</h1></body></html>";
-                File.WriteAllText(inputPath, sampleHtml);
+                string sampleContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+                File.WriteAllText(inputPath, sampleContent);
             }
 
-            using (HTMLDocument document = new HTMLDocument(inputPath))
-            {
-                string htmlContent = document.DocumentElement.OuterHTML;
-                Console.WriteLine(htmlContent);
-            }
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            string htmlContent = document.DocumentElement.OuterHTML;
+            Console.WriteLine(htmlContent);
+            document.Dispose();
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
             Console.WriteLine(ex.Message);
         }

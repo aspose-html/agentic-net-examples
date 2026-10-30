@@ -1,6 +1,12 @@
 // Render HTML to XPS format with embedded fonts by registering custom font folder first.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html;
+using Aspose.Html.Services;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -8,23 +14,21 @@ class Program
     {
         try
         {
-            // Prepare directories
-            string baseDir = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Data");
-            System.IO.Directory.CreateDirectory(baseDir);
+            // Prepare sample HTML file
+            string currentDir = Directory.GetCurrentDirectory();
+            string htmlPath = Path.Combine(currentDir, "sample.html");
+            string htmlContent = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>Sample</title></head><body><p style=\"font-family: 'CustomFont'; font-size:24px;\">Hello, Aspose HTML with custom font!</p></body></html>";
+            File.WriteAllText(htmlPath, htmlContent);
 
-            // Create sample HTML file
-            string htmlPath = System.IO.Path.Combine(baseDir, "sample.html");
-            string htmlContent = "<!DOCTYPE html><html><head><meta charset='utf-8'><title>Test</title></head><body><p style='font-family: \"CustomFont\";'>Hello, XPS with embedded fonts!</p></body></html>";
-            System.IO.File.WriteAllText(htmlPath, htmlContent);
+            // Prepare custom fonts folder (ensure it exists)
+            string fontsFolder = Path.Combine(currentDir, "fonts");
+            Directory.CreateDirectory(fontsFolder);
+            // Note: Add your custom font files to the 'fonts' folder as needed.
 
-            // Create custom fonts folder (populate with fonts as needed)
-            string fontFolder = System.IO.Path.Combine(baseDir, "fonts");
-            System.IO.Directory.CreateDirectory(fontFolder);
-
-            // Configure Aspose.HTML and register custom fonts folder with embedding enabled
+            // Configure Aspose.HTML with custom fonts lookup folder
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.IUserAgentService service = (Aspose.Html.Services.IUserAgentService)configuration.GetService(typeof(Aspose.Html.Services.IUserAgentService));
-            service.FontsSettings.SetFontsLookupFolder(fontFolder, true);
+            Aspose.Html.Services.IUserAgentService userAgentService = (Aspose.Html.Services.IUserAgentService)configuration.GetService(typeof(Aspose.Html.Services.IUserAgentService));
+            userAgentService.FontsSettings.SetFontsLookupFolder(fontsFolder, true);
 
             // Load HTML document with the configuration
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration);
@@ -32,17 +36,17 @@ class Program
             // Set XPS save options
             Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
 
-            // Define output path
-            string outputPath = System.IO.Path.Combine(baseDir, "output.xps");
+            // Define output XPS file path
+            string outputPath = Path.Combine(currentDir, "output.xps");
 
-            // Convert HTML to XPS
+            // Convert HTML to XPS with embedded fonts
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
 
-            Console.WriteLine("XPS file saved to: " + outputPath);
+            Console.WriteLine("Conversion completed successfully. Output saved to: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

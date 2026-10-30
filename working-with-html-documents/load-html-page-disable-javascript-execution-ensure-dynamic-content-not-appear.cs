@@ -9,16 +9,20 @@ class Program
     {
         try
         {
+            // Create a sample HTML file containing JavaScript that adds dynamic content
             string inputPath = "sample.html";
-            File.WriteAllText(inputPath, "<html><body><div id='content'>Original</div><script>document.getElementById('content').innerText='Modified';</script></body></html>");
+            string htmlContent = "<!DOCTYPE html><html><head><script>document.addEventListener('DOMContentLoaded',function(){var p=document.createElement('p');p.textContent='Dynamic content';document.body.appendChild(p);});</script></head><body><p>Static content</p></body></html>";
+            File.WriteAllText(inputPath, htmlContent);
 
-            Aspose.Html.Configuration config = new Aspose.Html.Configuration();
-            config.Security |= Aspose.Html.Sandbox.Scripts;
+            // Configure Aspose.HTML to disable script execution
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            configuration.Security = Aspose.Html.Sandbox.None; // disable all sandbox features, including scripts
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath, config))
+            // Load the HTML document with the security configuration
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath, configuration))
             {
-                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                Console.WriteLine(html);
+                string result = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                Console.WriteLine(result);
             }
         }
         catch (Exception ex)

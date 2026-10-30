@@ -2,27 +2,25 @@
 
 using System;
 
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
+            // Define pixel values
             double widthPixels = 800;
             double heightPixels = 600;
-            const double ppi = 96.0;
 
-            double widthInches = widthPixels / ppi;
-            double heightInches = heightPixels / ppi;
+            // Convert pixels to centimeters using Unit.GetValue
+            double widthCentimeters = Aspose.Html.Drawing.Unit.FromPixels(widthPixels)
+                .GetValue(Aspose.Html.Drawing.UnitType.Cm);
+            double heightCentimeters = Aspose.Html.Drawing.Unit.FromPixels(heightPixels)
+                .GetValue(Aspose.Html.Drawing.UnitType.Cm);
 
-            double widthCentimeters = widthInches * 2.54;
-            double heightCentimeters = heightInches * 2.54;
-
-            System.Console.WriteLine($"Width: {widthPixels}px = {widthCentimeters:F2}cm");
-            System.Console.WriteLine($"Height: {heightPixels}px = {heightCentimeters:F2}cm");
-
-            string mediaQuery = $"@media (min-width: {widthCentimeters:F2}cm) and (min-height: {heightCentimeters:F2}cm) {{ /* CSS rules */ }}";
-            System.Console.WriteLine(mediaQuery);
+            // Output results
+            System.Console.WriteLine($"Width: {widthPixels} px = {widthCentimeters:F2} cm");
+            System.Console.WriteLine($"Height: {heightPixels} px = {heightCentimeters:F2} cm");
         }
         catch (Exception ex)
         {

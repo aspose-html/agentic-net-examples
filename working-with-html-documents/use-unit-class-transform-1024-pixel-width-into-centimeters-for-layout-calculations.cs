@@ -8,15 +8,14 @@ class Program
     {
         try
         {
-            double widthPixels = 1024;
-            const double ppi = 96.0;
-            double widthInches = widthPixels / ppi;
-            double widthCentimeters = widthInches * 2.54;
-            Console.WriteLine($"Width: {widthPixels} px = {widthCentimeters:F2} cm");
+            double widthPixels = 1024.0;
+            Aspose.Html.Drawing.Length length = Aspose.Html.Drawing.Unit.FromPixels(widthPixels);
+            double widthCentimeters = length.GetValue(Aspose.Html.Drawing.UnitType.Cm);
+            System.Console.WriteLine($"Width: {widthPixels} px = {widthCentimeters:F2} cm");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

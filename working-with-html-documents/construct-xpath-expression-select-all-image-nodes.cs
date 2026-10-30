@@ -8,19 +8,26 @@ class Program
     {
         try
         {
-            string html = "<html><body><img src='image1.png'/><p>Text</p><img src='image2.jpg'/></body></html>";
-            Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(html, "about:blank");
-            Aspose.Html.Dom.XPath.IXPathResult result = doc.Evaluate("//img", doc, doc.CreateNSResolver(doc), Aspose.Html.Dom.XPath.XPathResultType.Any, null);
+            string html = "<html><body><img src='image1.png'/><p>Sample text</p><img src='image2.jpg'/></body></html>";
+            var doc = new Aspose.Html.HTMLDocument(html, "about:blank");
+
+            var result = doc.Evaluate(
+                "//img",
+                doc,
+                doc.CreateNSResolver(doc),
+                Aspose.Html.Dom.XPath.XPathResultType.Any,
+                null);
+
             Aspose.Html.Dom.Node node;
             while ((node = result.IterateNext()) != null)
             {
-                Aspose.Html.HTMLImageElement img = (Aspose.Html.HTMLImageElement)node;
-                Console.WriteLine(img.Src);
+                var img = (Aspose.Html.HTMLImageElement)node;
+                System.Console.WriteLine(img.Src);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

@@ -1,78 +1,63 @@
 // Load an HTML page, extract its favicon URL, download the icon to local storage.
 
 using System;
-using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
-using Aspose.Html.Net;
 
 class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
         try
         {
-            // Define paths
-            string inputPath = "sample.html";
+            string pageUrl = "https://example.com";
             string outputDir = "output";
-            // Ensure output directory exists
             System.IO.Directory.CreateDirectory(outputDir);
-            // Create a minimal HTML file with a favicon link if it does not exist
-            if (!System.IO.File.Exists(inputPath))
-            {
-                string htmlContent = "<html><head><link rel=\"icon\" href=\"https://www.google.com/favicon.ico\" /></head><body></body></html>";
-                System.IO.File.WriteAllText(inputPath, htmlContent);
-            }
 
-            // Load the HTML document
-            using (HTMLDocument document = new HTMLDocument(inputPath))
-            using (HttpClient httpClient = new HttpClient())
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(pageUrl))
             {
-                // Find link elements that define a favicon
-                HTMLCollection links = document.GetElementsByTagName("link");
-                string faviconUrlString = null;
+                Aspose.Html.Collections.HTMLCollection links = document.GetElementsByTagName("link");
+                string faviconUrl = null;
 
                 for (int i = 0; i < links.Length; i++)
                 {
-                    Element linkElement = (Element)links[i];
+                    Aspose.Html.Dom.Element linkElement = (Aspose.Html.Dom.Element)links[i];
                     string rel = linkElement.GetAttribute("rel");
-                    if (string.IsNullOrEmpty(rel) || !rel.ToLowerInvariant().Contains("icon"))
+                    if (string.IsNullOrEmpty(rel))
                         continue;
 
-                    string href = linkElement.GetAttribute("href");
-                    if (string.IsNullOrEmpty(href))
-                        continue;
-
-                    // Resolve the URL against the document's base URI
-                    Url resolvedUrl = new Url(href, document.BaseURI);
-                    faviconUrlString = resolvedUrl.ToString();
-                    break; // Use the first found favicon
+                    if (rel.IndexOf("icon", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        string href = linkElement.GetAttribute("href");
+                        if (!string.IsNullOrEmpty(href))
+                        {
+                            Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(href, document.BaseURI);
+                            faviconUrl = resolvedUrl.ToString();
+                            break;
+                        }
+                    }
                 }
 
-                if (string.IsNullOrEmpty(faviconUrlString))
+                if (faviconUrl == null)
                 {
-                    Console.WriteLine("Favicon not found in the HTML document.");
+                    System.Console.WriteLine("Favicon not found.");
                     return;
                 }
 
-                // Download the favicon
-                byte[] iconBytes = await httpClient.GetByteArrayAsync(faviconUrlString);
-                string fileName = System.IO.Path.GetFileName(faviconUrlString);
-                if (string.IsNullOrEmpty(fileName))
+                using (System.Net.Http.HttpClient httpClient = new System.Net.Http.HttpClient())
                 {
-                    fileName = "favicon.ico";
+                    byte[] iconBytes = httpClient.GetByteArrayAsync(faviconUrl).GetAwaiter().GetResult();
+                    string fileName = System.IO.Path.GetFileName(new System.Uri(faviconUrl).AbsolutePath);
+                    if (string.IsNullOrEmpty(fileName))
+                        fileName = "favicon.ico";
+
+                    string savePath = System.IO.Path.Combine(outputDir, fileName);
+                    System.IO.File.WriteAllBytes(savePath, iconBytes);
+                    System.Console.WriteLine($"Favicon saved to {savePath}");
                 }
-                string savePath = System.IO.Path.Combine(outputDir, fileName);
-                System.IO.File.WriteAllBytes(savePath, iconBytes);
-                Console.WriteLine($"Favicon saved to: {savePath}");
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

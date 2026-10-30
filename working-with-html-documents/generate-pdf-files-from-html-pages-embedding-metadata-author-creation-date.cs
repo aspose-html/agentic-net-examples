@@ -4,26 +4,16 @@ using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            string inputPath = "sample.html";
-            string outputPath = "output.pdf";
-
-            if (!System.IO.File.Exists(inputPath))
-            {
-                System.IO.File.WriteAllText(inputPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
-            }
-
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            string htmlContent = "<html><head><title>Sample</title></head><body><h1>Hello World</h1></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
             Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-
+            string outputPath = "sample.pdf";
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-
-            document.Dispose();
-
-            Console.WriteLine("PDF generated successfully at " + outputPath);
+            Console.WriteLine("PDF saved to " + outputPath);
         }
         catch (Exception ex)
         {

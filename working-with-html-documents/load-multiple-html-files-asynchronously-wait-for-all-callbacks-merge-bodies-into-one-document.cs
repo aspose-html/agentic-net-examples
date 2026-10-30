@@ -1,51 +1,61 @@
 // Load multiple HTML files asynchronously, wait for all callbacks, and merge their bodies into one document.
 
 using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 class Program
 {
-    static async Task Main(string[] args)
+    static void Main()
     {
         try
         {
+            // Define input HTML files
             string[] inputFiles = new string[] { "input1.html", "input2.html" };
-            string outputPath = "merged.html";
 
-            // Create sample input files if they do not exist
-            if (!File.Exists(inputFiles[0]))
-                File.WriteAllText(inputFiles[0], "<html><body><p>First file content.</p></body></html>");
-            if (!File.Exists(inputFiles[1]))
-                File.WriteAllText(inputFiles[1], "<html><body><p>Second file content.</p></body></html>");
-
-            using (var mergedDocument = new Aspose.Html.HTMLDocument())
+            // Create minimal sample files if they do not exist
+            foreach (string filePath in inputFiles)
             {
-                var loadTasks = inputFiles.Select(async filePath =>
+                if (!System.IO.File.Exists(filePath))
                 {
-                    if (!File.Exists(filePath))
-                        return;
+                    string sampleContent = "<html><head><title>Sample</title></head><body><p>Content from " + filePath + "</p></body></html>";
+                    System.IO.File.WriteAllText(filePath, sampleContent);
+                }
+            }
 
-                    using (var sourceDocument = new Aspose.Html.HTMLDocument(filePath))
+            // Load documents asynchronously
+            var loadTasks = new System.Collections.Generic.List<System.Threading.Tasks.Task<Aspose.Html.HTMLDocument>>();
+            foreach (string filePath in inputFiles)
+            {
+                var task = System.Threading.Tasks.Task.Run(() =>
+                {
+                    return new Aspose.Html.HTMLDocument(filePath);
+                });
+                loadTasks.Add(task);
+            }
+
+            System.Threading.Tasks.Task.WaitAll(loadTasks.ToArray());
+
+            // Merge bodies into a single document
+            using (Aspose.Html.HTMLDocument mergedDocument = new Aspose.Html.HTMLDocument())
+            {
+                foreach (var loadTask in loadTasks)
+                {
+                    using (Aspose.Html.HTMLDocument sourceDocument = loadTask.Result)
                     {
-                        var container = mergedDocument.CreateElement("div");
-                        var htmlContainer = (Aspose.Html.HTMLElement)container;
-                        var body = sourceDocument.Body;
-                        htmlContainer.InnerHTML = body != null ? body.InnerHTML : string.Empty;
-                        mergedDocument.Body.AppendChild(container);
+                        Aspose.Html.Dom.Element container = mergedDocument.CreateElement("div");
+                        Aspose.Html.HTMLElement htmlContainer = (Aspose.Html.HTMLElement)container;
+                        htmlContainer.InnerHTML = sourceDocument.Body != null ? sourceDocument.Body.InnerHTML : string.Empty;
+                        mergedDocument.Body.AppendChild(htmlContainer);
                     }
-                }).ToArray();
+                }
 
-                await Task.WhenAll(loadTasks);
-
+                string outputPath = "merged.html";
                 mergedDocument.Save(outputPath);
-                Console.WriteLine($"Merged document saved to {outputPath}");
+                Console.WriteLine("Merged document saved to " + outputPath);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

@@ -1,33 +1,34 @@
 // Load an HTML file, compress its whitespace, and write the minified version to disk.
 
-using System;
-using System.IO;
-
-class Program
+namespace AsposeHtmlMinifyExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main()
         {
-            string inputPath = "input.html";
-            string outputPath = "output.min.html";
-
-            // Create a minimal sample HTML file if it does not exist
-            if (!File.Exists(inputPath))
+            try
             {
-                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>   Hello   World!   </h1><p>   This is   a   test.   </p></body></html>";
-                File.WriteAllText(inputPath, sampleHtml);
+                string inputPath = "input.html";
+                string outputPath = "output.min.html";
+
+                if (!System.IO.File.Exists(inputPath))
+                {
+                    string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello World</h1>   <p>   This is a   sample.</p></body></html>";
+                    System.IO.File.WriteAllText(inputPath, sampleHtml);
+                }
+
+                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+
+                Aspose.Html.Saving.HTMLSaveOptions options = new Aspose.Html.Saving.HTMLSaveOptions();
+
+                document.Save(outputPath, options);
+
+                System.Console.WriteLine("HTML saved to: " + outputPath);
             }
-
-            // Load the HTML document from file
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
-
-            // Save the minified version to disk
-            document.Save(outputPath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 // Set runtime configuration to limit JavaScript execution time, load a script‑heavy page, and observe timeout.
 
 using System;
+using Aspose.Html;
+using Aspose.Html.Services;
 
 class Program
 {
@@ -8,23 +10,30 @@ class Program
     {
         try
         {
-            // Configure security to allow script execution
-            var configuration = new Aspose.Html.Configuration();
+            // Create configuration and enable script execution
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             configuration.Security |= Aspose.Html.Sandbox.Scripts;
 
-            // Sample HTML with a simple script
-            string html = "<!DOCTYPE html><html><head><script>console.log('test');</script></head><body>Sample Content</body></html>";
+            // Set JavaScript execution timeout
+            IRuntimeService runtime = configuration.GetService<IRuntimeService>();
+            if (runtime != null)
+            {
+                runtime.JavaScriptTimeout = TimeSpan.FromSeconds(2);
+            }
 
-            // Load the HTML content with a base URI; the configuration is applied
-            using (var document = new Aspose.Html.HTMLDocument(html, "about:blank", configuration))
+            // Sample HTML with a long‑running script
+            string html = "<html><head><script>var start = Date.now(); while (Date.now() - start < 5000) {} </script></head><body><p>Page loaded after script.</p></body></html>";
+
+            // Load the document with the configuration
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank", configuration))
             {
                 string text = document.DocumentElement != null ? document.DocumentElement.TextContent : string.Empty;
-                System.Console.WriteLine(text);
+                Console.WriteLine(text);
             }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

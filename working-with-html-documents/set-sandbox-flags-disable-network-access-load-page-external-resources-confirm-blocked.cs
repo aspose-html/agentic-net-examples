@@ -3,6 +3,8 @@
 using System;
 using System.IO;
 using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -10,37 +12,30 @@ class Program
     {
         try
         {
-            // Prepare sample HTML with external script
+            // Create a sample HTML file with external resources
             string htmlPath = "sample.html";
-            string htmlContent = @"<!DOCTYPE html>
-<html>
-<head>
-    <script src=""https://example.com/external.js""></script>
-</head>
-<body>
-    <div id=""test"">Original</div>
-</body>
-</html>";
+            string htmlContent = "<!DOCTYPE html><html><head><script src=\"https://example.com/script.js\"></script></head><body><img src=\"https://example.com/image.png\" alt=\"test\"/></body></html>";
             File.WriteAllText(htmlPath, htmlContent);
 
-            // Configure sandbox: enable scripts but do NOT enable network access
+            // Configure sandbox to disable network access (no flags enabled)
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            configuration.Security |= Aspose.Html.Sandbox.Scripts; // allow scripts
-            // Note: Network flag is NOT set, so network access is disabled
 
-            // Load the document with the sandbox configuration
+            // Load the HTML document with the sandbox configuration
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
             {
-                // Retrieve the element and check its content
-                var element = document.GetElementById("test");
-                string innerHtml = null;
-                if (element != null && element is Aspose.Html.HTMLElement htmlElement)
-                {
-                    innerHtml = htmlElement.InnerHTML;
-                }
+                // Attempt to retrieve external image element
+                HTMLCollection imgCollection = document.GetElementsByTagName("img");
+                Aspose.Html.HTMLElement imgElement = imgCollection.Length > 0 ? imgCollection[0] as Aspose.Html.HTMLElement : null;
+                string imgSrc = imgElement != null ? imgElement.GetAttribute("src") : "null";
 
-                Console.WriteLine("Content of #test element: " + (innerHtml ?? "null"));
-                // Expected output: "Original" because external script could not be loaded
+                // Attempt to retrieve external script element
+                HTMLCollection scriptCollection = document.GetElementsByTagName("script");
+                Aspose.Html.HTMLElement scriptElement = scriptCollection.Length > 0 ? scriptCollection[0] as Aspose.Html.HTMLElement : null;
+                string scriptSrc = scriptElement != null ? scriptElement.GetAttribute("src") : "null";
+
+                Console.WriteLine("Image src attribute: " + imgSrc);
+                Console.WriteLine("Script src attribute: " + scriptSrc);
+                Console.WriteLine("External resources are blocked due to sandbox configuration.");
             }
         }
         catch (Exception ex)

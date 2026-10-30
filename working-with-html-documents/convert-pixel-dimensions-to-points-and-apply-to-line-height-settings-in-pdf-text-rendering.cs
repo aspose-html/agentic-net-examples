@@ -8,20 +8,32 @@ class Program
     {
         try
         {
+            // Define pixel value for line-height and convert to points
             double lineHeightPixels = 24.0;
             double lineHeightPoints = lineHeightPixels * 72.0 / 96.0;
-            Console.WriteLine($"Line height: {lineHeightPoints:F2} points");
 
-            string htmlContent = $"<html><body><p style='font-size:12pt; line-height:{lineHeightPoints:F2}pt;'>Sample text with custom line height.</p></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Prepare simple HTML content
+            string htmlContent = "<html><head></head><body></body></html>";
 
+            // Load HTML document from inline content
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+            // Create a paragraph element and set its line-height in points
+            Aspose.Html.HTMLElement paragraph = (Aspose.Html.HTMLElement)document.CreateElement("p");
+            paragraph.InnerHTML = "This paragraph uses a line-height converted from pixels to points.";
+            paragraph.Style.LineHeight = $"{lineHeightPoints:F2}pt";
+
+            // Append the paragraph to the document body
+            document.Body.AppendChild(paragraph);
+
+            // Render the document to PDF
             string outputPath = "output.pdf";
-            using (var device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
+            using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
             {
                 document.RenderTo(device);
             }
 
-            Console.WriteLine($"PDF saved to {outputPath}");
+            Console.WriteLine($"PDF generated successfully at '{outputPath}'.");
         }
         catch (Exception ex)
         {

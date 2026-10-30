@@ -2,56 +2,53 @@
 
 using System;
 using System.IO;
-using System.Collections.Generic;
 using Aspose.Html.Saving;
 using Aspose.Html.Rendering.Image;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
             // Define input MHTML files
-            string[] mhtmlFiles = new string[]
-            {
-                "newsletter1.mhtml",
-                "newsletter2.mhtml"
-            };
+            string[] inputFiles = new string[] { "newsletter1.mhtml", "newsletter2.mhtml" };
+            string outputDir = "output";
 
-            // Ensure sample MHTML files exist
-            foreach (string filePath in mhtmlFiles)
+            // Ensure output directory exists
+            Directory.CreateDirectory(outputDir);
+
+            // Create minimal sample MHTML files if they do not exist
+            foreach (string filePath in inputFiles)
             {
                 if (!File.Exists(filePath))
                 {
-                    string sampleHtml = "<html><body><h1>Sample Newsletter</h1><p>This is a sample newsletter content.</p></body></html>";
-                    File.WriteAllText(filePath, sampleHtml);
+                    string mhtmlContent = "From: <Saved by WebKit>\r\nSubject: Sample\r\nMIME-Version: 1.0\r\nContent-Type: multipart/related; boundary=\"----=_NextPart_000_0000\"\r\n\r\n------=_NextPart_000_0000\r\nContent-Type: text/html; charset=\"utf-8\"\r\n\r\n<html><body><h1>Sample Newsletter</h1><p>This is a test.</p></body></html>\r\n------=_NextPart_000_0000--";
+                    File.WriteAllText(filePath, mhtmlContent);
                 }
             }
 
-            // Process each MHTML file
-            foreach (string inputPath in mhtmlFiles)
+            // Convert each MHTML file to PNG
+            foreach (string inputPath in inputFiles)
             {
-                // Define output PNG path
-                string outputPath = Path.ChangeExtension(inputPath, ".png");
-
-                // Open MHTML file stream
-                using (FileStream stream = File.OpenRead(inputPath))
+                using (Stream stream = File.OpenRead(inputPath))
                 {
-                    // Configure image save options for PNG
                     ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Png);
                     options.UseAntialiasing = true;
+                    options.HorizontalResolution = 96;
+                    options.VerticalResolution = 96;
 
-                    // Convert MHTML to PNG
+                    string fileNameWithoutExt = Path.GetFileNameWithoutExtension(inputPath);
+                    string outputPath = Path.Combine(outputDir, fileNameWithoutExt + ".png");
+
                     Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
+                    Console.WriteLine($"Converted '{inputPath}' to '{outputPath}'.");
                 }
-
-                Console.WriteLine($"Converted '{inputPath}' to '{outputPath}'.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.Error.WriteLine($"Error: {ex.Message}");
         }
     }
 }

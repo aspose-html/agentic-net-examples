@@ -2,35 +2,29 @@
 
 using System;
 using System.IO;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
 
-namespace Example
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
-            {
-                string htmlPath = "sample.html";
-                string htmlContent = "<html><body><h1>Test</h1><img src='https://example.com/image.jpg' alt='test'/></body></html>";
-                File.WriteAllText(htmlPath, htmlContent);
+            string htmlPath = "sample.html";
+            string htmlContent = "<html><body><h1>Test</h1><img src='https://example.com/image.png' alt='test'></body></html>";
+            File.WriteAllText(htmlPath, htmlContent);
 
-                Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-                configuration.Security |= Aspose.Html.Sandbox.Images;
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            configuration.Security = Aspose.Html.Sandbox.None; // disable image loading
 
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
-                {
-                    HTMLCollection images = document.GetElementsByTagName("img");
-                    Console.WriteLine($"Number of img elements after sandbox: {images.Length}");
-                }
-            }
-            catch (Exception ex)
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                var images = document.Images;
+                Console.WriteLine($"Number of images loaded: {images.Length}");
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

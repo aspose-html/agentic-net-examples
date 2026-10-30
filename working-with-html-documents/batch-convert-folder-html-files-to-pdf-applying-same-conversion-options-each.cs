@@ -2,10 +2,6 @@
 
 using System;
 using System.IO;
-using System.Drawing;
-using Aspose.Html;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -13,30 +9,30 @@ class Program
     {
         try
         {
-            string inputFolder = "InputHtml";
-            string outputFolder = "OutputPdf";
+            string inputFolder = @"C:\InputHtml";
+            string outputFolder = @"C:\OutputPdf";
 
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
-            string[] htmlFiles = Directory.GetFiles(inputFolder, "*.html", SearchOption.TopDirectoryOnly);
-            foreach (string htmlPath in htmlFiles)
+            foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
             {
                 using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
                 {
                     Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-                    options.BackgroundColor = System.Drawing.Color.White;
 
-                    string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".pdf");
+                    string outputPath = Path.Combine(outputFolder,
+                        Path.GetFileNameWithoutExtension(htmlPath) + ".pdf");
+
                     Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
                 }
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("Batch conversion completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error during batch conversion: " + ex.Message);
         }
     }
 }

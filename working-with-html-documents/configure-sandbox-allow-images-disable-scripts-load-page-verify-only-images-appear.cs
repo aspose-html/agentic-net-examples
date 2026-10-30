@@ -2,8 +2,6 @@
 
 using System;
 using System.IO;
-using Aspose.Html;
-using Aspose.Html.Dom;
 
 class Program
 {
@@ -13,32 +11,41 @@ class Program
         {
             // Prepare sample HTML file
             string htmlPath = Path.Combine(Path.GetTempPath(), "sample.html");
-            string htmlContent = @"<!DOCTYPE html>
-<html>
-<head>
-    <script>console.log('This script should be blocked');</script>
-</head>
-<body>
-    <img src='https://via.placeholder.com/150' alt='Sample Image' />
-    <p>Some text content.</p>
-</body>
-</html>";
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src=\"https://example.com/image.png\" alt=\"Sample Image\" /></body></html>";
             File.WriteAllText(htmlPath, htmlContent);
 
-            // Configure sandbox: allow images, do not allow scripts
-            var config = new Aspose.Html.Configuration();
-            config.Security |= Aspose.Html.Sandbox.Images; // allow images
-            // Scripts flag is not set, so scripts are disabled
+            // Configure sandbox: allow images, disable scripts
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            configuration.Security = Aspose.Html.Sandbox.Images; // only images are permitted
 
             // Load the HTML document with the sandbox configuration
-            using (var document = new Aspose.Html.HTMLDocument(htmlPath, config))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
             {
-                // Verify that only images are present (scripts should be blocked)
-                var images = document.QuerySelectorAll("img");
-                var scripts = document.QuerySelectorAll("script");
+                // Verify that images are present
+                Aspose.Html.Collections.HTMLCollection images = document.Images;
+                Console.WriteLine($"Number of images found: {images.Length}");
 
-                Console.WriteLine($"Images found: {images.Length}");
-                Console.WriteLine($"Scripts found (should be 0): {scripts.Length}");
+                // Verify that no script elements are present
+                Aspose.Html.Collections.HTMLCollection scripts = document.GetElementsByTagName("script");
+                Console.WriteLine($"Number of script elements found: {scripts.Length}");
+
+                // Additional check: ensure all top-level child nodes in body are images
+                bool onlyImagesInBody = true;
+                Aspose.Html.Dom.Element body = document.Body;
+                for (int i = 0; i < body.ChildNodes.Length; i++)
+                {
+                    Aspose.Html.Dom.Node node = body.ChildNodes[i];
+                    if (node.NodeType == Aspose.Html.Dom.Node.ELEMENT_NODE)
+                    {
+                        Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)node;
+                        if (!string.Equals(element.TagName, "IMG", StringComparison.OrdinalIgnoreCase))
+                        {
+                            onlyImagesInBody = false;
+                            break;
+                        }
+                    }
+                }
+                Console.WriteLine($"Only images appear in body: {onlyImagesInBody}");
             }
         }
         catch (Exception ex)

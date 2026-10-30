@@ -3,49 +3,46 @@
 using System;
 using System.IO;
 using Aspose.Html.Net;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
-class logHandler : MessageHandler
+class logHandler : Aspose.Html.Net.MessageHandler
 {
-    public override void Invoke(INetworkOperationContext context)
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
         Next(context);
-        Console.WriteLine($"{context.Request.RequestUri} | {context.Response.StatusCode}");
+        System.Console.WriteLine(context.Request.RequestUri + " | " + context.Response.StatusCode);
     }
 }
 
 class Program
 {
-    static void Main()
+    static void ConvertMhtmlFilesInFolder(string folderPath)
+    {
+        string[] files = System.IO.Directory.GetFiles(folderPath, "*.mhtml");
+        foreach (string mhtmlPath in files)
+        {
+            using (System.IO.FileStream stream = System.IO.File.OpenRead(mhtmlPath))
+            {
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                string pdfPath = System.IO.Path.ChangeExtension(mhtmlPath, ".pdf");
+                Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, pdfPath);
+                System.Console.WriteLine($"Converted: {mhtmlPath} -> {pdfPath}");
+            }
+        }
+    }
+
+    static void Main(string[] args)
     {
         try
         {
             string inputDir = "MhtmlFiles";
-
-            if (!Directory.Exists(inputDir))
-            {
-                Directory.CreateDirectory(inputDir);
-                // Optionally, create a minimal sample MHTML file here if needed.
-            }
-
+            System.IO.Directory.CreateDirectory(inputDir);
             ConvertMhtmlFilesInFolder(inputDir);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
-    }
-
-    static void ConvertMhtmlFilesInFolder(string folderPath)
-    {
-        foreach (string mhtmlPath in Directory.GetFiles(folderPath, "*.mhtml"))
-        {
-            using (FileStream stream = File.OpenRead(mhtmlPath))
-            {
-                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-                string pdfPath = Path.ChangeExtension(mhtmlPath, ".pdf");
-                Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, pdfPath);
-                Console.WriteLine($"Converted: {Path.GetFileName(pdfPath)}");
-            }
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

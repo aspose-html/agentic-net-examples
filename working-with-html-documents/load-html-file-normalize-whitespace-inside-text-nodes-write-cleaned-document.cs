@@ -1,10 +1,6 @@
 // Load an HTML file, normalize whitespace inside text nodes, and write the cleaned document.
 
 using System;
-using System.IO;
-using System.Text.RegularExpressions;
-using Aspose.Html;
-using Aspose.Html.Dom;
 
 class Program
 {
@@ -15,45 +11,43 @@ class Program
             string inputPath = "input.html";
             string outputPath = "output.html";
 
-            // Create a minimal sample HTML file if it does not exist
-            if (!File.Exists(inputPath))
+            if (!System.IO.File.Exists(inputPath))
             {
-                File.WriteAllText(inputPath, "<html><body><p>   This   is   a   test.\nNew line   </p></body></html>");
+                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>   This   is   a   test.\nNew line   </p><!-- comment --></body></html>";
+                System.IO.File.WriteAllText(inputPath, sampleHtml);
             }
 
-            // Load the HTML document
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
 
-            // Normalize whitespace in text nodes
             NormalizeWhitespace(document.DocumentElement);
 
-            // Save the cleaned document
             document.Save(outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 
     static void NormalizeWhitespace(Aspose.Html.Dom.Node node)
     {
-        var child = node.FirstChild;
+        Aspose.Html.Dom.Node child = node.FirstChild;
         while (child != null)
         {
-            var next = child.NextSibling;
-
+            Aspose.Html.Dom.Node next = child.NextSibling;
             if (child.NodeName == "#text")
             {
                 string text = child.NodeValue;
-                string normalized = Regex.Replace(text, @"\s+", " ").Trim();
-                child.NodeValue = normalized;
+                if (text != null)
+                {
+                    string normalized = System.Text.RegularExpressions.Regex.Replace(text, @"\s+", " ").Trim();
+                    child.NodeValue = normalized;
+                }
             }
             else
             {
                 NormalizeWhitespace(child);
             }
-
             child = next;
         }
     }

@@ -3,6 +3,7 @@
 using System;
 using System.IO;
 using Aspose.Html;
+using Aspose.Html;
 using Aspose.Html.Services;
 using Aspose.Html.Saving;
 using Aspose.Html.Converters;
@@ -13,49 +14,52 @@ class Program
     {
         try
         {
-            // Prepare custom fonts folder
-            string fontsFolder = "CustomFonts";
+            // Define paths
+            string fontsFolder = Path.Combine(Directory.GetCurrentDirectory(), "CustomFonts");
+            string htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "sample.html");
+            string outputPdfPath = Path.Combine(Directory.GetCurrentDirectory(), "output.pdf");
+
+            // Ensure fonts folder exists
             Directory.CreateDirectory(fontsFolder);
 
-            // Prepare sample HTML file that uses a web font with fallback
-            string htmlPath = "sample.html";
-            string htmlContent = @"<!DOCTYPE html>
-<html>
-<head>
-<style>
-@font-face {
-    font-family: 'CustomFont';
-    src: url('https://example.com/nonexistent.woff2');
-}
-body {
-    font-family: 'CustomFont', Arial, sans-serif;
-}
-</style>
-</head>
-<body>
-<p>This text should use CustomFont if available, otherwise fallback to Arial.</p>
-</body>
-</html>";
-            File.WriteAllText(htmlPath, htmlContent);
-
-            // Configure Aspose.HTML with custom fonts lookup folder
-            Configuration configuration = new Configuration();
-            IUserAgentService userAgentService = (IUserAgentService)configuration.GetService(typeof(IUserAgentService));
+            // Configure Aspose.HTML to use the custom fonts folder
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.IUserAgentService userAgentService = configuration.GetService<Aspose.Html.Services.IUserAgentService>();
             userAgentService.FontsSettings.SetFontsLookupFolder(fontsFolder);
 
-            // Load HTML document with the configuration
-            using (HTMLDocument document = new HTMLDocument(htmlPath, configuration))
-            {
-                // Convert HTML to PDF
-                PdfSaveOptions options = new PdfSaveOptions();
-                string outputPdf = "output.pdf";
-                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPdf);
-                Console.WriteLine("Conversion succeeded. PDF saved to: " + Path.GetFullPath(outputPdf));
-            }
+            // Create sample HTML that uses a web font with fallback fonts
+            string htmlContent = @"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 24px;
+            margin: 40px;
+        }
+    </style>
+</head>
+<body>
+    <p>This paragraph should be rendered with the Roboto web font. If the web font cannot be loaded, it falls back to Arial or the default sans‑serif.</p>
+</body>
+</html>";
+            File.WriteAllText(htmlFilePath, htmlContent);
+
+            // Load the HTML document with the custom configuration
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlFilePath, configuration);
+
+            // Convert HTML to PDF
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPdfPath);
+
+            Console.WriteLine("Conversion completed successfully. PDF saved to: " + outputPdfPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

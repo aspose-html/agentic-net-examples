@@ -1,72 +1,61 @@
 // Load an HTML page, extract its favicon link, download the image, and save as PNG.
 
-using System;
-using System.IO;
-using System.Net.Http;
-using System.Drawing;
-using System.Drawing.Imaging;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
-
-class Program
+namespace AsposeHtmlFaviconExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main()
         {
-            // Define input HTML file and output PNG path
-            string htmlPath = "sample.html";
-            string outputPath = "favicon.png";
-
-            // Create a minimal HTML file with a favicon link
-            string htmlContent = "<!DOCTYPE html><html><head><link rel=\"icon\" href=\"https://www.google.com/favicon.ico\"></head><body></body></html>";
-            File.WriteAllText(htmlPath, htmlContent);
-
-            // Load the HTML document
-            HTMLDocument document = new HTMLDocument(htmlPath);
-
-            // Find the first <link> element whose rel attribute contains "icon"
-            string faviconUrl = null;
-            HTMLCollection links = document.GetElementsByTagName("link");
-            for (int i = 0; i < links.Length; i++)
+            try
             {
-                Element element = links[i] as Element;
-                if (element != null)
+                // Define input page URL and output PNG path
+                string pageUrl = "https://example.com";
+                string outputPath = "favicon.png";
+
+                // Load the HTML page
+                var document = new Aspose.Html.HTMLDocument(pageUrl);
+
+                // Find the first <link> element with rel containing "icon"
+                var links = document.GetElementsByTagName("link");
+                string faviconHref = null;
+                for (int i = 0; i < links.Length; i++)
                 {
-                    string rel = element.GetAttribute("rel");
-                    if (!string.IsNullOrEmpty(rel) && rel.ToLower().Contains("icon"))
+                    var element = links[i] as Aspose.Html.HTMLElement;
+                    if (element != null)
                     {
-                        faviconUrl = element.GetAttribute("href");
-                        break;
+                        string rel = element.GetAttribute("rel");
+                        if (!string.IsNullOrEmpty(rel) && rel.ToLower().Contains("icon"))
+                        {
+                            faviconHref = element.GetAttribute("href");
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (string.IsNullOrEmpty(faviconUrl))
-            {
-                Console.WriteLine("Favicon link not found.");
-                return;
-            }
-
-            // Download the favicon image
-            using (HttpClient client = new HttpClient())
-            {
-                byte[] imageData = client.GetByteArrayAsync(faviconUrl).Result;
-
-                // Load image from bytes and save as PNG
-                using (MemoryStream ms = new MemoryStream(imageData))
-                using (Image img = Image.FromStream(ms))
+                // If no favicon link found, fallback to default location
+                if (string.IsNullOrEmpty(faviconHref))
                 {
-                    img.Save(outputPath, ImageFormat.Png);
+                    faviconHref = "/favicon.ico";
                 }
-            }
 
-            Console.WriteLine($"Favicon saved as PNG to '{outputPath}'.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+                // Resolve relative favicon URL against the page URL
+                var baseUri = new System.Uri(pageUrl);
+                var faviconUri = new System.Uri(baseUri, faviconHref);
+
+                // Create a minimal HTML that loads the favicon image
+                string htmlContent = $"<html><body><img src=\"{faviconUri.AbsoluteUri}\"/></body></html>";
+                var faviconDoc = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+                // Configure image save options for PNG format
+                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+
+                // Convert the HTML containing the favicon image to PNG
+                Aspose.Html.Converters.Converter.ConvertHTML(faviconDoc, options, outputPath);
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
         }
     }
 }

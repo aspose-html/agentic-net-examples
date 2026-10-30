@@ -5,7 +5,6 @@ using System.IO;
 using Aspose.Html;
 using Aspose.Html.Saving;
 using Aspose.Html.Rendering.Image;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -14,21 +13,19 @@ class Program
         try
         {
             // Define input and output folders
-            string inputFolder = Path.Combine(Directory.GetCurrentDirectory(), "HTMLFiles");
-            string outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "PngImages");
+            string inputFolder = Path.Combine(Directory.GetCurrentDirectory(), "input_html");
+            string outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "output_png");
+
+            // Ensure folders exist
+            Directory.CreateDirectory(inputFolder);
             Directory.CreateDirectory(outputFolder);
 
-            // Ensure the input folder exists (create a sample file if empty)
-            if (!Directory.Exists(inputFolder))
-            {
-                Directory.CreateDirectory(inputFolder);
-            }
-            // Create a minimal sample HTML file if none exist
-            string[] existingHtml = Directory.GetFiles(inputFolder, "*.html");
-            if (existingHtml.Length == 0)
+            // If no HTML files are present, create a minimal sample file
+            string[] existingHtmlFiles = Directory.GetFiles(inputFolder, "*.html");
+            if (existingHtmlFiles.Length == 0)
             {
                 string samplePath = Path.Combine(inputFolder, "sample.html");
-                File.WriteAllText(samplePath, "<!DOCTYPE html><html><body><h1>Sample</h1></body></html>");
+                File.WriteAllText(samplePath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
             }
 
             // Process each HTML file
@@ -36,13 +33,15 @@ class Program
             {
                 using (HTMLDocument document = new HTMLDocument(htmlPath))
                 {
+                    // Configure image save options for PNG with uniform resolution
                     ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Png);
                     options.HorizontalResolution = 300;
                     options.VerticalResolution = 300;
 
-                    string outputPath = Path.Combine(outputFolder,
-                        Path.GetFileNameWithoutExtension(htmlPath) + ".png");
+                    // Determine output PNG path
+                    string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".png");
 
+                    // Convert HTML to PNG
                     Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
                 }
             }

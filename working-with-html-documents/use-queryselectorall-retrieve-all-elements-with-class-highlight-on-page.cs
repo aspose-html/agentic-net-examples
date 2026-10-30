@@ -8,25 +8,21 @@ class Program
     {
         try
         {
-            string html = "<!DOCTYPE html><html><body>" +
-                          "<p class='highlight'>First highlighted</p>" +
-                          "<div class='highlight'>Second highlighted</div>" +
-                          "<span>Not highlighted</span>" +
-                          "</body></html>";
-
-            var document = new Aspose.Html.HTMLDocument(html, "about:blank");
-
+            string htmlContent = "<html><body><p class='highlight'>First highlighted paragraph.</p><div class='highlight'>Second highlighted div.</div><span>Regular span.</span></body></html>";
+            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
             var elements = document.QuerySelectorAll(".highlight");
-
             for (int i = 0; i < elements.Length; i++)
             {
-                var element = (Aspose.Html.HTMLElement)elements[i];
-                System.Console.WriteLine(element.InnerHTML);
+                var element = elements[i] as Aspose.Html.HTMLElement;
+                if (element != null)
+                {
+                    Console.WriteLine(element.InnerHTML);
+                }
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

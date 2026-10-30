@@ -2,24 +2,27 @@
 
 using System;
 
-class Program
+namespace AsposeHtmlExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main()
         {
-            string htmlContent = "<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>";
-            Aspose.Html.Url baseUri = new Aspose.Html.Url("about:blank");
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
-            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-            options.HorizontalResolution = 72;
-            options.VerticalResolution = 72;
-            string outputPath = "output.pdf";
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+            try
+            {
+                string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello World</h1></body></html>";
+                Aspose.Html.Url baseUri = new Aspose.Html.Url("about:blank");
+                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                options.HorizontalResolution = 72;
+                options.VerticalResolution = 72;
+                string outputPath = "output.pdf";
+                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

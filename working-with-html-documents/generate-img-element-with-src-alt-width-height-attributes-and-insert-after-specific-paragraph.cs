@@ -1,34 +1,48 @@
 // Generate an img element with src, alt, width, and height attributes, and insert after a specific paragraph.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
+using Aspose.Html.Saving;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
+            // Sample HTML content with two paragraphs
             string htmlContent = "<html><body><p>First paragraph.</p><p>Second paragraph.</p></body></html>";
-            string baseUri = "about:blank";
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
-            Aspose.Html.Collections.HTMLCollection paragraphs = document.GetElementsByTagName("p");
+            // Load the HTML document from the inline content
+            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
 
-            if (paragraphs.Length >= 2)
+            // Get all paragraph elements
+            HTMLCollection paragraphs = document.GetElementsByTagName("p");
+
+            // Ensure there is at least one paragraph to insert after
+            if (paragraphs.Length >= 1)
             {
-                Aspose.Html.Dom.Element img = document.CreateElement("img");
+                // Create the <img> element
+                Element img = document.CreateElement("img");
                 img.SetAttribute("src", "https://example.com/image.png");
                 img.SetAttribute("alt", "Example Image");
                 img.SetAttribute("width", "200");
-                img.SetAttribute("height", "150");
+                img.SetAttribute("height", "100");
 
-                Aspose.Html.Dom.Element secondParagraph = paragraphs[1];
-                secondParagraph.ParentNode.InsertBefore(img, secondParagraph.NextSibling);
+                // Insert the image after the first paragraph
+                Element targetParagraph = paragraphs[0];
+                targetParagraph.ParentNode.InsertBefore(img, targetParagraph.NextSibling);
             }
 
-            Aspose.Html.Saving.HTMLSaveOptions saveOptions = new Aspose.Html.Saving.HTMLSaveOptions();
+            // Save the modified document
             string outputPath = "output.html";
+            HTMLSaveOptions saveOptions = new HTMLSaveOptions();
             document.Save(outputPath, saveOptions);
+
+            Console.WriteLine("HTML document saved to: " + Path.GetFullPath(outputPath));
         }
         catch (Exception ex)
         {

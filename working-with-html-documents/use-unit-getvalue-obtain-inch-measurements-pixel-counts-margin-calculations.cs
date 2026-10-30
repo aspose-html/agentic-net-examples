@@ -8,17 +8,17 @@ class Program
     {
         try
         {
-            // Example pixel count for margin
-            double pixelCount = 192.0;
+            double leftMarginPixels = 96.0; // 1 inch
+            double topMarginPixels = 48.0;  // 0.5 inch
 
-            // Convert pixels to inches (96 pixels per inch)
-            double inches = pixelCount / 96.0;
+            Aspose.Html.Drawing.Length leftLength = Aspose.Html.Drawing.Unit.FromPixels(leftMarginPixels);
+            Aspose.Html.Drawing.Length topLength = Aspose.Html.Drawing.Unit.FromPixels(topMarginPixels);
 
-            // Convert inches to points (1 inch = 72 points) for typical PDF margin usage
-            double marginPoints = inches * 72.0;
+            double leftInches = leftLength.GetValue(Aspose.Html.Drawing.UnitType.In);
+            double topInches = topLength.GetValue(Aspose.Html.Drawing.UnitType.In);
 
-            Console.WriteLine($"Pixel count: {pixelCount} => Inches: {inches:F4}");
-            Console.WriteLine($"Margin in points: {marginPoints:F2}");
+            Console.WriteLine($"Left margin: {leftMarginPixels} px => {leftInches:F4} inches");
+            Console.WriteLine($"Top margin: {topMarginPixels} px => {topInches:F4} inches");
         }
         catch (Exception ex)
         {

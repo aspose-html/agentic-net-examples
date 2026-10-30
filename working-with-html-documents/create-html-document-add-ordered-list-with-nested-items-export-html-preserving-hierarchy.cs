@@ -4,57 +4,67 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string outputPath = "ordered_list.html";
+            string outputPath = "output.html";
 
             // Create a new HTML document
-            Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument();
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument();
+            Aspose.Html.HTMLElement body = document.Body;
 
-            // Get the body element
-            Aspose.Html.HTMLElement body = doc.Body;
+            // Create the outer ordered list
+            Aspose.Html.HTMLElement ol = (Aspose.Html.HTMLElement)document.CreateElement("ol");
 
-            // Create the top-level ordered list
-            Aspose.Html.HTMLElement ol = (Aspose.Html.HTMLElement)doc.CreateElement("ol");
+            // First list item with nested ordered list
+            Aspose.Html.HTMLElement li1 = (Aspose.Html.HTMLElement)document.CreateElement("li");
+            li1.AppendChild(document.CreateTextNode("Item 1"));
 
-            // Item 1
-            Aspose.Html.HTMLElement li1 = (Aspose.Html.HTMLElement)doc.CreateElement("li");
-            li1.AppendChild(doc.CreateTextNode("Item 1"));
-            ol.AppendChild(li1);
+            Aspose.Html.HTMLElement nestedOl = (Aspose.Html.HTMLElement)document.CreateElement("ol");
 
-            // Item 2 with nested ordered list
-            Aspose.Html.HTMLElement li2 = (Aspose.Html.HTMLElement)doc.CreateElement("li");
-            li2.AppendChild(doc.CreateTextNode("Item 2"));
-
-            Aspose.Html.HTMLElement nestedOl = (Aspose.Html.HTMLElement)doc.CreateElement("ol");
-
-            Aspose.Html.HTMLElement nestedLi1 = (Aspose.Html.HTMLElement)doc.CreateElement("li");
-            nestedLi1.AppendChild(doc.CreateTextNode("Subitem 2.1"));
+            Aspose.Html.HTMLElement nestedLi1 = (Aspose.Html.HTMLElement)document.CreateElement("li");
+            nestedLi1.AppendChild(document.CreateTextNode("Subitem 1.1"));
             nestedOl.AppendChild(nestedLi1);
 
-            Aspose.Html.HTMLElement nestedLi2 = (Aspose.Html.HTMLElement)doc.CreateElement("li");
-            nestedLi2.AppendChild(doc.CreateTextNode("Subitem 2.2"));
+            Aspose.Html.HTMLElement nestedLi2 = (Aspose.Html.HTMLElement)document.CreateElement("li");
+            nestedLi2.AppendChild(document.CreateTextNode("Subitem 1.2"));
             nestedOl.AppendChild(nestedLi2);
 
-            li2.AppendChild(nestedOl);
+            li1.AppendChild(nestedOl);
+            ol.AppendChild(li1);
+
+            // Second list item
+            Aspose.Html.HTMLElement li2 = (Aspose.Html.HTMLElement)document.CreateElement("li");
+            li2.AppendChild(document.CreateTextNode("Item 2"));
             ol.AppendChild(li2);
 
-            // Item 3
-            Aspose.Html.HTMLElement li3 = (Aspose.Html.HTMLElement)doc.CreateElement("li");
-            li3.AppendChild(doc.CreateTextNode("Item 3"));
+            // Third list item with deeper nesting
+            Aspose.Html.HTMLElement li3 = (Aspose.Html.HTMLElement)document.CreateElement("li");
+            li3.AppendChild(document.CreateTextNode("Item 3"));
+
+            Aspose.Html.HTMLElement nestedOl2 = (Aspose.Html.HTMLElement)document.CreateElement("ol");
+
+            Aspose.Html.HTMLElement nestedLi3 = (Aspose.Html.HTMLElement)document.CreateElement("li");
+            nestedLi3.AppendChild(document.CreateTextNode("Subitem 3.1"));
+            nestedOl2.AppendChild(nestedLi3);
+
+            Aspose.Html.HTMLElement nestedLi4 = (Aspose.Html.HTMLElement)document.CreateElement("li");
+            nestedLi4.AppendChild(document.CreateTextNode("Subitem 3.2"));
+            nestedOl2.AppendChild(nestedLi4);
+
+            li3.AppendChild(nestedOl2);
             ol.AppendChild(li3);
 
             // Append the ordered list to the body
             body.AppendChild(ol);
 
             // Save the document preserving hierarchy
-            doc.Save(outputPath);
+            document.Save(outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

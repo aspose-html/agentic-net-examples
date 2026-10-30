@@ -2,10 +2,11 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Aspose.Html;
 using Aspose.Html.Dom;
+using Aspose.Html;
 
 class Program
 {
@@ -13,54 +14,62 @@ class Program
     {
         try
         {
-            // Define input and output paths
-            string[] inputFiles = new string[] { "sample1.html", "sample2.html" };
-            string outputPath = "combined.html";
-
-            // Create minimal sample HTML files if they do not exist
-            if (!File.Exists(inputFiles[0]))
+            // Input HTML file paths
+            string[] inputFiles = new string[]
             {
-                File.WriteAllText(inputFiles[0],
-                    "<!DOCTYPE html><html><head><title>Sample 1</title><meta charset=\"utf-8\"></head><body><p>Content 1</p></body></html>");
-            }
-            if (!File.Exists(inputFiles[1]))
-            {
-                File.WriteAllText(inputFiles[1],
-                    "<!DOCTYPE html><html><head><title>Sample 2</title><meta name=\"viewport\" content=\"width=device-width\"></head><body><p>Content 2</p></body></html>");
-            }
+                "input1.html",
+                "input2.html"
+            };
 
-            // Create the combined document
-            using (HTMLDocument combinedDocument = new HTMLDocument())
+            // Ensure sample input files exist
+            foreach (string file in inputFiles)
             {
-                HTMLElement combinedHead = (HTMLElement)combinedDocument.GetElementsByTagName("head")[0];
-
-                foreach (string path in inputFiles)
+                if (!File.Exists(file))
                 {
-                    if (!File.Exists(path))
-                        continue;
+                    string sampleContent = $"<html><head><title>{Path.GetFileNameWithoutExtension(file)}</title></head><body><p>Content of {file}</p></body></html>";
+                    File.WriteAllText(file, sampleContent);
+                }
+            }
 
-                    // Load each source document asynchronously
-                    HTMLDocument sourceDocument = await Task.Run(() => new HTMLDocument(path));
-                    using (sourceDocument)
+            // Load documents asynchronously
+            Task<Aspose.Html.HTMLDocument>[] loadTasks = inputFiles
+                .Select(path => Task.Run(() => new Aspose.Html.HTMLDocument(path)))
+                .ToArray();
+
+            await Task.WhenAll(loadTasks);
+            Aspose.Html.HTMLDocument[] sourceDocuments = loadTasks.Select(t => t.Result).ToArray();
+
+            // Create combined document
+            using (Aspose.Html.HTMLDocument combinedDocument = new Aspose.Html.HTMLDocument())
+            {
+                Aspose.Html.HTMLElement combinedHead = (Aspose.Html.HTMLElement)combinedDocument.GetElementsByTagName("head")[0];
+
+                // Merge head sections
+                foreach (Aspose.Html.HTMLDocument sourceDocument in sourceDocuments)
+                {
+                    Aspose.Html.HTMLElement sourceHead = (Aspose.Html.HTMLElement)sourceDocument.GetElementsByTagName("head")[0];
+                    foreach (Aspose.Html.Dom.Node node in sourceHead.ChildNodes)
                     {
-                        HTMLElement sourceHead = (HTMLElement)sourceDocument.GetElementsByTagName("head")[0];
-                        foreach (Node node in sourceHead.ChildNodes)
-                        {
-                            Node imported = combinedDocument.ImportNode(node, true);
-                            combinedHead.AppendChild(imported);
-                        }
+                        Aspose.Html.Dom.Node imported = combinedDocument.ImportNode(node, true);
+                        combinedHead.AppendChild(imported);
                     }
                 }
 
-                // Save the combined document
+                // Save combined document
+                string outputPath = "combined.html";
                 combinedDocument.Save(outputPath);
+                Console.WriteLine($"Combined document saved to: {outputPath}");
             }
 
-            Console.WriteLine("Combined document saved to: " + Path.GetFullPath(outputPath));
+            // Dispose source documents
+            foreach (Aspose.Html.HTMLDocument doc in sourceDocuments)
+            {
+                doc.Dispose();
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

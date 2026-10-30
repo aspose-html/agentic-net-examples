@@ -1,10 +1,10 @@
 // Load an HTML file, remove all script tags, and save the sanitized document to a new file.
 
-namespace Example
+namespace MyApp
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             try
             {
@@ -13,7 +13,8 @@ namespace Example
 
                 if (!System.IO.File.Exists(inputPath))
                 {
-                    System.IO.File.WriteAllText(inputPath, "<html><head><script>alert('test');</script></head><body><h1>Hello</h1></body></html>");
+                    string sampleHtml = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello</h1><script>console.log('test');</script></body></html>";
+                    System.IO.File.WriteAllText(inputPath, sampleHtml);
                 }
 
                 Aspose.Html.Configuration config = new Aspose.Html.Configuration();
@@ -32,6 +33,7 @@ namespace Example
                 }
 
                 document.Save(outputPath);
+                System.Console.WriteLine("Sanitized document saved to " + outputPath);
             }
             catch (System.Exception ex)
             {

@@ -4,26 +4,28 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string htmlContent = "<html><body><div>First</div><div>Second</div></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
+            string html = "<!DOCTYPE html><html><head><title>Test</title></head><body><div>First</div><div>Second</div></body></html>";
+            var document = new Aspose.Html.HTMLDocument(html, "about:blank");
             Aspose.Html.Collections.NodeList elements = document.QuerySelectorAll("div");
-            foreach (Aspose.Html.HTMLElement element in elements)
+            for (int i = 0; i < elements.Length; i++)
             {
-                element.Style.BackgroundColor = "blue";
+                var element = elements[i] as Aspose.Html.HTMLElement;
+                if (element != null)
+                {
+                    element.Style.BackgroundColor = "blue";
+                }
             }
-
             string outputPath = "output.html";
             document.Save(outputPath);
-            System.Console.WriteLine("Document saved to " + outputPath);
+            Console.WriteLine($"Document saved to {outputPath}");
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }
