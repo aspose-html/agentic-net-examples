@@ -1,38 +1,36 @@
 // Set PdfRenderingOptions.PageSize to custom dimensions of 7 by 10 inches for niche document formats.
 
 using System;
-using System.IO;
 
-namespace Example
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
-            {
-                string htmlContent = "<html><body><h1>Hello, PDF!</h1></body></html>";
-                Aspose.Html.Url baseUri = new Aspose.Html.Url("about:blank");
-                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+            // Prepare HTML content
+            string htmlContent = "<html><body><h1>Custom Size PDF</h1></body></html>";
+            Aspose.Html.Url baseUri = new Aspose.Html.Url("about:blank");
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
 
-                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+            // Create PDF save options with custom page size (7in x 10in)
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
 
-                Aspose.Html.Drawing.Size size = new Aspose.Html.Drawing.Size(
-                    Aspose.Html.Drawing.Length.FromInches(7f),
-                    Aspose.Html.Drawing.Length.FromInches(10f));
+            Aspose.Html.Drawing.Size pageSize = new Aspose.Html.Drawing.Size(
+                Aspose.Html.Drawing.Length.FromInches(7),
+                Aspose.Html.Drawing.Length.FromInches(10));
 
-                Aspose.Html.Drawing.Page page = new Aspose.Html.Drawing.Page(size);
-                options.PageSetup.AnyPage = page;
+            Aspose.Html.Drawing.Page page = new Aspose.Html.Drawing.Page(pageSize);
+            options.PageSetup.AnyPage = page;
 
-                string outputPath = Path.Combine(Environment.CurrentDirectory, "output.pdf");
-                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+            // Convert HTML to PDF
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, "custom_size.pdf");
 
-                Console.WriteLine("PDF saved to " + outputPath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            Console.WriteLine("PDF generated at custom_size.pdf");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

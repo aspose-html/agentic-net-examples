@@ -5,8 +5,6 @@ using System.IO;
 using System.Text;
 using Aspose.Html;
 using Aspose.Html.Converters;
-using Aspose.Html.Dom;
-using Aspose.Html.Dom.Svg;
 
 class Program
 {
@@ -14,61 +12,48 @@ class Program
     {
         try
         {
-            // Prepare shared CSS
-            string cssPath = "shared.css";
-            if (!File.Exists(cssPath))
-            {
-                File.WriteAllText(cssPath, "body { font-family: Arial; margin: 20px; }");
-            }
-            string cssContent = File.ReadAllText(cssPath);
+            // Shared CSS content
+            string cssContent = "body { background-color: #f0f0f0; font-family: Arial, sans-serif; }";
 
-            // Prepare sample markdown files
-            string[] markdownFiles = new string[] { "doc1.md", "doc2.md" };
-            string[] markdownContents = new string[]
+            // Sample markdown inputs
+            string[] markdownSources = new string[]
             {
-                "# Document 1\r\nThis is the *first* document.",
-                "# Document 2\r\nThis is the **second** document."
+                "# Document One\r\nThis is the first markdown document.",
+                "# Document Two\r\nThis is the second markdown document."
             };
 
-            for (int i = 0; i < markdownFiles.Length; i++)
-            {
-                if (!File.Exists(markdownFiles[i]))
-                {
-                    File.WriteAllText(markdownFiles[i], markdownContents[i]);
-                }
-            }
-
             // Output directory
-            string outputDir = "output";
+            string outputDir = "Output";
             if (!Directory.Exists(outputDir))
-            {
                 Directory.CreateDirectory(outputDir);
-            }
 
-            // Batch conversion
-            foreach (string mdPath in markdownFiles)
+            // Base URI for conversion (required by API)
+            string baseUri = "about:blank";
+
+            for (int i = 0; i < markdownSources.Length; i++)
             {
-                // Convert markdown to HTMLDocument
-                Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(mdPath);
+                // Convert markdown string to HTMLDocument using a MemoryStream
+                var markdownStream = new MemoryStream(Encoding.UTF8.GetBytes(markdownSources[i]));
+                HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(markdownStream, baseUri);
 
-                // Ensure <head> exists
-                Aspose.Html.HTMLHeadElement head = document.QuerySelector("head") as Aspose.Html.HTMLHeadElement;
+                // Ensure <head> element exists
+                HTMLHeadElement head = document.QuerySelector("head") as HTMLHeadElement;
                 if (head == null)
                 {
-                    head = document.CreateElement("head") as Aspose.Html.HTMLHeadElement;
+                    head = document.CreateElement("head") as HTMLHeadElement;
                     document.DocumentElement.AppendChild(head);
                 }
 
-                // Create <style> element with shared CSS
-                Aspose.Html.HTMLStyleElement styleElement = document.CreateElement("style") as Aspose.Html.HTMLStyleElement;
+                // Create <style> element with shared CSS and append to <head>
+                HTMLStyleElement styleElement = document.CreateElement("style") as HTMLStyleElement;
                 styleElement.TextContent = cssContent;
                 head.AppendChild(styleElement);
 
-                // Save HTML
-                string outputPath = Path.Combine(outputDir, Path.GetFileNameWithoutExtension(mdPath) + ".html");
+                // Save HTML to file
+                string outputPath = Path.Combine(outputDir, $"Document_{i + 1}.html");
                 document.Save(outputPath);
 
-                // Output to console
+                // Output result to console
                 Console.WriteLine(document.DocumentElement.OuterHTML);
                 Console.WriteLine("Conversion completed. HTML saved at " + outputPath);
             }

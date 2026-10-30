@@ -1,37 +1,29 @@
 // Load an MHTML document, configure PdfSaveOptions to Flattened, and convert it to a non‑interactive PDF.
 
-using System;
-
-class Program
+namespace AsposeHtmlMhtmlToPdfExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            // Define source MHTML file path and create a minimal sample if it does not exist
-            string sourcePath = "sample.mhtml";
-            if (!System.IO.File.Exists(sourcePath))
+            try
             {
-                System.IO.File.WriteAllText(sourcePath, "<html><body><h1>Sample MHTML</h1></body></html>");
+                string sourcePath = "sample.mhtml";
+                string resultPath = "output.pdf";
+
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions
+                {
+                    FormFieldBehaviour = Aspose.Html.Rendering.Pdf.FormFieldBehaviour.Flattened
+                };
+
+                Aspose.Html.Converters.Converter.ConvertMHTML(sourcePath, options, resultPath);
+
+                System.Console.WriteLine("MHTML has been successfully converted to a flattened PDF.");
             }
-
-            // Define output PDF file path
-            string resultPath = "output.pdf";
-
-            // Configure PDF save options to flatten form fields (non‑interactive PDF)
-            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions
+            catch (System.Exception ex)
             {
-                FormFieldBehaviour = Aspose.Html.Rendering.Pdf.FormFieldBehaviour.Flattened
-            };
-
-            // Convert MHTML to PDF
-            Aspose.Html.Converters.Converter.ConvertMHTML(sourcePath, options, resultPath);
-
-            Console.WriteLine("Conversion completed successfully. PDF saved to: " + resultPath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("An error occurred: " + ex.Message);
+                System.Console.WriteLine("An error occurred: " + ex.Message);
+            }
         }
     }
 }

@@ -2,16 +2,18 @@
 
 using System;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main()
     {
         try
         {
-            string html = "<html><body><h1>Hello, PDF!</h1><p>This is a sample.</p></body></html>";
+            string html = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello, PDF!</h1><p>This is a sample HTML rendered to PDF with AdjustToWidestPage.</p></body></html>";
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
             Aspose.Html.Rendering.Pdf.PdfRenderingOptions options = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
-            options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(new Aspose.Html.Drawing.Size(595, 842));
+            Aspose.Html.Drawing.Size pageSize = new Aspose.Html.Drawing.Size(595, 842);
+            Aspose.Html.Drawing.Page page = new Aspose.Html.Drawing.Page(pageSize);
+            options.PageSetup.AnyPage = page;
             options.PageSetup.AdjustToWidestPage = true;
             string outputPath = "output.pdf";
             Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath);

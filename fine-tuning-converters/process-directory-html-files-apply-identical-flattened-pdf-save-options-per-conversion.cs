@@ -18,8 +18,10 @@ class Program
             {
                 using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
                 {
-                    Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-                    options.FormFieldBehaviour = Aspose.Html.Rendering.Pdf.FormFieldBehaviour.Flattened;
+                    Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions
+                    {
+                        FormFieldBehaviour = Aspose.Html.Rendering.Pdf.FormFieldBehaviour.Flattened
+                    };
 
                     string outputPath = System.IO.Path.Combine(outputFolder,
                         System.IO.Path.GetFileNameWithoutExtension(htmlPath) + ".pdf");

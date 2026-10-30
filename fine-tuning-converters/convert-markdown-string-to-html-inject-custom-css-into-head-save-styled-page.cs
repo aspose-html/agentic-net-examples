@@ -2,7 +2,6 @@
 
 using System;
 using System.IO;
-using System.Text;
 
 class Program
 {
@@ -12,12 +11,12 @@ class Program
         {
             string markdown = "# Hello World\nThis is a **markdown** sample.";
             string css = "body { font-family: Arial; background-color: #f0f0f0; } h1 { color: #336699; }";
-            string baseUri = "about:blank";
             string outputPath = "styled.html";
 
-            using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(markdown)))
+            using (MemoryStream stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(markdown)))
             {
-                Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(stream, baseUri);
+                Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(stream, "about:blank");
+
                 Aspose.Html.HTMLHeadElement head = document.QuerySelector("head") as Aspose.Html.HTMLHeadElement;
                 if (head == null)
                 {

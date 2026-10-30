@@ -1,6 +1,9 @@
 // Convert an EPUB document to PDF while preserving embedded fonts through default rendering behavior.
 
 using System;
+using System.IO;
+using Aspose.Html.Converters;
+using Aspose.Html.Saving;
 
 class Program
 {
@@ -8,24 +11,33 @@ class Program
     {
         try
         {
-            string inputPath = "sample.epub";
+            // Define input EPUB file and output PDF path
+            string inputFile = "sample.epub";
             string outputDirectory = "output";
-            string outputPath = System.IO.Path.Combine(outputDirectory, "result.pdf");
+            string outputFile = Path.Combine(outputDirectory, "output.pdf");
 
-            // Ensure the output directory exists
-            System.IO.Directory.CreateDirectory(outputDirectory);
+            // Ensure output directory exists
+            Directory.CreateDirectory(outputDirectory);
 
-            using (System.IO.Stream stream = System.IO.File.OpenRead(inputPath))
+            // Create a minimal sample EPUB file if it does not exist
+            if (!File.Exists(inputFile))
             {
-                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
+                // Simple placeholder content; real EPUB should be a valid zip package
+                File.WriteAllBytes(inputFile, new byte[] { 0x50, 0x4B, 0x03, 0x04 });
             }
 
-            System.Console.WriteLine("EPUB has been successfully converted to PDF.");
+            // Open read stream for the EPUB file
+            using (Stream stream = File.OpenRead(inputFile))
+            {
+                // Convert EPUB to PDF preserving embedded fonts (default behavior)
+                Aspose.Html.Converters.Converter.ConvertEPUB(stream, new PdfSaveOptions(), outputFile);
+            }
+
+            Console.WriteLine("Conversion completed successfully. PDF saved to: " + outputFile);
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred during conversion: " + ex.Message);
         }
     }
 }

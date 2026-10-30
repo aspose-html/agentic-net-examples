@@ -8,7 +8,7 @@ using Aspose.Html.Converters;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
@@ -19,7 +19,6 @@ class Program
                 Directory.CreateDirectory(outputFolder);
 
             string[] mhtmlFiles = Directory.GetFiles(inputFolder, "*.mhtml", SearchOption.TopDirectoryOnly);
-
             foreach (string mhtmlPath in mhtmlFiles)
             {
                 string fileName = Path.GetFileNameWithoutExtension(mhtmlPath);
@@ -29,17 +28,21 @@ class Program
                 {
                     PdfSaveOptions options = new PdfSaveOptions();
 
-                    // Define page size (A4) and 0.5‑inch margins (36 points)
-                    Size pageSize = new Size(Length.FromInches(8.27), Length.FromInches(11.69));
-                    Margin margin = new Margin(36, 36, 36, 36);
+                    Length marginLength = Unit.FromInches(0.5);
+                    Margin margin = new Margin(marginLength);
+
+                    Size pageSize = new Size(
+                        Unit.FromInches(8.27),
+                        Unit.FromInches(11.69));
+
                     Page page = new Page(pageSize, margin);
                     options.PageSetup.AnyPage = page;
 
                     Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, pdfPath);
                 }
-            }
 
-            Console.WriteLine("Conversion completed successfully.");
+                Console.WriteLine("Converted: " + mhtmlPath + " -> " + pdfPath);
+            }
         }
         catch (Exception ex)
         {
