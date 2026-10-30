@@ -14,7 +14,7 @@ class Program
 
             if (!File.Exists(inputPath))
             {
-                File.WriteAllText(inputPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                File.WriteAllText(inputPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello, Aspose!</p></body></html>");
             }
 
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
@@ -26,7 +26,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 }

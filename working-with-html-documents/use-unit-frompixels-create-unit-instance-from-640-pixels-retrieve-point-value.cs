@@ -9,12 +9,13 @@ class Program
         try
         {
             double pixels = 640;
-            double points = pixels * 72.0 / 96.0;
-            System.Console.WriteLine($"Pixel count: {{ {pixels} }} => {{ {points:F2} }} points");
+            var length = Aspose.Html.Drawing.Unit.FromPixels(pixels);
+            double points = length.GetValue(Aspose.Html.Drawing.UnitType.Pt);
+            Console.WriteLine($"Pixel count: {pixels} => {points:F2} points");
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

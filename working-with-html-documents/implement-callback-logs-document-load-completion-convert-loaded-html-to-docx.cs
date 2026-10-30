@@ -2,9 +2,6 @@
 
 using System;
 using System.Threading;
-using Aspose.Html;
-using Aspose.Html.Converters;
-using Aspose.Html.Saving;
 
 class Program
 {
@@ -13,8 +10,9 @@ class Program
         try
         {
             string url = "https://example.com";
+            string outputPath = "output.docx";
 
-            using (AutoResetEvent resetEvent = new AutoResetEvent(false))
+            using (System.Threading.AutoResetEvent resetEvent = new System.Threading.AutoResetEvent(false))
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument())
             {
                 document.OnReadyStateChange += (sender, e) =>
@@ -28,9 +26,11 @@ class Program
 
                 document.Navigate(url);
                 resetEvent.WaitOne();
-            }
 
-            Console.WriteLine("Conversion to DOCX is not supported by Aspose.HTML.");
+                Aspose.Html.Saving.DocSaveOptions saveOptions = new Aspose.Html.Saving.DocSaveOptions();
+                Aspose.Html.Converters.Converter.ConvertHTML(document, saveOptions, outputPath);
+                Console.WriteLine($"Conversion completed. DOCX saved to: {outputPath}");
+            }
         }
         catch (Exception ex)
         {

@@ -1,54 +1,62 @@
 // Batch convert HTML newsletters, converting each to PNG with a fixed width of 800 pixels.
 
-using System;
-
-class Program
+namespace AsposeHtmlBatchConvert
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main()
         {
-            // Define input HTML files
-            string[] htmlFiles = new string[] { "newsletter1.html", "newsletter2.html" };
-
-            // Ensure sample HTML files exist
-            foreach (string path in htmlFiles)
+            try
             {
-                if (!System.IO.File.Exists(path))
-                {
-                    System.IO.File.WriteAllText(path,
-                        "<html><body><h1>Sample Newsletter</h1><p>This is a sample.</p></body></html>");
-                }
-            }
+                // Define input and output directories
+                string inputDir = "input";
+                string outputDir = "output";
 
-            // Prepare output directory
-            string outputDir = "output";
-            if (!System.IO.Directory.Exists(outputDir))
+                // Ensure directories exist
+                System.IO.Directory.CreateDirectory(inputDir);
                 System.IO.Directory.CreateDirectory(outputDir);
 
-            // Configure image save options for PNG with fixed width 800px
-            var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
-            options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page
-            {
-                Size = new Aspose.Html.Drawing.Size(
-                    Aspose.Html.Drawing.Length.FromPixels(800),
-                    Aspose.Html.Drawing.Length.FromPixels(0))
-            };
-            options.PageSetup.PageLayoutOptions = Aspose.Html.Rendering.PageLayoutOptions.FitToWidestContentWidth;
+                // Create sample HTML files if none exist
+                if (System.IO.Directory.GetFiles(inputDir, "*.html").Length == 0)
+                {
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        string samplePath = System.IO.Path.Combine(inputDir, $"newsletter{i}.html");
+                        string htmlContent = $"<html><body><h1>Newsletter {i}</h1><p>This is sample content for newsletter {i}.</p></body></html>";
+                        System.IO.File.WriteAllText(samplePath, htmlContent);
+                    }
+                }
 
-            // Convert each HTML file to PNG
-            foreach (string htmlPath in htmlFiles)
-            {
-                string fileName = System.IO.Path.GetFileNameWithoutExtension(htmlPath);
-                string outputPath = System.IO.Path.Combine(outputDir, fileName + ".png");
+                // Get all HTML files
+                string[] htmlFiles = System.IO.Directory.GetFiles(inputDir, "*.html");
 
-                var document = new Aspose.Html.HTMLDocument(htmlPath);
-                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                foreach (string htmlPath in htmlFiles)
+                {
+                    // Load document
+                    var document = new Aspose.Html.HTMLDocument(htmlPath);
+
+                    // Configure image save options
+                    var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+                    var page = new Aspose.Html.Drawing.Page();
+                    page.Size = new Aspose.Html.Drawing.Size(
+                        Aspose.Html.Drawing.Length.FromPixels(800),
+                        Aspose.Html.Drawing.Length.FromPixels(0));
+                    options.PageSetup.AnyPage = page;
+
+                    // Determine output path
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(htmlPath);
+                    string outputPath = System.IO.Path.Combine(outputDir, fileName + ".png");
+
+                    // Convert HTML to PNG
+                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                }
+
+                System.Console.WriteLine("Batch conversion completed.");
             }
-        }
-        catch (System.Exception ex)
-        {
-            System.Console.WriteLine(ex.Message);
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
         }
     }
 }

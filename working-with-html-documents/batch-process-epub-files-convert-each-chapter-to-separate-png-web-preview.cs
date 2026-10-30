@@ -3,14 +3,10 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using Aspose.Html.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
-class MemoryStreamProvider : ICreateStreamProvider, IDisposable
+public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
     private readonly List<MemoryStream> _streams = new List<MemoryStream>();
-
     public IReadOnlyList<MemoryStream> Streams => _streams;
 
     public Stream GetStream(string name, string extension)
@@ -29,7 +25,7 @@ class MemoryStreamProvider : ICreateStreamProvider, IDisposable
 
     public void ReleaseStream(Stream stream)
     {
-        // No action needed; streams are kept for later use.
+        // No action needed for in-memory streams
     }
 
     public void Dispose()
@@ -42,56 +38,53 @@ class MemoryStreamProvider : ICreateStreamProvider, IDisposable
     }
 }
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
-            string dataDir = "Data";
-            string outputDir = "Output";
+            string dataDir = Path.Combine(Directory.GetCurrentDirectory(), "Input");
+            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "Output");
             Directory.CreateDirectory(dataDir);
             Directory.CreateDirectory(outputDir);
 
-            // Sample EPUB file path (replace with actual file if needed)
-            string epubPath = Path.Combine(dataDir, "sample.epub");
-
-            // Ensure a sample EPUB exists; create an empty placeholder if not.
-            if (!File.Exists(epubPath))
+            foreach (string epubPath in Directory.GetFiles(dataDir, "*.epub"))
             {
-                using (var placeholder = File.Create(epubPath)) { }
-            }
-
-            using (FileStream epubStream = File.OpenRead(epubPath))
-            {
-                ImageSaveOptions options = new ImageSaveOptions();
-                // Optional: set resolution
-                // options.HorizontalResolution = 150;
-                // options.VerticalResolution = 150;
-
-                using (MemoryStreamProvider provider = new MemoryStreamProvider())
+                using (FileStream epubStream = File.OpenRead(epubPath))
                 {
-                    Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+                    var options = new Aspose.Html.Saving.ImageSaveOptions();
+                    options.Format = Aspose.Html.Rendering.Image.ImageFormat.Png;
+                    options.HorizontalResolution = 150;
+                    options.VerticalResolution = 150;
 
-                    int index = 1;
-                    foreach (MemoryStream ms in provider.Streams)
+                    using (var provider = new MemoryStreamProvider())
                     {
-                        ms.Position = 0;
-                        string outputPath = Path.Combine(outputDir, $"chapter_{index}.png");
-                        using (FileStream outFile = File.Create(outputPath))
+                        Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+
+                        int index = 1;
+                        foreach (MemoryStream ms in provider.Streams)
                         {
-                            ms.CopyTo(outFile);
+                            ms.Position = 0;
+                            string outputPath = Path.Combine(
+                                outputDir,
+                                $"{Path.GetFileNameWithoutExtension(epubPath)}_chapter_{index}.png");
+
+                            using (FileStream outFile = File.Create(outputPath))
+                            {
+                                ms.CopyTo(outFile);
+                            }
+                            index++;
                         }
-                        index++;
                     }
                 }
             }
 
-            Console.WriteLine("EPUB conversion completed successfully.");
+            Console.WriteLine("EPUB conversion completed.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

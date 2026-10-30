@@ -1,11 +1,10 @@
 // Create a console application that accepts pixel values and outputs all unit conversions in JSON.
 
 using System;
-using System.Text.Json;
 
 public class Program
 {
-    public static int Main(string[] args)
+    public static void Main(string[] args)
     {
         try
         {
@@ -23,20 +22,18 @@ public class Program
             var result = new
             {
                 pixels = pixels,
-                inches = Math.Round(inches, 4),
-                points = Math.Round(points, 4),
-                centimeters = Math.Round(centimeters, 4),
-                millimeters = Math.Round(millimeters, 4)
+                inches = System.Math.Round(inches, 4),
+                points = System.Math.Round(points, 4),
+                centimeters = System.Math.Round(centimeters, 4),
+                millimeters = System.Math.Round(millimeters, 4)
             };
 
-            string json = JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true });
-            Console.WriteLine(json);
-            return 0;
+            string json = System.Text.Json.JsonSerializer.Serialize(result, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+            System.Console.WriteLine(json);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.Error.WriteLine($"Error: {ex.Message}");
-            return 1;
+            System.Console.Error.WriteLine($"Error: {ex.Message}");
         }
     }
 }

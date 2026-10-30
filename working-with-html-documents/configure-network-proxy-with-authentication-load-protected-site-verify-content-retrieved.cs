@@ -1,18 +1,14 @@
 // Configure network proxy with authentication, load a protected site, and verify content is retrieved.
 
 using System;
-using System.Net;
-using Aspose.Html;
-using Aspose.Html.Net;
-using Aspose.Html.Services;
 
-class ProxyAuthHandler : Aspose.Html.Net.MessageHandler
+public class ProxyAuthHandler : Aspose.Html.Net.MessageHandler
 {
-    private readonly NetworkCredential _credential;
+    private readonly System.Net.NetworkCredential _credential;
 
     public ProxyAuthHandler()
     {
-        _credential = new NetworkCredential("username", "password", "domain");
+        _credential = new System.Net.NetworkCredential("proxyUser", "proxyPassword", "proxyDomain");
     }
 
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
@@ -22,32 +18,32 @@ class ProxyAuthHandler : Aspose.Html.Net.MessageHandler
     }
 }
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main(string[] args)
     {
         try
         {
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
             network.MessageHandlers.Add(new ProxyAuthHandler());
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("http://example.com", configuration))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
             {
                 string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
                 if (!string.IsNullOrEmpty(html) && html.Contains("Example Domain"))
                 {
-                    System.Console.WriteLine("Content retrieved successfully.");
+                    Console.WriteLine("Content retrieved successfully.");
                 }
                 else
                 {
-                    System.Console.WriteLine("Content not retrieved or missing expected text.");
+                    Console.WriteLine("Failed to retrieve expected content.");
                 }
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

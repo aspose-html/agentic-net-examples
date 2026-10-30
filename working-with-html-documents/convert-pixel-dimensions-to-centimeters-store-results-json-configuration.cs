@@ -11,8 +11,8 @@ class Program
         try
         {
             // Predefined pixel values
-            double widthPixels = 1920;
-            double heightPixels = 1080;
+            double widthPixels = 800;
+            double heightPixels = 600;
 
             const double ppi = 96.0;
 
@@ -24,45 +24,30 @@ class Program
             double widthCentimeters = widthInches * 2.54;
             double heightCentimeters = heightInches * 2.54;
 
-            // Convert to millimeters
-            double widthMillimeters = widthCentimeters * 10.0;
-            double heightMillimeters = heightCentimeters * 10.0;
-
-            // Convert to points
-            double widthPoints = widthInches * 72.0;
-            double heightPoints = heightInches * 72.0;
-
-            // Convert to picas
-            double widthPicas = widthInches * 6.0;
-            double heightPicas = heightInches * 6.0;
-
+            // Prepare result object
             var result = new
             {
-                WidthPixels = widthPixels,
-                HeightPixels = heightPixels,
-                WidthInches = Math.Round(widthInches, 4),
-                HeightInches = Math.Round(heightInches, 4),
-                WidthCentimeters = Math.Round(widthCentimeters, 4),
-                HeightCentimeters = Math.Round(heightCentimeters, 4),
-                WidthMillimeters = Math.Round(widthMillimeters, 4),
-                HeightMillimeters = Math.Round(heightMillimeters, 4),
-                WidthPoints = Math.Round(widthPoints, 4),
-                HeightPoints = Math.Round(heightPoints, 4),
-                WidthPicas = Math.Round(widthPicas, 4),
-                HeightPicas = Math.Round(heightPicas, 4)
+                widthPixels,
+                heightPixels,
+                widthInches = Math.Round(widthInches, 4),
+                heightInches = Math.Round(heightInches, 4),
+                widthCentimeters = Math.Round(widthCentimeters, 4),
+                heightCentimeters = Math.Round(heightCentimeters, 4)
             };
 
+            // Serialize to JSON
             string json = JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true });
 
-            string outputPath = "config.json";
-            File.WriteAllText(outputPath, json);
+            // Write JSON to configuration file
+            string configPath = "config.json";
+            File.WriteAllText(configPath, json);
 
-            Console.WriteLine("Conversion results saved to JSON configuration file:");
+            Console.WriteLine("Conversion results saved to " + configPath);
             Console.WriteLine(json);
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

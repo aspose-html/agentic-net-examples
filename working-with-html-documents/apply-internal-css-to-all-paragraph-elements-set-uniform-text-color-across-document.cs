@@ -2,8 +2,6 @@
 
 using System;
 using System.IO;
-using System.Linq;
-using Aspose.Html;
 
 class Program
 {
@@ -11,25 +9,19 @@ class Program
     {
         try
         {
-            // Sample HTML content with paragraphs
-            string htmlContent = "<!DOCTYPE html><html><head></head><body><p>First paragraph.</p><p>Second paragraph.</p></body></html>";
-
-            // Load HTML from string (inline content)
+            string htmlContent = "<!DOCTYPE html><html><head></head><body><p>Sample paragraph.</p></body></html>";
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            // Create a <style> element with internal CSS to set paragraph text color
-            Aspose.Html.Dom.Element styleElement = document.CreateElement("style");
-            styleElement.TextContent = "p { color: blue; }";
+            Aspose.Html.Dom.Element style = document.CreateElement("style");
+            style.TextContent = "p { color: #FF0000; }";
 
-            // Append the style element to the <head> section
-            Aspose.Html.Dom.Element headElement = document.GetElementsByTagName("head").First();
-            headElement.AppendChild(styleElement);
+            Aspose.Html.Dom.Element head = document.GetElementsByTagName("head")[0];
+            head.AppendChild(style);
 
-            // Save the modified document to a file
-            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.html");
+            string outputPath = "output.html";
             document.Save(outputPath);
 
-            Console.WriteLine($"Document saved successfully to: {outputPath}");
+            Console.WriteLine($"HTML saved to {Path.GetFullPath(outputPath)}");
         }
         catch (Exception ex)
         {

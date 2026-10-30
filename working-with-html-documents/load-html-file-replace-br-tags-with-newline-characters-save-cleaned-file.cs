@@ -1,8 +1,6 @@
 // Load an HTML file, replace all <br> tags with newline characters, and save the cleaned file.
 
 using System;
-using System.IO;
-using System.Linq;
 
 class Program
 {
@@ -13,32 +11,32 @@ class Program
             string inputPath = "input.html";
             string outputPath = "output.html";
 
-            // Create a sample HTML file if it does not exist
-            if (!File.Exists(inputPath))
+            // Create a minimal sample HTML file if it does not exist
+            if (!System.IO.File.Exists(inputPath))
             {
-                string sampleHtml = "<html><body>Hello<br>World<br/>!<br />End</body></html>";
-                File.WriteAllText(inputPath, sampleHtml);
+                string sampleHtml = "<html><body>Hello<br>World<br/>Again<br />End</body></html>";
+                System.IO.File.WriteAllText(inputPath, sampleHtml);
             }
 
-            // Load the HTML document
+            // Load the HTML document from file
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
 
             // Get the <body> element
-            Aspose.Html.HTMLElement body = (Aspose.Html.HTMLElement)document.GetElementsByTagName("body").First();
+            Aspose.Html.HTMLElement body = (Aspose.Html.HTMLElement)System.Linq.Enumerable.First(document.GetElementsByTagName("body"));
 
             // Replace <br> tags with newline characters
-            string html = body.InnerHTML;
-            html = html.Replace("<br>", "\n")
-                       .Replace("<br/>", "\n")
-                       .Replace("<br />", "\n");
-            body.InnerHTML = html;
+            string htmlContent = body.InnerHTML;
+            htmlContent = htmlContent.Replace("<br>", "\n")
+                                     .Replace("<br/>", "\n")
+                                     .Replace("<br />", "\n");
+            body.InnerHTML = htmlContent;
 
-            // Save the cleaned HTML document
+            // Save the cleaned HTML to a new file
             document.Save(outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

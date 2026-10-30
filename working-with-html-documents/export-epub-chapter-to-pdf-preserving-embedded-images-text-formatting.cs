@@ -1,27 +1,41 @@
 // Export an EPUB chapter to PDF, preserving embedded images and text formatting.
 
-public class Program
+using System;
+using System.IO;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
+
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
+            // Input EPUB file (ensure this file exists in the executable directory)
             string inputPath = "sample.epub";
-            string outputDir = "output";
-            System.IO.Directory.CreateDirectory(outputDir);
-            string outputPath = System.IO.Path.Combine(outputDir, "chapter.pdf");
 
-            using (System.IO.FileStream stream = new System.IO.FileStream(inputPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+            // Output directory and PDF file path
+            string outputDir = "output";
+            Directory.CreateDirectory(outputDir);
+            string outputPath = Path.Combine(outputDir, "chapter.pdf");
+
+            // Open the EPUB file as a stream
+            using (FileStream stream = new FileStream(inputPath, FileMode.Open, FileAccess.Read))
             {
-                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                // Create PDF save options
+                PdfSaveOptions options = new PdfSaveOptions();
+
+                // Convert EPUB to PDF
                 Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
 
-            System.Console.WriteLine("EPUB chapter converted to PDF successfully.");
+            Console.WriteLine("EPUB has been successfully converted to PDF:");
+            Console.WriteLine(outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred during conversion:");
+            Console.WriteLine(ex.Message);
         }
     }
 }

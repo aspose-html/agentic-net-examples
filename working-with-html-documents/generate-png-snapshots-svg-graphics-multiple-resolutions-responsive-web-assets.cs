@@ -9,40 +9,37 @@ using System.Drawing;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Create a minimal SVG file
+            // Prepare a sample SVG file
             string svgPath = "sample.svg";
-            string svgContent = @"<svg width='200' height='200' xmlns='http://www.w3.org/2000/svg'>
-  <rect width='200' height='200' fill='lightblue'/>
-  <circle cx='100' cy='100' r='80' fill='orange'/>
-</svg>";
-            File.WriteAllText(svgPath, svgContent);
-
-            // Define resolutions (DPI) for responsive assets
-            int[] resolutions = new int[] { 72, 150, 300 };
-
-            foreach (int dpi in resolutions)
+            if (!File.Exists(svgPath))
             {
-                // Load SVG document
-                SVGDocument document = new SVGDocument(svgPath);
+                string svgContent = "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='200' height='200' fill='red'/></svg>";
+                File.WriteAllText(svgPath, svgContent);
+            }
 
-                // Configure image save options
+            // Load the SVG document
+            SVGDocument document = new SVGDocument(svgPath);
+
+            // Define resolutions
+            int[] horizontalResolutions = new int[] { 72, 150, 300 };
+            int[] verticalResolutions = new int[] { 72, 150, 300 };
+
+            for (int i = 0; i < horizontalResolutions.Length; i++)
+            {
                 ImageSaveOptions options = new ImageSaveOptions();
-                options.HorizontalResolution = dpi;
-                options.VerticalResolution = dpi;
+                options.HorizontalResolution = horizontalResolutions[i];
+                options.VerticalResolution = verticalResolutions[i];
                 options.BackgroundColor = Color.White;
                 options.UseAntialiasing = true;
 
-                // Output PNG path
-                string outputPath = $"output_{dpi}dpi.png";
+                string outputPath = $"output_{horizontalResolutions[i]}x{verticalResolutions[i]}.png";
 
-                // Convert SVG to PNG
                 Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath);
-
-                Console.WriteLine($"Saved PNG at {dpi} DPI to '{outputPath}'.");
+                Console.WriteLine($"Saved PNG at {horizontalResolutions[i]} DPI to {outputPath}");
             }
         }
         catch (Exception ex)

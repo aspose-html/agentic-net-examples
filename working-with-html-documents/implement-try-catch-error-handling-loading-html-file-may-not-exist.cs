@@ -6,7 +6,8 @@ public sealed class Program
     {
         try
         {
-            string url = "file:///nonexistent.html";
+            string inputPath = "sample.html";
+            string url = "file:///" + System.IO.Path.GetFullPath(inputPath).Replace("\\", "/");
             Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(url);
             request.Timeout = System.TimeSpan.FromSeconds(10);
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request);

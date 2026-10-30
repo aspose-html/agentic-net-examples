@@ -2,16 +2,16 @@
 
 using System;
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main(string[] args)
     {
         try
         {
-            string html = "<!DOCTYPE html><html><head><style>body{font-family:Arial;}</style></head><body><h1>Hello, Aspose.HTML!</h1><p>This is a test page.</p></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
+            string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            int[] dpis = new int[] { 96, 150, 300 };
+            int[] dpis = new int[] { 96, 300 };
             foreach (int dpi in dpis)
             {
                 Aspose.Html.Rendering.Image.ImageRenderingOptions options = new Aspose.Html.Rendering.Image.ImageRenderingOptions()
@@ -19,7 +19,8 @@ class Program
                     HorizontalResolution = dpi,
                     VerticalResolution = dpi
                 };
-                string outputPath = $"snapshot_{dpi}dpi.png";
+
+                string outputPath = $"output_{dpi}dpi.png";
                 Aspose.Html.Rendering.Image.ImageDevice device = new Aspose.Html.Rendering.Image.ImageDevice(options, outputPath);
                 document.RenderTo(device);
             }

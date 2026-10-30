@@ -1,22 +1,45 @@
 // Generate PDF files from HTML templates, injecting dynamic data and using default unit conversion.
 
-public class Program
+using System;
+using System.IO;
+
+class Program
 {
-    public static void Main()
+    static void Main(string[] args)
     {
         try
         {
+            // Define HTML template with placeholder
             string template = "<html><body><h1>Hello, {{name}}!</h1></body></html>";
+            // Inject dynamic data
             string htmlContent = template.Replace("{{name}}", "John Doe");
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-            string outputPath = "output.pdf";
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-            System.Console.WriteLine("PDF generated at: " + outputPath);
+            // Base URI for the inline HTML
+            string baseUri = "about:blank";
+
+            // Create HTML document from inline content
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+
+            // Set PDF save options (default settings)
+            Aspose.Html.Saving.PdfSaveOptions pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
+
+            // Define output PDF path
+            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.pdf");
+            // Ensure output directory exists
+            string outputDir = Path.GetDirectoryName(outputPath);
+            if (!Directory.Exists(outputDir))
+            {
+                Directory.CreateDirectory(outputDir);
+            }
+
+            // Convert HTML to PDF
+            Aspose.Html.Converters.Converter.ConvertHTML(document, pdfOptions, outputPath);
+
+            Console.WriteLine($"PDF successfully generated at: {outputPath}");
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred during PDF generation:");
+            Console.WriteLine(ex.Message);
         }
     }
 }

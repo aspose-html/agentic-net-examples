@@ -8,16 +8,17 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><p>First paragraph</p><p>Second paragraph</p></body></html>";
+            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>First paragraph</p><p>Second paragraph</p></body></html>";
             var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            Aspose.Html.Dom.Element element = document.QuerySelector("p");
-            element.SetAttribute("style", "color:rgb(50,150,200); background-color:#e1f0fe;");
-            document.Save("output.html");
-            Console.WriteLine("First paragraph styled and document saved to output.html");
+            var firstParagraph = document.QuerySelector("p:first-of-type");
+            firstParagraph.SetAttribute("style", "color:rgb(50,150,200); background-color:#e1f0fe;");
+            string outputPath = "output.html";
+            document.Save(outputPath);
+            Console.WriteLine($"HTML document saved to '{outputPath}'.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

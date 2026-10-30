@@ -8,7 +8,7 @@ class Program
     {
         try
         {
-            // Pixel value
+            // Define pixel dimensions
             double widthPixels = 1200;
             const double ppi = 96.0;
 
@@ -16,50 +16,36 @@ class Program
             double widthInches = widthPixels / ppi;
             double widthCentimeters = widthInches * 2.54;
 
-            Console.WriteLine($"Width: {widthPixels} px = {widthCentimeters:F2} cm");
+            // Create simple HTML with a banner of the calculated width
+            string htmlContent = $"<html><body><div style='width:{widthCentimeters:F2}cm;height:5cm;background-color:#4CAF50;'>Banner</div></body></html>";
 
-            // Sample HTML with a banner
-            string htmlContent = @"
-                <html>
-                    <body>
-                        <div style='width:1200px;height:200px;background:#4CAF50;color:white;font-size:24px;display:flex;align-items:center;justify-content:center;'>
-                            Sample Banner
-                        </div>
-                    </body>
-                </html>";
-
-            // Load HTML document from string
+            // Load HTML document from string (use two‑argument constructor)
             var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            // Define zero margins
+            // Define page margins (1 cm on each side)
             var margin = new Aspose.Html.Drawing.Margin(
-                Aspose.Html.Drawing.Length.FromCentimeters(0),
-                Aspose.Html.Drawing.Length.FromCentimeters(0),
-                Aspose.Html.Drawing.Length.FromCentimeters(0),
-                Aspose.Html.Drawing.Length.FromCentimeters(0));
+                Aspose.Html.Drawing.Length.FromCentimeters(1),
+                Aspose.Html.Drawing.Length.FromCentimeters(1),
+                Aspose.Html.Drawing.Length.FromCentimeters(1),
+                Aspose.Html.Drawing.Length.FromCentimeters(1));
 
-            // Set page size using the calculated width and a fixed height (e.g., 5 cm)
-            double pageHeightCentimeters = 5.0;
-            var page = new Aspose.Html.Drawing.Page(
+            // Set up PDF rendering options with page size matching the banner width
+            var pdfOptions = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
+            pdfOptions.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(
                 new Aspose.Html.Drawing.Size(
                     Aspose.Html.Drawing.Length.FromCentimeters(widthCentimeters),
-                    Aspose.Html.Drawing.Length.FromCentimeters(pageHeightCentimeters)),
+                    Aspose.Html.Drawing.Length.FromCentimeters(5)), // banner height
                 margin);
 
-            // Configure PDF rendering options
-            var options = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
-            options.PageSetup.AnyPage = page;
-
-            // Output PDF path
+            // Render to PDF file
             string outputPath = "banner.pdf";
-
-            // Render to PDF
-            using (var device = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath))
+            using (var device = new Aspose.Html.Rendering.Pdf.PdfDevice(pdfOptions, outputPath))
             {
                 document.RenderTo(device);
             }
 
-            Console.WriteLine($"PDF generated at: {outputPath}");
+            Console.WriteLine($"Width in centimeters: {widthCentimeters:F2} cm");
+            Console.WriteLine($"PDF saved to: {outputPath}");
         }
         catch (Exception ex)
         {

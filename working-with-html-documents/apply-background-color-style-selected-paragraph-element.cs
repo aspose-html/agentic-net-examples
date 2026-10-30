@@ -1,8 +1,6 @@
 // Apply a background color style to the selected paragraph element.
 
 using System;
-using System.Linq;
-using Aspose.Html;
 
 class Program
 {
@@ -10,20 +8,17 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><p>Hello World</p></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
-            var paragraph = (Aspose.Html.HTMLElement)document.GetElementsByTagName("p").First();
-            paragraph.Style.BackgroundColor = "lightblue";
-
+            string html = "<html><body><p>Hello World</p></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
+            Aspose.Html.HTMLElement paragraph = (Aspose.Html.HTMLElement)document.GetElementsByTagName("p")[0];
+            paragraph.Style.BackgroundColor = "yellow";
             string outputPath = "output.html";
             document.Save(outputPath);
-
-            Console.WriteLine($"Document saved to '{outputPath}'.");
+            Console.WriteLine("Document saved to " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

@@ -1,19 +1,17 @@
 // Add the generated alt attribute to each identified <img> element.
 
-using System;
-
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string htmlContent = "<html><body><img src='image1.png'><img src='image2.png' alt='Existing alt'></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            string html = "<html><body><img src='image1.png'><img src='image2.png' alt='Existing alt'></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
             Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
             foreach (Aspose.Html.Dom.Element node in images)
             {
-                var img = node as Aspose.Html.HTMLImageElement;
+                Aspose.Html.HTMLImageElement img = node as Aspose.Html.HTMLImageElement;
                 if (img != null)
                 {
                     string alt = img.GetAttribute("alt");
@@ -24,12 +22,13 @@ class Program
                     }
                 }
             }
-            document.Save("output.html");
-            Console.WriteLine("Processing completed. Output saved to output.html");
+            string outputPath = "output.html";
+            document.Save(outputPath);
+            System.Console.WriteLine("Processed document saved to " + outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.Error.WriteLine("Error: " + ex.Message);
         }
     }
 }

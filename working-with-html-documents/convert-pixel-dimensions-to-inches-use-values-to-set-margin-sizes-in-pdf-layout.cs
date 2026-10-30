@@ -8,11 +8,11 @@ class Program
     {
         try
         {
-            // Sample pixel dimensions for margins
+            // Pixel dimensions for margins
             int leftPixels = 72;
-            int topPixels = 96;
+            int topPixels = 72;
             int rightPixels = 72;
-            int bottomPixels = 96;
+            int bottomPixels = 72;
 
             // Convert pixels to inches (96 DPI)
             double leftInches = leftPixels / 96.0;
@@ -27,7 +27,7 @@ class Program
                 Aspose.Html.Drawing.Length.FromInches(bottomInches),
                 Aspose.Html.Drawing.Length.FromInches(leftInches));
 
-            // Set up PDF rendering options with page size and margins
+            // Set up PDF rendering options with page size and margin
             Aspose.Html.Rendering.Pdf.PdfRenderingOptions options = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
             options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(
                 new Aspose.Html.Drawing.Size(
@@ -35,12 +35,12 @@ class Program
                     Aspose.Html.Drawing.Length.FromInches(11)),
                 margin);
 
+            // Output PDF file path
+            string outputPath = "output.pdf";
+
             // Sample HTML content
             string htmlContent = "<html><body><h1>Hello, PDF!</h1></body></html>";
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
-            // Output PDF file path
-            string outputPath = "output.pdf";
 
             // Render HTML to PDF
             using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath))
@@ -48,7 +48,7 @@ class Program
                 document.RenderTo(device);
             }
 
-            Console.WriteLine("PDF generated successfully at: " + outputPath);
+            Console.WriteLine("PDF generated successfully at " + outputPath);
         }
         catch (Exception ex)
         {

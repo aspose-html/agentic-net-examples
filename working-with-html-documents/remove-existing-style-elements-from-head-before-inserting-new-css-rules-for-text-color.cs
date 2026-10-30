@@ -1,10 +1,6 @@
 // Remove existing style elements from the head before inserting new CSS rules for text color.
 
 using System;
-using System.IO;
-using System.Linq;
-using Aspose.Html;
-using Aspose.Html.Dom;
 
 class Program
 {
@@ -12,37 +8,41 @@ class Program
     {
         try
         {
-            // Sample HTML content with an existing <style> element
-            string htmlContent = "<html><head><style>p {font-size:12px;}</style></head><body><p>Hello World</p></body></html>";
+            // Sample HTML with an existing <style> element
+            string htmlContent = "<!DOCTYPE html><html><head><style>p {font-size:14px;}</style></head><body><p>Hello World</p></body></html>";
 
             // Load the HTML document from the string (base URI is required)
-            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
             // Get the <head> element
-            Element head = (Element)document.GetElementsByTagName("head").First();
+            var headCollection = document.GetElementsByTagName("head");
+            if (headCollection.Length == 0)
+                throw new Exception("The <head> element was not found.");
 
-            // Remove all existing <style> elements from the head
-            var existingStyles = head.GetElementsByTagName("style").Cast<Element>().ToList();
-            foreach (var styleElement in existingStyles)
+            var head = (Aspose.Html.Dom.Element)headCollection[0];
+
+            // Remove all existing <style> elements from the document
+            var styleCollection = document.GetElementsByTagName("style");
+            for (int i = styleCollection.Length - 1; i >= 0; i--)
             {
-                head.RemoveChild(styleElement);
+                var styleElement = (Aspose.Html.Dom.Element)styleCollection[i];
+                var parent = styleElement.ParentNode;
+                if (parent != null)
+                    parent.RemoveChild(styleElement);
             }
 
-            // Create a new <style> element with the desired CSS rule
-            Element newStyle = (Element)document.CreateElement("style");
+            // Create a new <style> element with a text color rule
+            var newStyle = (Aspose.Html.Dom.Element)document.CreateElement("style");
             newStyle.TextContent = "body { color: blue; }";
 
-            // Append the new style element to the head
+            // Append the new <style> element to the <head>
             head.AppendChild(newStyle);
 
             // Save the modified document to a file
-            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.html");
+            string outputPath = "output.html";
             document.Save(outputPath);
 
-            // Clean up
-            document.Dispose();
-
-            Console.WriteLine($"Document saved successfully to: {outputPath}");
+            Console.WriteLine($"Document saved successfully to '{outputPath}'.");
         }
         catch (Exception ex)
         {

@@ -1,45 +1,52 @@
 // Create a document, add a link element referencing a stylesheet, and ensure stylesheet loads on render.
 
 using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Dom;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
-            // Prepare temporary folder
-            string tempFolder = Path.Combine(Directory.GetCurrentDirectory(), "temp");
-            Directory.CreateDirectory(tempFolder);
+            // Prepare file paths
+            string baseDir = System.IO.Directory.GetCurrentDirectory();
+            string htmlPath = System.IO.Path.Combine(baseDir, "sample.html");
+            string cssPath = System.IO.Path.Combine(baseDir, "style.css");
+            string outputPath = System.IO.Path.Combine(baseDir, "output.png");
 
-            // Create stylesheet file
-            string cssPath = Path.Combine(tempFolder, "style.css");
-            File.WriteAllText(cssPath, "body { background-color: lightblue; }");
+            // Create a simple stylesheet
+            string cssContent = ".box { width:100px; height:100px; background-color:red; }";
+            System.IO.File.WriteAllText(cssPath, cssContent);
 
-            // HTML content referencing the stylesheet
-            string htmlContent = "<!DOCTYPE html><html><head><link rel=\"stylesheet\" href=\"style.css\"/></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            // Create an HTML document and add a link to the stylesheet
+            string htmlTemplate = "<!DOCTYPE html><html><head></head><body></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlTemplate, "about:blank");
 
-            // Base URI pointing to the temporary folder
-            string baseUri = new Uri(tempFolder + Path.DirectorySeparatorChar).AbsoluteUri;
+            // <link rel="stylesheet" href="style.css">
+            Aspose.Html.Dom.Element link = document.CreateElement("link");
+            link.SetAttribute("rel", "stylesheet");
+            link.SetAttribute("href", "style.css");
+            Aspose.Html.HTMLElement head = (Aspose.Html.HTMLElement)document.GetElementsByTagName("head")[0];
+            head.AppendChild(link);
 
-            // Load HTML document with base URI so the stylesheet can be resolved
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+            // <div class="box"></div>
+            Aspose.Html.Dom.Element div = document.CreateElement("div");
+            div.SetAttribute("class", "box");
+            Aspose.Html.HTMLElement body = (Aspose.Html.HTMLElement)document.GetElementsByTagName("body")[0];
+            body.AppendChild(div);
 
-            // Convert to PDF to ensure stylesheet is applied during rendering
-            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.pdf");
-            Aspose.Html.Saving.PdfSaveOptions saveOptions = new Aspose.Html.Saving.PdfSaveOptions();
-            Aspose.Html.Converters.Converter.ConvertHTML(document, saveOptions, outputPath);
+            // Save the HTML to a file
+            document.Save(htmlPath);
 
-            Console.WriteLine("Conversion completed. Output saved to: " + outputPath);
+            // Render the HTML (with stylesheet) to PNG
+            Aspose.Html.Saving.ImageSaveOptions saveOptions = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+            Aspose.Html.Converters.Converter.ConvertHTML(htmlPath, saveOptions, outputPath);
+
+            Console.WriteLine("Rendered image saved to: " + outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 }

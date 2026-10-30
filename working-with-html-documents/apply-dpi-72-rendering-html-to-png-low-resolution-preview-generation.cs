@@ -1,34 +1,37 @@
 // Apply a DPI of 72 when rendering HTML to PNG for low‑resolution preview generation.
 
-using System;
-
-class Program
+namespace MyApp
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            string htmlPath = "sample.html";
-            string outputPath = "output.png";
-
-            // Create a minimal HTML file if it does not exist
-            if (!System.IO.File.Exists(htmlPath))
+            try
             {
-                string sampleHtml = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"></head><body><h1>Hello, Aspose!</h1></body></html>";
-                System.IO.File.WriteAllText(htmlPath, sampleHtml);
+                string htmlPath = "sample.html";
+                if (!System.IO.File.Exists(htmlPath))
+                {
+                    string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+                    System.IO.File.WriteAllText(htmlPath, sampleHtml);
+                }
+
+                string htmlContent = System.IO.File.ReadAllText(htmlPath);
+                string baseUri = new System.Uri(System.IO.Path.GetFullPath(htmlPath)).AbsoluteUri;
+
+                string outputPath = "output.png";
+
+                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+                options.HorizontalResolution = 72;
+                options.VerticalResolution = 72;
+
+                Aspose.Html.Converters.Converter.ConvertHTML(htmlContent, baseUri, options, outputPath);
+
+                System.Console.WriteLine("Conversion completed. Output saved to " + outputPath);
             }
-
-            // Configure image save options with 72 DPI
-            var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
-            options.HorizontalResolution = 72;
-            options.VerticalResolution = 72;
-
-            // Convert HTML to PNG
-            Aspose.Html.Converters.Converter.ConvertHTML(htmlPath, options, outputPath);
-        }
-        catch (System.Exception ex)
-        {
-            System.Console.WriteLine(ex.Message);
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

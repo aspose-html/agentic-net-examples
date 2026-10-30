@@ -2,6 +2,9 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -9,29 +12,29 @@ class Program
     {
         try
         {
-            string sourcePath = "sample.mht";
-            string outputPath = "output.html";
+            // Define file paths
+            string sourceHtmlPath = "sample.html";
+            string sourceMhtmlPath = "sample.mhtml";
+            string outputHtmlPath = "output.html";
 
-            if (!File.Exists(sourcePath))
+            // Create a minimal HTML file if it does not exist
+            if (!File.Exists(sourceHtmlPath))
             {
-                string mhtmlContent =
-                    "From: <Saved by WebKit>\r\n" +
-                    "Subject: Sample MHTML\r\n" +
-                    "MIME-Version: 1.0\r\n" +
-                    "Content-Type: multipart/related; boundary=\"----=_NextPart_000_0000\"\r\n\r\n" +
-                    "------=_NextPart_000_0000\r\n" +
-                    "Content-Type: text/html; charset=\"utf-8\"\r\n" +
-                    "Content-Transfer-Encoding: quoted-printable\r\n\r\n" +
-                    "<html><head><title>Original Title</title></head><body><p>Hello World</p></body></html>\r\n" +
-                    "------=_NextPart_000_0000--";
-
-                File.WriteAllText(sourcePath, mhtmlContent);
+                File.WriteAllText(sourceHtmlPath, "<!DOCTYPE html><html><head><title>Original Title</title></head><body><p>Hello, World!</p></body></html>");
             }
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(sourcePath))
+            // Convert the HTML file to MHTML
+            Aspose.Html.Saving.MHTMLSaveOptions mhtmlOptions = new Aspose.Html.Saving.MHTMLSaveOptions();
+            Aspose.Html.Converters.Converter.ConvertHTML(sourceHtmlPath, mhtmlOptions, sourceMhtmlPath);
+
+            // Load the MHTML document
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(sourceMhtmlPath))
             {
+                // Modify the title
                 document.Title = "Modified Title";
-                document.Save(outputPath, Aspose.Html.Saving.HTMLSaveFormat.Original);
+
+                // Save the document as HTML
+                document.Save(outputHtmlPath, Aspose.Html.Saving.HTMLSaveFormat.Original);
             }
 
             Console.WriteLine("Conversion completed successfully.");

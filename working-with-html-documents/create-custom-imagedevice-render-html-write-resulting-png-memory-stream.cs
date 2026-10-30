@@ -11,7 +11,7 @@ using Aspose.Html.Converters;
 
 sealed class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
-    public List<MemoryStream> Streams { get; } = new List<MemoryStream>();
+    public List<MemoryStream> Streams = new List<MemoryStream>();
 
     public Stream GetStream(string name, string extension)
     {
@@ -47,38 +47,27 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            string htmlContent = "<html><body><h1>Hello, Aspose!</h1></body></html>";
             var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
             var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
-
             var provider = new MemoryStreamProvider();
+
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
 
             if (provider.Streams.Count > 0)
             {
-                var pngStream = provider.Streams[0];
-                pngStream.Position = 0;
-
-                // Example: write the PNG bytes to a file (optional)
-                string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.png");
-                using (FileStream file = File.Create(outputPath))
+                var resultStream = provider.Streams[0];
+                resultStream.Position = 0;
+                // Example: write to a file (optional)
+                using (var fileStream = new FileStream("output.png", FileMode.Create, FileAccess.Write))
                 {
-                    pngStream.CopyTo(file);
+                    resultStream.CopyTo(fileStream);
                 }
-
-                Console.WriteLine($"PNG image saved to memory stream and written to '{outputPath}'.");
             }
-            else
-            {
-                Console.WriteLine("No image stream was generated.");
-            }
-
-            provider.Dispose();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine(ex.Message);
         }
     }
 }

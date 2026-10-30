@@ -8,20 +8,31 @@ class Program
     {
         try
         {
-            string html = "<!DOCTYPE html><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Sample</title></head><body><h1>Hello, World!</h1></body></html>";
+            string html = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello World</h1></body></html>";
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
             {
-                Aspose.Html.Rendering.Image.ImageRenderingOptions options = new Aspose.Html.Rendering.Image.ImageRenderingOptions()
+                // Add meta viewport tag
+                Aspose.Html.Dom.Element meta = document.CreateElement("meta");
+                meta.SetAttribute("name", "viewport");
+                meta.SetAttribute("content", "width=device-width, initial-scale=1.0");
+
+                Aspose.Html.Collections.HTMLCollection heads = document.GetElementsByTagName("head");
+                if (heads.Length > 0)
                 {
-                    HorizontalResolution = 300,
-                    VerticalResolution = 300
-                };
-                string outputPath = "output.png";
-                using (Aspose.Html.Rendering.Image.ImageDevice device = new Aspose.Html.Rendering.Image.ImageDevice(options, outputPath))
-                {
-                    document.RenderTo(device);
+                    Aspose.Html.Dom.Element head = heads[0] as Aspose.Html.Dom.Element;
+                    head.AppendChild(meta);
                 }
+
+                // Render to high‑resolution PNG
+                Aspose.Html.Rendering.Image.ImageRenderingOptions options = new Aspose.Html.Rendering.Image.ImageRenderingOptions();
+                options.HorizontalResolution = 300;
+                options.VerticalResolution = 300;
+
+                string outputPath = "output.png";
+                Aspose.Html.Rendering.Image.ImageDevice device = new Aspose.Html.Rendering.Image.ImageDevice(options, outputPath);
+                document.RenderTo(device);
             }
+
             Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)

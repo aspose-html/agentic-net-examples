@@ -1,24 +1,38 @@
 // Define an internal CSS rule to set the body background-color for the entire page and save.
 
-class Program
+using System;
+using System.IO;
+
+namespace AsposeHtmlExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main()
         {
-            string htmlContent = "<!DOCTYPE html><html><head></head><body></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            var head = document.QuerySelector("head");
-            var style = document.CreateElement("style") as Aspose.Html.Dom.Element;
-            style.TextContent = "body { background-color: rgb(229, 243, 253) }";
-            head.AppendChild(style);
-            string outputPath = "output.html";
-            document.Save(outputPath);
-            System.Console.WriteLine("HTML saved to " + outputPath);
-        }
-        catch (System.Exception ex)
-        {
-            System.Console.WriteLine("Error: " + ex.Message);
+            try
+            {
+                string htmlContent = "<!DOCTYPE html><html><head></head><body></body></html>";
+                var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+                Aspose.Html.Dom.Element style = document.CreateElement("style");
+                style.TextContent = "body { background-color: rgb(229, 243, 253) }";
+
+                var headCollection = (Aspose.Html.Collections.HTMLCollection)document.GetElementsByTagName("head");
+                if (headCollection.Length > 0)
+                {
+                    Aspose.Html.Dom.Element head = (Aspose.Html.Dom.Element)headCollection[0];
+                    head.AppendChild(style);
+                }
+
+                string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.html");
+                document.Save(outputPath);
+
+                Console.WriteLine($"Document saved to: {outputPath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

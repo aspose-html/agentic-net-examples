@@ -8,25 +8,45 @@ class Program
     {
         try
         {
-            // Configure sandbox to allow scripts only
-            var configuration = new Aspose.Html.Configuration();
-            configuration.Security |= Aspose.Html.Sandbox.Scripts;
+            // Create configuration and enable script execution
+            Aspose.Html.Configuration config = new Aspose.Html.Configuration();
+            config.Security |= Aspose.Html.Sandbox.Scripts;
 
-            // Create a sample HTML file with intensive JavaScript
-            string htmlPath = "sample.html";
-            string htmlContent = "<!DOCTYPE html><html><head><script>var sum=0; for(var i=0;i<1000000;i++){sum+=i;}</script></head><body><h1>Script‑Intensive Page</h1></body></html>";
-            System.IO.File.WriteAllText(htmlPath, htmlContent);
-
-            // Load the HTML document with the sandbox configuration
-            using (var document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
+            // Set JavaScript timeout as a resource limit proxy
+            var runtime = config.GetService<Aspose.Html.Services.IRuntimeService>();
+            if (runtime != null)
             {
-                string text = document.DocumentElement != null ? document.DocumentElement.TextContent : string.Empty;
-                Console.WriteLine(text);
+                runtime.JavaScriptTimeout = System.TimeSpan.FromSeconds(5);
             }
+
+            // Sample HTML with many script blocks
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body>";
+            for (int i = 0; i < 100; i++)
+            {
+                htmlContent += "<script>var arr = []; for (var j=0;j<1000;j++) {arr.push(j);} console.log('script " + i + "');</script>";
+            }
+            htmlContent += "</body></html>";
+
+            // Record memory usage before loading
+            long memBefore = System.Diagnostics.Process.GetCurrentProcess().PrivateMemorySize64;
+
+            // Load the document with the configured sandbox
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank", config))
+            {
+                // Access document content to ensure processing
+                string text = document.DocumentElement != null ? document.DocumentElement.TextContent : string.Empty;
+                System.Console.WriteLine("Document text length: " + text.Length);
+            }
+
+            // Record memory usage after loading
+            long memAfter = System.Diagnostics.Process.GetCurrentProcess().PrivateMemorySize64;
+            System.Console.WriteLine("Memory before: " + memBefore);
+            System.Console.WriteLine("Memory after: " + memAfter);
+            System.Console.WriteLine("Memory delta: " + (memAfter - memBefore));
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

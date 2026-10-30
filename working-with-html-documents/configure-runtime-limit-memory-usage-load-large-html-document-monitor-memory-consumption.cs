@@ -1,9 +1,30 @@
 // Configure runtime to limit memory usage, load a large HTML document, and monitor memory consumption.
 
-using System;
-using System.Text;
-using System.Diagnostics;
-using Aspose.Html;
+sealed class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, System.IDisposable
+{
+    private readonly System.Collections.Generic.List<System.IO.MemoryStream> _streams = new System.Collections.Generic.List<System.IO.MemoryStream>();
+    public System.IO.Stream GetStream(string name, string extension)
+    {
+        var ms = new System.IO.MemoryStream();
+        _streams.Add(ms);
+        return ms;
+    }
+    public System.IO.Stream GetStream(string name, string extension, int page)
+    {
+        var ms = new System.IO.MemoryStream();
+        _streams.Add(ms);
+        return ms;
+    }
+    public void ReleaseStream(System.IO.Stream stream)
+    {
+        if (stream != null) stream.Flush();
+    }
+    public void Dispose()
+    {
+        foreach (var s in _streams) s.Dispose();
+    }
+    public System.Collections.Generic.IReadOnlyList<System.IO.MemoryStream> Streams => _streams;
+}
 
 class Program
 {
@@ -11,49 +32,44 @@ class Program
     {
         try
         {
-            // Define a memory limit (e.g., 200 MB)
-            const long memoryLimitBytes = 200L * 1024 * 1024;
+            // Configure runtime (e.g., JavaScript timeout to limit execution)
+            var config = new Aspose.Html.Configuration();
+            var runtimeService = config.GetService<Aspose.Html.Services.IRuntimeService>();
+            runtimeService.JavaScriptTimeout = System.TimeSpan.FromSeconds(5);
 
-            // Measure memory before loading
-            long beforeMemory = GC.GetTotalMemory(true);
-            Console.WriteLine($"Memory before loading: {beforeMemory / (1024 * 1024)} MB");
-
-            // Create a large HTML content (~50 MB)
-            var sb = new StringBuilder();
-            sb.AppendLine("<!DOCTYPE html><html><head><title>Large Document</title></head><body>");
-            for (int i = 0; i < 500000; i++)
+            // Generate large HTML content
+            var sb = new System.Text.StringBuilder();
+            sb.Append("<!DOCTYPE html><html><head><title>Large Document</title></head><body>");
+            for (int i = 0; i < 10000; i++)
             {
-                sb.AppendLine($"<p>Paragraph {i}: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>");
+                sb.Append("<div>Line ").Append(i).Append("</div>");
             }
-            sb.AppendLine("</body></html>");
+            sb.Append("</body></html>");
             string largeHtml = sb.ToString();
 
-            // Load the HTML document using the two‑argument constructor (content, baseUri)
-            var document = new Aspose.Html.HTMLDocument(largeHtml, "about:blank");
+            // Memory before loading
+            long before = System.GC.GetTotalMemory(true);
+            System.Console.WriteLine($"Memory before loading: {before / 1024} KB");
 
-            // Measure memory after loading
-            long afterMemory = GC.GetTotalMemory(true);
-            Console.WriteLine($"Memory after loading: {afterMemory / (1024 * 1024)} MB");
+            // Load document with configuration
+            var document = new Aspose.Html.HTMLDocument(largeHtml, "about:blank", config);
 
-            long usedMemory = afterMemory - beforeMemory;
-            Console.WriteLine($"Additional memory used: {usedMemory / (1024 * 1024)} MB");
+            // Memory after loading
+            long after = System.GC.GetTotalMemory(true);
+            System.Console.WriteLine($"Memory after loading: {after / 1024} KB");
+            System.Console.WriteLine($"Memory increase: {(after - before) / 1024} KB");
 
-            // Check against the limit
-            if (usedMemory > memoryLimitBytes)
-            {
-                Console.WriteLine("Warning: Memory usage exceeds the configured limit.");
-            }
-            else
-            {
-                Console.WriteLine("Memory usage is within the configured limit.");
-            }
-
-            // Optional: Dispose the document explicitly
-            document.Dispose();
+            // Convert to image using in‑memory provider
+            var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+            var provider = new MemoryStreamProvider();
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
+            var imageStream = provider.Streams[0];
+            imageStream.Position = 0;
+            System.Console.WriteLine($"Generated image size: {imageStream.Length} bytes");
         }
         catch (System.Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

@@ -2,31 +2,33 @@
 
 using System;
 using System.Globalization;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Dom.XPath;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string html = "<html><body>" +
-                          "<span class='price'>12.5</span>" +
-                          "<div><span class='price'>7.30</span></div>" +
-                          "<span class='price'>10</span>" +
-                          "<span class='other'>5</span>" +
-                          "</body></html>";
+            string htmlContent = "<html><body>" +
+                                 "<span class=\"price\">10.5</span>" +
+                                 "<span class=\"price\">20</span>" +
+                                 "<span class=\"price\">5.25</span>" +
+                                 "</body></html>";
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
+            using (HTMLDocument document = new HTMLDocument(htmlContent, "about:blank"))
             {
-                Aspose.Html.Dom.XPath.IXPathResult result = document.Evaluate(
+                IXPathResult result = document.Evaluate(
                     "//span[contains(concat(' ', normalize-space(@class), ' '), ' price ')]",
                     document,
                     document.CreateNSResolver(document),
-                    Aspose.Html.Dom.XPath.XPathResultType.Any,
+                    XPathResultType.Any,
                     null);
 
                 double sum = 0;
-                Aspose.Html.Dom.Node node;
+                Node node;
                 while ((node = result.IterateNext()) != null)
                 {
                     if (double.TryParse(node.TextContent, NumberStyles.Any, CultureInfo.InvariantCulture, out double value))

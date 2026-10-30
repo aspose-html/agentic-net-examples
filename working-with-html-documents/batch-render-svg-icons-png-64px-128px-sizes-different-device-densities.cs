@@ -10,14 +10,21 @@ class Program
     {
         try
         {
-            string inputFolder = "InputSvgs";
-            string outputFolder = "OutputPngs";
+            string inputFolder = "svg-icons";
+            string outputFolder = "png-output";
+
+            if (!Directory.Exists(inputFolder))
+                Directory.CreateDirectory(inputFolder);
 
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
-            if (!Directory.Exists(inputFolder))
-                Directory.CreateDirectory(inputFolder); // Ensure folder exists; user can place SVGs here.
+            // Create a sample SVG if none exist
+            if (Directory.GetFiles(inputFolder, "*.svg").Length == 0)
+            {
+                string sampleSvgPath = Path.Combine(inputFolder, "sample.svg");
+                File.WriteAllText(sampleSvgPath, "<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><circle cx='50' cy='50' r='40' fill='red' /></svg>");
+            }
 
             string[] svgFiles = Directory.GetFiles(inputFolder, "*.svg");
             int total = svgFiles.Length;
@@ -27,31 +34,37 @@ class Program
                 string svgPath = svgFiles[i];
                 string baseName = Path.GetFileNameWithoutExtension(svgPath);
 
-                int[] sizes = new int[] { 64, 128 };
-                foreach (int size in sizes)
+                // 64 px output
+                string outputPath64 = Path.Combine(outputFolder, baseName + "_64.png");
+                using (Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath))
                 {
-                    string outputPath = Path.Combine(outputFolder, $"{baseName}_{size}px.png");
-
-                    using (Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath))
-                    {
-                        Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
-                        options.HorizontalResolution = size;
-                        options.VerticalResolution = size;
-                        options.BackgroundColor = System.Drawing.Color.White;
-                        options.UseAntialiasing = true;
-
-                        Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath);
-                    }
-
-                    Console.WriteLine($"Converted {i + 1}/{total} - {Path.GetFileName(outputPath)}");
+                    Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
+                    options.HorizontalResolution = 64;
+                    options.VerticalResolution = 64;
+                    options.BackgroundColor = System.Drawing.Color.White;
+                    options.UseAntialiasing = true;
+                    Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath64);
                 }
-            }
 
-            Console.WriteLine("Batch conversion completed successfully.");
+                // 128 px output
+                string outputPath128 = Path.Combine(outputFolder, baseName + "_128.png");
+                using (Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath))
+                {
+                    Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
+                    options.HorizontalResolution = 128;
+                    options.VerticalResolution = 128;
+                    options.BackgroundColor = System.Drawing.Color.White;
+                    options.UseAntialiasing = true;
+                    Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath128);
+                }
+
+                int percent = (i + 1) * 100 / total;
+                Console.WriteLine($"Converted {i + 1}/{total} ({percent}%) - {Path.GetFileName(outputPath64)}, {Path.GetFileName(outputPath128)}");
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

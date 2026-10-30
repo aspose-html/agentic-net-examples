@@ -1,40 +1,58 @@
 // Batch process a folder of HTML files to change all paragraph text colors to a specified hex value.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
+            // Define input and output folders
             string inputFolder = "InputHtml";
             string outputFolder = "OutputHtml";
-            string colorHex = "#FF5733";
 
-            System.IO.Directory.CreateDirectory(outputFolder);
-            string[] files = System.IO.Directory.GetFiles(inputFolder, "*.html");
+            // Ensure folders exist
+            Directory.CreateDirectory(inputFolder);
+            Directory.CreateDirectory(outputFolder);
 
-            foreach (string filePath in files)
+            // Create a minimal sample HTML file if none exist
+            string[] existingFiles = Directory.GetFiles(inputFolder, "*.html");
+            if (existingFiles.Length == 0)
             {
-                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(filePath);
+                string samplePath = Path.Combine(inputFolder, "sample.html");
+                File.WriteAllText(samplePath, "<html><body><p>First paragraph.</p><p>Second paragraph.</p></body></html>");
+            }
+
+            // Process each HTML file in the input folder
+            foreach (string filePath in Directory.GetFiles(inputFolder, "*.html"))
+            {
+                // Load the HTML document
+                HTMLDocument document = new HTMLDocument(filePath);
+
+                // Select all paragraph elements
                 Aspose.Html.Collections.NodeList paragraphs = document.QuerySelectorAll("p");
 
-                foreach (Aspose.Html.HTMLElement paragraph in paragraphs)
+                // Change text color of each paragraph
+                foreach (HTMLElement paragraph in paragraphs)
                 {
-                    paragraph.Style.Color = colorHex;
+                    paragraph.Style.Color = "#FF5733"; // Desired hex color
                 }
 
-                string fileName = System.IO.Path.GetFileName(filePath);
-                string outputPath = System.IO.Path.Combine(outputFolder, fileName);
+                // Save the modified document to the output folder
+                string outputPath = Path.Combine(outputFolder, Path.GetFileName(filePath));
                 document.Save(outputPath);
             }
 
-            Console.WriteLine("Processing completed.");
+            Console.WriteLine("Batch processing completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

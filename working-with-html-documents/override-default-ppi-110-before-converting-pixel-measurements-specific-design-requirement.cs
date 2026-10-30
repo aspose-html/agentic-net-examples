@@ -2,6 +2,9 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Drawing;
 
 class Program
 {
@@ -9,27 +12,41 @@ class Program
     {
         try
         {
-            // Sample pixel value and custom PPI
-            double widthPixels = 800;
-            double customPpi = 110.0;
-            double widthInches = widthPixels / customPpi;
-            double widthMillimeters = widthInches * 25.4;
-            Console.WriteLine($"Width: {widthPixels} pixels = {widthInches:F4} inches = {widthMillimeters:F2} mm");
+            // Define custom PPI
+            const double customPpi = 110.0;
 
-            // HTML content to render
-            string html = "<!DOCTYPE html><html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-            using (var document = new Aspose.Html.HTMLDocument(html, "about:blank"))
+            // Sample pixel measurement
+            double widthPixels = 220.0;
+            double heightPixels = 110.0;
+
+            // Convert pixels to inches using custom PPI
+            double widthInches = widthPixels / customPpi;
+            double heightInches = heightPixels / customPpi;
+
+            // Create Length objects from inches
+            Length widthLength = Length.FromInches(widthInches);
+            Length heightLength = Length.FromInches(heightInches);
+
+            Console.WriteLine($"Width: {widthPixels} px = {widthInches:F4} in");
+            Console.WriteLine($"Height: {heightPixels} px = {heightInches:F4} in");
+
+            // Prepare simple HTML content
+            string htmlContent = $"<html><body><div style='width:{widthPixels}px;height:{heightPixels}px;background:#4CAF50;'></div></body></html>";
+            using (HTMLDocument document = new HTMLDocument(htmlContent, "about:blank"))
             {
-                string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.png");
-                var options = new Aspose.Html.Rendering.Image.ImageRenderingOptions(Aspose.Html.Rendering.Image.ImageFormat.Png)
+                // Set up image rendering options with custom resolution
+                ImageRenderingOptions options = new ImageRenderingOptions(ImageFormat.Png)
                 {
                     HorizontalResolution = (int)customPpi,
                     VerticalResolution = (int)customPpi
                 };
-                using (var device = new Aspose.Html.Rendering.Image.ImageDevice(options, outputPath))
+
+                string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.png");
+                using (ImageDevice device = new ImageDevice(options, outputPath))
                 {
                     document.RenderTo(device);
                 }
+
                 Console.WriteLine($"Rendered image saved to: {outputPath}");
             }
         }

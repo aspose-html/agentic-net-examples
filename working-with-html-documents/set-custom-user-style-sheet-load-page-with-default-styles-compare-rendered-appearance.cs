@@ -2,6 +2,11 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html;
+using Aspose.Html.Services;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -10,42 +15,34 @@ class Program
         try
         {
             // Prepare sample HTML file
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><p class='msg'>Hello World</p></body></html>";
-            string samplePath = "sample.html";
-            File.WriteAllText(samplePath, htmlContent);
+            string inputPath = "sample.html";
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><p>Hello, world!</p></body></html>";
+            File.WriteAllText(inputPath, htmlContent);
 
-            // CSS for custom stylesheet
-            string cssContent = ".msg { color: red; font-weight: bold; }";
+            // Output paths
+            string defaultPdf = "default.pdf";
+            string customPdf = "custom.pdf";
 
-            // Default configuration (no custom stylesheet)
+            // ---------- Render with default styles ----------
             Aspose.Html.Configuration defaultConfig = Aspose.Html.Configuration.Create();
-            Aspose.Html.HTMLDocument defaultDoc = new Aspose.Html.HTMLDocument(samplePath, defaultConfig);
-            string defaultPdfPath = "default.pdf";
+            Aspose.Html.HTMLDocument defaultDoc = new Aspose.Html.HTMLDocument(inputPath, defaultConfig);
             Aspose.Html.Saving.PdfSaveOptions defaultOptions = new Aspose.Html.Saving.PdfSaveOptions();
-            Aspose.Html.Converters.Converter.ConvertHTML(defaultDoc, defaultOptions, defaultPdfPath);
+            Aspose.Html.Converters.Converter.ConvertHTML(defaultDoc, defaultOptions, defaultPdf);
 
-            // Custom configuration with user style sheet
+            // ---------- Render with custom user style sheet ----------
             Aspose.Html.Configuration customConfig = Aspose.Html.Configuration.Create();
             Aspose.Html.Services.IUserAgentService userAgent = (Aspose.Html.Services.IUserAgentService)customConfig.GetService(typeof(Aspose.Html.Services.IUserAgentService));
-            userAgent.UserStyleSheet = cssContent;
-            Aspose.Html.HTMLDocument customDoc = new Aspose.Html.HTMLDocument(samplePath, customConfig);
-            string customPdfPath = "custom.pdf";
+            userAgent.UserStyleSheet = "p { color: red; font-weight: bold; }";
+            Aspose.Html.HTMLDocument customDoc = new Aspose.Html.HTMLDocument(inputPath, customConfig);
             Aspose.Html.Saving.PdfSaveOptions customOptions = new Aspose.Html.Saving.PdfSaveOptions();
-            Aspose.Html.Converters.Converter.ConvertHTML(customDoc, customOptions, customPdfPath);
+            Aspose.Html.Converters.Converter.ConvertHTML(customDoc, customOptions, customPdf);
 
-            // Compare file sizes
-            long defaultSize = new FileInfo(defaultPdfPath).Length;
-            long customSize = new FileInfo(customPdfPath).Length;
+            // Simple comparison: file sizes
+            long defaultSize = new FileInfo(defaultPdf).Length;
+            long customSize = new FileInfo(customPdf).Length;
             Console.WriteLine($"Default PDF size: {defaultSize} bytes");
             Console.WriteLine($"Custom PDF size: {customSize} bytes");
-            if (defaultSize != customSize)
-            {
-                Console.WriteLine("The rendered appearance differs due to the custom style sheet.");
-            }
-            else
-            {
-                Console.WriteLine("The rendered appearance appears identical.");
-            }
+            Console.WriteLine(customSize != defaultSize ? "Custom style sheet applied, resulting PDF differs." : "No difference detected.");
         }
         catch (Exception ex)
         {

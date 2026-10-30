@@ -1,8 +1,5 @@
 // Load an HTML page, disable JavaScript, and ensure dynamic navigation menus are not generated.
 
-using System;
-using System.Threading;
-
 class Program
 {
     static void Main()
@@ -10,32 +7,39 @@ class Program
         try
         {
             string url = "https://example.com";
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            configuration.Security = Aspose.Html.Sandbox.None; // Disable scripts and other sandboxed features
 
-            var configuration = new Aspose.Html.Configuration();
-            configuration.Security = Aspose.Html.Sandbox.None;
-
-            using (System.Threading.AutoResetEvent resetEvent = new System.Threading.AutoResetEvent(false))
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
-                string htmlResult = string.Empty;
-                document.OnReadyStateChange += (sender, e) =>
+                using (System.Threading.AutoResetEvent resetEvent = new System.Threading.AutoResetEvent(false))
                 {
+                    string htmlResult = string.Empty;
+                    document.OnReadyStateChange += (sender, e) =>
+                    {
+                        if (document.ReadyState == "complete")
+                        {
+                            htmlResult = document.DocumentElement != null ? document.DocumentElement.TextContent : string.Empty;
+                            resetEvent.Set();
+                        }
+                    };
+
                     if (document.ReadyState == "complete")
                     {
-                        htmlResult = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                        resetEvent.Set();
+                        htmlResult = document.DocumentElement != null ? document.DocumentElement.TextContent : string.Empty;
                     }
-                };
+                    else
+                    {
+                        resetEvent.WaitOne();
+                    }
 
-                document.Navigate(url);
-                resetEvent.WaitOne();
-
-                Console.WriteLine(htmlResult);
+                    System.Console.WriteLine(htmlResult);
+                }
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

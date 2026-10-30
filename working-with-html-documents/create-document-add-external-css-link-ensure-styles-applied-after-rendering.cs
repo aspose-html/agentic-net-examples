@@ -1,41 +1,30 @@
 // Create a document, add a link to external CSS, and ensure styles are applied after rendering.
 
 using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Rendering.Pdf;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Prepare output folder
-            string outputFolder = "output";
-            Directory.CreateDirectory(outputFolder);
+            string htmlContent = "<!DOCTYPE html><html><head></head><body><p>Hello World</p></body></html>";
+            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            // Create external CSS file
-            string cssPath = Path.Combine(outputFolder, "style.css");
-            File.WriteAllText(cssPath, "body { background-color: lightblue; } h1 { color: red; }");
+            var link = document.CreateElement("link");
+            link.SetAttribute("rel", "stylesheet");
+            link.SetAttribute("href", "https://example.com/style.css");
 
-            // HTML content linking to the external CSS
-            string htmlContent = "<!DOCTYPE html><html><head><link rel=\"stylesheet\" href=\"style.css\" /></head><body><h1>Hello World</h1></body></html>";
-
-            // Base URI pointing to the folder containing the CSS
-            string baseUri = new Uri(Path.GetFullPath(outputFolder) + Path.DirectorySeparatorChar).AbsoluteUri;
-
-            // Create the HTML document
-            HTMLDocument document = new HTMLDocument(htmlContent, baseUri);
-
-            // Render the document to PDF
-            string pdfPath = Path.Combine(outputFolder, "result.pdf");
-            using (PdfDevice device = new PdfDevice(pdfPath))
+            var heads = document.GetElementsByTagName("head");
+            if (heads.Length > 0)
             {
-                document.RenderTo(device);
+                var head = heads[0];
+                head.AppendChild(link);
             }
 
-            Console.WriteLine("PDF generated at: " + pdfPath);
+            string outputPath = "output.pdf";
+            var device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath);
+            document.RenderTo(device);
         }
         catch (Exception ex)
         {

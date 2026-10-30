@@ -5,32 +5,38 @@ using System.IO;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
+            // Define input and output paths
             string inputPath = "sample.html";
+            string outputPath = "report.png";
+
+            // Create a minimal HTML file if it does not exist
             if (!File.Exists(inputPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Large Report</h1><p>Content for DPI test.</p></body></html>";
-                File.WriteAllText(inputPath, sampleHtml);
+                string minimalHtml = "<!DOCTYPE html><html><head><title>Sample Report</title></head><body><h1>Report Title</h1><p>This is a sample HTML report.</p></body></html>";
+                File.WriteAllText(inputPath, minimalHtml);
             }
 
+            // Read HTML content
             string htmlContent = File.ReadAllText(inputPath);
             string baseUri = new Uri(Path.GetFullPath(inputPath)).AbsoluteUri;
-            string outputPath = "output.png";
 
-            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+            // Configure image save options with DPI 450
+            var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
             options.HorizontalResolution = 450;
             options.VerticalResolution = 450;
 
+            // Convert HTML to PNG
             Aspose.Html.Converters.Converter.ConvertHTML(htmlContent, baseUri, options, outputPath);
 
-            Console.WriteLine("Conversion completed. Output saved to " + outputPath);
+            Console.WriteLine($"HTML report has been rendered to PNG with 450 DPI at: {outputPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

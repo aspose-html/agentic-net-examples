@@ -17,18 +17,18 @@ class Program
             if (!File.Exists(inputPath))
             {
                 File.WriteAllText(inputPath,
-                    "<!DOCTYPE html><!-- Sample comment --><html><head><!-- head comment --></head><body><!-- body comment --><p>Hello World</p></body></html>");
+                    "<!DOCTYPE html><html><!--Comment--><head><title>Test</title></head><body><p>Hello</p><!--Another comment--></body></html>");
             }
 
             HTMLDocument document = new HTMLDocument(inputPath);
             RemoveComments(document.DocumentElement);
             document.Save(outputPath);
 
-            Console.WriteLine($"Cleaned HTML saved to {outputPath}");
+            Console.WriteLine("Comments removed and saved to " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 

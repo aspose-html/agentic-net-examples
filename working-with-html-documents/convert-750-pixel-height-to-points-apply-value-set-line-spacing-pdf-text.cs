@@ -8,28 +8,35 @@ class Program
     {
         try
         {
+            // Convert 750 pixels to points
             double heightPixels = 750;
             double heightPoints = heightPixels * 72.0 / 96.0;
-            Console.WriteLine($"Height in points: {heightPoints:F2}");
 
-            string htmlContent = $"<html><body><p style='line-height:{heightPoints:F2}pt;'>This paragraph has line spacing set to {heightPoints:F2} points.</p></body></html>";
+            // Prepare HTML with custom line spacing (line-height) in points
+            string htmlContent = $"<html><body><p style=\"line-height:{heightPoints:F2}pt;\">This paragraph uses a line spacing of {heightPoints:F2} points, which corresponds to 750 pixels.</p></body></html>";
 
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Load HTML document from inline content
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            var options = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
+            // Set up PDF rendering options (default page size)
+            Aspose.Html.Rendering.Pdf.PdfRenderingOptions pdfOptions = new Aspose.Html.Rendering.Pdf.PdfRenderingOptions();
 
+            // Define output PDF path
             string outputPath = "output.pdf";
 
-            using (var device = new Aspose.Html.Rendering.Pdf.PdfDevice(options, outputPath))
+            // Render HTML to PDF
+            using (Aspose.Html.Rendering.Pdf.PdfDevice pdfDevice = new Aspose.Html.Rendering.Pdf.PdfDevice(pdfOptions, outputPath))
             {
-                document.RenderTo(device);
+                document.RenderTo(pdfDevice);
             }
 
-            Console.WriteLine($"PDF saved to {outputPath}");
+            Console.WriteLine($"PDF generated successfully at '{outputPath}'.");
+            Console.WriteLine($"Height in points used for line spacing: {heightPoints:F2} pt");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("An error occurred:");
+            Console.WriteLine(ex.Message);
         }
     }
 }

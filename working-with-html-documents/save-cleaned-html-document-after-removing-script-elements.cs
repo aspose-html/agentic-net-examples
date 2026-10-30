@@ -2,31 +2,26 @@
 
 using System;
 using System.IO;
-using Aspose.Html;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        string inputPath = "input.html";
-        string outputPath = "output.html";
-
         try
         {
-            // Create a minimal sample input file if it does not exist
+            string inputPath = "input.html";
+            string outputPath = "output.html";
+
             if (!File.Exists(inputPath))
             {
-                string sampleHtml = "<html><head><script>alert('test');</script></head><body><p>Hello World</p></body></html>";
+                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><script>alert('test');</script><p>Hello World</p></body></html>";
                 File.WriteAllText(inputPath, sampleHtml);
             }
 
-            // Load document
-            HTMLDocument document = new HTMLDocument(inputPath);
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
 
-            // Get all script elements
             var scripts = document.GetElementsByTagName("script");
 
-            // Iterate safely and remove
             for (int i = scripts.Length - 1; i >= 0; i--)
             {
                 var script = scripts[i];
@@ -36,12 +31,11 @@ class Program
                 }
             }
 
-            // Save document
             document.Save(outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

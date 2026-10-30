@@ -8,13 +8,14 @@ class Program
     {
         try
         {
-            double pixelCount = 150.0;
-            double points = pixelCount * 72.0 / 96.0;
-            Console.WriteLine($"Pixel count: {pixelCount} => {points:F2} points");
+            double pixels = 96.0;
+            var length = Aspose.Html.Drawing.Unit.FromPixels(pixels);
+            double points = length.GetValue(Aspose.Html.Drawing.UnitType.Pt);
+            System.Console.WriteLine($"Pixel count: {pixels} => {points:F2} points");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

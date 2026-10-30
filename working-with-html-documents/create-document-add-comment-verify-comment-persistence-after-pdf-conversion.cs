@@ -9,27 +9,63 @@ class Program
     {
         try
         {
-            string inputPath = "sample.html";
-            string pdfPath = "output.pdf";
+            // Prepare temporary folder and file paths
+            string tempDir = Path.Combine(Path.GetTempPath(), "AsposeHtmlExample");
+            Directory.CreateDirectory(tempDir);
+            string htmlPath = Path.Combine(tempDir, "sample.html");
+            string pdfPath = Path.Combine(tempDir, "sample.pdf");
 
-            // Create sample HTML file with a comment explaining the purpose
-            string htmlContent = "<!-- This is a test comment to verify persistence after PDF conversion -->\n<html><body><p>Hello World</p></body></html>";
-            File.WriteAllText(inputPath, htmlContent);
+            // Create a minimal HTML file
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><p>Hello World</p></body></html>";
+            File.WriteAllText(htmlPath, htmlContent);
 
-            // Load the HTML document from the file
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            // Load the HTML document from file
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
 
-            // Convert HTML to PDF
+            // Add a comment node explaining the purpose
+            Aspose.Html.Dom.Comment commentNode = document.CreateComment("This document is generated for PDF conversion test.");
+            document.InsertBefore(commentNode, document.DocumentElement);
+
+            // Verify the comment exists before conversion
+            bool commentFound = false;
+            foreach (Aspose.Html.Dom.Node node in document.ChildNodes)
+            {
+                if (node.NodeType == Aspose.Html.Dom.Node.COMMENT_NODE &&
+                    node.NodeValue != null &&
+                    node.NodeValue.Contains("PDF conversion test"))
+                {
+                    commentFound = true;
+                    break;
+                }
+            }
+            if (!commentFound)
+                throw new Exception("Comment not found in HTML document before conversion.");
+
+            // Convert HTML document to PDF
             Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, pdfPath);
 
-            // Verify that the PDF file was created and is not empty
-            if (!File.Exists(pdfPath) || new FileInfo(pdfPath).Length == 0)
-            {
-                throw new Exception("PDF conversion failed: file is missing or empty.");
-            }
+            // Verify PDF file was created and is not empty
+            FileInfo pdfInfo = new FileInfo(pdfPath);
+            if (!pdfInfo.Exists || pdfInfo.Length == 0)
+                throw new Exception("PDF conversion failed or output file is empty.");
 
-            Console.WriteLine("Conversion verification passed.");
+            // Verify the comment still exists after conversion
+            bool commentFoundAfter = false;
+            foreach (Aspose.Html.Dom.Node node in document.ChildNodes)
+            {
+                if (node.NodeType == Aspose.Html.Dom.Node.COMMENT_NODE &&
+                    node.NodeValue != null &&
+                    node.NodeValue.Contains("PDF conversion test"))
+                {
+                    commentFoundAfter = true;
+                    break;
+                }
+            }
+            if (!commentFoundAfter)
+                throw new Exception("Comment missing after conversion.");
+
+            Console.WriteLine("Conversion succeeded and comment persisted.");
         }
         catch (Exception ex)
         {

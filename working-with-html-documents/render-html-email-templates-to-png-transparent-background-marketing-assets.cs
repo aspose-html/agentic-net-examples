@@ -9,25 +9,21 @@ class Program
     {
         try
         {
-            // Sample HTML email template
-            string html = "<html><body style='font-family:Arial;'><h1>Hello, World!</h1><p>This is an email template.</p></body></html>";
-            string baseUrl = "about:blank";
+            string html = "<html><body style='background:transparent;'><h1 style='color:#ff0000;'>Hello, World!</h1></body></html>";
+            string baseUri = "about:blank";
 
-            // Configure image save options for PNG with transparent background
             Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
             options.BackgroundColor = System.Drawing.Color.Transparent;
 
-            // Output file path
             string outputPath = "email_template.png";
 
-            // Convert HTML to PNG
-            Aspose.Html.Converters.Converter.ConvertHTML(html, baseUrl, options, outputPath);
+            Aspose.Html.Converters.Converter.ConvertHTML(html, baseUri, options, outputPath);
 
-            Console.WriteLine("Conversion completed: " + Path.GetFullPath(outputPath));
+            Console.WriteLine($"PNG image saved to {Path.GetFullPath(outputPath)}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

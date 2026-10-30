@@ -2,10 +2,6 @@
 
 using System;
 using System.IO;
-using System.Drawing;
-using Aspose.Html.Dom.Svg;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -13,33 +9,21 @@ class Program
     {
         try
         {
-            string inputPath = "sample.svg";
+            string svgPath = "sample.svg";
             string outputPath = "output.png";
 
-            // Create a minimal SVG file if it does not exist
-            if (!File.Exists(inputPath))
-            {
-                string svgContent = @"<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
-    <rect width='200' height='200' fill='lightblue'/>
-    <circle cx='100' cy='100' r='80' fill='orange'/>
-</svg>";
-                File.WriteAllText(inputPath, svgContent);
-            }
+            string svgContent = "<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='red'/></svg>";
+            File.WriteAllText(svgPath, svgContent);
 
-            // Load the SVG document
-            SVGDocument document = new SVGDocument(inputPath);
-
-            // Configure image save options with custom DPI
-            ImageSaveOptions options = new ImageSaveOptions();
+            Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath);
+            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
             options.HorizontalResolution = 250;
             options.VerticalResolution = 250;
             options.UseAntialiasing = true;
-            options.BackgroundColor = Color.White;
 
-            // Convert SVG to PNG
             Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath);
 
-            Console.WriteLine("SVG has been successfully rendered to PNG with 250 DPI.");
+            Console.WriteLine("SVG converted to PNG with DPI 250 successfully.");
         }
         catch (Exception ex)
         {

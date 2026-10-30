@@ -8,30 +8,28 @@ class Program
     {
         try
         {
-            // Configure sandbox to prevent script execution
+            // Configure sandbox to disable script execution
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             configuration.Security |= Aspose.Html.Sandbox.Scripts;
 
-            // Load document from a URL with the sandbox configuration
-            string url = "https://example.com";
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
+            // Load HTML document from a URL with the sandbox configuration
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
             {
                 // Create a script element
-                Aspose.Html.Dom.Element script = document.CreateElement("script");
-                script.TextContent = "console.log('Hello from sandboxed script');";
+                Aspose.Html.HTMLElement script = (Aspose.Html.HTMLElement)document.CreateElement("script");
+                script.TextContent = "console.log('This script should not run');";
 
-                // Append the script to the document body
-                Aspose.Html.HTMLElement body = (Aspose.Html.HTMLElement)document.Body;
-                body.AppendChild(script);
+                // Append the script element to the document body
+                document.Body.AppendChild(script);
 
                 // Output the resulting HTML
                 string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                Console.WriteLine(html);
+                System.Console.WriteLine(html);
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

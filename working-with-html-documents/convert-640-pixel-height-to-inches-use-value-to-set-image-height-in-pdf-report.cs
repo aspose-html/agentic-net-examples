@@ -1,36 +1,34 @@
 // Convert 640 pixel height to inches and use the value to set image height in a PDF report.
 
 using System;
+using System.IO;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            double pixelCount = 640;
+            double pixels = 640;
             const double ppi = 96.0;
-            double inches = pixelCount / ppi;
-            Console.WriteLine($"Pixel count: {pixelCount} => Inches: {inches:F4}");
+            double inches = pixels / ppi;
+            Console.WriteLine($"Pixel: {pixels} = {inches:F4} inches");
 
-            // Create a Length instance from inches (demonstration purpose)
-            Aspose.Html.Drawing.Length heightLength = Aspose.Html.Drawing.Length.FromInches(inches);
-            Console.WriteLine($"Length object created: {heightLength}");
+            Aspose.Html.Drawing.Length length = Aspose.Html.Drawing.Length.FromInches(inches);
+            Console.WriteLine($"Length object: {length}");
 
-            // Build HTML content with an image whose height is set using the calculated inches
-            string htmlContent = $"<html><body><img src='https://via.placeholder.com/300' style='height:{inches}in;'></body></html>";
+            string base64Png = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+XK6cAAAAASUVORK5CYII=";
+            string htmlContent = $"<html><body><img id='img' src='data:image/png;base64,{base64Png}' style='height:{inches}in;'></body></html>";
 
-            // Load HTML document (use two‑argument constructor as required)
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            string htmlPath = "report.html";
+            File.WriteAllText(htmlPath, htmlContent);
 
-            // Define output PDF path
-            string outputPath = "report.pdf";
-
-            // Convert HTML to PDF
+            string pdfPath = "report.pdf";
             var pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
-            Aspose.Html.Converters.Converter.ConvertHTML(document, pdfOptions, outputPath);
 
-            Console.WriteLine($"PDF report generated at: {outputPath}");
+            Aspose.Html.Converters.Converter.ConvertHTML(htmlPath, pdfOptions, pdfPath);
+
+            Console.WriteLine($"PDF report generated at {pdfPath}");
         }
         catch (Exception ex)
         {
