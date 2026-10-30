@@ -1,103 +1,85 @@
 // Combine validation findings with SEO metrics to identify pages with both accessibility and ranking issues.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using Aspose.Html.Accessibility;
-using Aspose.Html.Accessibility.Results;
-using Aspose.Html;
+using System.Collections.Generic;
 
-namespace AsposeHtmlAccessibilitySeoExample
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        try
         {
-            try
+            // Prepare sample HTML files
+            string baseDir = Path.Combine(Directory.GetCurrentDirectory(), "sample_pages");
+            Directory.CreateDirectory(baseDir);
+
+            string page1Path = Path.Combine(baseDir, "page1.html");
+            string page2Path = Path.Combine(baseDir, "page2.html");
+
+            // page1 has an image without alt attribute (accessibility issue)
+            File.WriteAllText(page1Path, "<!DOCTYPE html><html><head><title>Page 1</title></head><body><img src=\"image.png\"></body></html>");
+            // page2 is fine
+            File.WriteAllText(page2Path, "<!DOCTYPE html><html><head><title>Page 2</title></head><body><img src=\"image.png\" alt=\"Sample image\"></body></html>");
+
+            // List of pages to analyze
+            List<string> pages = new List<string> { page1Path, page2Path };
+
+            // Mock SEO scores (lower means worse ranking)
+            Dictionary<string, int> seoScores = new Dictionary<string, int>
             {
-                // Sample URLs to validate
-                List<string> urls = new List<string>
+                { page1Path, 55 }, // low ranking
+                { page2Path, 85 }  // good ranking
+            };
+            int rankingThreshold = 70;
+
+            // Initialize accessibility validator
+            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+
+            int index = 1;
+            foreach (string pagePath in pages)
+            {
+                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(pagePath))
                 {
-                    "https://example.com/page1.html",
-                    "https://example.com/page2.html"
-                };
+                    Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+                    bool hasAccessibilityIssues = !validationResult.Success;
 
-                // Simulated SEO scores for each URL
-                Dictionary<string, double> seoScores = new Dictionary<string, double>
-                {
-                    { "https://example.com/page1.html", 45.0 },
-                    { "https://example.com/page2.html", 80.0 }
-                };
+                    bool hasRankingIssue = seoScores.ContainsKey(pagePath) && seoScores[pagePath] < rankingThreshold;
 
-                double rankingThreshold = 50.0; // Scores below this are considered low
-
-                // Initialize accessibility validator
-                WebAccessibility webAccessibility = new WebAccessibility();
-                AccessibilityValidator validator = webAccessibility.CreateValidator(ValidationBuilder.All);
-
-                int index = 1;
-                foreach (string url in urls)
-                {
-                    using (HTMLDocument document = new HTMLDocument(url))
+                    if (hasAccessibilityIssues && hasRankingIssue)
                     {
-                        ValidationResult validationResult = validator.Validate(document);
-                        bool hasAccessibilityIssues = !validationResult.Success;
-
-                        // Output accessibility error details if any
-                        if (hasAccessibilityIssues)
+                        Console.WriteLine($"Page {index} ({pagePath}) has both accessibility and ranking issues.");
+                        // Output accessibility details
+                        foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
                         {
-                            foreach (RuleValidationResult ruleResult in validationResult.Details)
+                            if (!ruleResult.Success)
                             {
-                                if (!ruleResult.Success)
+                                foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                                 {
-                                    foreach (ITechniqueResult techResult in ruleResult.Errors)
+                                    if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
                                     {
-                                        if (techResult.Error.Target.TargetType == TargetTypes.HTMLElement)
-                                        {
-                                            HTMLElement element = (HTMLElement)techResult.Error.Target.Item;
-                                            string tagName = element.TagName;
-                                            string id = element.GetAttribute("id");
-                                            Console.WriteLine($"Accessibility Issue - Tag: {tagName}, Id: {id}, Message: {techResult.Error.ErrorMessage}");
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine($"Accessibility Issue - Message: {techResult.Error.ErrorMessage}");
-                                        }
+                                        Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
+                                        string tagName = element.TagName;
+                                        string attributeValue = element.GetAttribute("alt");
+                                        Console.WriteLine($"  Tag: {tagName}, Alt attribute: {(attributeValue ?? "null")}, Message: {techResult.Error.ErrorMessage}");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"  Message: {techResult.Error.ErrorMessage}");
                                     }
                                 }
                             }
                         }
-
-                        // Determine SEO issue
-                        double seoScore = 0;
-                        bool hasSeoIssue = seoScores.TryGetValue(url, out seoScore) && seoScore < rankingThreshold;
-
-                        // Combine results
-                        if (hasAccessibilityIssues && hasSeoIssue)
-                        {
-                            Console.WriteLine($"Page {index}: {url} has accessibility issues and low SEO score ({seoScore}).");
-                        }
-                        else if (hasAccessibilityIssues)
-                        {
-                            Console.WriteLine($"Page {index}: {url} has accessibility issues (SEO score {seoScore}).");
-                        }
-                        else if (hasSeoIssue)
-                        {
-                            Console.WriteLine($"Page {index}: {url} has low SEO score ({seoScore}) but no accessibility issues.");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Page {index}: {url} passes both checks (SEO score {seoScore}).");
-                        }
+                        Console.WriteLine($"  SEO score: {seoScores[pagePath]} (threshold: {rankingThreshold})");
                     }
-
-                    index++;
                 }
+                index++;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

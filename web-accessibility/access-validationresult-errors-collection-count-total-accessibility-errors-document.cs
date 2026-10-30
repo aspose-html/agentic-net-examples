@@ -8,30 +8,35 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><img src='image.jpg'></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
-            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
-            Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
-
-            int totalErrors = 0;
-            foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
+            // Sample HTML content with an image missing alt attribute (accessibility error)
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='image.png'></body></html>";
+            // Create HTMLDocument from inline content
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                if (!ruleResult.Success)
+                // Initialize WebAccessibility and validator
+                Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+                Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+                // Perform validation
+                Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+                // Count total accessibility errors
+                int totalErrors = 0;
+                foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
                 {
-                    foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
+                    if (!ruleResult.Success)
                     {
-                        totalErrors++;
+                        foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
+                        {
+                            totalErrors++;
+                        }
                     }
                 }
+                // Output the result
+                System.Console.WriteLine("Total accessibility errors found: " + totalErrors);
             }
-
-            Console.WriteLine("Total accessibility errors: " + totalErrors);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

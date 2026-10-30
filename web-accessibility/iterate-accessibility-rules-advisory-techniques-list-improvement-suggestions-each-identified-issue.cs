@@ -2,51 +2,52 @@
 
 using System;
 
-namespace Example
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
+            // Prepare a minimal HTML file for validation
+            string inputPath = "sample.html";
+            System.IO.File.WriteAllText(inputPath, "<html><head><title>Test</title></head><body><img src='image.jpg'></body></html>");
+
+            // Initialize accessibility validator
+            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+
+            // Load the document
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
             {
-                Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-                Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+                Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
 
-                string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='image.jpg'></body></html>";
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
+                if (!validationResult.Success)
                 {
-                    Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
-
-                    if (!validationResult.Success)
+                    foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
                     {
-                        foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
+                        if (!ruleResult.Success)
                         {
-                            if (!ruleResult.Success)
+                            foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                             {
-                                foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
+                                if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
                                 {
-                                    if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
-                                    {
-                                        Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
-                                        string tagName = element.TagName;
-                                        string attributeValue = element.GetAttribute("alt");
-                                        Console.WriteLine($"Tag: {tagName}, Attribute: {attributeValue}, Message: {techResult.Error.ErrorMessage}");
-                                    }
+                                    Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
+                                    string tagName = element.TagName;
+                                    System.Console.WriteLine($"Tag: {tagName}, Message: {techResult.Error.ErrorMessage}");
                                 }
                             }
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("No accessibility issues found.");
-                    }
+                }
+                else
+                {
+                    System.Console.WriteLine("No accessibility issues found.");
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+        }
+        catch (Exception ex)
+        {
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

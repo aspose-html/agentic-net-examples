@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
 
 class Program
 {
@@ -13,100 +11,54 @@ class Program
     {
         try
         {
-            // Sample HTML with remediation tasks
-            string htmlContent = @"
-                <html>
-                <body>
-                    <div class='task' data-name='Update library' data-severity='High' data-score='75'>Task 1</div>
-                    <div class='task' data-name='Patch vulnerability' data-severity='Critical' data-score='90'>Task 2</div>
-                    <div class='task' data-name='Refactor code' data-severity='Medium' data-score='60'>Task 3</div>
-                    <div class='task' data-name='Improve logging' data-severity='Low' data-score='40'>Task 4</div>
-                </body>
-                </html>";
-
-            // Write HTML to a temporary file
-            string tempFilePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + ".html");
-            File.WriteAllText(tempFilePath, htmlContent);
-
-            // Create Aspose.HTML configuration
-            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-
-            // Load the HTML document from the temporary file
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(tempFilePath, configuration))
+            // Ensure sample HTML file exists
+            string htmlPath = "sample.html";
+            if (!File.Exists(htmlPath))
             {
-                // Select all task elements
-                Aspose.Html.Collections.NodeList taskNodes = document.QuerySelectorAll(".task");
-
-                List<RemediationTask> tasks = new List<RemediationTask>();
-
-                foreach (Element element in taskNodes)
-                {
-                    string name = element.GetAttribute("data-name");
-                    string severityStr = element.GetAttribute("data-severity");
-                    string scoreStr = element.GetAttribute("data-score");
-
-                    if (Enum.TryParse(severityStr, true, out Severity severity) && int.TryParse(scoreStr, out int score))
-                    {
-                        tasks.Add(new RemediationTask
-                        {
-                            Name = name,
-                            Severity = severity,
-                            ImpactScore = score
-                        });
-                    }
-                }
-
-                // Prioritize tasks: higher severity first, then higher impact score
-                tasks.Sort((a, b) =>
-                {
-                    int severityComparison = GetSeverityRank(b.Severity).CompareTo(GetSeverityRank(a.Severity));
-                    if (severityComparison != 0) return severityComparison;
-                    return b.ImpactScore.CompareTo(a.ImpactScore);
-                });
-
-                Console.WriteLine("Prioritized Remediation Tasks:");
-                foreach (var task in tasks)
-                {
-                    Console.WriteLine($"{task.Name} - Severity: {task.Severity}, Impact Score: {task.ImpactScore}");
-                }
+                File.WriteAllText(htmlPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello, Aspose.HTML!</p></body></html>");
             }
 
-            // Clean up temporary file
-            if (File.Exists(tempFilePath))
+            // Load HTML document using Aspose.HTML
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
             {
-                File.Delete(tempFilePath);
+                Console.WriteLine("Loaded HTML document title: " + document.Title);
+            }
+
+            // Define remediation tasks
+            var tasks = new List<RemediationTask>
+            {
+                new RemediationTask { Id = 1, Description = "Fix XSS vulnerability", Severity = 5, ImpactScore = 9.2 },
+                new RemediationTask { Id = 2, Description = "Update library version", Severity = 2, ImpactScore = 4.5 },
+                new RemediationTask { Id = 3, Description = "Patch SQL injection", Severity = 5, ImpactScore = 8.7 },
+                new RemediationTask { Id = 4, Description = "Improve logging", Severity = 1, ImpactScore = 3.0 }
+            };
+
+            // Prioritize tasks: higher severity first, then higher impact score
+            tasks.Sort((a, b) =>
+            {
+                int severityComparison = b.Severity.CompareTo(a.Severity);
+                if (severityComparison != 0) return severityComparison;
+                return b.ImpactScore.CompareTo(a.ImpactScore);
+            });
+
+            Console.WriteLine("\nPrioritized Remediation Tasks:");
+            foreach (var task in tasks)
+            {
+                Console.WriteLine($"Id:{task.Id} Severity:{task.Severity} Impact:{task.ImpactScore} - {task.Description}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 
-    static int GetSeverityRank(Severity severity)
+    class RemediationTask
     {
-        switch (severity)
-        {
-            case Severity.Critical: return 4;
-            case Severity.High: return 3;
-            case Severity.Medium: return 2;
-            case Severity.Low: return 1;
-            default: return 0;
-        }
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public int Severity { get; set; }          // Higher value = more severe
+        public double ImpactScore { get; set; }    // Higher value = greater impact
     }
-}
-
-enum Severity
-{
-    Low,
-    Medium,
-    High,
-    Critical
-}
-
-class RemediationTask
-{
-    public string Name { get; set; }
-    public Severity Severity { get; set; }
-    public int ImpactScore { get; set; }
 }

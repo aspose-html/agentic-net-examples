@@ -1,6 +1,7 @@
 // Modify video elements to include keyboard‑focusable controls by adding tabindex attributes where needed.
 
 using System;
+using Aspose.Html;
 
 class Program
 {
@@ -8,15 +9,16 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><video src='sample.mp4'></video><video src='sample2.mp4' tabindex='1'></video></body></html>";
+            string htmlContent = "<!DOCTYPE html><html><body><video src='sample.mp4'></video></body></html>";
             string baseUri = "about:blank";
+            string outputPath = "output.html";
 
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri))
             {
-                var elements = document.QuerySelectorAll("video");
-                for (int i = 0; i < elements.Length; i++)
+                Aspose.Html.Collections.NodeList videos = document.QuerySelectorAll("video");
+                for (int i = 0; i < videos.Length; i++)
                 {
-                    Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)elements[i];
+                    Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)videos[i];
                     string tabindex = element.GetAttribute("tabindex");
                     if (string.IsNullOrEmpty(tabindex))
                     {
@@ -24,14 +26,13 @@ class Program
                     }
                 }
 
-                string outputPath = "output.html";
                 document.Save(outputPath);
-                Console.WriteLine($"Modified HTML saved to {outputPath}");
+                System.Console.WriteLine($"Modified HTML saved to: {outputPath}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

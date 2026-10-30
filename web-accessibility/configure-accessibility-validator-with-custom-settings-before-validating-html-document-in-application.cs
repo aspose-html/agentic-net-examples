@@ -11,25 +11,25 @@ class Program
             // Initialize WebAccessibility
             Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
 
-            // Configure custom validation settings: select a specific principle and guideline
-            Aspose.Html.Accessibility.Principle principle = webAccessibility.Rules.GetPrinciple("WCAG2AA");
-            Aspose.Html.Accessibility.Guideline guideline = principle.GetGuideline("1.1.1");
+            // Configure custom guideline (e.g., WCAG 2.0, guideline 2.4.1)
+            Aspose.Html.Accessibility.Principle principle = webAccessibility.Rules.GetPrinciple("WCAG2.0");
+            Aspose.Html.Accessibility.Guideline guideline = principle.GetGuideline("2.4.1");
 
-            // Create validator with the selected guideline and all validation options
+            // Create validator with the custom guideline and all validation rules
             Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(guideline, Aspose.Html.Accessibility.ValidationBuilder.All);
 
             // Sample HTML content
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><img src=\"image.png\" alt=\"\"></body></html>";
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='image.jpg'></body></html>";
 
-            // Load HTML document from inline content
+            // Load HTML document from inline content (use two‑argument constructor)
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                // Perform validation
+                // Perform accessibility validation
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
 
                 if (validationResult.Success)
                 {
-                    System.Console.WriteLine("Document is accessible.");
+                    Console.WriteLine("Accessibility validation passed.");
                 }
                 else
                 {
@@ -39,7 +39,7 @@ class Program
                         {
                             foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                             {
-                                System.Console.WriteLine(techResult.Error.ErrorMessage);
+                                Console.WriteLine(techResult.Error.ErrorMessage);
                             }
                         }
                     }
@@ -48,7 +48,7 @@ class Program
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

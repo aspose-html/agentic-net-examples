@@ -13,28 +13,18 @@ class Program
     {
         try
         {
-            // Prepare a minimal HTML file
-            string inputPath = "sample.html";
             string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello</h1></body></html>";
-            File.WriteAllText(inputPath, htmlContent);
-
-            // Load the document
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                // Create validator and perform validation
-                Aspose.Html.Accessibility.AccessibilityValidator validator = new Aspose.Html.Accessibility.WebAccessibility().CreateValidator();
+                Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+                Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator();
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
-
-                // Serialize validation result to XML
-                using (StringWriter sw = new StringWriter())
+                using (System.IO.StringWriter sw = new System.IO.StringWriter())
                 {
                     validationResult.SaveTo(sw, Aspose.Html.Accessibility.Saving.ValidationResultSaveFormat.XML);
                     string xml = sw.ToString();
-
-                    // Save XML to file (custom serialization for legacy system)
-                    string outputPath = "validation_result.xml";
-                    File.WriteAllText(outputPath, xml);
-                    Console.WriteLine("Validation result saved to: " + outputPath);
+                    Console.WriteLine(xml);
+                    System.IO.File.WriteAllText("validation_result.xml", xml);
                 }
             }
         }

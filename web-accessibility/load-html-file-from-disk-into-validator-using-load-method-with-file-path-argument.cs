@@ -2,6 +2,9 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Accessibility;
+using Aspose.Html.Accessibility.Results;
 
 class Program
 {
@@ -13,22 +16,24 @@ class Program
 
             if (!File.Exists(inputPath))
             {
-                File.WriteAllText(inputPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello World</p></body></html>");
+                string sampleContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><p>Hello</p></body></html>";
+                File.WriteAllText(inputPath, sampleContent);
             }
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            // Load HTML document from file
+            HTMLDocument document = new HTMLDocument(inputPath);
 
-            Aspose.Html.Accessibility.WebAccessibility webAcc = new Aspose.Html.Accessibility.WebAccessibility();
-            Aspose.Html.Accessibility.AccessibilityValidator validator = webAcc.CreateValidator();
+            // Create validator
+            var validator = new WebAccessibility().CreateValidator();
 
-            Aspose.Html.Accessibility.Results.ValidationResult result = validator.Validate(document);
+            // Validate the document
+            ValidationResult result = validator.Validate(document);
 
-            Console.WriteLine("Validation success: " + result.Success);
-            Console.WriteLine("Number of rule results: " + result.Details.Count);
+            Console.WriteLine("Validation Success: " + result.Success);
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

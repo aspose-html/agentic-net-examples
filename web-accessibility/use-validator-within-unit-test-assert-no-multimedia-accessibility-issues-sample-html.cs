@@ -2,52 +2,45 @@
 
 using System;
 
-namespace AccessibilityValidatorExample
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main()
+        try
         {
-            try
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body>" +
+                                 "<audio src=\"sample.mp3\" controls aria-label=\"Sample audio description\"></audio>" +
+                                 "</body></html>";
+
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                // Sample HTML content with multimedia and proper accessibility attributes
-                string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><video src=\"sample.mp4\" controls><track kind=\"captions\" src=\"captions.vtt\" srclang=\"en\" label=\"English\" default></track></video></body></html>";
-
-                // Create WebAccessibility instance
                 Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-
-                // Create validator for all rules
                 Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
 
-                // Load HTML document from inline content
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
-                {
-                    Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+                Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
 
-                    if (validationResult.Success)
+                if (validationResult.Success)
+                {
+                    Console.WriteLine("No accessibility issues found.");
+                }
+                else
+                {
+                    foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
                     {
-                        Console.WriteLine("Accessibility validation passed. No multimedia issues found.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Accessibility validation failed. Issues:");
-                        foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
+                        if (!ruleResult.Success)
                         {
-                            if (!ruleResult.Success)
+                            foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                             {
-                                foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
-                                {
-                                    Console.WriteLine(techResult.Error.ErrorMessage);
-                                }
+                                Console.WriteLine(techResult.Error.ErrorMessage);
                             }
                         }
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

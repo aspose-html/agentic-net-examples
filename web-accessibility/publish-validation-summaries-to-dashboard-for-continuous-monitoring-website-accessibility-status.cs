@@ -8,19 +8,22 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='image.jpg'></body></html>";
+            string url = "https://example.com";
+
             Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
             Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
+
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url))
             {
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+
                 if (validationResult.Success)
                 {
-                    System.Console.WriteLine("Accessibility validation passed. No issues found.");
+                    System.Console.WriteLine("Accessibility validation succeeded. No issues found.");
                 }
                 else
                 {
-                    System.Console.WriteLine("Accessibility validation failed. Summary:");
+                    System.Console.WriteLine("Accessibility validation failed. Summary of issues:");
                     foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
                     {
                         if (!ruleResult.Success)
@@ -31,8 +34,7 @@ class Program
                                 {
                                     Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
                                     string tagName = element.TagName;
-                                    string attributeValue = element.GetAttribute("alt");
-                                    System.Console.WriteLine($"Tag: {tagName}, Attribute (alt): {attributeValue}, Message: {techResult.Error.ErrorMessage}");
+                                    System.Console.WriteLine($"Tag: {tagName}, Message: {techResult.Error.ErrorMessage}");
                                 }
                                 else
                                 {

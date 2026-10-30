@@ -1,42 +1,44 @@
 // Filter warnings by specific RuleId values to focus on particular accessibility techniques.
 
 using System;
-using System.IO;
+using System.Collections.Generic;
+using Aspose.Html;
+using Aspose.Html.Accessibility;
+using Aspose.Html.Accessibility.Results;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Define HTML content
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><img src='missing.jpg' alt=''></body></html>";
-            // Create WebAccessibility instance
+            // Sample HTML content
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='image.png'></body></html>";
+
+            // Initialize accessibility validator
             Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-            // Create validator with all rules
             Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+
             // Load HTML document from inline content
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                // Validate the document
+                // Perform validation
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+
                 if (!validationResult.Success)
                 {
-                    // Define rule IDs to filter
-                    string[] filterRuleIds = new string[] { "R1", "R2" }; // replace with actual rule IDs of interest
+                    // Define Rule IDs to filter
+                    HashSet<string> targetRuleIds = new HashSet<string>(new string[] { "R1", "R2" });
+
                     foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
                     {
-                        if (!ruleResult.Success && ruleResult.Rule != null)
+                        if (!ruleResult.Success && targetRuleIds.Contains(ruleResult.Rule.Code))
                         {
-                            // Filter by specific RuleId (using Rule.Code as identifier)
-                            if (System.Array.IndexOf(filterRuleIds, ruleResult.Rule.Code) >= 0)
+                            foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                             {
-                                foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
+                                if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
                                 {
-                                    if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
-                                    {
-                                        System.Console.WriteLine(techResult.Error.ErrorMessage);
-                                    }
+                                    Console.WriteLine(techResult.Error.ErrorMessage);
                                 }
                             }
                         }
@@ -44,13 +46,13 @@ class Program
                 }
                 else
                 {
-                    System.Console.WriteLine("No accessibility warnings detected.");
+                    Console.WriteLine("No accessibility issues found.");
                 }
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

@@ -1,61 +1,54 @@
 // Write a method that returns warning counts grouped by each target element type for analysis.
 
-namespace AsposeHtmlAccessibilityExample
+using System;
+using System.Collections.Generic;
+
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        try
         {
-            try
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='missing.jpg' alt=''><a href=''>Link</a></body></html>";
+            var warningCounts = GetWarningCountsByElement(htmlContent);
+            foreach (var kvp in warningCounts)
             {
-                string html = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='image.png'><a href='#'>Link</a></body></html>";
-                var counts = GetWarningCounts(html);
-                foreach (var kvp in counts)
-                {
-                    System.Console.WriteLine($"Tag: {kvp.Key}, Warning Count: {kvp.Value}");
-                }
-            }
-            catch (System.Exception ex)
-            {
-                System.Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Tag: {kvp.Key}, Warnings: {kvp.Value}");
             }
         }
-
-        static System.Collections.Generic.Dictionary<string, int> GetWarningCounts(string htmlContent)
+        catch (Exception ex)
         {
-            var result = new System.Collections.Generic.Dictionary<string, int>();
-            var webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-            var validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
-            using (var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+
+    static Dictionary<string, int> GetWarningCountsByElement(string html)
+    {
+        var counts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        var webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+        var validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+        using (var document = new Aspose.Html.HTMLDocument(html, "about:blank"))
+        {
+            Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+            foreach (Aspose.Html.Accessibility.Results.RuleValidationResult ruleResult in validationResult.Details)
             {
-                var validationResult = validator.Validate(document);
-                if (!validationResult.Success)
+                if (!ruleResult.Success)
                 {
-                    foreach (var ruleResult in validationResult.Details)
+                    foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in ruleResult.Errors)
                     {
-                        if (!ruleResult.Success)
+                        if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
                         {
-                            foreach (var techResult in ruleResult.Errors)
-                            {
-                                if (techResult.Error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
-                                {
-                                    var element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
-                                    var tagName = element.TagName;
-                                    if (result.ContainsKey(tagName))
-                                    {
-                                        result[tagName] = result[tagName] + 1;
-                                    }
-                                    else
-                                    {
-                                        result[tagName] = 1;
-                                    }
-                                }
-                            }
+                            Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)techResult.Error.Target.Item;
+                            string tagName = element.TagName;
+                            if (counts.ContainsKey(tagName))
+                                counts[tagName]++;
+                            else
+                                counts[tagName] = 1;
                         }
                     }
                 }
             }
-            return result;
         }
+        return counts;
     }
 }

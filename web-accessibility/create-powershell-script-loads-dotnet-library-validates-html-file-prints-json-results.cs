@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using System.Text.Json;
 
 class Program
 {
@@ -9,30 +10,38 @@ class Program
     {
         try
         {
-            string inputPath = "sample.html";
-            if (!File.Exists(inputPath))
+            // Prepare sample HTML file
+            string inputDir = "Input";
+            Directory.CreateDirectory(inputDir);
+            string htmlPath = Path.Combine(inputDir, "sample.html");
+            if (!File.Exists(htmlPath))
             {
-                File.WriteAllText(inputPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, World!</h1></body></html>");
+                string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello</h1></body></html>";
+                File.WriteAllText(htmlPath, htmlContent);
             }
 
+            // Create accessibility validator
             Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
             Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
+            // Load document and validate
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
             {
                 Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
 
-                using (System.IO.StringWriter sw = new System.IO.StringWriter())
+                var resultObject = new
                 {
-                    validationResult.SaveTo(sw, Aspose.Html.Accessibility.Saving.ValidationResultSaveFormat.JSON);
-                    string json = sw.ToString();
-                    Console.WriteLine(json);
-                }
+                    Success = validationResult.Success,
+                    DetailsCount = validationResult.Details != null ? validationResult.Details.Count : 0
+                };
+
+                string json = JsonSerializer.Serialize(resultObject, new JsonSerializerOptions { WriteIndented = true });
+                Console.WriteLine(json);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.Error.WriteLine($"Error: {ex.Message}");
         }
     }
 }

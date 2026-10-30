@@ -9,34 +9,34 @@ class Program
         try
         {
             // Sample HTML content
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello World</h1></body></html>";
-            string baseUri = "about:blank";
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello</h1></body></html>";
 
-            // Load HTML document from string content
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri))
+            // Load HTML document from inline content
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+            // Create WebAccessibility instance and validator
+            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
+            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
+
+            // Perform validation and store the result
+            Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
+            Aspose.Html.Accessibility.Results.ValidationResult storedResult = validationResult;
+
+            // Process validation result
+            if (!storedResult.Success)
             {
-                // Initialize WebAccessibility and create a validator for all rules
-                Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-                Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator(Aspose.Html.Accessibility.ValidationBuilder.All);
-
-                // Perform validation and store the result
-                Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(document);
-
-                // Process validation result
-                if (!validationResult.Success)
+                Console.WriteLine("Validation failed. Details:");
+                foreach (Aspose.Html.Accessibility.Results.RuleValidationResult detail in storedResult.Details)
                 {
-                    foreach (Aspose.Html.Accessibility.Results.RuleValidationResult detail in validationResult.Details)
-                    {
-                        Console.WriteLine($"Rule Code: {detail.Rule.Code}");
-                        Console.WriteLine($"Description: {detail.Rule.Description}");
-                        Console.WriteLine($"Success: {detail.Success}");
-                        Console.WriteLine();
-                    }
+                    Console.WriteLine($"Rule Code: {detail.Rule.Code}");
+                    Console.WriteLine($"Description: {detail.Rule.Description}");
+                    Console.WriteLine($"Success: {detail.Success}");
+                    Console.WriteLine("---");
                 }
-                else
-                {
-                    Console.WriteLine("HTML document passed all accessibility validation rules.");
-                }
+            }
+            else
+            {
+                Console.WriteLine("Validation succeeded with no errors.");
             }
         }
         catch (Exception ex)
