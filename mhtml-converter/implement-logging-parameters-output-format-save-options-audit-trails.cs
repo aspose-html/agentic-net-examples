@@ -8,51 +8,41 @@ using Aspose.Html.Converters;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
+            // Define input and output paths
             string inputHtmlPath = "sample.html";
             string outputPdfPath = "output.pdf";
 
-            // Ensure sample HTML file exists
+            // Create a minimal sample HTML file if it does not exist
             if (!File.Exists(inputHtmlPath))
             {
-                File.WriteAllText(inputHtmlPath, "<html><body><h1>Hello Aspose HTML</h1></body></html>");
+                File.WriteAllText(inputHtmlPath, "<html><body><h1>Hello World</h1></body></html>");
             }
 
-            string resultPath = ConvertHtmlToPdf(inputHtmlPath, outputPdfPath);
-            Console.WriteLine("Generated PDF: " + resultPath);
+            // Log conversion parameters for audit trail
+            Console.WriteLine("Conversion parameters:");
+            Console.WriteLine("Input file: " + inputHtmlPath);
+            Console.WriteLine("Output file: " + outputPdfPath);
+            Console.WriteLine("Output format: PDF");
+            PdfSaveOptions options = new PdfSaveOptions();
+            Console.WriteLine("Save options type: " + options.GetType().FullName);
+
+            // Record start time
+            Stopwatch conversionTimer = Stopwatch.StartNew();
+
+            // Perform conversion
+            Aspose.Html.Converters.Converter.ConvertHTML(inputHtmlPath, options, outputPdfPath);
+
+            // Record end time
+            conversionTimer.Stop();
+            Console.WriteLine("Conversion completed in " + conversionTimer.Elapsed.TotalSeconds.ToString("F2") + " seconds.");
         }
         catch (Exception ex)
         {
             Console.WriteLine("Error: " + ex.Message);
         }
-    }
-
-    static string ConvertHtmlToPdf(string inputHtmlPath, string outputPdfPath)
-    {
-        // Log conversion parameters
-        Console.WriteLine("Conversion parameters:");
-        Console.WriteLine("Input HTML path: " + inputHtmlPath);
-        Console.WriteLine("Output format: PDF");
-
-        PdfSaveOptions options = new PdfSaveOptions();
-        Console.WriteLine("Save options type: " + options.GetType().FullName);
-
-        // Record start time
-        Stopwatch conversionTimer = Stopwatch.StartNew();
-
-        // Read HTML content
-        string htmlContent = File.ReadAllText(inputHtmlPath);
-
-        // Perform conversion
-        Aspose.Html.Converters.Converter.ConvertHTML(htmlContent, options, outputPdfPath);
-
-        // Record end time
-        conversionTimer.Stop();
-        Console.WriteLine("Conversion completed in " + conversionTimer.Elapsed.TotalSeconds.ToString("F2") + " seconds.");
-
-        return outputPdfPath;
     }
 }

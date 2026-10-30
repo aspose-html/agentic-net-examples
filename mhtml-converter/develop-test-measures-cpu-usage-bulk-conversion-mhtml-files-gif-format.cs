@@ -2,8 +2,10 @@
 
 using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Diagnostics;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -14,54 +16,41 @@ class Program
             string inputFolder = "InputMhtml";
             string outputFolder = "OutputGif";
 
-            // Create folders
             Directory.CreateDirectory(inputFolder);
             Directory.CreateDirectory(outputFolder);
 
-            // Create sample MHTML files
-            for (int i = 1; i <= 3; i++)
-            {
-                string filePath = Path.Combine(inputFolder, $"sample{i}.mhtml");
-                if (!File.Exists(filePath))
-                {
-                    File.WriteAllText(filePath, "<html><body><h1>Sample " + i + "</h1></body></html>");
-                }
-            }
+            // Create a minimal sample MHTML file (for demonstration purposes)
+            string sampleMhtmlPath = Path.Combine(inputFolder, "sample1.mht");
+            File.WriteAllText(sampleMhtmlPath, "<html><body><h1>Sample</h1></body></html>");
 
-            // Prepare for conversion
-            var processedFiles = new HashSet<string>();
-            string[] files = Directory.GetFiles(inputFolder, "*.mhtml");
+            string[] mhtmlFiles = Directory.GetFiles(inputFolder, "*.mht");
+            // Include .mhtml extension as well
+            string[] additionalFiles = Directory.GetFiles(inputFolder, "*.mhtml");
+            string[] allFiles = new string[mhtmlFiles.Length + additionalFiles.Length];
+            mhtmlFiles.CopyTo(allFiles, 0);
+            additionalFiles.CopyTo(allFiles, mhtmlFiles.Length);
 
-            // Measure CPU and wall-clock time
             Process currentProcess = Process.GetCurrentProcess();
             TimeSpan cpuStart = currentProcess.TotalProcessorTime;
-            Stopwatch sw = Stopwatch.StartNew();
 
-            foreach (string file in files)
+            foreach (string filePath in allFiles)
             {
-                if (processedFiles.Contains(file))
-                    continue;
-
-                string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(file) + ".gif");
-
-                using (FileStream stream = File.OpenRead(file))
+                using (Stream stream = File.OpenRead(filePath))
                 {
-                    var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+                    ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Gif);
+                    string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(filePath) + ".gif");
                     Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
                 }
-
-                processedFiles.Add(file);
             }
 
-            sw.Stop();
             TimeSpan cpuEnd = currentProcess.TotalProcessorTime;
             TimeSpan cpuUsed = cpuEnd - cpuStart;
 
-            Console.WriteLine($"Converted {processedFiles.Count} file(s) in {sw.Elapsed.TotalSeconds:F2} seconds (CPU time: {cpuUsed.TotalSeconds:F2} seconds).");
+            Console.WriteLine($"CPU time used for conversion: {cpuUsed.TotalMilliseconds} ms");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

@@ -5,13 +5,12 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
 using Aspose.Html.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
-class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
     private readonly List<MemoryStream> _streams = new List<MemoryStream>();
-    public IReadOnlyList<MemoryStream> Streams => _streams.AsReadOnly();
+
+    public IReadOnlyList<MemoryStream> Streams => _streams;
 
     public Stream GetStream(string name, string extension)
     {
@@ -42,9 +41,9 @@ class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
     }
 }
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main()
     {
         try
         {
@@ -52,112 +51,57 @@ class Program
             string outputPath = "output.xps";
             string logPath = "conversion_log.json";
 
-            // Ensure a minimal EPUB file exists.
+            // Ensure a minimal input file exists.
             if (!File.Exists(inputPath))
             {
-                CreateMinimalEpub(inputPath);
+                File.WriteAllBytes(inputPath, new byte[0]);
             }
 
-            using (Stream inputStream = File.OpenRead(inputPath))
+            using (Stream stream = File.OpenRead(inputPath))
             {
                 Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
-                MemoryStreamProvider provider = new MemoryStreamProvider();
+                var provider = new MemoryStreamProvider();
 
                 DateTime startTime = DateTime.UtcNow;
-                Aspose.Html.Converters.Converter.ConvertEPUB(inputStream, options, provider);
+                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, provider);
                 DateTime endTime = DateTime.UtcNow;
+                double durationMs = (endTime - startTime).TotalMilliseconds;
 
-                // Write first generated stream to output file.
+                // Write the first generated stream to the output file.
                 if (provider.Streams.Count > 0)
                 {
-                    MemoryStream firstStream = provider.Streams[0];
+                    var firstStream = provider.Streams[0];
                     firstStream.Position = 0;
-                    using (FileStream file = File.Create(outputPath))
+                    using (FileStream fileStream = File.Create(outputPath))
                     {
-                        firstStream.CopyTo(file);
+                        firstStream.CopyTo(fileStream);
                     }
                 }
 
-                // Prepare log entry.
                 var logEntry = new
                 {
+                    InputFile = inputPath,
+                    OutputFile = outputPath,
                     StartTime = startTime,
                     EndTime = endTime,
-                    DurationMs = (endTime - startTime).TotalMilliseconds,
-                    OutputFile = Path.GetFullPath(outputPath)
+                    DurationMs = durationMs
                 };
 
                 string json = JsonSerializer.Serialize(logEntry, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(logPath, json);
             }
-
-            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
-        }
-    }
-
-    private static void CreateMinimalEpub(string path)
-    {
-        // Create a minimal EPUB (ZIP) structure.
-        using (FileStream fs = new FileStream(path, FileMode.Create))
-        using (System.IO.Compression.ZipArchive zip = new System.IO.Compression.ZipArchive(fs, System.IO.Compression.ZipArchiveMode.Create))
-        {
-            // mimetype file (must be first and uncompressed)
-            var mimetypeEntry = zip.CreateEntry("mimetype", System.IO.Compression.CompressionLevel.NoCompression);
-            using (var entryStream = mimetypeEntry.Open())
-            using (var writer = new StreamWriter(entryStream))
+            var errorLog = new
             {
-                writer.Write("application/epub+zip");
-            }
-
-            // META-INF/container.xml
-            var containerEntry = zip.CreateEntry("META-INF/container.xml");
-            using (var entryStream = containerEntry.Open())
-            using (var writer = new StreamWriter(entryStream))
-            {
-                writer.Write(@"<?xml version=""1.0""?>
-<container version=""1.0"" xmlns=""urn:oasis:names:tc:opendocument:xmlns:container"">
-  <rootfiles>
-    <rootfile full-path=""OEBPS/content.opf"" media-type=""application/oebps-package+xml""/>
-  </rootfiles>
-</container>");
-            }
-
-            // OEBPS/content.opf
-            var contentOpfEntry = zip.CreateEntry("OEBPS/content.opf");
-            using (var entryStream = contentOpfEntry.Open())
-            using (var writer = new StreamWriter(entryStream))
-            {
-                writer.Write(@"<?xml version=""1.0"" encoding=""UTF-8""?>
-<package xmlns=""http://www.idpf.org/2007/opf"" version=""3.0"" unique-identifier=""BookId"">
-  <metadata xmlns:dc=""http://purl.org/dc/elements/1.1/"">
-    <dc:identifier id=""BookId"">urn:uuid:12345</dc:identifier>
-    <dc:title>Sample EPUB</dc:title>
-    <dc:language>en</dc:language>
-  </metadata>
-  <manifest>
-    <item id=""html"" href=""index.html"" media-type=""application/xhtml+xml""/>
-  </manifest>
-  <spine>
-    <itemref idref=""html""/>
-  </spine>
-</package>");
-            }
-
-            // OEBPS/index.html
-            var htmlEntry = zip.CreateEntry("OEBPS/index.html");
-            using (var entryStream = htmlEntry.Open())
-            using (var writer = new StreamWriter(entryStream))
-            {
-                writer.Write(@"<!DOCTYPE html>
-<html xmlns=""http://www.w3.org/1999/xhtml"">
-<head><title>Sample</title></head>
-<body><h1>Hello, EPUB!</h1></body>
-</html>");
-            }
+                ErrorMessage = ex.Message,
+                StackTrace = ex.StackTrace,
+                Time = DateTime.UtcNow
+            };
+            string json = JsonSerializer.Serialize(errorLog, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText("conversion_log.json", json);
+            Console.WriteLine("Conversion failed: " + ex.Message);
         }
     }
 }

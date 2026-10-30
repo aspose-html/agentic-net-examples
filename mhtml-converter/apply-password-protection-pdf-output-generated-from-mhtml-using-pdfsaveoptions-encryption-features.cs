@@ -5,39 +5,46 @@ using System.IO;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Prepare sample MHTML file
-            string inputPath = Path.Combine(Directory.GetCurrentDirectory(), "sample.mht");
-            string htmlContent = "<html><body><h1>Hello, MHTML!</h1></body></html>";
-            File.WriteAllText(inputPath, htmlContent);
-
-            // Define output PDF path
+            // Define input and output paths
+            string inputPath = Path.Combine(Directory.GetCurrentDirectory(), "sample.mhtml");
             string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.pdf");
 
-            // Set up PDF save options with encryption
-            Aspose.Html.Saving.PdfSaveOptions pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
-            Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionInfo encryptionInfo =
-                new Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionInfo(
-                    "owner123",
-                    "user123",
-                    Aspose.Html.Rendering.Pdf.Encryption.PdfPermissions.PrintDocument,
-                    Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionAlgorithm.RC4_128);
-            pdfOptions.Encryption = encryptionInfo;
-
-            // Convert MHTML to encrypted PDF
-            using (FileStream mhtmlStream = File.OpenRead(inputPath))
+            // Create a minimal MHTML file if it does not exist
+            if (!File.Exists(inputPath))
             {
-                Aspose.Html.Converters.Converter.ConvertMHTML(mhtmlStream, pdfOptions, outputPath);
+                string mhtmlContent = "<html><body><h1>Hello MHTML</h1></body></html>";
+                File.WriteAllText(inputPath, mhtmlContent);
             }
 
-            Console.WriteLine("PDF generated with password protection at: " + outputPath);
+            // Open the MHTML file as a stream
+            using (FileStream stream = File.OpenRead(inputPath))
+            {
+                // Configure PDF save options with encryption
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions
+                {
+                    Encryption = new Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionInfo(
+                        ownerPassword: "owner123",
+                        userPassword: "user123",
+                        permissions: Aspose.Html.Rendering.Pdf.Encryption.PdfPermissions.PrintDocument |
+                                     Aspose.Html.Rendering.Pdf.Encryption.PdfPermissions.ExtractContent,
+                        encryptionAlgorithm: Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionAlgorithm.RC4_128)
+                };
+
+                // Convert MHTML to encrypted PDF
+                Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
+            }
+
+            Console.WriteLine("PDF conversion completed successfully. Encrypted file saved at:");
+            Console.WriteLine(outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred during conversion:");
+            Console.WriteLine(ex.Message);
         }
     }
 }

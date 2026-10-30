@@ -3,8 +3,6 @@
 using System;
 using System.IO;
 using System.Diagnostics;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -12,7 +10,16 @@ class Program
     {
         try
         {
-            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MhtmlSamples");
+            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "MhtmlSamples");
+            // Ensure the folder exists (create with a sample file if needed)
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+                // Create a minimal sample MHTML file for demonstration
+                string samplePath = Path.Combine(folderPath, "sample.mhtml");
+                File.WriteAllText(samplePath, "<!-- Sample MHTML content -->");
+            }
+
             ConvertMhtmlFilesInFolder(folderPath);
         }
         catch (Exception ex)
@@ -23,31 +30,21 @@ class Program
 
     static void ConvertMhtmlFilesInFolder(string folderPath)
     {
-        if (!Directory.Exists(folderPath))
-        {
-            Console.WriteLine($"Folder does not exist: {folderPath}");
-            return;
-        }
-
         string[] files = Directory.GetFiles(folderPath, "*.mhtml");
         foreach (string mhtmlPath in files)
         {
-            try
+            string outputPath = Path.ChangeExtension(mhtmlPath, ".pdf");
+            var options = new Aspose.Html.Saving.PdfSaveOptions();
+
+            var stopwatch = Stopwatch.StartNew();
+            using (FileStream inputStream = File.OpenRead(mhtmlPath))
             {
-                using (FileStream stream = File.OpenRead(mhtmlPath))
-                {
-                    var options = new PdfSaveOptions();
-                    string outputPath = Path.ChangeExtension(mhtmlPath, ".pdf");
-                    var stopwatch = Stopwatch.StartNew();
-                    Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                    stopwatch.Stop();
-                    Console.WriteLine($"{{\"outputPath\":\"{outputPath}\",\"durationMs\":{stopwatch.Elapsed.TotalMilliseconds}}}");
-                }
+                Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, outputPath);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Failed to convert '{mhtmlPath}': {ex.Message}");
-            }
+            stopwatch.Stop();
+
+            // Structured log as JSON
+            Console.WriteLine($"{{\"outputPath\":\"{outputPath}\",\"durationMs\":{stopwatch.ElapsedMilliseconds}}}");
         }
     }
 }

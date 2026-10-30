@@ -4,8 +4,8 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Aspose.Html.Saving;
 using Aspose.Html.Converters;
+using Aspose.Html.Saving;
 
 class Program
 {
@@ -16,24 +16,28 @@ class Program
             string inputPath = "sample.mht";
             string outputPath = "output.xps";
 
-            // Create a minimal sample MHTML file if it does not exist
+            // Ensure a sample input file exists (placeholder content)
             if (!File.Exists(inputPath))
             {
-                File.WriteAllText(inputPath, "<html><body><h1>Sample MHTML</h1></body></html>");
+                File.WriteAllText(inputPath, "Placeholder MHTML content");
             }
 
             using (CancellationTokenSource cts = new CancellationTokenSource())
             {
-                // Cancel after 2 seconds to simulate user termination request
-                Task.Delay(TimeSpan.FromSeconds(2)).ContinueWith(_ => cts.Cancel());
+                // Simulate a user cancellation after a short delay (optional)
+                Task.Run(async () =>
+                {
+                    await Task.Delay(500);
+                    cts.Cancel();
+                });
 
-                ConvertMhtmlToXps(inputPath, outputPath, cts.Token).GetAwaiter().GetResult();
+                ConvertMhtmlToXps(inputPath, outputPath, cts.Token);
                 Console.WriteLine("Conversion completed successfully.");
             }
         }
         catch (OperationCanceledException)
         {
-            Console.WriteLine("Conversion was cancelled by the user.");
+            Console.WriteLine("Conversion was canceled by the user.");
         }
         catch (Exception ex)
         {
@@ -41,24 +45,17 @@ class Program
         }
     }
 
-    private static async Task ConvertMhtmlToXps(string inputPath, string outputPath, CancellationToken token)
+    static void ConvertMhtmlToXps(string inputPath, string outputPath, CancellationToken token)
     {
-        // Check for cancellation before starting the conversion
         token.ThrowIfCancellationRequested();
 
         using (FileStream stream = File.OpenRead(inputPath))
         {
             XpsSaveOptions options = new XpsSaveOptions();
+            // No direct cancellation support in ConvertMHTML, so we check token before call
+            token.ThrowIfCancellationRequested();
 
-            // Perform conversion in a separate task to allow cancellation monitoring
-            await Task.Run(() =>
-            {
-                // Re-check cancellation inside the task
-                token.ThrowIfCancellationRequested();
-
-                // Perform the actual conversion
-                Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-            }, token);
+            Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
         }
     }
 }

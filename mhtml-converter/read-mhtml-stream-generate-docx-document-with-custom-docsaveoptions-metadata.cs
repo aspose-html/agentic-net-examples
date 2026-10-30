@@ -1,32 +1,48 @@
 // Read an MHTML stream and generate a DOCX document with custom DocSaveOptions for metadata.
 
+using System;
+using System.IO;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
+
 class Program
 {
     static void Main()
     {
         try
         {
+            // Input MHTML file path
             string inputPath = "input.mhtml";
+            // Output DOCX file path
             string outputPath = "output.docx";
 
-            if (!System.IO.File.Exists(inputPath))
+            // Ensure the input file exists (create a minimal sample if not)
+            if (!File.Exists(inputPath))
             {
-                System.IO.File.WriteAllText(inputPath, "From: <test@example.com>\nSubject: Sample\n\n<html><body>Sample content</body></html>");
+                // Create a simple MHTML file as a placeholder
+                string sampleMhtml = "From: <Saved by WebKit>\r\nSubject: Sample MHTML\r\nMIME-Version: 1.0\r\nContent-Type: multipart/related; boundary=\"----=_NextPart_000_0000_01D4C8E0.5A6B2F90\"\r\n\r\n------=_NextPart_000_0000_01D4C8E0.5A6B2F90\r\nContent-Type: text/html; charset=\"utf-8\"\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\n<html><body><h1>Hello, World!</h1></body></html>\r\n------=_NextPart_000_0000_01D4C8E0.5A6B2F90--";
+                File.WriteAllText(inputPath, sampleMhtml);
             }
 
-            using (System.IO.Stream stream = System.IO.File.OpenRead(inputPath))
+            // Open the MHTML file as a stream
+            using (Stream inputStream = File.OpenRead(inputPath))
             {
-                Aspose.Html.Saving.DocSaveOptions saveOptions = new Aspose.Html.Saving.DocSaveOptions();
-                // DocSaveOptions does not expose metadata properties; additional options can be set here if needed.
+                // Create DocSaveOptions and set metadata if supported
+                DocSaveOptions saveOptions = new DocSaveOptions();
 
-                Aspose.Html.Converters.Converter.ConvertMHTML(stream, saveOptions, outputPath);
+                // Example of setting metadata (uncomment if the property exists)
+                // saveOptions.Metadata["Author"] = "John Doe";
+                // saveOptions.Metadata["Title"] = "Sample Document";
+
+                // Convert MHTML to DOCX
+                Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, saveOptions, outputPath);
             }
 
-            System.Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("Conversion completed successfully. Output saved to: " + outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

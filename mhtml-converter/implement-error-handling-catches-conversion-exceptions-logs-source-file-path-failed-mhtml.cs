@@ -6,17 +6,19 @@ class Program
 {
     static void Main()
     {
-        string sourcePath = "sample.mht";
+        string sourcePath = "sample.mhtml";
         string outputPath = "output.doc";
 
         try
         {
+            // Create a minimal MHTML file if it does not exist
             if (!System.IO.File.Exists(sourcePath))
             {
-                System.IO.File.WriteAllText(sourcePath, "<html><body><p>Sample MHTML content</p></body></html>");
+                string minimalMhtml = "From: <Saved by WebKit>\r\nSubject: Test\r\nMIME-Version: 1.0\r\nContent-Type: multipart/related; boundary=\"----=_NextPart_000_0000\"\r\n\r\n------=_NextPart_000_0000\r\nContent-Type: text/html; charset=\"utf-8\"\r\n\r\n<html><body><p>Hello World</p></body></html>\r\n------=_NextPart_000_0000--";
+                System.IO.File.WriteAllText(sourcePath, minimalMhtml);
             }
 
-            using (System.IO.Stream stream = System.IO.File.OpenRead(sourcePath))
+            using (System.IO.FileStream stream = System.IO.File.OpenRead(sourcePath))
             {
                 Aspose.Html.Saving.DocSaveOptions saveOptions = new Aspose.Html.Saving.DocSaveOptions();
                 Aspose.Html.Converters.Converter.ConvertMHTML(stream, saveOptions, outputPath);
@@ -26,8 +28,8 @@ class Program
         }
         catch (System.Exception ex)
         {
-            System.Console.WriteLine("Failed to convert MHTML file: " + sourcePath);
-            System.Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error converting MHTML file: " + sourcePath);
+            System.Console.WriteLine("Exception: " + ex.Message);
         }
     }
 }

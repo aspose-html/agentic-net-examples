@@ -3,9 +3,9 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
 
 class Program
 {
@@ -13,92 +13,100 @@ class Program
     {
         try
         {
-            // Prepare sample MHTML file
-            string mhtmlPath = "sample.mhtml";
-            string mhtmlContent = @"From: <Saved by Windows Internet Explorer>
-Subject: 
-Date: 
-MIME-Version: 1.0
-Content-Type: multipart/related; boundary=""----=_NextPart_000_0000""
+            // Define paths
+            string outputFolder = "output";
+            Directory.CreateDirectory(outputFolder);
 
-------=_NextPart_000_0000
-Content-Type: text/html; charset=""utf-8""
-Content-Transfer-Encoding: quoted-printable
-
-<html><body><h1>Hello MHTML</h1></body></html>
-------=_NextPart_000_0000--";
-            File.WriteAllText(mhtmlPath, mhtmlContent);
-
+            // -------------------------------------------------
             // Convert MHTML to GIF
-            string mhtmlGifPath = "mhtml_output.gif";
-            using (Stream mhtmlStream = File.OpenRead(mhtmlPath))
+            // -------------------------------------------------
+            string mhtmlPath = "sample.mhtml";
+            // Create a minimal MHTML file if it does not exist
+            if (!File.Exists(mhtmlPath))
             {
-                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
-                Aspose.Html.Converters.Converter.ConvertMHTML(mhtmlStream, options, mhtmlGifPath);
+                File.WriteAllText(mhtmlPath, @"MIME-Version: 1.0
+Content-Type: multipart/related; boundary=""----=_NextPart_000_0012_01D4C3E0.5A6B2C90""
+
+------=_NextPart_000_0012_01D4C3E0.5A6B2C90
+Content-Type: text/html; charset=""utf-8""
+
+<html><body><h1>MHTML Sample</h1></body></html>
+
+------=_NextPart_000_0012_01D4C3E0.5A6B2C90--");
             }
 
-            // Prepare sample HTML pages
-            string htmlPath1 = "page1.html";
-            string htmlPath2 = "page2.html";
-            File.WriteAllText(htmlPath1, "<html><body><h2>Page 1</h2></body></html>");
-            File.WriteAllText(htmlPath2, "<html><body><h2>Page 2</h2></body></html>");
-
-            // Convert HTML pages to GIFs
-            string gifPath1 = "page1.gif";
-            string gifPath2 = "page2.gif";
-
-            Aspose.Html.Saving.ImageSaveOptions htmlOptions = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
-
-            Aspose.Html.HTMLDocument doc1 = new Aspose.Html.HTMLDocument(Path.GetFullPath(htmlPath1));
-            Aspose.Html.Converters.Converter.ConvertHTML(doc1, htmlOptions, gifPath1);
-
-            Aspose.Html.HTMLDocument doc2 = new Aspose.Html.HTMLDocument(Path.GetFullPath(htmlPath2));
-            Aspose.Html.Converters.Converter.ConvertHTML(doc2, htmlOptions, gifPath2);
-
-            // Create animated GIF from the generated GIFs
-            List<Image> frames = new List<Image>
+            string mhtmlGifPath = Path.Combine(outputFolder, "mhtml.gif");
+            using (System.IO.Stream mhtmlStream = System.IO.File.OpenRead(mhtmlPath))
             {
-                Image.FromFile(mhtmlGifPath),
-                Image.FromFile(gifPath1),
-                Image.FromFile(gifPath2)
+                Aspose.Html.Saving.ImageSaveOptions mhtmlOptions = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+                Aspose.Html.Converters.Converter.ConvertMHTML(mhtmlStream, mhtmlOptions, mhtmlGifPath);
+            }
+            Console.WriteLine($"MHTML converted to GIF: {mhtmlGifPath}");
+
+            // -------------------------------------------------
+            // Create sample HTML pages
+            // -------------------------------------------------
+            string[] htmlPages = {
+                Path.Combine(outputFolder, "page1.html"),
+                Path.Combine(outputFolder, "page2.html"),
+                Path.Combine(outputFolder, "page3.html")
             };
-
-            string animatedGifPath = "animated_output.gif";
-            Encoder encoder = Encoder.SaveFlag;
-            EncoderParameters encoderParams = new EncoderParameters(1);
-            ImageCodecInfo gifCodec = GetEncoderInfo("image/gif");
-
-            // First frame
-            encoderParams.Param[0] = new EncoderParameter(encoder, (long)EncoderValue.MultiFrame);
-            frames[0].Save(animatedGifPath, gifCodec, encoderParams);
-
-            // Subsequent frames
-            for (int i = 1; i < frames.Count; i++)
+            string[] htmlContents = {
+                "<html><body style=\"background:#ffdddd;\"><h1>Page 1</h1></body></html>",
+                "<html><body style=\"background:#ddffdd;\"><h1>Page 2</h1></body></html>",
+                "<html><body style=\"background:#ddddff;\"><h1>Page 3</h1></body></html>"
+            };
+            for (int i = 0; i < htmlPages.Length; i++)
             {
-                encoderParams.Param[0] = new EncoderParameter(encoder, (long)EncoderValue.FrameDimensionTime);
-                frames[0].SaveAdd(frames[i], encoderParams);
+                File.WriteAllText(htmlPages[i], htmlContents[i]);
             }
 
-            // Flush
-            encoderParams.Param[0] = new EncoderParameter(encoder, (long)EncoderValue.Flush);
-            frames[0].SaveAdd(encoderParams);
-
-            // Cleanup
-            foreach (var img in frames)
+            // -------------------------------------------------
+            // Convert each HTML page to a GIF frame
+            // -------------------------------------------------
+            List<string> framePaths = new List<string>();
+            for (int i = 0; i < htmlPages.Length; i++)
             {
-                img.Dispose();
+                Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(htmlPages[i]);
+                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+                string framePath = Path.Combine(outputFolder, $"frame{i}.gif");
+                Aspose.Html.Converters.Converter.ConvertHTML(doc, options, framePath);
+                framePaths.Add(framePath);
+                Console.WriteLine($"HTML page converted to GIF frame: {framePath}");
             }
 
-            Console.WriteLine("Conversion and animation completed successfully.");
+            // -------------------------------------------------
+            // Combine frames into an animated GIF
+            // -------------------------------------------------
+            string animatedGifPath = Path.Combine(outputFolder, "animated.gif");
+            if (framePaths.Count > 0)
+            {
+                using (Image first = Image.FromFile(framePaths[0]))
+                {
+                    ImageCodecInfo gifEncoder = ImageCodecInfo.GetImageEncoders()
+                        .First(c => c.MimeType == "image/gif");
+                    EncoderParameters encoderParams = new EncoderParameters(1);
+                    encoderParams.Param[0] = new EncoderParameter(Encoder.SaveFlag, (long)EncoderValue.MultiFrame);
+                    first.Save(animatedGifPath, gifEncoder, encoderParams);
+
+                    for (int i = 1; i < framePaths.Count; i++)
+                    {
+                        using (Image frame = Image.FromFile(framePaths[i]))
+                        {
+                            encoderParams.Param[0] = new EncoderParameter(Encoder.SaveFlag, (long)EncoderValue.FrameDimensionTime);
+                            first.SaveAdd(frame, encoderParams);
+                        }
+                    }
+
+                    encoderParams.Param[0] = new EncoderParameter(Encoder.SaveFlag, (long)EncoderValue.Flush);
+                    first.SaveAdd(encoderParams);
+                }
+                Console.WriteLine($"Animated GIF created: {animatedGifPath}");
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
-    }
-
-    private static ImageCodecInfo GetEncoderInfo(string mimeType)
-    {
-        return ImageCodecInfo.GetImageEncoders().FirstOrDefault(codec => codec.MimeType.Equals(mimeType, StringComparison.OrdinalIgnoreCase));
     }
 }

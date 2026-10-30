@@ -1,55 +1,45 @@
 // Implement a feature that logs the SHA‑256 hash of the converted file for integrity verification.
 
-using System;
-using System.IO;
-using System.Security.Cryptography;
-
-class Program
+namespace Example
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            string inputPath = "sample.mhtml";
-            string outputPath = "output.docx";
-
-            // Create a minimal sample MHTML file if it does not exist
-            if (!File.Exists(inputPath))
+            try
             {
-                string minimalMhtml = @"From: <Saved by WebKit>
-Subject: Sample MHTML
-Date: Thu, 1 Jan 1970 00:00:00 GMT
-MIME-Version: 1.0
-Content-Type: multipart/related; boundary=""----=_NextPart_000_0000""; type=""text/html""
+                string inputPath = "sample.mhtml";
+                string outputPath = "output.docx";
 
-------=_NextPart_000_0000
-Content-Type: text/html; charset=""utf-8""
-Content-Transfer-Encoding: quoted-printable
+                if (!System.IO.File.Exists(inputPath))
+                {
+                    string mhtmlContent = "From: <Saved by WebKit>\nSubject: Sample MHTML\nDate: Thu, 1 Jan 1970 00:00:00 GMT\nMIME-Version: 1.0\nContent-Type: multipart/related; boundary=\"----=_NextPart_000_0000\"\n\n------=_NextPart_000_0000\nContent-Type: text/html; charset=\"utf-8\"\nContent-Transfer-Encoding: quoted-printable\n\n<html><body><h1>Hello World</h1></body></html>\n------=_NextPart_000_0000--";
+                    System.IO.File.WriteAllText(inputPath, mhtmlContent);
+                }
 
-<html><body><h1>Sample MHTML Content</h1></body></html>
-
-------=_NextPart_000_0000--";
-                File.WriteAllText(inputPath, minimalMhtml);
-            }
-
-            using (FileStream inputStream = File.OpenRead(inputPath))
-            {
-                var options = new Aspose.Html.Saving.DocSaveOptions();
+                System.IO.Stream inputStream = System.IO.File.OpenRead(inputPath);
+                Aspose.Html.Saving.DocSaveOptions options = new Aspose.Html.Saving.DocSaveOptions();
                 Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, outputPath);
-            }
+                inputStream.Close();
 
-            byte[] outputBytes = File.ReadAllBytes(outputPath);
-            using (SHA256 sha = SHA256.Create())
-            {
-                byte[] hashBytes = sha.ComputeHash(outputBytes);
-                string hashString = BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
-                Console.WriteLine($"Output file: {outputPath}");
-                Console.WriteLine($"SHA-256: {hashString}");
+                byte[] outputBytes = System.IO.File.ReadAllBytes(outputPath);
+                using (System.Security.Cryptography.SHA256 sha256 = System.Security.Cryptography.SHA256.Create())
+                {
+                    byte[] hashBytes = sha256.ComputeHash(outputBytes);
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder(hashBytes.Length * 2);
+                    foreach (byte b in hashBytes)
+                    {
+                        sb.Append(b.ToString("x2"));
+                    }
+                    string hashString = sb.ToString();
+                    System.Console.WriteLine("Output file: " + outputPath);
+                    System.Console.WriteLine("SHA-256 hash: " + hashString);
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
+            catch (System.Exception ex)
+            {
+                System.Console.Error.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

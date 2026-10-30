@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using System.IO.Compression;
 using Aspose.Html.Saving;
 using Aspose.Html.Converters;
 
@@ -11,41 +12,41 @@ class Program
     {
         try
         {
-            string inputPath = Path.Combine(Directory.GetCurrentDirectory(), "sample.mhtml");
-            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.pdf");
+            // Define file paths
+            string inputMhtmlPath = "sample.mhtml";
+            string outputPdfPath = "result.pdf";
+            string outputZipPath = "result.zip";
 
-            // Create a minimal MHTML file if it does not exist
-            if (!File.Exists(inputPath))
+            // Create a minimal MHTML file (for demonstration purposes)
+            string minimalMhtmlContent = "<html><body><p>Hello, Aspose.HTML!</p></body></html>";
+            System.IO.File.WriteAllText(inputMhtmlPath, minimalMhtmlContent);
+
+            // Convert MHTML to PDF
+            using (System.IO.Stream mhtmlStream = System.IO.File.OpenRead(inputMhtmlPath))
             {
-                string mhtmlContent = "<html><body><p>Hello, Aspose.HTML!</p></body></html>";
-                File.WriteAllText(inputPath, mhtmlContent);
+                Aspose.Html.Saving.PdfSaveOptions pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
+                Aspose.Html.Converters.Converter.ConvertMHTML(mhtmlStream, pdfOptions, outputPdfPath);
             }
 
-            ConvertMhtmlToPdf(inputPath, outputPath);
-            Console.WriteLine($"PDF generated at: {outputPath}");
+            Console.WriteLine($"PDF generated at: {outputPdfPath}");
 
-            CompressPdf(outputPath);
+            // Compress the resulting PDF using standard .NET compression (ZIP)
+            using (System.IO.FileStream zipToOpen = new System.IO.FileStream(outputZipPath, System.IO.FileMode.Create))
+            using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Create))
+            {
+                ZipArchiveEntry pdfEntry = archive.CreateEntry(System.IO.Path.GetFileName(outputPdfPath));
+                using (System.IO.Stream entryStream = pdfEntry.Open())
+                using (System.IO.FileStream pdfFileStream = new System.IO.FileStream(outputPdfPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                {
+                    pdfFileStream.CopyTo(entryStream);
+                }
+            }
+
+            Console.WriteLine($"Compressed PDF saved as ZIP at: {outputZipPath}");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error: {ex.Message}");
         }
-    }
-
-    static void ConvertMhtmlToPdf(string inputPath, string outputPath)
-    {
-        using (FileStream stream = File.OpenRead(inputPath))
-        {
-            PdfSaveOptions options = new PdfSaveOptions();
-            Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-        }
-    }
-
-    static void CompressPdf(string pdfPath)
-    {
-        // Placeholder for PDF compression using a third‑party library.
-        // In a real scenario, you would reference a validated PDF compression library here.
-        Console.WriteLine("PDF compression would be performed here using a third‑party library.");
-        Console.WriteLine($"(Compression not executed because no external library is referenced.)");
     }
 }

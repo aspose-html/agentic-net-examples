@@ -2,46 +2,39 @@
 
 using System;
 using System.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Define file paths
-            string inputHtmlPath = "sample.html";
-            string outputPdfPath = "output.pdf";
+            string inputPath = "sample.html";
+            string outputPath = "output.pdf";
 
             // Create a minimal HTML file
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello Aspose HTML</h1></body></html>";
-            File.WriteAllText(inputHtmlPath, htmlContent);
+            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            File.WriteAllText(inputPath, htmlContent);
 
             // Set PDF save options
-            PdfSaveOptions options = new PdfSaveOptions();
+            var pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
 
-            // Convert HTML file to PDF
-            Aspose.Html.Converters.Converter.ConvertHTML(inputHtmlPath, options, outputPdfPath);
+            // Convert HTML to PDF
+            Aspose.Html.Converters.Converter.ConvertHTML(inputPath, pdfOptions, outputPath);
 
-            // Verify the output PDF file
-            if (!File.Exists(outputPdfPath))
-            {
-                throw new Exception("PDF file was not created.");
-            }
+            // Verify the output PDF
+            if (!File.Exists(outputPath))
+                throw new Exception("Output PDF file does not exist.");
 
-            FileInfo pdfInfo = new FileInfo(outputPdfPath);
-            if (pdfInfo.Length == 0)
-            {
-                throw new Exception("PDF file is empty.");
-            }
+            var info = new FileInfo(outputPath);
+            if (info.Length == 0)
+                throw new Exception("Output PDF file is empty.");
 
-            Console.WriteLine("Conversion verification passed. PDF size: " + pdfInfo.Length + " bytes.");
+            Console.WriteLine("PDF conversion verification passed.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

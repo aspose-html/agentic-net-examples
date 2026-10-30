@@ -3,11 +3,12 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Aspose.Html.IO;
 using Aspose.Html.Saving;
 using Aspose.Html.Converters;
 
-class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
     private readonly List<MemoryStream> _streams = new List<MemoryStream>();
 
@@ -29,7 +30,7 @@ class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 
     public void ReleaseStream(Stream stream)
     {
-        // No action needed; streams are kept for later use.
+        // No action needed; streams are retained for later use.
     }
 
     public void Dispose()
@@ -42,58 +43,59 @@ class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
     }
 }
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
-            // Prepare input EPUB file (minimal placeholder)
+            // Prepare input EPUB file (dummy content for demonstration)
             string inputPath = "sample.epub";
             if (!File.Exists(inputPath))
             {
-                File.WriteAllBytes(inputPath, new byte[0]);
+                File.WriteAllBytes(inputPath, new byte[] { 0x50, 0x4B, 0x03, 0x04 }); // minimal ZIP header
             }
 
             // Open input stream
-            Stream inputStream = File.OpenRead(inputPath);
+            Stream stream = File.OpenRead(inputPath);
 
-            // Set up save options for XPS output
-            XpsSaveOptions options = new XpsSaveOptions();
+            // Set up XPS save options
+            Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
 
-            // Create custom stream provider to capture output in memory
-            using (MemoryStreamProvider provider = new MemoryStreamProvider())
+            // Create custom stream provider
+            MemoryStreamProvider provider = new MemoryStreamProvider();
+
+            // Record start time
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            // Perform conversion
+            Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, provider);
+
+            // Record end time
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            Console.WriteLine($"Conversion elapsed time: {elapsed}");
+
+            // Write first generated stream to output file
+            string outputPath = "output.xps";
+            if (provider.Streams.Count > 0)
             {
-                // Record start time
-                DateTime startTime = DateTime.UtcNow;
-
-                // Perform conversion
-                Aspose.Html.Converters.Converter.ConvertEPUB(inputStream, options, provider);
-
-                // Record end time
-                DateTime endTime = DateTime.UtcNow;
-                TimeSpan elapsed = endTime - startTime;
-                Console.WriteLine($"Conversion elapsed time: {elapsed.TotalMilliseconds} ms");
-
-                // Write first generated memory stream to file
-                if (provider.Streams.Count > 0)
+                using (Stream outputFile = File.Create(outputPath))
                 {
                     MemoryStream firstStream = provider.Streams[0];
                     firstStream.Position = 0;
-                    string outputPath = "output.xps";
-                    using (FileStream fileStream = File.Create(outputPath))
-                    {
-                        firstStream.CopyTo(fileStream);
-                    }
-                    Console.WriteLine($"Output written to: {outputPath}");
+                    firstStream.CopyTo(outputFile);
                 }
-                else
-                {
-                    Console.WriteLine("No output streams were generated.");
-                }
+                Console.WriteLine($"First XPS output written to: {outputPath}");
+            }
+            else
+            {
+                Console.WriteLine("No output streams were generated.");
             }
 
-            inputStream.Dispose();
+            // Cleanup
+            provider.Dispose();
+            stream.Dispose();
         }
         catch (Exception ex)
         {

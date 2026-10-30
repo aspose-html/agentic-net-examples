@@ -1,80 +1,107 @@
 // Create a PowerShell module that wraps .NET Converter methods for quick MHTML to image conversions.
 
 using System;
+using System.IO;
 
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
+            // Input MHTML file (create a minimal placeholder if it does not exist)
             string inputPath = "sample.mhtml";
-
-            // Create a minimal MHTML file if it does not exist
-            if (!System.IO.File.Exists(inputPath))
+            if (!File.Exists(inputPath))
             {
-                System.IO.File.WriteAllText(inputPath, "<html><body><p>Sample MHTML content</p></body></html>");
+                File.WriteAllText(inputPath, "<html><body><h1>Sample MHTML Content</h1></body></html>");
             }
 
-            string outputPath = ConvertMhtmlByFormat(inputPath, "jpeg");
-            System.Console.WriteLine("Output saved to: " + outputPath);
+            // Desired output format (e.g., "png", "jpeg", "bmp", "tiff", "xps", "docx")
+            string format = "png";
+
+            string outputPath = ConvertMhtmlByFormat(inputPath, format);
+            Console.WriteLine($"Conversion succeeded. Output file: {outputPath}");
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 
-    private static string ConvertMhtmlByFormat(string inputPath, string format)
+    static string ConvertMhtmlByFormat(string inputPath, string format)
     {
-        using (System.IO.Stream stream = System.IO.File.OpenRead(inputPath))
+        if (string.IsNullOrEmpty(inputPath))
+            throw new ArgumentException("Input path must be provided.", nameof(inputPath));
+        if (string.IsNullOrEmpty(format))
+            throw new ArgumentException("Format must be provided.", nameof(format));
+
+        string outputPath;
+        object options;
+
+        switch (format.Trim().ToUpperInvariant())
         {
-            string outputPath;
-            switch (format.ToLowerInvariant())
-            {
-                case "jpeg":
-                case "jpg":
-                    {
-                        var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
-                        options.UseAntialiasing = true;
-                        outputPath = System.IO.Path.ChangeExtension(inputPath, ".jpg");
-                        Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                        break;
-                    }
-                case "png":
-                    {
-                        var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
-                        options.UseAntialiasing = true;
-                        outputPath = System.IO.Path.ChangeExtension(inputPath, ".png");
-                        Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                        break;
-                    }
-                case "tiff":
-                    {
-                        var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff);
-                        options.UseAntialiasing = true;
-                        outputPath = System.IO.Path.ChangeExtension(inputPath, ".tiff");
-                        Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                        break;
-                    }
-                case "xps":
-                    {
-                        var options = new Aspose.Html.Saving.XpsSaveOptions();
-                        outputPath = System.IO.Path.ChangeExtension(inputPath, ".xps");
-                        Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                        break;
-                    }
-                case "docx":
-                    {
-                        var options = new Aspose.Html.Saving.DocSaveOptions();
-                        outputPath = System.IO.Path.ChangeExtension(inputPath, ".docx");
-                        Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                        break;
-                    }
-                default:
-                    throw new System.ArgumentException("Unsupported format: " + format);
-            }
-            return outputPath;
+            case "PNG":
+                outputPath = Path.ChangeExtension(inputPath, ".png");
+                options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png)
+                {
+                    UseAntialiasing = true
+                };
+                break;
+            case "JPEG":
+            case "JPG":
+                outputPath = Path.ChangeExtension(inputPath, ".jpg");
+                options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg)
+                {
+                    UseAntialiasing = true
+                };
+                break;
+            case "BMP":
+                outputPath = Path.ChangeExtension(inputPath, ".bmp");
+                options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Bmp)
+                {
+                    UseAntialiasing = true
+                };
+                break;
+            case "TIFF":
+                outputPath = Path.ChangeExtension(inputPath, ".tiff");
+                options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Tiff)
+                {
+                    UseAntialiasing = true
+                };
+                break;
+            case "XPS":
+                outputPath = Path.ChangeExtension(inputPath, ".xps");
+                options = new Aspose.Html.Saving.XpsSaveOptions();
+                break;
+            case "DOCX":
+                outputPath = Path.ChangeExtension(inputPath, ".docx");
+                options = new Aspose.Html.Saving.DocSaveOptions();
+                break;
+            default:
+                throw new NotSupportedException($"The format '{format}' is not supported.");
         }
+
+        using (Stream stream = File.OpenRead(inputPath))
+        {
+            // The ConvertMHTML overload expects the specific SaveOptions type.
+            if (options is Aspose.Html.Saving.ImageSaveOptions imgOpts)
+            {
+                Aspose.Html.Converters.Converter.ConvertMHTML(stream, imgOpts, outputPath);
+            }
+            else if (options is Aspose.Html.Saving.XpsSaveOptions xpsOpts)
+            {
+                Aspose.Html.Converters.Converter.ConvertMHTML(stream, xpsOpts, outputPath);
+            }
+            else if (options is Aspose.Html.Saving.DocSaveOptions docOpts)
+            {
+                Aspose.Html.Converters.Converter.ConvertMHTML(stream, docOpts, outputPath);
+            }
+            else
+            {
+                throw new InvalidOperationException("Unsupported save options type.");
+            }
+        }
+
+        return outputPath;
     }
 }
