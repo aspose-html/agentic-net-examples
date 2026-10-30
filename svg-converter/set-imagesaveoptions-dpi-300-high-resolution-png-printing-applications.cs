@@ -1,12 +1,12 @@
 // Set ImageSaveOptions DPI to 300 for high‑resolution PNG printing applications.
 
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
-            string htmlContent = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            string htmlContent = "<html><body><h1>Hello, world!</h1></body></html>";
             string baseUri = "about:blank";
             var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
             options.HorizontalResolution = 300;

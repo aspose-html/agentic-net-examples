@@ -13,7 +13,8 @@ class Program
 
             if (!System.IO.File.Exists(svgPath))
             {
-                System.IO.File.WriteAllText(svgPath, "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><rect width=\"100\" height=\"100\" fill=\"red\"/></svg>");
+                string svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><rect width=\"100\" height=\"100\" fill=\"red\"/></svg>";
+                System.IO.File.WriteAllText(svgPath, svgContent);
             }
 
             Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath);
@@ -23,7 +24,8 @@ class Program
             options.VerticalResolution = 300;
 
             Aspose.Html.Converters.Converter.ConvertSVG(document, options, tiffPath);
-            Console.WriteLine("SVG successfully converted to TIFF with no compression.");
+
+            Console.WriteLine("SVG converted to TIFF successfully: " + tiffPath);
         }
         catch (Exception ex)
         {

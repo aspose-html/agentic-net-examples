@@ -16,9 +16,10 @@ class Program
             string svgPath = "sample.svg";
             string tiffPath = "output.tiff";
 
+            // Create a minimal SVG file if it does not exist
             if (!File.Exists(svgPath))
             {
-                string svgContent = @"<svg width='200' height='200' xmlns='http://www.w3.org/2000/svg'>
+                string svgContent = @"<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
   <rect width='200' height='200' fill='black' />
 </svg>";
                 File.WriteAllText(svgPath, svgContent);
@@ -27,18 +28,19 @@ class Program
             using (SVGDocument document = new SVGDocument(svgPath))
             {
                 ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Tiff);
-                // Compression to CCITT Group 4 is not supported in this API version; using default compression.
+                // Compression to CCITT Group 4 is not available in this version; using default (None)
+                options.Compression = Compression.None;
                 options.HorizontalResolution = 300;
                 options.VerticalResolution = 300;
 
                 Aspose.Html.Converters.Converter.ConvertSVG(document, options, tiffPath);
             }
 
-            Console.WriteLine("SVG has been successfully converted to TIFF: " + tiffPath);
+            Console.WriteLine($"SVG has been converted to TIFF: {tiffPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

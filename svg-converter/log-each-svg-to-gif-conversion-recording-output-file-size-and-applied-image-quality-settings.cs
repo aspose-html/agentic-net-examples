@@ -2,8 +2,6 @@
 
 using System;
 using System.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Rendering.Image;
 
 class Program
 {
@@ -11,23 +9,22 @@ class Program
     {
         try
         {
-            string inputFolder = Path.Combine(Directory.GetCurrentDirectory(), "InputSvgs");
-            string outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "OutputGifs");
+            string inputFolder = "InputSvgs";
+            string outputFolder = "OutputGifs";
 
             if (!Directory.Exists(inputFolder))
                 Directory.CreateDirectory(inputFolder);
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
-            // Create a sample SVG file if none exist
+            // Create a minimal sample SVG if none exist
             string[] existingSvgs = Directory.GetFiles(inputFolder, "*.svg");
             if (existingSvgs.Length == 0)
             {
                 string sampleSvgPath = Path.Combine(inputFolder, "sample.svg");
                 File.WriteAllText(sampleSvgPath,
-@"<svg width='200' height='200' xmlns='http://www.w3.org/2000/svg'>
-  <rect width='200' height='200' fill='lightblue'/>
-  <circle cx='100' cy='100' r='80' fill='orange'/>
+@"<svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'>
+  <circle cx='50' cy='50' r='40' stroke='green' stroke-width='4' fill='yellow' />
 </svg>");
                 existingSvgs = new string[] { sampleSvgPath };
             }
@@ -41,16 +38,19 @@ class Program
                 string outputPath = Path.Combine(outputFolder,
                     Path.GetFileNameWithoutExtension(svgPath) + ".gif");
 
-                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Gif);
+                Aspose.Html.Saving.ImageSaveOptions options =
+                    new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+
                 Aspose.Html.Converters.Converter.ConvertSVG(svgPath, options, outputPath);
 
                 long fileSize = new FileInfo(outputPath).Length;
-                Console.WriteLine($"Converted {Path.GetFileName(svgPath)} to GIF. Size: {fileSize} bytes.");
+
+                Console.WriteLine($"Converted '{Path.GetFileName(svgPath)}' to GIF. Size: {fileSize} bytes.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

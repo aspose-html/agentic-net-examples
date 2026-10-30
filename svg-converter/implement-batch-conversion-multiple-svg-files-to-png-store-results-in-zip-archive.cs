@@ -16,6 +16,7 @@ class Program
         {
             string inputFolder = "InputSvgs";
             string outputFolder = "OutputPngs";
+            string zipPath = "ConvertedSvgs.zip";
 
             if (!Directory.Exists(inputFolder))
                 Directory.CreateDirectory(inputFolder);
@@ -28,9 +29,8 @@ class Program
             {
                 string sampleSvgPath = Path.Combine(inputFolder, "sample.svg");
                 File.WriteAllText(sampleSvgPath,
-@"<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
-  <rect width='200' height='200' fill='lightblue'/>
-  <circle cx='100' cy='100' r='80' fill='orange'/>
+@"<svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'>
+  <circle cx='50' cy='50' r='40' stroke='green' stroke-width='4' fill='yellow' />
 </svg>");
             }
 
@@ -57,15 +57,23 @@ class Program
                 Console.WriteLine($"Converted {i + 1}/{total} ({percent}%) - {Path.GetFileName(outputPath)}");
             }
 
-            string zipPath = "ConvertedSvgs.zip";
-            if (File.Exists(zipPath))
-                File.Delete(zipPath);
-            ZipFile.CreateFromDirectory(outputFolder, zipPath);
+            // Create ZIP archive of the PNG files
+            using (FileStream zipFileStream = new FileStream(zipPath, FileMode.Create))
+            using (ZipArchive zip = new ZipArchive(zipFileStream, ZipArchiveMode.Create))
+            {
+                string[] pngFiles = Directory.GetFiles(outputFolder, "*.png");
+                foreach (string pngPath in pngFiles)
+                {
+                    string entryName = Path.GetFileName(pngPath);
+                    zip.CreateEntryFromFile(pngPath, entryName);
+                }
+            }
+
             Console.WriteLine($"All PNG files have been zipped into '{zipPath}'.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

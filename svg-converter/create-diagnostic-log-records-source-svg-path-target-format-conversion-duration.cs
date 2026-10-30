@@ -1,6 +1,12 @@
 // Create a diagnostic log that records source SVG path, target format, and conversion duration.
 
 using System;
+using System.IO;
+using System.Diagnostics;
+using Aspose.Html.Dom.Svg;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
+using System.Drawing;
 
 class Program
 {
@@ -10,41 +16,44 @@ class Program
         {
             string inputFolder = "InputSvgs";
             string outputFolder = "OutputImages";
-            if (!System.IO.Directory.Exists(outputFolder))
-                System.IO.Directory.CreateDirectory(outputFolder);
 
-            string[] svgFiles = System.IO.Directory.GetFiles(inputFolder, "*.svg");
+            if (!Directory.Exists(outputFolder))
+                Directory.CreateDirectory(outputFolder);
+
+            if (!Directory.Exists(inputFolder))
+                Directory.CreateDirectory(inputFolder);
+
+            string[] svgFiles = Directory.GetFiles(inputFolder, "*.svg");
             int total = svgFiles.Length;
 
             for (int i = 0; i < total; i++)
             {
                 string svgPath = svgFiles[i];
-                string outputPath = System.IO.Path.Combine(outputFolder, System.IO.Path.GetFileNameWithoutExtension(svgPath) + ".png");
+                string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(svgPath) + ".png");
 
-                var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+                Stopwatch sw = Stopwatch.StartNew();
 
-                using (Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath))
+                using (SVGDocument document = new SVGDocument(svgPath))
                 {
-                    Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
+                    ImageSaveOptions options = new ImageSaveOptions();
                     options.HorizontalResolution = 300;
                     options.VerticalResolution = 300;
-                    options.BackgroundColor = System.Drawing.Color.White;
+                    options.BackgroundColor = Color.White;
                     options.UseAntialiasing = true;
 
                     Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath);
                 }
 
-                stopwatch.Stop();
-                double seconds = stopwatch.Elapsed.TotalSeconds;
+                sw.Stop();
 
-                Console.WriteLine($"Converted {System.IO.Path.GetFileName(svgPath)} to PNG in {seconds:F2}s. Output: {System.IO.Path.GetFileName(outputPath)}");
+                Console.WriteLine($"[LOG] Source: {svgPath}, Target: PNG, Duration: {sw.Elapsed.TotalMilliseconds} ms");
                 int percent = (i + 1) * 100 / total;
-                Console.WriteLine($"Progress: {i + 1}/{total} ({percent}%)");
+                Console.WriteLine($"Converted {i + 1}/{total} ({percent}%) - {Path.GetFileName(outputPath)}");
             }
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

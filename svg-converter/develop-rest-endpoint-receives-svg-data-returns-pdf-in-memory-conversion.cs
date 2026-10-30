@@ -2,10 +2,12 @@
 
 using System;
 using System.IO;
-using System.Text;
 using System.Collections.Generic;
+using Aspose.Html.IO;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
-public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+class MemoryStreamProvider : ICreateStreamProvider, IDisposable
 {
     public List<MemoryStream> Streams { get; } = new List<MemoryStream>();
 
@@ -25,7 +27,7 @@ public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDispo
 
     public void ReleaseStream(Stream stream)
     {
-        // No action needed for in-memory streams
+        // No action needed
     }
 
     public void Dispose()
@@ -37,48 +39,34 @@ public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDispo
     }
 }
 
-public class Program
+class Program
 {
-    public static void Main()
+    static byte[] ConvertSvgToPdf(string svgContent)
+    {
+        string baseUri = "about:blank";
+        var options = new PdfSaveOptions();
+        using (var provider = new MemoryStreamProvider())
+        {
+            Aspose.Html.Converters.Converter.ConvertSVG(svgContent, baseUri, options, provider);
+            var pdfStream = provider.Streams[0];
+            pdfStream.Position = 0;
+            return pdfStream.ToArray();
+        }
+    }
+
+    static void Main()
     {
         try
         {
-            // Sample SVG content
-            const string svgContent = @"<svg width='200' height='200' xmlns='http://www.w3.org/2000/svg'>
-  <rect width='200' height='200' fill='lightblue'/>
-  <circle cx='100' cy='100' r='80' fill='orange' stroke='black' stroke-width='3'/>
-  <text x='100' y='115' font-size='30' text-anchor='middle' fill='black'>Demo</text>
-</svg>";
-
-            const string baseUri = "about:blank";
-
-            var pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
-
-            using (var provider = new MemoryStreamProvider())
-            {
-                Aspose.Html.Converters.Converter.ConvertSVG(svgContent, baseUri, pdfOptions, provider);
-
-                if (provider.Streams.Count == 0)
-                {
-                    Console.WriteLine("Conversion failed: no output stream was created.");
-                    return;
-                }
-
-                var pdfStream = provider.Streams[0];
-                pdfStream.Position = 0;
-
-                const string outputPath = "output.pdf";
-                using (var fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write))
-                {
-                    pdfStream.CopyTo(fileStream);
-                }
-
-                Console.WriteLine($"SVG successfully converted to PDF and saved at '{outputPath}'.");
-            }
+            string sampleSvg = "<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='red'/></svg>";
+            byte[] pdfBytes = ConvertSvgToPdf(sampleSvg);
+            string outputPath = "output.pdf";
+            File.WriteAllBytes(outputPath, pdfBytes);
+            Console.WriteLine($"PDF generated successfully. Size: {pdfBytes.Length} bytes. Saved to {outputPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.Error.WriteLine($"Error: {ex.Message}");
         }
     }
 }

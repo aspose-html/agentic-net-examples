@@ -1,23 +1,23 @@
 // Configure ImageSaveOptions for PNG output with antialiasing enabled to improve visual quality.
 
-using System;
-
 class Program
 {
     static void Main()
     {
         try
         {
+            // Prepare sample HTML file
             string htmlPath = "sample.html";
-            string outputPath = "output.png";
-
-            // Create a minimal HTML file if it does not exist
             if (!System.IO.File.Exists(htmlPath))
             {
-                System.IO.File.WriteAllText(htmlPath, "<!DOCTYPE html><html><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+                System.IO.File.WriteAllText(htmlPath, htmlContent);
             }
 
-            // Load the HTML document
+            // Output PNG file path
+            string outputPath = "output.png";
+
+            // Load HTML document
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
 
             // Configure image save options for PNG with antialiasing
@@ -26,12 +26,10 @@ class Program
 
             // Convert HTML to PNG
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-
-            System.Console.WriteLine("Conversion completed successfully. Output saved to: " + outputPath);
         }
         catch (System.Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

@@ -8,43 +8,28 @@ class Program
     {
         try
         {
-            // Define folders and list file
-            string inputFolder = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "InputSvgs");
-            string outputFolder = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "OutputPdfs");
-            string listFile = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "svglist.txt");
+            string inputFile = "svglist.txt";
+            string outputFolder = "output";
 
-            // Ensure directories exist
-            if (!System.IO.Directory.Exists(inputFolder))
-                System.IO.Directory.CreateDirectory(inputFolder);
             if (!System.IO.Directory.Exists(outputFolder))
                 System.IO.Directory.CreateDirectory(outputFolder);
 
-            // Create a sample SVG file if none exist
-            string sampleSvgPath = System.IO.Path.Combine(inputFolder, "sample.svg");
-            if (!System.IO.File.Exists(sampleSvgPath))
+            if (!System.IO.File.Exists(inputFile))
             {
-                string sampleSvgContent = @"<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
-  <rect width='200' height='200' fill='lightblue'/>
-  <circle cx='100' cy='100' r='80' fill='orange'/>
-</svg>";
+                string sampleSvgPath = "sample.svg";
+                string sampleSvgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" /></svg>";
                 System.IO.File.WriteAllText(sampleSvgPath, sampleSvgContent);
+                System.IO.File.WriteAllLines(inputFile, new string[] { sampleSvgPath });
             }
 
-            // Write list file with SVG paths
-            System.IO.File.WriteAllLines(listFile, new string[] { sampleSvgPath });
-
-            // Read SVG file paths from the list file
-            string[] svgFiles = System.IO.File.ReadAllLines(listFile);
+            string[] svgFiles = System.IO.File.ReadAllLines(inputFile);
             foreach (string svgPath in svgFiles)
             {
-                if (!System.IO.File.Exists(svgPath))
-                {
-                    Console.WriteLine($"SVG file not found: {svgPath}");
+                if (string.IsNullOrWhiteSpace(svgPath))
                     continue;
-                }
 
-                string fileNameWithoutExt = System.IO.Path.GetFileNameWithoutExtension(svgPath);
-                string pdfPath = System.IO.Path.Combine(outputFolder, fileNameWithoutExt + ".pdf");
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(svgPath);
+                string pdfPath = System.IO.Path.Combine(outputFolder, fileName + ".pdf");
 
                 Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
                 Aspose.Html.Converters.Converter.ConvertSVG(svgPath, options, pdfPath);
