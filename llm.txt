@@ -2,7 +2,7 @@
 
 > Build-validated, standalone C# console examples for Aspose.HTML for .NET 26.10.0.
 
-- Examples: 1808
+- Examples: 1803
 - Categories: 18
 - Coding-agent instructions: ./AGENTS.md
 - Structured index: ./index.json
@@ -17,17 +17,17 @@
 - [extract-images-from-website](./extract-images-from-website/): 37 standalone examples; instructions in [agents.md](./extract-images-from-website/agents.md)
 - [extract-svg-from-website](./extract-svg-from-website/): 30 standalone examples; instructions in [agents.md](./extract-svg-from-website/agents.md)
 - [fine-tuning-converters](./fine-tuning-converters/): 121 standalone examples; instructions in [agents.md](./fine-tuning-converters/agents.md)
-- [html-converter](./html-converter/): 199 standalone examples; instructions in [agents.md](./html-converter/agents.md)
+- [html-converter](./html-converter/): 198 standalone examples; instructions in [agents.md](./html-converter/agents.md)
 - [html-navigation](./html-navigation/): 120 standalone examples; instructions in [agents.md](./html-navigation/agents.md)
-- [markdown-converter](./markdown-converter/): 79 standalone examples; instructions in [agents.md](./markdown-converter/agents.md)
+- [markdown-converter](./markdown-converter/): 78 standalone examples; instructions in [agents.md](./markdown-converter/agents.md)
 - [markdown-processing](./markdown-processing/): 120 standalone examples; instructions in [agents.md](./markdown-processing/agents.md)
 - [message-handlers](./message-handlers/): 98 standalone examples; instructions in [agents.md](./message-handlers/agents.md)
 - [mhtml-converter](./mhtml-converter/): 107 standalone examples; instructions in [agents.md](./mhtml-converter/agents.md)
 - [save-file-from-url](./save-file-from-url/): 28 standalone examples; instructions in [agents.md](./save-file-from-url/agents.md)
-- [svg-converter](./svg-converter/): 105 standalone examples; instructions in [agents.md](./svg-converter/agents.md)
+- [svg-converter](./svg-converter/): 104 standalone examples; instructions in [agents.md](./svg-converter/agents.md)
 - [web-accessibility](./web-accessibility/): 96 standalone examples; instructions in [agents.md](./web-accessibility/agents.md)
-- [website-to-html](./website-to-html/): 30 standalone examples; instructions in [agents.md](./website-to-html/agents.md)
-- [working-with-html-documents](./working-with-html-documents/): 332 standalone examples; instructions in [agents.md](./working-with-html-documents/agents.md)
+- [website-to-html](./website-to-html/): 29 standalone examples; instructions in [agents.md](./website-to-html/agents.md)
+- [working-with-html-documents](./working-with-html-documents/): 331 standalone examples; instructions in [agents.md](./working-with-html-documents/agents.md)
 - [working-with-html-templates](./working-with-html-templates/): 45 standalone examples; instructions in [agents.md](./working-with-html-templates/agents.md)
 
 ## Related Agentic .NET Repositories
