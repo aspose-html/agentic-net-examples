@@ -54,7 +54,7 @@
     {
       "slug": "html-converter",
       "display_name": "Html Converter",
-      "example_count": 198
+      "example_count": 199
     },
     {
       "slug": "html-navigation",
@@ -84,7 +84,7 @@
     {
       "slug": "save-file-from-url",
       "display_name": "Save File From Url",
-      "example_count": 28
+      "example_count": 27
     },
     {
       "slug": "svg-converter",
