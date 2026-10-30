@@ -8,20 +8,20 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body style='margin:0;padding:0;'><svg width='200' height='200'><circle cx='100' cy='100' r='80' fill='red' /></svg></body></html>";
+            string html = "<html><body><h1 style='color:red;'>Hello, Aspose!</h1></body></html>";
             string baseUri = "about:blank";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, baseUri);
 
-            Aspose.Html.Rendering.Image.ImageRenderingOptions renderOptions = new Aspose.Html.Rendering.Image.ImageRenderingOptions();
-            renderOptions.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(new Aspose.Html.Drawing.Size(400, 400));
-            renderOptions.BackgroundColor = System.Drawing.Color.Transparent;
+            Aspose.Html.Rendering.Image.ImageRenderingOptions options = new Aspose.Html.Rendering.Image.ImageRenderingOptions();
+            options.PageSetup.AnyPage = new Aspose.Html.Drawing.Page(new Aspose.Html.Drawing.Size(800, 600));
+            options.BackgroundColor = System.Drawing.Color.Transparent;
 
             string outputPath = "output.png";
-            Aspose.Html.Rendering.Image.ImageDevice device = new Aspose.Html.Rendering.Image.ImageDevice(renderOptions, outputPath);
+            Aspose.Html.Rendering.Image.ImageDevice device = new Aspose.Html.Rendering.Image.ImageDevice(options, outputPath);
 
             document.RenderTo(device);
 
-            Console.WriteLine("HTML rendered to PNG with transparent background: " + outputPath);
+            Console.WriteLine("PNG image saved to " + System.IO.Path.GetFullPath(outputPath));
         }
         catch (Exception ex)
         {

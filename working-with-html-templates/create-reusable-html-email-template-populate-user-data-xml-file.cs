@@ -2,6 +2,10 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Converters;
+using Aspose.Html.Loading;
+using Aspose.Html.Saving;
 
 class Program
 {
@@ -9,31 +13,60 @@ class Program
     {
         try
         {
-            string templatePath = "email_template.html";
-            string dataPath = "user_data.xml";
-            string resultPath = "email_result.html";
+            // Define file paths
+            string templatePath = "template.html";
+            string dataPath = "data.xml";
+            string resultPath = "result.html";
 
+            // Create a simple HTML email template if it does not exist
             if (!File.Exists(templatePath))
             {
-                string templateContent = "<html><body><h1>Hello {{Name}}</h1><p>Your email is {{Email}}</p></body></html>";
+                string templateContent = @"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=""UTF-8"">
+    <title>Email Template</title>
+</head>
+<body>
+    <h1>Hello, {{Name}}!</h1>
+    <p>We have your email as: {{Email}}</p>
+</body>
+</html>";
                 File.WriteAllText(templatePath, templateContent);
             }
 
+            // Create a simple XML data file if it does not exist
             if (!File.Exists(dataPath))
             {
-                string xmlContent = "<User><Name>John Doe</Name><Email>john.doe@example.com</Email></User>";
+                string xmlContent = @"
+<Users>
+    <User>
+        <Name>John Doe</Name>
+        <Email>john.doe@example.com</Email>
+    </User>
+</Users>";
                 File.WriteAllText(dataPath, xmlContent);
             }
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(templatePath, new Aspose.Html.Configuration());
-            Aspose.Html.Converters.TemplateData templateData = new Aspose.Html.Converters.TemplateData(dataPath);
-            Aspose.Html.Loading.TemplateLoadOptions options = new Aspose.Html.Loading.TemplateLoadOptions();
+            // Load template data from XML
+            TemplateData templateData = new TemplateData(dataPath);
 
-            Aspose.Html.HTMLDocument resultDocument = Aspose.Html.Converters.Converter.ConvertTemplate(document, templateData, options);
-            resultDocument.Save(resultPath);
+            // Load the HTML template document
+            HTMLDocument templateDocument = new HTMLDocument(templatePath, new Configuration());
 
+            // Set template load options (default)
+            TemplateLoadOptions options = new TemplateLoadOptions();
+
+            // Convert the template with data
+            HTMLDocument resultDocument = Aspose.Html.Converters.Converter.ConvertTemplate(templateDocument, templateData, options);
+
+            // Save the populated result
+            resultDocument.Save(resultPath, new HTMLSaveOptions());
+
+            // Clean up
             resultDocument.Dispose();
-            document.Dispose();
+            templateDocument.Dispose();
         }
         catch (Exception ex)
         {

@@ -2,7 +2,6 @@
 
 using System;
 using System.IO;
-using System.Xml;
 
 class Program
 {
@@ -10,107 +9,72 @@ class Program
     {
         try
         {
-            // Define file paths
-            string xmlPath = "data.xml";
-            string templatePath = "template.html";
-            string outputPath = "result.html";
+            // Define paths
+            string inputFolder = "Input";
+            string outputFolder = "Output";
+            string xmlPath = Path.Combine(inputFolder, "data.xml");
+            string templatePath = Path.Combine(inputFolder, "template.html");
+            string resultPath = Path.Combine(outputFolder, "result.html");
 
-            // Create sample XML if it does not exist
+            // Ensure folders exist
+            if (!Directory.Exists(inputFolder)) Directory.CreateDirectory(inputFolder);
+            if (!Directory.Exists(outputFolder)) Directory.CreateDirectory(outputFolder);
+
+            // Create sample XML data if not present
             if (!File.Exists(xmlPath))
             {
-                string xmlContent = @"<root>
+                string xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<root>
   <category name=""Fruits"">
-    <item>Apple</item>
-    <item>Banana</item>
+    <item name=""Apple"" />
+    <item name=""Banana"" />
   </category>
   <category name=""Vegetables"">
-    <item>Carrot</item>
-    <item>Broccoli</item>
+    <item name=""Carrot"" />
+    <item name=""Lettuce"" />
   </category>
 </root>";
                 File.WriteAllText(xmlPath, xmlContent);
             }
 
-            // Create sample HTML template if it does not exist
+            // Create sample HTML template if not present
             if (!File.Exists(templatePath))
             {
-                string htmlTemplate = @"<html><head><title>Sample</title></head><body><div id=""content""></div></body></html>";
-                File.WriteAllText(templatePath, htmlTemplate);
+                string templateContent = @"<!DOCTYPE html>
+<html>
+<head><title>Sample List</title></head>
+<body>
+<h1>Products</h1>
+<ul data-repeat=""category"">
+  <li>
+    <strong>{{category/@name}}</strong>
+    <ul data-repeat=""item"">
+      <li>{{item/@name}}</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>";
+                File.WriteAllText(templatePath, templateContent);
             }
 
-            // Load XML document
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(xmlPath);
-            XmlNode rootNode = xmlDoc.DocumentElement;
-
-            // Load HTML template
+            // Load template document
             var document = new Aspose.Html.HTMLDocument(templatePath, new Aspose.Html.Configuration());
 
-            // Create the top-level unordered list
-            var topUl = (Aspose.Html.HTMLElement)document.CreateElement("ul");
+            // Load hierarchical XML data
+            var templateData = new Aspose.Html.Converters.TemplateData(xmlPath);
 
-            // Recursively build list items from XML
-            foreach (XmlNode childNode in rootNode.ChildNodes)
-            {
-                AddNode(document, topUl, childNode);
-            }
+            // Template load options (default)
+            var options = new Aspose.Html.Loading.TemplateLoadOptions();
 
-            // Insert the generated list into the placeholder div
-            var contentDiv = document.GetElementById("content");
-            if (contentDiv != null)
-            {
-                contentDiv.AppendChild(topUl);
-            }
-            else
-            {
-                // Fallback: prepend to body
-                var body = document.Body;
-                var firstChild = body.FirstChild;
-                if (firstChild != null)
-                    body.InsertBefore(topUl, firstChild);
-                else
-                    body.AppendChild(topUl);
-            }
+            // Perform conversion
+            Aspose.Html.Converters.Converter.ConvertTemplate(document, templateData, options, resultPath);
 
-            // Save the result
-            document.Save(outputPath);
+            Console.WriteLine($"Template conversion completed. Result saved to: {resultPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
-    }
-
-    static void AddNode(Aspose.Html.HTMLDocument doc, Aspose.Html.HTMLElement parentUl, XmlNode xmlNode)
-    {
-        // Create list item
-        var li = (Aspose.Html.HTMLElement)doc.CreateElement("li");
-
-        // Determine display text
-        string text = string.Empty;
-        if (xmlNode.Attributes != null && xmlNode.Attributes["name"] != null)
-        {
-            text = xmlNode.Attributes["name"].Value;
-        }
-        else if (!xmlNode.HasChildNodes || xmlNode.FirstChild is XmlText)
-        {
-            text = xmlNode.InnerText.Trim();
-        }
-
-        li.AppendChild(doc.CreateTextNode(text));
-
-        // Process child elements recursively
-        XmlNodeList childElements = xmlNode.SelectNodes("./*");
-        if (childElements != null && childElements.Count > 0)
-        {
-            var nestedUl = (Aspose.Html.HTMLElement)doc.CreateElement("ul");
-            foreach (XmlNode child in childElements)
-            {
-                AddNode(doc, nestedUl, child);
-            }
-            li.AppendChild(nestedUl);
-        }
-
-        parentUl.AppendChild(li);
     }
 }

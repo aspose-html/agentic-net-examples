@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
-using Aspose.Html;
-using Aspose.Html.Dom;
 
 class Program
 {
@@ -12,25 +10,32 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><script id='data' type='application/json'>[{\"price\":10.5},{\"price\":20.0},{\"price\":5.75}]</script></body></html>";
+            // Sample HTML containing JSON line items
+            string htmlContent = "<html><body>" +
+                                 "<script type=\"application/json\" id=\"data\">" +
+                                 "[{\"price\":10.5},{\"price\":20.0},{\"price\":5.25}]" +
+                                 "</script>" +
+                                 "</body></html>";
+
+            // Load HTML using Aspose.Html
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                Aspose.Html.Dom.Element scriptElement = document.GetElementById("data");
-                if (scriptElement == null)
-                {
-                    Console.WriteLine("JSON data element not found.");
-                    return;
-                }
-
+                // Retrieve the JSON string from the script element
+                Aspose.Html.HTMLElement scriptElement = (Aspose.Html.HTMLElement)document.GetElementById("data");
                 string json = scriptElement.TextContent;
-                List<Item> items = JsonSerializer.Deserialize<List<Item>>(json);
-                double total = 0;
-                foreach (Item item in items)
+
+                // Deserialize JSON into a list of items
+                List<LineItem> items = JsonSerializer.Deserialize<List<LineItem>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+                // Calculate total price using inline expression
+                double totalPrice = 0;
+                foreach (var item in items)
                 {
-                    total += item.Price;
+                    totalPrice += item.price;
                 }
 
-                Console.WriteLine($"Total price: {total}");
+                // Display the result
+                Console.WriteLine($"Total Price: {totalPrice}");
             }
         }
         catch (Exception ex)
@@ -39,8 +44,8 @@ class Program
         }
     }
 
-    private class Item
+    private class LineItem
     {
-        public double Price { get; set; }
+        public double price { get; set; }
     }
 }
