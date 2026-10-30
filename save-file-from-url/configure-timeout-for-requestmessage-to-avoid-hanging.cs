@@ -10,19 +10,26 @@ class Program
         {
             Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://example.com");
             request.Timeout = System.TimeSpan.FromSeconds(10);
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request))
+            try
             {
-                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                System.Console.WriteLine(html);
+                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request))
+                {
+                    string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                    System.Console.WriteLine(html);
+                }
             }
-        }
-        catch (System.TimeoutException)
-        {
-            System.Console.WriteLine("The request timed out.");
+            catch (System.TimeoutException)
+            {
+                System.Console.WriteLine("The request timed out.");
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error: " + ex.Message);
+            }
         }
         catch (System.Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Unexpected error: " + ex.Message);
         }
     }
 }

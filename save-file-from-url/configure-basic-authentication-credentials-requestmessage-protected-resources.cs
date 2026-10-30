@@ -1,45 +1,49 @@
 // Configure basic authentication credentials in RequestMessage for protected resources.
 
-namespace Example
+using System;
+
+class Program
 {
-    class AuthValidator : Aspose.Html.Net.MessageHandler
+    static void Main()
     {
-        public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+        try
         {
-            Next(context);
-            string authHeader = context.Request.Headers["Authorization"];
-            if (!string.IsNullOrEmpty(authHeader))
-                System.Console.WriteLine("Authorization header present: " + authHeader);
-            else
-                System.Console.WriteLine("Authorization header missing");
+            // Create Aspose.HTML configuration
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+
+            // Get network service and add a message handler to inspect Authorization header
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            network.MessageHandlers.Add(new AuthHeaderValidator());
+
+            // Prepare request with basic authentication credentials
+            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://httpbin.org/basic-auth/user/passwd");
+            request.Credentials = new System.Net.NetworkCredential("user", "passwd");
+            request.PreAuthenticate = true;
+
+            // Load the protected resource
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
+            {
+                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                Console.WriteLine("Loaded HTML length: " + html.Length);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
+}
 
-    class Program
+// Message handler to log Authorization header presence
+class AuthHeaderValidator : Aspose.Html.Net.MessageHandler
+{
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        static void Main(string[] args)
-        {
-            try
-            {
-                Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-
-                Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-                network.MessageHandlers.Add(new AuthValidator());
-
-                Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://example.com/protected");
-                request.Credentials = new System.Net.NetworkCredential("user", "pass");
-                request.PreAuthenticate = true;
-
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
-                {
-                    string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                    System.Console.WriteLine("Loaded HTML length: " + html.Length);
-                }
-            }
-            catch (System.Exception ex)
-            {
-                System.Console.WriteLine("Error: " + ex.Message);
-            }
-        }
+        Next(context);
+        string authHeader = context.Request.Headers["Authorization"];
+        if (!string.IsNullOrEmpty(authHeader))
+            System.Console.WriteLine("Authorization header present: " + authHeader);
+        else
+            System.Console.WriteLine("Authorization header missing");
     }
 }

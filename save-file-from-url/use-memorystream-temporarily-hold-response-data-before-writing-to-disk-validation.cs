@@ -6,34 +6,31 @@ using System.Collections.Generic;
 
 class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
-    public List<MemoryStream> Streams = new List<MemoryStream>();
+    public List<MemoryStream> streams = new List<MemoryStream>();
 
     public Stream GetStream(string name, string extension)
     {
         var ms = new MemoryStream();
-        Streams.Add(ms);
+        streams.Add(ms);
         return ms;
     }
 
     public Stream GetStream(string name, string extension, int page)
     {
         var ms = new MemoryStream();
-        Streams.Add(ms);
+        streams.Add(ms);
         return ms;
     }
 
-    public void ReleaseStream(Stream stream)
-    {
-        // No action needed
-    }
+    public void ReleaseStream(Stream stream) { }
 
     public void Dispose()
     {
-        foreach (var s in Streams)
-        {
+        foreach (var s in streams)
             s.Dispose();
-        }
     }
+
+    public List<MemoryStream> Streams => streams;
 }
 
 class Program
@@ -42,35 +39,25 @@ class Program
     {
         try
         {
-            string htmlPath = "sample.html";
-            string outputPath = "output.pdf";
+            string htmlContent = "<!DOCTYPE html><html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            if (!File.Exists(htmlPath))
+            using (var provider = new MemoryStreamProvider())
             {
-                File.WriteAllText(htmlPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
-            }
+                var options = new Aspose.Html.Saving.PdfSaveOptions();
+                Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
 
-            var provider = new MemoryStreamProvider();
-
-            var document = new Aspose.Html.HTMLDocument(htmlPath);
-            var options = new Aspose.Html.Saving.PdfSaveOptions();
-
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
-
-            if (provider.Streams.Count > 0)
-            {
-                MemoryStream resultStream = provider.Streams[0];
+                var resultStream = provider.Streams[0];
                 resultStream.Position = 0;
-                using (FileStream fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write))
+
+                string outputPath = "output.pdf";
+                using (var fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write))
                 {
                     resultStream.CopyTo(fileStream);
                 }
+
+                Console.WriteLine($"PDF saved to {outputPath}");
             }
-
-            provider.Dispose();
-            document.Dispose();
-
-            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {

@@ -2,6 +2,15 @@
 
 using System;
 
+class UserAgentHandler : Aspose.Html.Net.MessageHandler
+{
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    {
+        context.Request.Headers["User-Agent"] = "MyCustomUserAgent/1.0";
+        Next(context);
+    }
+}
+
 class Program
 {
     static void Main()
@@ -20,20 +29,11 @@ class Program
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            System.Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
-    }
-}
-
-class UserAgentHandler : Aspose.Html.Net.MessageHandler
-{
-    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
-    {
-        context.Request.Headers["User-Agent"] = "MyCustomUserAgent/1.0";
-        Next(context);
     }
 }

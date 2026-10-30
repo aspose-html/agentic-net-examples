@@ -13,15 +13,11 @@ public sealed class LoggingHandler : Aspose.Html.Net.MessageHandler
 
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        // Set a timeout for the request
-        context.Request.Timeout = TimeSpan.FromSeconds(10);
-
-        // Ensure request and response are disposed after processing
         using (var request = context.Request)
         using (var response = context.Response)
         {
             Next(context);
-            _messages.Add($"Request {request.RequestUri} returned status {response.StatusCode}");
+            _messages.Add("Request " + request.RequestUri + " returned status " + response.StatusCode);
         }
     }
 }
@@ -32,29 +28,25 @@ public class Program
     {
         try
         {
-            // Create configuration and obtain network service
-            var configuration = new Aspose.Html.Configuration();
-            var networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-
-            // Add custom message handler
-            var handler = new LoggingHandler();
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            LoggingHandler handler = new LoggingHandler();
             networkService.MessageHandlers.Add(handler);
 
-            // Load a document using the configuration (network requests will be logged)
-            using (var document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
+            string htmlContent = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank", configuration))
             {
-                // Document processing can be done here if needed
+                Console.WriteLine("Document loaded.");
             }
 
-            // Output logged messages
-            foreach (var message in handler.Messages)
+            foreach (string message in handler.Messages)
             {
                 Console.WriteLine(message);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

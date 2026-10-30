@@ -2,16 +2,16 @@
 
 using System;
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
             string url = "https://example.com";
-            string outputPath = "output.html";
+            string outputPath = "example.html";
             DownloadAndSave(url, outputPath);
-            Console.WriteLine("Download and save completed.");
+            Console.WriteLine($"Saved HTML from {url} to {outputPath}");
         }
         catch (Exception ex)
         {
@@ -19,11 +19,11 @@ class Program
         }
     }
 
-    static void DownloadAndSave(string url, string destinationPath)
+    private static void DownloadAndSave(string url, string outputPath)
     {
         var document = new Aspose.Html.HTMLDocument(url);
         var options = new Aspose.Html.Saving.HTMLSaveOptions();
         options.ResourceHandlingOptions.JavaScript = Aspose.Html.Saving.ResourceHandling.Embed;
-        document.Save(destinationPath, options);
+        document.Save(outputPath, options);
     }
 }

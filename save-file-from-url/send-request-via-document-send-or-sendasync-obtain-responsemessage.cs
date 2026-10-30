@@ -11,28 +11,25 @@ class Program
             // Create configuration
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
 
-            // Create an empty HTMLDocument with the configuration
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(configuration))
+            // Create an empty HTML document with a base URI
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("about:blank", configuration))
             {
-                // Define the request URL
+                // Prepare request
                 Aspose.Html.Url url = new Aspose.Html.Url("https://example.com");
-
-                // Create a request message
                 Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(url);
 
-                // Send the request and obtain the response
+                // Send request and obtain response
                 Aspose.Html.Net.ResponseMessage response = document.Context.Network.Send(request);
 
-                // Output basic response information
-                bool isSuccess = response.IsSuccess;
-                Console.WriteLine("Request succeeded: " + isSuccess);
-                byte[] contentBytes = response.Content.ReadAsByteArray();
-                Console.WriteLine("Response content length: " + contentBytes.Length);
+                // Output response information
+                System.Console.WriteLine("Status Code: " + response.StatusCode);
+                System.Console.WriteLine("Success: " + response.IsSuccess);
+                System.Console.WriteLine("Content Length (bytes): " + response.Content.ReadAsByteArray().Length);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
