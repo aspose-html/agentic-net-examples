@@ -12,16 +12,15 @@ class Program
             string outputPath = "output.html";
 
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
                 Aspose.Html.Saving.HTMLSaveOptions options = new Aspose.Html.Saving.HTMLSaveOptions();
-                options.ResourceHandlingOptions.MaxHandlingDepth = 5;
+                options.ResourceHandlingOptions.MaxHandlingDepth = 2;
                 options.ResourceHandlingOptions.PageUrlRestriction = Aspose.Html.Saving.UrlRestriction.SameHost;
                 document.Save(outputPath, options);
             }
 
-            Console.WriteLine("Website saved successfully.");
+            Console.WriteLine("Website saved successfully to " + outputPath);
         }
         catch (Exception ex)
         {

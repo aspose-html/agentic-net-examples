@@ -10,12 +10,16 @@ class OnlyDataIdFilter : NodeFilter
 {
     public override short AcceptNode(Node n)
     {
-        Element element = n as Element;
-        if (element != null && !string.IsNullOrEmpty(element.GetAttribute("data-id")))
+        if (n.NodeType == Node.ELEMENT_NODE)
         {
-            return NodeFilter.FILTER_ACCEPT;
+            Element element = (Element)n;
+            string attr = element.GetAttribute("data-id");
+            if (!string.IsNullOrEmpty(attr))
+            {
+                return FILTER_ACCEPT;
+            }
         }
-        return NodeFilter.FILTER_SKIP;
+        return FILTER_SKIP;
     }
 }
 
@@ -25,29 +29,30 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><body>" +
-                                 "<div data-id=\"1\">First</div>" +
-                                 "<p>No data-id</p>" +
-                                 "<span data-id=\"2\">Second</span>" +
-                                 "</body></html>";
+            string html = "<html><body>" +
+                          "<div data-id='1'>First</div>" +
+                          "<p>No ID</p>" +
+                          "<span data-id='2'>Second</span>" +
+                          "</body></html>";
 
-            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+            HTMLDocument document = new HTMLDocument(html, "about:blank");
 
             ITreeWalker walker = document.CreateTreeWalker(
                 document,
-                NodeFilter.SHOW_ELEMENT,
+                NodeFilter.SHOW_ALL,
                 new OnlyDataIdFilter()
             );
 
             while (walker.NextNode() != null)
             {
-                Element current = (Element)walker.CurrentNode;
-                System.Console.WriteLine(current.OuterHTML);
+                Node current = walker.CurrentNode;
+                Element element = (Element)current;
+                Console.WriteLine($"Tag: {element.LocalName}, data-id: {element.GetAttribute("data-id")}");
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

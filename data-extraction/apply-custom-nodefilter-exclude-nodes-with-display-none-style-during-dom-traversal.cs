@@ -2,48 +2,42 @@
 
 using System;
 
-namespace AsposeHtmlNodeFilterExample
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
+            string html = "<html><body><div style='display:none'>Hidden</div><p>Visible</p></body></html>";
+            var document = new Aspose.Html.HTMLDocument(html, "about:blank");
+            var filter = new OnlyVisibleFilter();
+            var walker = document.CreateTreeWalker(document, Aspose.Html.Dom.Traversal.Filters.NodeFilter.SHOW_ELEMENT, filter);
+            Aspose.Html.Dom.Node node;
+            while ((node = walker.NextNode()) != null)
             {
-                string html = "<html><body>" +
-                              "<div id='visible'>Visible content</div>" +
-                              "<p style='display:none'>Hidden content</p>" +
-                              "<span style='color:red;'>Red text</span>" +
-                              "</body></html>";
-
-                var document = new Aspose.Html.HTMLDocument(html, "about:blank");
-
-                var allElements = document.GetElementsByTagName("*");
-                foreach (Aspose.Html.Dom.Element element in allElements)
-                {
-                    var style = element.GetAttribute("style");
-                    if (!string.IsNullOrEmpty(style) && style.Contains("display:none"))
-                    {
-                        continue; // skip hidden elements
-                    }
-
-                    Console.WriteLine($"Element: <{element.TagName}>");
-                }
+                Console.WriteLine(node.NodeName);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
+}
 
-    // Helper class retained for potential future use; does not depend on unavailable APIs.
-    class OnlyVisibleFilter
+class OnlyVisibleFilter : Aspose.Html.Dom.Traversal.Filters.NodeFilter
+{
+    public override short AcceptNode(Aspose.Html.Dom.Node n)
     {
-        public static bool IsVisible(Aspose.Html.Dom.Element element)
+        if (n.NodeType == Aspose.Html.Dom.Node.ELEMENT_NODE)
         {
+            var element = (Aspose.Html.Dom.Element)n;
             var style = element.GetAttribute("style");
-            return string.IsNullOrEmpty(style) || !style.Contains("display:none");
+            if (!string.IsNullOrEmpty(style) && style.IndexOf("display:none", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                return Aspose.Html.Dom.Traversal.Filters.NodeFilter.FILTER_SKIP;
+            }
         }
+        return Aspose.Html.Dom.Traversal.Filters.NodeFilter.FILTER_ACCEPT;
     }
 }

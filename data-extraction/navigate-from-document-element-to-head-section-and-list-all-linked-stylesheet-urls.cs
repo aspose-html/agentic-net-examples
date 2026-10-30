@@ -1,41 +1,45 @@
 // Navigate from the document element to the head section and list all linked stylesheet URLs.
 
-public class Program
+using System;
+
+class Program
 {
-    public static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string html = "<!DOCTYPE html><html><head>" +
-                          "<link rel=\"stylesheet\" href=\"styles/main.css\">" +
-                          "<link rel=\"stylesheet\" href=\"https://example.com/theme.css\">" +
-                          "<link rel=\"icon\" href=\"favicon.ico\">" +
-                          "</head><body><p>Hello</p></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
-            Aspose.Html.Collections.HTMLCollection headCollection = document.GetElementsByTagName("head");
+            string htmlContent = "<!DOCTYPE html><html><head><link rel=\"stylesheet\" href=\"style1.css\"><link rel=\"stylesheet\" href=\"style2.css\"><link rel=\"icon\" href=\"favicon.ico\"></head><body><p>Hello World</p></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+            // Navigate from the document element to the head section
+            Aspose.Html.Dom.Element htmlElement = document.DocumentElement;
+            Aspose.Html.Collections.HTMLCollection headCollection = htmlElement.GetElementsByTagName("head");
             if (headCollection.Length == 0)
             {
-                System.Console.WriteLine("No <head> element found.");
+                Console.WriteLine("No <head> element found.");
                 return;
             }
             Aspose.Html.Dom.Element head = (Aspose.Html.Dom.Element)headCollection[0];
+
+            // List all linked stylesheet URLs
             Aspose.Html.Collections.HTMLCollection linkElements = head.GetElementsByTagName("link");
             for (int i = 0; i < linkElements.Length; i++)
             {
                 Aspose.Html.Dom.Element link = (Aspose.Html.Dom.Element)linkElements[i];
                 string rel = link.GetAttribute("rel");
-                if (string.IsNullOrEmpty(rel) || !rel.Equals("stylesheet", System.StringComparison.OrdinalIgnoreCase))
-                    continue;
-                string href = link.GetAttribute("href");
-                if (!string.IsNullOrEmpty(href))
+                if (string.Equals(rel, "stylesheet", StringComparison.OrdinalIgnoreCase))
                 {
-                    System.Console.WriteLine(href);
+                    string href = link.GetAttribute("href");
+                    if (!string.IsNullOrEmpty(href))
+                    {
+                        Console.WriteLine(href);
+                    }
                 }
             }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

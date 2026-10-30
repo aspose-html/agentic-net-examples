@@ -6,13 +6,11 @@ using System.Collections.Generic;
 using Aspose.Html.Saving;
 using Aspose.Html.Saving.ResourceHandlers;
 
-class MyResourceHandler : Aspose.Html.Saving.ResourceHandlers.FileSystemResourceHandler
+class MyResourceHandler : FileSystemResourceHandler
 {
-    public List<Aspose.Html.Saving.Resource> Resources = new List<Aspose.Html.Saving.Resource>();
-
+    public List<Resource> Resources = new List<Resource>();
     public MyResourceHandler(string directory) : base(directory) { }
-
-    public override void HandleResource(Aspose.Html.Saving.Resource resource, Aspose.Html.Saving.ResourceHandlingContext context)
+    public override void HandleResource(Resource resource, ResourceHandlingContext context)
     {
         Resources.Add(resource);
         base.HandleResource(resource, context);
@@ -25,27 +23,26 @@ class Program
     {
         try
         {
-            string inputHtml = "input.html";
-            string outputHtml = "output.html";
-            string resourceDirectory = "resources";
-            string csvPath = "resources.csv";
+            // Define paths
+            string inputHtml = Path.Combine(Environment.CurrentDirectory, "input.html");
+            string outputHtml = Path.Combine(Environment.CurrentDirectory, "output.html");
+            string resourceDirectory = Path.Combine(Environment.CurrentDirectory, "resources");
+            string csvPath = Path.Combine(Environment.CurrentDirectory, "resources.csv");
 
-            // Ensure resource directory exists
-            if (!Directory.Exists(resourceDirectory))
-                Directory.CreateDirectory(resourceDirectory);
+            // Ensure directories exist
+            Directory.CreateDirectory(resourceDirectory);
 
             // Create a minimal sample HTML file if it does not exist
             if (!File.Exists(inputHtml))
             {
-                string sampleHtml = @"
-<!DOCTYPE html>
+                string sampleHtml = @"<!DOCTYPE html>
 <html>
 <head>
     <link rel=""stylesheet"" href=""https://example.com/style.css"">
 </head>
 <body>
+    <h1>Sample Page</h1>
     <img src=""https://example.com/image.png"" alt=""Sample Image"">
-    <script src=""https://example.com/script.js""></script>
 </body>
 </html>";
                 File.WriteAllText(inputHtml, sampleHtml);
@@ -58,14 +55,14 @@ class Program
             MyResourceHandler resourceHandler = new MyResourceHandler(resourceDirectory);
             Aspose.Html.Saving.HTMLSaveOptions options = new Aspose.Html.Saving.HTMLSaveOptions();
 
-            // Save the document using the resource handler (this will download resources)
+            // Save the document, which triggers resource handling
             document.Save(resourceHandler, options);
 
-            // Write resource information to CSV
+            // Write resources information to CSV
             using (StreamWriter csvWriter = new StreamWriter(csvPath, false))
             {
                 csvWriter.WriteLine("Type,URL,LocalPath");
-                foreach (Aspose.Html.Saving.Resource resource in resourceHandler.Resources)
+                foreach (Resource resource in resourceHandler.Resources)
                 {
                     string type = resource.MimeType != null ? resource.MimeType.ToString() : "unknown";
                     string url = resource.OriginalUrl != null ? resource.OriginalUrl.ToString() : string.Empty;
@@ -74,12 +71,12 @@ class Program
                 }
             }
 
-            // Save the processed HTML document
+            // Save the processed HTML (optional)
             document.Save(outputHtml);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

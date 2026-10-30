@@ -1,48 +1,56 @@
 // Load an HTML document, remove all comment nodes, and save the cleaned page locally.
 
-namespace Example
+using System;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        try
         {
-            try
-            {
-                string inputPath = "input.html";
-                string outputPath = "output.html";
+            string inputPath = "input.html";
+            string outputPath = "output.html";
 
-                if (!System.IO.File.Exists(inputPath))
-                {
-                    string sampleHtml = "<!DOCTYPE html><html><head><!-- Head comment --><title>Sample</title></head><body><!-- Body comment --><p>Hello World</p></body></html>";
-                    System.IO.File.WriteAllText(inputPath, sampleHtml);
-                }
-
-                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
-                RemoveComments(document.DocumentElement);
-                document.Save(outputPath);
-            }
-            catch (System.Exception ex)
+            // Create a minimal sample HTML file if it does not exist
+            if (!System.IO.File.Exists(inputPath))
             {
-                System.Console.WriteLine(ex.Message);
+                string sampleHtml = "<!DOCTYPE html><html><!-- comment --><head><title>Sample</title></head><body><p>Hello World</p><!-- another comment --></body></html>";
+                System.IO.File.WriteAllText(inputPath, sampleHtml);
             }
+
+            // Load document
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+
+            // Remove comment nodes recursively
+            RemoveComments(document.DocumentElement);
+
+            // Save cleaned document
+            document.Save(outputPath);
         }
-
-        static void RemoveComments(Aspose.Html.Dom.Node node)
+        catch (System.Exception ex)
         {
-            Aspose.Html.Dom.Node child = node.FirstChild;
-            while (child != null)
+            System.Console.WriteLine(ex.Message);
+        }
+    }
+
+    static void RemoveComments(Aspose.Html.Dom.Node node)
+    {
+        Aspose.Html.Dom.Node child = node.FirstChild;
+        while (child != null)
+        {
+            Aspose.Html.Dom.Node next = child.NextSibling;
+
+            // Use NodeName to identify comment nodes
+            if (child.NodeName == "#comment")
             {
-                Aspose.Html.Dom.Node next = child.NextSibling;
-                if (child.NodeName == "#comment")
-                {
-                    node.RemoveChild(child);
-                }
-                else
-                {
-                    RemoveComments(child);
-                }
-                child = next;
+                node.RemoveChild(child);
             }
+            else
+            {
+                RemoveComments(child);
+            }
+
+            child = next;
         }
     }
 }

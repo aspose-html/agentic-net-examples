@@ -1,4 +1,4 @@
-// Save a website while preserving the original folder structure by setting appropriate HTMLSaveOptions.
+// Configure ResourceHandlingOptions to restrict saved resources to the same domain as the source page.
 
 using System;
 
@@ -8,14 +8,17 @@ class Program
     {
         try
         {
-            string url = "https://example.com";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url);
+            string sourceUrl = "https://example.com";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(sourceUrl);
+
             Aspose.Html.Saving.HTMLSaveOptions options = new Aspose.Html.Saving.HTMLSaveOptions();
-            options.ResourceHandlingOptions.MaxHandlingDepth = 10;
+            options.ResourceHandlingOptions.MaxHandlingDepth = 5;
             options.ResourceHandlingOptions.PageUrlRestriction = Aspose.Html.Saving.UrlRestriction.SameHost;
-            string outputPath = "saved_website.html";
+
+            string outputPath = "output.html";
             document.Save(outputPath, options);
-            Console.WriteLine("Website saved successfully to " + outputPath);
+
+            Console.WriteLine("Document saved to " + outputPath);
         }
         catch (Exception ex)
         {

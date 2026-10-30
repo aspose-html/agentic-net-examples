@@ -1,43 +1,40 @@
 // Use Document.SelectNodes with an XPath query to retrieve all table rows in an HTML table.
 
-using System;
-
-class Program
+namespace AsposeHtmlExample
 {
-    static void Main(string[] args)
+    class Program
     {
-        try
+        static void Main()
         {
-            string htmlContent = "<html><body><table><tr><td>Cell1</td><td>Cell2</td></tr><tr><td>Cell3</td><td>Cell4</td></tr></table></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
-            Aspose.Html.Collections.HTMLCollection tables = document.GetElementsByTagName("table");
-            foreach (var tableNode in tables)
+            try
             {
-                if (tableNode is Aspose.Html.HTMLTableElement table)
+                string html = "<html><body><table><tr><td>Cell1</td><td>Cell2</td></tr><tr><td>Cell3</td><td>Cell4</td></tr></table></body></html>";
+                var document = new Aspose.Html.HTMLDocument(html, "about:blank");
+                Aspose.Html.Collections.HTMLCollection tables = document.GetElementsByTagName("table");
+                foreach (var tableNode in tables)
                 {
-                    Aspose.Html.Collections.HTMLCollection rows = table.GetElementsByTagName("tr");
-                    foreach (var rowNode in rows)
+                    if (tableNode is Aspose.Html.HTMLTableElement table)
                     {
-                        if (rowNode is Aspose.Html.HTMLTableRowElement row)
+                        Aspose.Html.Collections.HTMLCollection rows = table.GetElementsByTagName("tr");
+                        foreach (var rowNode in rows)
                         {
-                            Aspose.Html.Collections.HTMLCollection cells = row.Cells;
-                            foreach (var cellNode in cells)
+                            if (rowNode is Aspose.Html.HTMLTableRowElement row)
                             {
-                                if (cellNode is Aspose.Html.HTMLTableCellElement cell)
+                                Aspose.Html.Collections.HTMLCollection cells = row.Cells;
+                                foreach (var cell in cells)
                                 {
                                     string cellText = cell.TextContent?.Trim();
-                                    Console.WriteLine(cellText);
+                                    System.Console.WriteLine(cellText);
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

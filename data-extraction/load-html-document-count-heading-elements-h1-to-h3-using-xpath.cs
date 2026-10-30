@@ -2,6 +2,8 @@
 
 using System;
 using System.IO;
+using Aspose.Html.Dom;
+using Aspose.Html.Dom.XPath;
 
 class Program
 {
@@ -9,30 +11,36 @@ class Program
     {
         try
         {
-            // Create a sample HTML file
-            string htmlPath = Path.Combine(Directory.GetCurrentDirectory(), "sample.html");
-            string htmlContent = "<!DOCTYPE html><html><body><h1>Title</h1><h2>Subtitle</h2><h3>Section</h3><h4>Ignore</h4></body></html>";
-            File.WriteAllText(htmlPath, htmlContent);
+            // Prepare sample HTML file
+            string inputPath = Path.Combine(Directory.GetCurrentDirectory(), "sample.html");
+            string htmlContent = "<html><body>" +
+                                 "<h1>Heading 1</h1>" +
+                                 "<h2>Heading 2</h2>" +
+                                 "<h3>Heading 3</h3>" +
+                                 "<h4>Heading 4</h4>" +
+                                 "</body></html>";
+            File.WriteAllText(inputPath, htmlContent);
 
             // Load the HTML document
-            var doc = new Aspose.Html.HTMLDocument(htmlPath);
+            Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(inputPath);
 
             // Evaluate XPath to select h1, h2, h3 elements
-            Aspose.Html.Dom.XPath.IXPathResult result = doc.Evaluate(
+            IXPathResult result = doc.Evaluate(
                 "//h1|//h2|//h3",
                 doc,
                 doc.CreateNSResolver(doc),
                 Aspose.Html.Dom.XPath.XPathResultType.Any,
                 null);
 
-            int count = 0;
+            // Count the selected heading elements
+            int headingCount = 0;
             Aspose.Html.Dom.Node node;
-            while ((node = result.IterateNext() as Aspose.Html.Dom.Node) != null)
+            while ((node = result.IterateNext()) != null)
             {
-                count++;
+                headingCount++;
             }
 
-            Console.WriteLine($"Number of heading elements (h1-h3): {count}");
+            Console.WriteLine($"Number of heading elements (h1-h3): {headingCount}");
         }
         catch (Exception ex)
         {

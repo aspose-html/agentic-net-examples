@@ -1,10 +1,6 @@
 // Use XPath to select all table cells containing numeric values and calculate their sum programmatically.
 
 using System;
-using System.Globalization;
-using Aspose.Html;
-using Aspose.Html.Dom;
-using Aspose.Html.Dom.XPath;
 
 class Program
 {
@@ -12,41 +8,26 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><table>" +
-                                 "<tr><td>10</td><td>abc</td></tr>" +
-                                 "<tr><td>20.5</td><td>30</td></tr>" +
-                                 "</table></body></html>";
-
-            // Load HTML from string using two-argument constructor
-            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
-
-            // Select all table cells
-            IXPathResult result = document.Evaluate(
-                "//td",
-                document,
-                document.CreateNSResolver(document),
-                XPathResultType.Any,
-                null);
-
-            double sum = 0;
-            Node node;
-            while ((node = result.IterateNext()) != null)
+            string htmlContent = "<html><body><table><tr><td>10</td><td>abc</td></tr><tr><td>20.5</td><td>30</td></tr></table></body></html>";
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                if (double.TryParse(
-                    node.TextContent,
-                    NumberStyles.Any,
-                    CultureInfo.InvariantCulture,
-                    out double value))
+                Aspose.Html.Dom.XPath.IXPathResult result = document.Evaluate("//td", document, document.CreateNSResolver(document), Aspose.Html.Dom.XPath.XPathResultType.Any, null);
+                double sum = 0;
+                Aspose.Html.Dom.Node node;
+                while ((node = result.IterateNext()) != null)
                 {
-                    sum += value;
+                    string text = node.TextContent;
+                    if (double.TryParse(text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double value))
+                    {
+                        sum += value;
+                    }
                 }
+                System.Console.WriteLine(sum.ToString(System.Globalization.CultureInfo.InvariantCulture));
             }
-
-            Console.WriteLine(sum.ToString(CultureInfo.InvariantCulture));
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

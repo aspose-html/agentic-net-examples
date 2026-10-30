@@ -7,11 +7,11 @@ class Program
         try
         {
             string html = "<html><body><ol><li>Item 1</li><li>Item 2</li></ol><ol><li>Item A</li></ol></body></html>";
-            var document = new Aspose.Html.HTMLDocument(html, "about:blank");
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
             var elements = document.QuerySelectorAll("ol li");
             for (int i = 0; i < elements.Length; i++)
             {
-                var element = (Aspose.Html.HTMLElement)elements[i];
+                Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)elements[i];
                 System.Console.WriteLine(element.InnerHTML);
             }
         }
