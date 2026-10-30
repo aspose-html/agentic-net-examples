@@ -11,7 +11,6 @@ class RetryMessageHandler : Aspose.Html.Net.MessageHandler
     {
         _maxRetries = maxRetries;
     }
-
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
         for (int attempt = 0; attempt <= _maxRetries; attempt++)
@@ -29,12 +28,8 @@ class Program
     {
         try
         {
-            string url = "https://example.com";
-            string outputPath = "output.pdf";
-            int maxRetries = 3;
-
-            ConvertHtmlToPdfWithRetry(url, outputPath, maxRetries);
-            Console.WriteLine("Conversion completed successfully.");
+            ConvertHtmlToPdfWithRetry("https://example.com", "output.pdf", 3);
+            Console.WriteLine("Conversion succeeded.");
         }
         catch (Exception ex)
         {
@@ -42,16 +37,40 @@ class Program
         }
     }
 
-    static void ConvertHtmlToPdfWithRetry(string url, string outputPath, int maxRetries)
+    static void ConvertHtmlToPdfWithRetry(string url, string outputPath, int maxAttempts)
     {
-        Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-        Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-        network.MessageHandlers.Add(new RetryMessageHandler(maxRetries));
-
-        using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
+        Exception lastException = null;
+        for (int attempt = 1; attempt <= maxAttempts; attempt++)
         {
-            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+            try
+            {
+                var configuration = new Aspose.Html.Configuration();
+                var network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+                network.MessageHandlers.Add(new RetryMessageHandler(2));
+
+                using (var document = new Aspose.Html.HTMLDocument(url, configuration))
+                {
+                    var options = new Aspose.Html.Saving.PdfSaveOptions();
+                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                }
+
+                // Success, exit loop
+                return;
+            }
+            catch (IOException ioEx)
+            {
+                lastException = ioEx;
+                Thread.Sleep(1000);
+            }
+            catch (UnauthorizedAccessException uaEx)
+            {
+                lastException = uaEx;
+                Thread.Sleep(1000);
+            }
         }
+
+        // If we reach here, all attempts failed
+        if (lastException != null)
+            throw lastException;
     }
 }

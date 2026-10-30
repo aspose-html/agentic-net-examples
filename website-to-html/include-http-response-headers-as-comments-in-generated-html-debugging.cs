@@ -25,17 +25,23 @@ class HeaderCaptureHandler : Aspose.Html.Net.MessageHandler
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
+            // Define input URL and output file path
+            string url = "https://example.com";
+            string outputPath = "output.html";
+
+            // Configure Aspose.HTML and attach the custom message handler
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
             networkService.MessageHandlers.Add(new HeaderCaptureHandler());
 
-            string url = "https://example.com";
+            // Load the HTML document from the URL using the custom configuration
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
+                // Insert captured HTTP response headers as a comment node at the top of the document
                 if (HeaderCaptureHandler.capturedHeaders.Count > 0)
                 {
                     string commentText = "\n" + string.Join("\n", HeaderCaptureHandler.capturedHeaders) + "\n";
@@ -43,11 +49,11 @@ class Program
                     document.InsertBefore(commentNode, document.DocumentElement);
                 }
 
-                string outputPath = "output.html";
+                // Save the modified document to a file
                 document.Save(outputPath);
             }
 
-            Console.WriteLine("HTML saved with headers as comments.");
+            Console.WriteLine("Document saved to: " + outputPath);
         }
         catch (Exception ex)
         {

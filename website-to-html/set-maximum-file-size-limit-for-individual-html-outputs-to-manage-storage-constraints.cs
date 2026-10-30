@@ -7,45 +7,46 @@ using Aspose.Html.Saving;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Define input HTML content
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-            // Create HTML document from inline content
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Sample HTML content
+            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello World</h1></body></html>";
 
-            // Configure save options (optional settings)
-            Aspose.Html.Saving.HTMLSaveOptions options = new Aspose.Html.Saving.HTMLSaveOptions();
-            // Example of setting a resource handling option (not related to size)
+            // Create HTML document from inline content
+            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+
+            // Set save options (optional configuration)
+            HTMLSaveOptions options = new HTMLSaveOptions();
+            // Example: limit resource handling depth (not size)
             options.ResourceHandlingOptions.MaxHandlingDepth = 5;
 
-            // Define output path
-            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.html");
+            // Output file path
+            string outputPath = "output.html";
 
             // Save the document
             document.Save(outputPath, options);
 
             // Define maximum allowed file size (e.g., 100 KB)
-            long maxFileSizeBytes = 100 * 1024;
+            const long maxFileSizeBytes = 100 * 1024;
 
-            // Check the size of the saved file
+            // Check the saved file size
             FileInfo fileInfo = new FileInfo(outputPath);
             if (fileInfo.Length > maxFileSizeBytes)
             {
-                // Delete the file if it exceeds the limit
-                fileInfo.Delete();
-                Console.WriteLine($"Saved file exceeded the maximum size of {maxFileSizeBytes} bytes and was removed.");
+                // Remove the file if it exceeds the limit
+                File.Delete(outputPath);
+                Console.WriteLine($"File exceeded the size limit of {maxFileSizeBytes} bytes and was removed.");
             }
             else
             {
-                Console.WriteLine($"File saved successfully at '{outputPath}'. Size: {fileInfo.Length} bytes.");
+                Console.WriteLine($"File saved successfully. Size: {fileInfo.Length} bytes.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

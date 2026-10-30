@@ -1,6 +1,7 @@
 // Convert multiple website URLs in batch mode, storing each result in separate HTML files.
 
 using System;
+using System.IO;
 
 class Program
 {
@@ -8,25 +9,34 @@ class Program
     {
         try
         {
-            string outputDir = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "output");
-            System.IO.Directory.CreateDirectory(outputDir);
+            // Prepare output directory
+            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
+            Directory.CreateDirectory(outputDir);
 
-            string[] urls = new string[] { "https://example.com", "https://example.org" };
-
-            for (int i = 0; i < urls.Length; i++)
+            // Input URLs
+            string[] inputs = new string[]
             {
-                using (var document = new Aspose.Html.HTMLDocument(urls[i]))
+                "https://example.com",
+                "https://www.wikipedia.org"
+            };
+
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                string url = inputs[i];
+                string outputPath = Path.Combine(outputDir, $"page{i + 1}.html");
+
+                using (var document = new Aspose.Html.HTMLDocument(url))
                 {
-                    string outputPath = System.IO.Path.Combine(outputDir, $"page_{i + 1}.html");
-                    document.Save(outputPath);
+                    var options = new Aspose.Html.Saving.HTMLSaveOptions();
+                    document.Save(outputPath, options);
                 }
             }
 
-            System.Console.WriteLine("Conversion completed.");
+            Console.WriteLine("Conversion completed successfully.");
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

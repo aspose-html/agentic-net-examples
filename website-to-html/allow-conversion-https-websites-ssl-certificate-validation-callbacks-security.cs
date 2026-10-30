@@ -1,8 +1,6 @@
 // Allow conversion of HTTPS websites with custom SSL certificate validation callbacks to ensure security.
 
 using System;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -10,11 +8,9 @@ class Program
     {
         try
         {
-            // Custom SSL certificate validation: accept only if there are no SSL errors.
-            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) =>
-            {
-                return sslPolicyErrors == System.Net.Security.SslPolicyErrors.None;
-            };
+            // Custom SSL certificate validation: accept only if no errors.
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) =>
+                sslPolicyErrors == System.Net.Security.SslPolicyErrors.None;
 
             string url = "https://example.com";
             string outputPath = "output.pdf";
@@ -26,6 +22,8 @@ class Program
                 Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
             }
+
+            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {

@@ -1,9 +1,6 @@
 // Enable compression of the HTML output to reduce file size for faster transmission.
 
 using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Saving;
 
 class Program
 {
@@ -11,23 +8,20 @@ class Program
     {
         try
         {
-            string inputPath = Path.Combine(Path.GetTempPath(), "sample.html");
-            string outputPath = Path.Combine(Path.GetTempPath(), "sample_compressed.html");
+            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            string inputPath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "sample.html");
+            System.IO.File.WriteAllText(inputPath, htmlContent);
 
-            // Create a minimal HTML file.
-            File.WriteAllText(inputPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
+            {
+                Aspose.Html.Saving.HTMLSaveOptions options = new Aspose.Html.Saving.HTMLSaveOptions();
+                // If compression is supported, you could enable it:
+                // options.Compression = Aspose.Html.Saving.Compression.GZip;
 
-            // Load the HTML document from the file.
-            HTMLDocument document = new HTMLDocument(inputPath);
-
-            // Set up HTML save options (compression can be set if supported).
-            HTMLSaveOptions options = new HTMLSaveOptions();
-            // Example: options.Compression = Aspose.Html.Saving.Compression.GZip; // Uncomment if the property exists.
-
-            // Save the document with the specified options.
-            document.Save(outputPath, options);
-
-            Console.WriteLine("HTML saved to: " + outputPath);
+                string outputPath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "compressed.html");
+                document.Save(outputPath, options);
+                Console.WriteLine("Compressed HTML saved to: " + outputPath);
+            }
         }
         catch (Exception ex)
         {

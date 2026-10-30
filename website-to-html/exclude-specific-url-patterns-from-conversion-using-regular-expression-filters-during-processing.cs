@@ -6,12 +6,13 @@ using Aspose.Html.Net;
 
 class ExcludeUrlHandler : Aspose.Html.Net.MessageHandler
 {
-    private readonly Regex _excludeRegex = new Regex(@"https?://.*\.png", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private readonly Regex _excludeRegex = new Regex(@"^https?://.*\.example\.com/skip/", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
         string url = context.Request.RequestUri.ToString();
         if (_excludeRegex.IsMatch(url))
         {
+            // Skip processing this request
             return;
         }
         Next(context);
@@ -24,32 +25,31 @@ class Program
     {
         try
         {
-            // Create configuration and add custom message handler
+            // Configuration and network service setup
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
             networkService.MessageHandlers.Add(new ExcludeUrlHandler());
 
-            // Define the request URL
+            // Request to be converted
             Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://example.com");
 
-            // Load the HTML document using the request and configuration
+            // Load the document using the request and configuration
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
             {
-                // Set up MHTML save options
+                // Conversion options
                 Aspose.Html.Saving.MHTMLSaveOptions options = new Aspose.Html.Saving.MHTMLSaveOptions();
 
-                // Define output path
+                // Output path
                 string outputPath = "output.mhtml";
 
-                // Convert HTML to MHTML
+                // Perform conversion
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                Console.WriteLine($"Conversion completed. Output saved to: {outputPath}");
             }
-
-            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

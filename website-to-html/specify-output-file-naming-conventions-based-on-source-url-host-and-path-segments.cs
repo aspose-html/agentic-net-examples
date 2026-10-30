@@ -9,40 +9,40 @@ class Program
     {
         try
         {
+            // Source URL
+            string sourceUrl = "https://example.com/path/to/page.html";
+
+            // Derive file name from host and path segments
+            Uri uri = new Uri(sourceUrl);
+            string host = uri.Host;
+            string path = uri.AbsolutePath.Trim('/');
+            string safePath = string.IsNullOrEmpty(path) ? "" : path.Replace('/', '_');
+            string fileName = string.IsNullOrEmpty(safePath) ? host : host + "_" + safePath;
+
             // Prepare output directory
             string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
             Directory.CreateDirectory(outputDir);
 
-            // Source URL and HTML content
-            string sourceUrl = "https://example.com/path/to/page.html";
-            string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
+            // Full output path with .jpeg extension
+            string outputPath = Path.Combine(outputDir, fileName + ".jpeg");
 
-            // Create HTML document with base URI
-            using (var document = new Aspose.Html.HTMLDocument(htmlContent, sourceUrl))
+            // Load HTML document from URL
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(sourceUrl))
             {
                 // Configure image save options
-                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
+                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
                 options.HorizontalResolution = 300;
                 options.VerticalResolution = 300;
 
-                // Build output file name based on URL host and path segments
-                Uri uri = new Uri(sourceUrl);
-                string host = uri.Host;
-                string[] pathSegments = uri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-                string safePath = string.Join("_", pathSegments);
-                string fileName = $"{host}_{safePath}.jpg";
-
-                string outputPath = Path.Combine(outputDir, fileName);
-
-                // Convert HTML to image
+                // Convert HTML to JPEG
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("Conversion completed. Output saved to: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

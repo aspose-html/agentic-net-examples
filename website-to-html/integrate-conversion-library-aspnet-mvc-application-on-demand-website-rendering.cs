@@ -10,7 +10,12 @@ class Program
         try
         {
             string sourcePath = "sample.mhtml";
-            using (Stream stream = File.OpenRead(sourcePath))
+            if (!File.Exists(sourcePath))
+            {
+                File.WriteAllText(sourcePath, "<html><body><p>Hello MHTML</p></body></html>");
+            }
+
+            using (FileStream stream = File.OpenRead(sourcePath))
             {
                 byte[] docxBytes = ConvertMhtmlToDocxBytes(stream);
                 string outputPath = "output.docx";
@@ -27,7 +32,7 @@ class Program
     static byte[] ConvertMhtmlToDocxBytes(Stream inputStream)
     {
         string tempDocxPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + ".docx");
-        var options = new Aspose.Html.Saving.DocSaveOptions();
+        Aspose.Html.Saving.DocSaveOptions options = new Aspose.Html.Saving.DocSaveOptions();
         Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, tempDocxPath);
         return File.ReadAllBytes(tempDocxPath);
     }

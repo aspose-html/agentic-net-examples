@@ -3,11 +3,11 @@
 using System;
 using System.Threading;
 
-class UserAgentHandler : Aspose.Html.Net.MessageHandler
+class CustomUserAgentHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        context.Request.Headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36";
+        context.Request.Headers["User-Agent"] = "MyCustomUserAgent/1.0";
         Next(context);
     }
 }
@@ -20,24 +20,23 @@ class Program
         {
             string url = "https://example.com";
 
-            // Configure network service with custom User-Agent handler
+            // Create configuration and add custom handler
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            network.MessageHandlers.Add(new UserAgentHandler());
+            network.MessageHandlers.Add(new CustomUserAgentHandler());
 
-            // Load the document from the URL using the configuration
+            // Load the document using the custom configuration
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
             {
                 string htmlResult = string.Empty;
 
-                // If the document is already loaded, capture the HTML immediately
                 if (document.ReadyState == "complete")
                 {
                     htmlResult = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                    Console.WriteLine(htmlResult);
                 }
                 else
                 {
-                    // Otherwise wait for the document to finish loading
                     using (AutoResetEvent resetEvent = new AutoResetEvent(false))
                     {
                         document.OnReadyStateChange += (sender, e) =>
@@ -49,17 +48,22 @@ class Program
                             }
                         };
 
-                        // Wait for the load to complete (timeout to avoid indefinite block)
-                        resetEvent.WaitOne(TimeSpan.FromSeconds(30));
+                        // Wait for the document to finish loading (30‑second timeout)
+                        if (!resetEvent.WaitOne(TimeSpan.FromSeconds(30)))
+                        {
+                            Console.WriteLine("Loading timed out.");
+                        }
+                        else
+                        {
+                            Console.WriteLine(htmlResult);
+                        }
                     }
                 }
-
-                Console.WriteLine(htmlResult);
             }
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
