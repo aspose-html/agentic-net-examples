@@ -1,27 +1,37 @@
 // Parse a remote web page URL and retrieve all <img> elements using HtmlDocument.
 
-public class Program
+using System;
+
+class Program
 {
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
         try
         {
+            // Remote web page URL
             string url = "https://example.com";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url);
-            Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
-            for (int i = 0; i < images.Length; i++)
+
+            // Load the HTML document from the URL
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url))
             {
-                Aspose.Html.Dom.Element imgElement = (Aspose.Html.Dom.Element)images[i];
-                string src = imgElement.GetAttribute("src");
-                if (!string.IsNullOrEmpty(src))
+                // Retrieve all <img> elements
+                Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
+
+                // Iterate and output the src attribute of each image
+                for (int i = 0; i < images.Length; i++)
                 {
-                    System.Console.WriteLine(src);
+                    Aspose.Html.Dom.Element imgElement = (Aspose.Html.Dom.Element)images[i];
+                    string src = imgElement.GetAttribute("src");
+                    if (!string.IsNullOrEmpty(src))
+                    {
+                        Console.WriteLine(src);
+                    }
                 }
             }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

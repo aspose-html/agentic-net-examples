@@ -7,15 +7,13 @@ using Aspose.Html.Collections;
 using Aspose.Html.Dom;
 using Aspose.Html.Net;
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
-            string url = "https://example.com";
-            List<string> imageUrls = GetImageUrls(url);
-            Console.WriteLine("Found " + imageUrls.Count + " image(s):");
+            List<string> imageUrls = GetImageUrls("https://example.com");
             foreach (string imgUrl in imageUrls)
             {
                 Console.WriteLine(imgUrl);
@@ -23,13 +21,13 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.Error.WriteLine("Error: " + ex.Message);
         }
     }
 
-    static List<string> GetImageUrls(string url)
+    private static List<string> GetImageUrls(string url)
     {
-        var result = new List<string>();
+        List<string> result = new List<string>();
         HTMLDocument document = new HTMLDocument(url);
         HTMLCollection images = document.GetElementsByTagName("img");
         for (int i = 0; i < images.Length; i++)

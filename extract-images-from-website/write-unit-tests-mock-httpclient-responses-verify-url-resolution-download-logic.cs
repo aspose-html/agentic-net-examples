@@ -6,36 +6,33 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
-using Aspose.Html.Net;
+
+class ImageDownloader
+{
+    public static async Task<byte[]> DownloadImageAsync(string baseUri, string src, HttpClient httpClient)
+    {
+        // Create a dummy HTMLDocument to obtain BaseURI handling
+        using (Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(string.Empty, baseUri))
+        {
+            Aspose.Html.Url imageUrl = new Aspose.Html.Url(src, doc.BaseURI);
+            string urlString = imageUrl.ToString();
+            return await httpClient.GetByteArrayAsync(urlString);
+        }
+    }
+}
 
 class MockHttpMessageHandler : HttpMessageHandler
 {
-    private readonly byte[] _responseContent;
-    private readonly string _expectedUrl;
+    private readonly Func<HttpRequestMessage, HttpResponseMessage> _handlerFunc;
 
-    public MockHttpMessageHandler(string expectedUrl, byte[] responseContent)
+    public MockHttpMessageHandler(Func<HttpRequestMessage, HttpResponseMessage> handlerFunc)
     {
-        _expectedUrl = expectedUrl;
-        _responseContent = responseContent;
+        _handlerFunc = handlerFunc ?? throw new ArgumentNullException(nameof(handlerFunc));
     }
 
     protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        HttpResponseMessage response;
-        if (request.RequestUri != null && request.RequestUri.ToString().Equals(_expectedUrl, StringComparison.OrdinalIgnoreCase))
-        {
-            response = new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new System.Net.Http.ByteArrayContent(_responseContent)
-            };
-        }
-        else
-        {
-            response = new HttpResponseMessage(HttpStatusCode.NotFound);
-        }
+        HttpResponseMessage response = _handlerFunc(request);
         return Task.FromResult(response);
     }
 }
@@ -46,79 +43,72 @@ class Program
     {
         try
         {
-            bool result = TestImageDownload();
-            Console.WriteLine(result ? "Test passed." : "Test failed.");
+            RunTests().GetAwaiter().GetResult();
+            Console.WriteLine("All tests passed.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 
-    static bool TestImageDownload()
+    private static async Task RunTests()
     {
-        // Prepare sample HTML with a relative image URL
-        string html = "<html><body><img src=\"image.png\"/></body></html>";
-        string baseUri = "http://example.com/folder/";
-        string expectedUrl = "http://example.com/folder/image.png";
-        byte[] imageBytes = new byte[] { 1, 2, 3, 4 };
-
-        // Create a temporary output directory
-        string outputDir = Path.Combine(Path.GetTempPath(), "AsposeHtmlImageTest");
-        Directory.CreateDirectory(outputDir);
-
-        // Set up mocked HttpClient
-        using (HttpClient httpClient = new HttpClient(new MockHttpMessageHandler(expectedUrl, imageBytes)))
-        {
-            // Execute the download logic
-            DownloadImages(html, baseUri, outputDir, httpClient);
-        }
-
-        // Verify that the image file was saved correctly
-        string savedFilePath = Path.Combine(outputDir, "image.png");
-        if (!File.Exists(savedFilePath))
-            return false;
-
-        byte[] savedBytes = File.ReadAllBytes(savedFilePath);
-        return savedBytes.Length == imageBytes.Length && savedBytes[0] == imageBytes[0] && savedBytes[1] == imageBytes[1];
+        await TestUrlResolutionAndDownloadAsync();
     }
 
-    static void DownloadImages(string htmlContent, string baseUri, string outputDir, HttpClient httpClient)
+    private static async Task TestUrlResolutionAndDownloadAsync()
     {
-        // Ensure output directory exists
-        Directory.CreateDirectory(outputDir);
+        // Arrange
+        string baseUri = "https://example.com/folder/page.html";
+        string relativeSrc = "../image.png";
+        string expectedResolvedUrl = "https://example.com/image.png";
+        byte[] expectedContent = new byte[] { 1, 2, 3, 4, 5 };
 
-        // Load HTML document from inline content
-        using (HTMLDocument document = new HTMLDocument(htmlContent, baseUri))
+        // Mock HttpClient to return expectedContent for the resolved URL
+        var mockHandler = new MockHttpMessageHandler(request =>
         {
-            // Get all <img> elements
-            HTMLCollection images = document.GetElementsByTagName("img");
-            for (int i = 0; i < images.Length; i++)
+            if (request.RequestUri.ToString() == expectedResolvedUrl)
             {
-                Element imgElement = (Element)images[i];
-                string src = imgElement.GetAttribute("src");
-                if (string.IsNullOrEmpty(src))
-                    continue;
-
-                // Resolve the image URL against the document's base URI
-                Url imageUrl = new Url(src, document.BaseURI);
-                string urlString = imageUrl.ToString();
-                string extension = Path.GetExtension(urlString);
-                if (!extension.Equals(".png", StringComparison.OrdinalIgnoreCase) &&
-                    !extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) &&
-                    !extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) &&
-                    !extension.Equals(".gif", StringComparison.OrdinalIgnoreCase))
+                var response = new HttpResponseMessage(HttpStatusCode.OK)
                 {
-                    continue;
+                    Content = new ByteArrayContent(expectedContent)
+                };
+                return response;
+            }
+            return new HttpResponseMessage(HttpStatusCode.NotFound);
+        });
+
+        using (HttpClient httpClient = new HttpClient(mockHandler))
+        {
+            // Act
+            byte[] actualContent = await ImageDownloader.DownloadImageAsync(baseUri, relativeSrc, httpClient);
+
+            // Resolve URL separately to verify resolution logic
+            using (Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(string.Empty, baseUri))
+            {
+                Aspose.Html.Url imageUrl = new Aspose.Html.Url(relativeSrc, doc.BaseURI);
+                string resolvedUrl = imageUrl.ToString();
+
+                // Assert URL resolution
+                if (!string.Equals(resolvedUrl, expectedResolvedUrl, StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new Exception($"URL resolution failed. Expected: {expectedResolvedUrl}, Got: {resolvedUrl}");
                 }
+            }
 
-                // Download image bytes
-                byte[] imageBytes = httpClient.GetByteArrayAsync(urlString).GetAwaiter().GetResult();
+            // Assert downloaded content
+            if (actualContent == null || actualContent.Length != expectedContent.Length)
+            {
+                throw new Exception("Downloaded content length mismatch.");
+            }
 
-                // Save to output directory
-                string fileName = Path.GetFileName(urlString);
-                string savePath = Path.Combine(outputDir, fileName);
-                File.WriteAllBytes(savePath, imageBytes);
+            for (int i = 0; i < expectedContent.Length; i++)
+            {
+                if (actualContent[i] != expectedContent[i])
+                {
+                    throw new Exception("Downloaded content bytes mismatch.");
+                }
             }
         }
     }

@@ -5,6 +5,8 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
 using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Collections;
 
 class OutlineNode
 {
@@ -19,17 +21,17 @@ class Program
     {
         try
         {
-            string inputFolder = "input_html";
-            string outputFolder = "output_json";
+            string inputFolder = "InputHtml";
+            string outputFolder = "OutputJson";
 
-            if (!Directory.Exists(inputFolder))
-                Directory.CreateDirectory(inputFolder);
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
+            if (!Directory.Exists(inputFolder))
+                Directory.CreateDirectory(inputFolder);
+
             // Create a sample HTML file if none exist
-            string[] existingFiles = Directory.GetFiles(inputFolder, "*.html");
-            if (existingFiles.Length == 0)
+            if (Directory.GetFiles(inputFolder, "*.html").Length == 0)
             {
                 string samplePath = Path.Combine(inputFolder, "sample.html");
                 File.WriteAllText(samplePath,
@@ -46,7 +48,7 @@ class Program
 
             foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
             {
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
+                using (HTMLDocument document = new HTMLDocument(htmlPath))
                 {
                     var headings = document.QuerySelectorAll("h1, h2, h3, h4, h5, h6");
                     var root = new List<OutlineNode>();
@@ -54,7 +56,7 @@ class Program
 
                     for (int i = 0; i < headings.Length; i++)
                     {
-                        Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)headings[i];
+                        HTMLElement element = (HTMLElement)headings[i];
                         string tag = element.TagName.ToLower();
                         int level = int.Parse(tag.Substring(1));
 
@@ -86,7 +88,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

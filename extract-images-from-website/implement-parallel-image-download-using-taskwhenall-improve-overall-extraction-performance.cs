@@ -2,9 +2,9 @@
 
 using System;
 using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Net.Http;
 using Aspose.Html;
 using Aspose.Html.Collections;
 using Aspose.Html.Dom;
@@ -12,39 +12,30 @@ using Aspose.Html.Net;
 
 class Program
 {
-    static async Task Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Prepare sample HTML file with image tags
-            string htmlPath = "sample.html";
-            if (!File.Exists(htmlPath))
-            {
-                string sampleHtml = @"
-<!DOCTYPE html>
-<html>
-<head><title>Sample</title></head>
-<body>
-    <img src='https://via.placeholder.com/150.jpg' />
-    <img src='https://via.placeholder.com/200.png' />
-    <img src='https://via.placeholder.com/250.gif' />
-    <img src='https://example.com/ignore.txt' />
-</body>
-</html>";
-                File.WriteAllText(htmlPath, sampleHtml);
-            }
+            // Prepare sample HTML file
+            string inputHtmlPath = "sample.html";
+            string htmlContent = "<html><body>" +
+                                 "<img src=\"https://via.placeholder.com/150.jpg\" />" +
+                                 "<img src=\"https://via.placeholder.com/200.png\" />" +
+                                 "<img src=\"https://via.placeholder.com/250.gif\" />" +
+                                 "</body></html>";
+            File.WriteAllText(inputHtmlPath, htmlContent);
 
-            // Load HTML document
-            HTMLDocument document = new HTMLDocument(htmlPath);
-
-            // Get all <img> elements
-            HTMLCollection images = document.GetElementsByTagName("img");
-
-            // Output directory for downloaded images
-            string outputDir = "Images";
+            // Output directory for images
+            string outputDir = "downloaded_images";
             Directory.CreateDirectory(outputDir);
 
-            // Prepare HttpClient
+            // Load HTML document
+            HTMLDocument document = new HTMLDocument(inputHtmlPath);
+
+            // Get all img elements
+            HTMLCollection images = document.GetElementsByTagName("img");
+
+            // HttpClient for downloading
             using (HttpClient httpClient = new HttpClient())
             {
                 List<Task> downloadTasks = new List<Task>();
@@ -56,40 +47,30 @@ class Program
                     if (string.IsNullOrEmpty(src))
                         continue;
 
-                    // Resolve URL against document base URI
                     Url imageUrl = new Url(src, document.BaseURI);
                     string urlString = imageUrl.ToString();
-
                     string extension = Path.GetExtension(urlString);
                     if (!extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) &&
                         !extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) &&
                         !extension.Equals(".png", StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase))
+                        !extension.Equals(".gif", StringComparison.OrdinalIgnoreCase))
                         continue;
 
                     string fileName = Path.GetFileName(urlString);
                     string savePath = Path.Combine(outputDir, fileName);
 
-                    // Create a download task
-                    Task downloadTask = httpClient.GetByteArrayAsync(urlString).ContinueWith(t =>
+                    Task downloadTask = Task.Run(async () =>
                     {
-                        if (t.Exception == null)
-                        {
-                            File.WriteAllBytes(savePath, t.Result);
-                            Console.WriteLine($"Downloaded: {fileName}");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Failed to download {urlString}: {t.Exception.GetBaseException().Message}");
-                        }
+                        byte[] imageBytes = await httpClient.GetByteArrayAsync(urlString);
+                        File.WriteAllBytes(savePath, imageBytes);
+                        Console.WriteLine($"Downloaded: {fileName}");
                     });
 
                     downloadTasks.Add(downloadTask);
                 }
 
                 // Wait for all downloads to complete
-                await Task.WhenAll(downloadTasks);
+                Task.WhenAll(downloadTasks).GetAwaiter().GetResult();
             }
 
             Console.WriteLine("Image extraction completed.");

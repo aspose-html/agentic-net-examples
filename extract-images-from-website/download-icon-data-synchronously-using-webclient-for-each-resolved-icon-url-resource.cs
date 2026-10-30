@@ -1,44 +1,68 @@
 // Download icon data synchronously using WebClient for each resolved icon URL resource.
 
+using System;
+using System.IO;
+using System.Net;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
+using Aspose.Html.Net;
+
 class Program
 {
     static void Main(string[] args)
     {
         try
         {
-            string html = "<html><body><img src='https://via.placeholder.com/150.png' /><img src='https://via.placeholder.com/100.jpg' /></body></html>";
-            string outputDir = "Icons";
-            System.IO.Directory.CreateDirectory(outputDir);
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
+            string inputPath = "sample.html";
+            string outputDir = "icons";
+            Directory.CreateDirectory(outputDir);
+
+            if (!File.Exists(inputPath))
             {
-                Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
-                for (int i = 0; i < images.Length; i++)
+                string htmlContent = "<html><body><img src=\"https://example.com/favicon.ico\"/></body></html>";
+                File.WriteAllText(inputPath, htmlContent);
+            }
+
+            using (HTMLDocument document = new HTMLDocument(inputPath))
+            {
+                HTMLCollection images = document.GetElementsByTagName("img");
+                using (WebClient webClient = new WebClient())
                 {
-                    Aspose.Html.Dom.Element imgElement = (Aspose.Html.Dom.Element)images[i];
-                    string src = imgElement.GetAttribute("src");
-                    if (string.IsNullOrEmpty(src))
-                        continue;
-                    Aspose.Html.Url imageUrl = new Aspose.Html.Url(src, document.BaseURI);
-                    string urlString = imageUrl.ToString();
-                    string extension = System.IO.Path.GetExtension(urlString);
-                    if (!extension.Equals(".png", System.StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".jpg", System.StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".jpeg", System.StringComparison.OrdinalIgnoreCase) &&
-                        !extension.Equals(".gif", System.StringComparison.OrdinalIgnoreCase))
-                        continue;
-                    using (System.Net.WebClient webClient = new System.Net.WebClient())
+                    for (int i = 0; i < images.Length; i++)
                     {
+                        Element imgElement = (Element)images[i];
+                        string src = imgElement.GetAttribute("src");
+                        if (string.IsNullOrEmpty(src))
+                            continue;
+
+                        Url imageUrl = new Url(src, document.BaseURI);
+                        string urlString = imageUrl.ToString();
+                        string extension = Path.GetExtension(urlString);
+
+                        if (!extension.Equals(".ico", StringComparison.OrdinalIgnoreCase) &&
+                            !extension.Equals(".png", StringComparison.OrdinalIgnoreCase) &&
+                            !extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) &&
+                            !extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) &&
+                            !extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) &&
+                            !extension.Equals(".svg", StringComparison.OrdinalIgnoreCase))
+                        {
+                            continue;
+                        }
+
                         byte[] imageBytes = webClient.DownloadData(urlString);
-                        string fileName = System.IO.Path.GetFileName(urlString);
-                        string savePath = System.IO.Path.Combine(outputDir, fileName);
-                        System.IO.File.WriteAllBytes(savePath, imageBytes);
+                        string fileName = Path.GetFileName(urlString);
+                        string savePath = Path.Combine(outputDir, fileName);
+                        File.WriteAllBytes(savePath, imageBytes);
                     }
                 }
             }
+
+            Console.WriteLine("Icons downloaded successfully.");
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

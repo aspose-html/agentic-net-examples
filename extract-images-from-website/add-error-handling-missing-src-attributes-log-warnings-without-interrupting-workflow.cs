@@ -3,8 +3,6 @@
 using System;
 using System.IO;
 using Aspose.Html;
-using Aspose.Html.Accessibility;
-using Aspose.Html.Accessibility.Results;
 using Aspose.Html.Dom;
 using Aspose.Html.Dom.XPath;
 
@@ -14,56 +12,33 @@ class Program
     {
         try
         {
-            // Sample HTML content with an <img> missing the src attribute
-            string htmlContent = "<html><body><img alt='no src'><img src='image.png'></body></html>";
+            string htmlContent = "<html><body><img alt='no src'><img src='image1.png'></body></html>";
             string baseUri = "about:blank";
-
-            // Load the document using the two‑argument constructor (content, baseUri)
             Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
 
-            // Log file path
             string logPath = "validation_warnings.log";
-            File.WriteAllText(logPath, "Validation warnings:" + Environment.NewLine);
+            System.IO.File.WriteAllText(logPath, string.Empty);
 
-            // -----------------------------------------------------------------
-            // Detect <img> elements without a src attribute using XPath
-            // -----------------------------------------------------------------
-            Aspose.Html.Dom.XPath.IXPathResult xpathResult = doc.Evaluate(
-                "//img[not(@src)]",
-                doc,
-                doc.CreateNSResolver(doc),
-                Aspose.Html.Dom.XPath.XPathResultType.Any,
-                null);
-
+            Aspose.Html.Dom.XPath.IXPathResult result = doc.Evaluate("//img", doc, doc.CreateNSResolver(doc), Aspose.Html.Dom.XPath.XPathResultType.Any, null);
             Aspose.Html.Dom.Node node;
-            while ((node = xpathResult.IterateNext()) != null)
+            while ((node = result.IterateNext()) != null)
             {
                 Aspose.Html.HTMLImageElement img = node as Aspose.Html.HTMLImageElement;
                 if (img != null)
                 {
-                    string warning = $"Warning: <img> element missing src attribute. OuterHTML: {img.OuterHTML}";
-                    File.AppendAllText(logPath, warning + Environment.NewLine);
+                    if (string.IsNullOrEmpty(img.Src))
+                    {
+                        string warning = "Warning: <img> element missing src attribute.";
+                        System.IO.File.AppendAllText(logPath, warning + System.Environment.NewLine);
+                    }
                 }
             }
 
-            // -----------------------------------------------------------------
-            // Run the accessibility validator (optional – logs all rule results)
-            // -----------------------------------------------------------------
-            Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
-            Aspose.Html.Accessibility.AccessibilityValidator validator = webAccessibility.CreateValidator();
-            Aspose.Html.Accessibility.Results.ValidationResult validationResult = validator.Validate(doc);
-
-            foreach (Aspose.Html.Accessibility.Results.RuleValidationResult detail in validationResult.Details)
-            {
-                // Log each validation detail using its default string representation
-                File.AppendAllText(logPath, detail.ToString() + Environment.NewLine);
-            }
-
-            Console.WriteLine("Validation completed. See log at " + Path.GetFullPath(logPath));
+            System.Console.WriteLine("Processing completed. Check the log file for warnings.");
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

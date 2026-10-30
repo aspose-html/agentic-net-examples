@@ -1,7 +1,5 @@
 // Use custom HttpMessageHandler to simulate network latency during performance testing.
 
-using System;
-
 public sealed class LatencyMessageHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
@@ -19,22 +17,22 @@ public sealed class LatencyMessageHandler : Aspose.Html.Net.MessageHandler
 
 public class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
         try
         {
-            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            var configuration = new Aspose.Html.Configuration();
+            var networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
             networkService.MessageHandlers.Add(new LatencyMessageHandler());
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
+            using (var document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
             {
-                Console.WriteLine("Document loaded. Title: " + document.Title);
+                System.Console.WriteLine("Title: " + document.Title);
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
