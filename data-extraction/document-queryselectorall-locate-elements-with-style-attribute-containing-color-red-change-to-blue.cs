@@ -13,12 +13,13 @@ class Program
             {
                 element.Style.Color = "blue";
             }
-            document.Save("output.html");
-            System.Console.WriteLine("Processing completed. Output saved to output.html");
+            string outputPath = "output.html";
+            document.Save(outputPath);
+            System.Console.WriteLine($"Document saved to {outputPath}");
         }
         catch (System.Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

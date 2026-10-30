@@ -4,7 +4,7 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
@@ -15,7 +15,7 @@ class Program
             document.Title = "Modified Title";
             document.Save(outputPath);
 
-            Console.WriteLine($"HTML page saved to '{outputPath}'.");
+            Console.WriteLine($"Page saved to {outputPath}");
         }
         catch (Exception ex)
         {

@@ -11,9 +11,9 @@ class Program
             string htmlContent = "<html><body><div>First</div><p>Second</p></body></html>";
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
             Aspose.Html.Dom.Element body = document.Body;
-            Aspose.Html.Dom.Element firstElement = body.FirstElementChild;
-            string tagName = firstElement.TagName;
-            Console.WriteLine(tagName);
+            Aspose.Html.Dom.Element firstChild = body.FirstElementChild;
+            string tagName = firstChild != null ? firstChild.TagName : "None";
+            Console.WriteLine("First child tag: " + tagName);
         }
         catch (Exception ex)
         {

@@ -8,8 +8,8 @@ class Program
     {
         try
         {
-            string html = "<!DOCTYPE html><html><head><style>.highlight { padding:5px; }</style></head><body><p class='highlight'>First</p><div class='highlight'>Second</div><p>No highlight</p></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
+            string htmlContent = "<html><head></head><body><div class='highlight'>Hello</div><p class='highlight'>World</p></body></html>";
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
             Aspose.Html.Collections.NodeList elements = document.QuerySelectorAll(".highlight");
             foreach (Aspose.Html.HTMLElement element in elements)
             {

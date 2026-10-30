@@ -3,9 +3,6 @@
 using System;
 using System.IO;
 using System.Net.Http;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
 
 class Program
 {
@@ -16,24 +13,33 @@ class Program
             // Prepare sample HTML file
             string inputHtmlPath = "input.html";
             string outputHtmlPath = "output.html";
-            string sampleHtml = @"<html><body><img src=""https://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg"" alt=""logo""/></body></html>";
+            string svgDownloadFolder = "downloaded_svgs";
+
+            if (!Directory.Exists(svgDownloadFolder))
+                Directory.CreateDirectory(svgDownloadFolder);
+
+            string sampleHtml = @"
+<!DOCTYPE html>
+<html>
+<head><title>Sample</title></head>
+<body>
+    <h1>Test</h1>
+    <img src=""https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg"" alt=""Sample SVG"" />
+    <img src=""https://example.com/image.png"" alt=""Non-SVG"" />
+</body>
+</html>";
             File.WriteAllText(inputHtmlPath, sampleHtml);
 
             // Load HTML document
-            HTMLDocument document = new HTMLDocument(inputHtmlPath);
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputHtmlPath);
 
             // Find all <img> elements
-            Aspose.Html.Collections.NodeList imgElements = document.QuerySelectorAll("img");
-
-            // Directory to store downloaded SVG files
-            string downloadDir = "downloaded_svgs";
-            Directory.CreateDirectory(downloadDir);
+            var imgElements = document.QuerySelectorAll("img");
 
             using (HttpClient httpClient = new HttpClient())
             {
-                for (int i = 0; i < imgElements.Length; i++)
+                foreach (Aspose.Html.HTMLElement imgElement in imgElements)
                 {
-                    HTMLElement imgElement = (HTMLElement)imgElements[i];
                     string src = imgElement.GetAttribute("src");
                     if (string.IsNullOrEmpty(src))
                         continue;
@@ -41,15 +47,17 @@ class Program
                     if (src.EndsWith(".svg", StringComparison.OrdinalIgnoreCase))
                     {
                         // Download SVG content
-                        string svgContent = httpClient.GetStringAsync(src).Result;
+                        byte[] svgData = httpClient.GetByteArrayAsync(src).GetAwaiter().GetResult();
 
                         // Determine local file name
-                        string fileName = Path.GetFileName(new Uri(src).LocalPath);
+                        string fileName = Path.GetFileName(new Uri(src).AbsolutePath);
                         if (string.IsNullOrEmpty(fileName))
-                            fileName = $"image_{i}.svg";
+                            fileName = "downloaded.svg";
 
-                        string localPath = Path.Combine(downloadDir, fileName);
-                        File.WriteAllText(localPath, svgContent);
+                        string localPath = Path.Combine(svgDownloadFolder, fileName);
+
+                        // Save SVG to local storage
+                        File.WriteAllBytes(localPath, svgData);
 
                         // Update the src attribute to point to the local file
                         imgElement.SetAttribute("src", localPath);
@@ -57,13 +65,12 @@ class Program
                 }
             }
 
-            // Save the modified document
+            // Save the modified HTML document
             document.Save(outputHtmlPath);
-            Console.WriteLine("Processing completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

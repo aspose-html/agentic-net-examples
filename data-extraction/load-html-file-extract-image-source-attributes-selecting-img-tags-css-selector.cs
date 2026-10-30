@@ -12,23 +12,24 @@ class Program
     {
         try
         {
-            // Create a minimal HTML file with images if it does not exist
-            string htmlFilePath = "sample.html";
-            if (!File.Exists(htmlFilePath))
+            // Create a minimal HTML file with img tags
+            string inputPath = "sample.html";
+            if (!File.Exists(inputPath))
             {
-                string sampleHtml = @"<!DOCTYPE html>
+                string htmlContent = @"<!DOCTYPE html>
 <html>
 <head><title>Sample</title></head>
 <body>
     <img src=""image1.png"" alt=""Image 1"" />
+    <p>Some text here.</p>
     <img src=""https://example.com/image2.jpg"" alt=""Image 2"" />
 </body>
 </html>";
-                File.WriteAllText(htmlFilePath, sampleHtml);
+                File.WriteAllText(inputPath, htmlContent);
             }
 
             // Load the HTML document from the file
-            using (HTMLDocument document = new HTMLDocument(htmlFilePath))
+            using (HTMLDocument document = new HTMLDocument(inputPath))
             {
                 // Get all <img> elements
                 HTMLCollection images = document.GetElementsByTagName("img");

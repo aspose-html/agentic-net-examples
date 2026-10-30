@@ -5,124 +5,101 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
 using Aspose.Html;
-using Aspose.Html.Collections;
 using Aspose.Html.Dom;
+using Aspose.Html.Collections;
 
-namespace SeoReportGenerator
+public class OutlineNode
 {
-    class OutlineNode
-    {
-        public string Text { get; set; }
-        public int Level { get; set; }
-        public List<OutlineNode> Children { get; set; }
-    }
+    public string Text { get; set; }
+    public int Level { get; set; }
+    public List<OutlineNode> Children { get; set; }
+}
 
-    class SeoReport
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public List<OutlineNode> Headings { get; set; }
-    }
+public class SeoReport
+{
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public List<OutlineNode> Headings { get; set; }
+}
 
-    class Program
+public class Program
+{
+    public static void Main(string[] args)
     {
-        static void Main(string[] args)
+        try
         {
-            try
+            string inputFolder = "Input";
+            string outputFolder = "Output";
+
+            if (!Directory.Exists(inputFolder))
+                Directory.CreateDirectory(inputFolder);
+            if (!Directory.Exists(outputFolder))
+                Directory.CreateDirectory(outputFolder);
+
+            string samplePath = Path.Combine(inputFolder, "sample.html");
+            if (!File.Exists(samplePath))
             {
-                string inputFolder = "InputHtml";
-                string outputFolder = "SeoReports";
+                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample Page</title><meta name=\"description\" content=\"This is a sample page for SEO report.\"></head><body><h1>Heading 1</h1><h2>Subheading 1.1</h2><h3>Sub-subheading</h3><h2>Subheading 1.2</h2></body></html>";
+                File.WriteAllText(samplePath, sampleHtml);
+            }
 
-                if (!Directory.Exists(outputFolder))
-                    Directory.CreateDirectory(outputFolder);
+            foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
+            {
+                HTMLDocument document = new HTMLDocument(htmlPath);
 
-                if (!Directory.Exists(inputFolder))
-                    Directory.CreateDirectory(inputFolder);
+                // Extract title
+                string title = document.Title ?? string.Empty;
 
-                // Create a sample HTML file if none exist
-                if (Directory.GetFiles(inputFolder, "*.html").Length == 0)
+                // Extract meta description
+                HTMLElement metaDescElem = document.QuerySelector("meta[name='description']") as HTMLElement;
+                string description = metaDescElem != null ? metaDescElem.GetAttribute("content") ?? string.Empty : string.Empty;
+
+                // Extract heading hierarchy
+                Aspose.Html.Collections.NodeList headings = document.QuerySelectorAll("h1, h2, h3, h4, h5, h6");
+                List<OutlineNode> root = new List<OutlineNode>();
+                Stack<OutlineNode> stack = new Stack<OutlineNode>();
+
+                for (int i = 0; i < headings.Length; i++)
                 {
-                    string samplePath = Path.Combine(inputFolder, "sample.html");
-                    File.WriteAllText(samplePath,
-@"<html>
-<head>
-<title>Sample Page</title>
-<meta name='description' content='This is a sample description for SEO testing.'>
-</head>
-<body>
-<h1>Welcome to Sample</h1>
-<h2>Section One</h2>
-<h3>Subsection A</h3>
-<h2>Section Two</h2>
-<h3>Subsection B</h3>
-<h4>Detail</h4>
-</body>
-</html>");
-                }
+                    HTMLElement element = (HTMLElement)headings[i];
+                    string tag = element.TagName.ToLower();
+                    int level = int.Parse(tag.Substring(1));
 
-                foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
-                {
-                    // Load HTML document
-                    Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
-
-                    // Extract title
-                    string title = document.Title ?? string.Empty;
-
-                    // Extract meta description
-                    Aspose.Html.HTMLElement metaDescElement = document.QuerySelector("meta[name='description']") as Aspose.Html.HTMLElement;
-                    string description = metaDescElement?.GetAttribute("content") ?? string.Empty;
-
-                    // Extract headings hierarchy
-                    var headings = document.QuerySelectorAll("h1, h2, h3, h4, h5, h6");
-                    var root = new List<OutlineNode>();
-                    var stack = new Stack<OutlineNode>();
-
-                    for (int i = 0; i < headings.Length; i++)
+                    OutlineNode node = new OutlineNode
                     {
-                        Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)headings[i];
-                        string tag = element.TagName.ToLower();
-                        int level = int.Parse(tag.Substring(1));
-
-                        OutlineNode node = new OutlineNode
-                        {
-                            Text = element.TextContent.Trim(),
-                            Level = level,
-                            Children = new List<OutlineNode>()
-                        };
-
-                        while (stack.Count > 0 && stack.Peek().Level >= level)
-                            stack.Pop();
-
-                        if (stack.Count == 0)
-                            root.Add(node);
-                        else
-                            stack.Peek().Children.Add(node);
-
-                        stack.Push(node);
-                    }
-
-                    // Build report object
-                    SeoReport report = new SeoReport
-                    {
-                        Title = title,
-                        Description = description,
-                        Headings = root
+                        Text = element.TextContent.Trim(),
+                        Level = level,
+                        Children = new List<OutlineNode>()
                     };
 
-                    // Serialize to JSON
-                    string json = JsonSerializer.Serialize(report, new JsonSerializerOptions { WriteIndented = true });
+                    while (stack.Count > 0 && stack.Peek().Level >= level)
+                        stack.Pop();
 
-                    // Write JSON file
-                    string jsonPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + "_seo.json");
-                    File.WriteAllText(jsonPath, json);
+                    if (stack.Count == 0)
+                        root.Add(node);
+                    else
+                        stack.Peek().Children.Add(node);
+
+                    stack.Push(node);
                 }
 
-                Console.WriteLine("SEO reports generated successfully.");
+                SeoReport report = new SeoReport
+                {
+                    Title = title,
+                    Description = description,
+                    Headings = root
+                };
+
+                string json = JsonSerializer.Serialize(report, new JsonSerializerOptions { WriteIndented = true });
+                string jsonPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".json");
+                File.WriteAllText(jsonPath, json);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+
+            Console.WriteLine("SEO reports generated successfully.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
