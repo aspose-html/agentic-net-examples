@@ -1,8 +1,8 @@
 # Aspose.HTML for .NET Examples
 
-> Build-validated, standalone C# console examples for Aspose.HTML for .NET 26.9.
+> Build-validated, standalone C# console examples for Aspose.HTML for .NET 26.10.0.
 
-- Examples: 1807
+- Examples: 1808
 - Categories: 18
 - Coding-agent instructions: ./AGENTS.md
 - Structured index: ./index.json
@@ -23,7 +23,7 @@
 - [markdown-processing](./markdown-processing/): 120 standalone examples; instructions in [agents.md](./markdown-processing/agents.md)
 - [message-handlers](./message-handlers/): 98 standalone examples; instructions in [agents.md](./message-handlers/agents.md)
 - [mhtml-converter](./mhtml-converter/): 107 standalone examples; instructions in [agents.md](./mhtml-converter/agents.md)
-- [save-file-from-url](./save-file-from-url/): 27 standalone examples; instructions in [agents.md](./save-file-from-url/agents.md)
+- [save-file-from-url](./save-file-from-url/): 28 standalone examples; instructions in [agents.md](./save-file-from-url/agents.md)
 - [svg-converter](./svg-converter/): 105 standalone examples; instructions in [agents.md](./svg-converter/agents.md)
 - [web-accessibility](./web-accessibility/): 96 standalone examples; instructions in [agents.md](./web-accessibility/agents.md)
 - [website-to-html](./website-to-html/): 30 standalone examples; instructions in [agents.md](./website-to-html/agents.md)

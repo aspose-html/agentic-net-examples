@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "name": "Aspose.HTML for .NET Examples Agent",
-  "description": "Provides 1807 build-validated, standalone C# code examples for HTML document conversion and DOM manipulation using Aspose.HTML for .NET. Covers conversion to PDF, image, Markdown, XPS and EPUB formats, plus DOM/XPath querying and web content extraction, across 18 categories.",
+  "description": "Provides 1808 build-validated, standalone C# code examples for HTML document conversion and DOM manipulation using Aspose.HTML for .NET. Covers conversion to PDF, image, Markdown, XPS and EPUB formats, plus DOM/XPath querying and web content extraction, across 18 categories.",
   "capabilities": [
     "Generate C# examples for converting HTML to PDF, image (PNG/JPEG), XPS, Markdown, and EPUB",
     "Generate C# examples for parsing and querying the DOM (XPath, NodeIterator, TreeWalker)",
@@ -84,7 +84,7 @@
     {
       "slug": "save-file-from-url",
       "display_name": "Save File From Url",
-      "example_count": 27
+      "example_count": 28
     },
     {
       "slug": "svg-converter",
@@ -112,8 +112,8 @@
       "example_count": 45
     }
   ],
-  "total_examples": 1807,
-  "package_version": "26.9",
+  "total_examples": 1808,
+  "package_version": "26.10.0",
   "documentation_url": "https://docs.aspose.com/html/net/",
   "api_reference": "https://reference.aspose.com/html/net/",
   "nuget": "https://www.nuget.org/packages/Aspose.HTML/"
