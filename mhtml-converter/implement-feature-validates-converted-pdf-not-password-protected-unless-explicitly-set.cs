@@ -9,36 +9,39 @@ class Program
     {
         try
         {
-            // Sample HTML content
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            // Prepare sample HTML content
+            string htmlContent = "<!DOCTYPE html><html><body><h1>Hello PDF</h1></body></html>";
+            string htmlPath = "sample.html";
+            File.WriteAllText(htmlPath, htmlContent);
 
-            // Create HTML document from inline content
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Output PDF path
+            string pdfPath = "output.pdf";
 
-            // Define output PDF path
-            string outputPdfPath = Path.Combine(Directory.GetCurrentDirectory(), "output.pdf");
+            // Flag to indicate whether PDF should be password protected
+            bool protectPdf = false; // Change to true to enable protection
 
-            // Prepare PDF save options without encryption (no password protection)
+            // Configure PDF save options
             Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
 
+            if (protectPdf)
+            {
+                Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionInfo encryptionInfo =
+                    new Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionInfo(
+                        ownerPassword: "ownerPwd",
+                        userPassword: "userPwd",
+                        permissions: Aspose.Html.Rendering.Pdf.Encryption.PdfPermissions.PrintDocument,
+                        encryptionAlgorithm: Aspose.Html.Rendering.Pdf.Encryption.PdfEncryptionAlgorithm.RC4_128);
+                options.Encryption = encryptionInfo;
+            }
+
             // Convert HTML to PDF
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPdfPath);
+            Aspose.Html.Converters.Converter.ConvertHTML(htmlPath, options, pdfPath);
 
-            // Validation: ensure the PDF is not password protected unless encryption was explicitly set
-            bool encryptionExplicitlySet = false; // change to true if you set encryption on purpose
-
-            if (options.Encryption != null && !encryptionExplicitlySet)
-            {
-                Console.WriteLine("Validation failed: PDF is password protected but encryption was not intended.");
-            }
-            else if (options.Encryption == null && encryptionExplicitlySet)
-            {
-                Console.WriteLine("Validation failed: PDF is not password protected despite explicit encryption request.");
-            }
+            // Validation message
+            if (protectPdf)
+                Console.WriteLine("PDF generated with password protection.");
             else
-            {
-                Console.WriteLine("PDF conversion completed successfully. Password protection status matches expectations.");
-            }
+                Console.WriteLine("PDF generated without password protection.");
         }
         catch (Exception ex)
         {

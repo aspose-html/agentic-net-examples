@@ -8,20 +8,27 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><h1>Hello PDF</h1></body></html>";
-            Aspose.Html.Url baseUri = new Aspose.Html.Url("about:blank");
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+            // Create a simple HTML file as input
+            string inputPath = "sample.html";
+            System.IO.File.WriteAllText(inputPath, "<html><body><h1>Hello PDF</h1></body></html>");
 
+            // Load the HTML document
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+
+            // Configure PDF save options (PDF version property is not available in the API)
             Aspose.Html.Saving.PdfSaveOptions pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
-            // PdfSaveOptions does not expose a property to set PDF version directly.
-            // The default version will be used for compatibility.
+            pdfOptions.HorizontalResolution = 300;
+            pdfOptions.VerticalResolution = 300;
 
+            // Convert HTML to PDF
             string outputPath = "output.pdf";
             Aspose.Html.Converters.Converter.ConvertHTML(document, pdfOptions, outputPath);
+
+            Console.WriteLine("PDF saved to " + outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 }

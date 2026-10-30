@@ -12,68 +12,54 @@ class Program
     {
         try
         {
-            // Prepare directories
-            string inputDir = Path.Combine(Directory.GetCurrentDirectory(), "Input");
-            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "Output");
-            Directory.CreateDirectory(inputDir);
+            // Define input MHTML files (hard‑coded for the example)
+            string[] mhtmlFiles = new string[]
+            {
+                "sample1.mhtml",
+                "sample2.mhtml"
+            };
+
+            // Ensure output directory exists
+            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
             Directory.CreateDirectory(outputDir);
 
-            // Create a sample MHTML file (minimal content)
-            string sampleMhtmlPath = Path.Combine(inputDir, "sample.mht");
-            if (!File.Exists(sampleMhtmlPath))
-            {
-                string mhtmlContent = @"From: <Saved by WebKit>
-Subject: Sample MHTML
-Date: Thu, 1 Jan 1970 00:00:00 GMT
-MIME-Version: 1.0
-Content-Type: multipart/related; boundary=""----=_NextPart_000_0000""; type=""text/html""
-
-------=_NextPart_000_0000
-Content-Type: text/html; charset=""utf-8""
-Content-Transfer-Encoding: quoted-printable
-
-<html><body><h1>Hello, MHTML!</h1></body></html>
-------=_NextPart_000_0000--";
-                File.WriteAllText(sampleMhtmlPath, mhtmlContent);
-            }
-
-            // Convert each MHTML file to DOCX
-            string[] mhtmlFiles = Directory.GetFiles(inputDir, "*.mht");
-            foreach (string mhtmlFile in mhtmlFiles)
-            {
-                string docxFileName = Path.GetFileNameWithoutExtension(mhtmlFile) + ".docx";
-                string docxPath = Path.Combine(outputDir, docxFileName);
-
-                using (FileStream inputStream = File.OpenRead(mhtmlFile))
-                {
-                    DocSaveOptions saveOptions = new DocSaveOptions();
-                    Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, saveOptions, docxPath);
-                }
-            }
-
-            // Archive all converted DOCX files into a zip
+            // Path for the resulting zip archive
             string zipPath = Path.Combine(Directory.GetCurrentDirectory(), "ConvertedDocs.zip");
+
+            // Create (or overwrite) the zip archive
             using (FileStream zipStream = new FileStream(zipPath, FileMode.Create))
-            using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Create))
+            using (ZipArchive zip = new ZipArchive(zipStream, ZipArchiveMode.Create))
             {
-                string[] docxFiles = Directory.GetFiles(outputDir, "*.docx");
-                foreach (string docxFile in docxFiles)
+                foreach (string mhtmlPath in mhtmlFiles)
                 {
-                    string entryName = Path.GetFileName(docxFile);
-                    ZipArchiveEntry entry = archive.CreateEntry(entryName, CompressionLevel.Optimal);
-                    using (Stream entryStream = entry.Open())
-                    using (FileStream fileStream = File.OpenRead(docxFile))
+                    if (!File.Exists(mhtmlPath))
                     {
-                        fileStream.CopyTo(entryStream);
+                        Console.WriteLine($"Input file not found: {mhtmlPath}");
+                        continue;
                     }
+
+                    // Prepare output DOCX path
+                    string docxFileName = Path.GetFileNameWithoutExtension(mhtmlPath) + ".docx";
+                    string docxPath = Path.Combine(outputDir, docxFileName);
+
+                    // Convert MHTML to DOCX
+                    using (FileStream inputStream = File.OpenRead(mhtmlPath))
+                    {
+                        DocSaveOptions saveOptions = new DocSaveOptions();
+                        Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, saveOptions, docxPath);
+                    }
+
+                    // Add the converted DOCX to the zip archive
+                    zip.CreateEntryFromFile(docxPath, docxFileName);
+                    Console.WriteLine($"Converted and archived: {docxFileName}");
                 }
             }
 
-            Console.WriteLine("Conversion and archiving completed successfully.");
+            Console.WriteLine($"All conversions completed. Archive created at: {zipPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

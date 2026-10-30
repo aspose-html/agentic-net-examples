@@ -2,6 +2,8 @@
 
 using System;
 using System.IO;
+using Aspose.Html.Saving;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -10,25 +12,31 @@ class Program
         try
         {
             string inputPath = "sample.mhtml";
-            // Create a minimal MHTML (HTML) file for demonstration
-            File.WriteAllText(inputPath, "<html><body><h1>Hello World</h1></body></html>");
+            string outputPath = "output.pdf";
+
+            // Create a minimal MHTML file if it does not exist
+            if (!File.Exists(inputPath))
+            {
+                string mhtmlContent = "From: <saved by Aspose.HTML>\r\nContent-Type: multipart/related; boundary=\"----=_NextPart_000_0000_01D6C0E0.12345678\"\r\n\r\n------=_NextPart_000_0000_01D6C0E0.12345678\r\nContent-Type: text/html; charset=\"utf-8\"\r\n\r\n<html><body><p>Hello, MHTML!</p></body></html>\r\n------=_NextPart_000_0000_01D6C0E0.12345678--";
+                File.WriteAllText(inputPath, mhtmlContent);
+            }
 
             using (Stream stream = File.OpenRead(inputPath))
             {
-                var pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
-                // Set custom document title based on the source filename (without extension)
-                pdfOptions.DocumentInfo.Title = Path.GetFileNameWithoutExtension(inputPath);
+                PdfSaveOptions pdfOptions = new PdfSaveOptions();
 
-                string outputPath = "output.pdf";
+                // Set PDF document title based on the source MHTML filename
+                string title = Path.GetFileNameWithoutExtension(inputPath);
+                pdfOptions.DocumentInfo.Title = title;
 
                 Aspose.Html.Converters.Converter.ConvertMHTML(stream, pdfOptions, outputPath);
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("Conversion completed. PDF saved to " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

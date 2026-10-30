@@ -1,39 +1,29 @@
 // Configure DocSaveOptions to enforce OpenXML strict compliance when generating DOCX from MHTML for enterprise standards.
 
-using System;
-using System.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
-
 class Program
 {
     static void Main()
     {
         try
         {
-            // Prepare sample MHTML file
-            string inputPath = "sample.mht";
-            string mhtmlContent = "From: <test@example.com>\nSubject: Test\n\n<html><body><p>Hello, World!</p></body></html>";
-            File.WriteAllText(inputPath, mhtmlContent);
-
-            // Define output DOCX path
+            string inputPath = "sample.mhtml";
             string outputPath = "output.docx";
 
-            // Open input stream
-            using (FileStream stream = File.OpenRead(inputPath))
+            // Create a minimal MHTML file if it does not exist
+            if (!System.IO.File.Exists(inputPath))
             {
-                // Configure save options (default options; no explicit strict compliance property available)
-                DocSaveOptions saveOptions = new DocSaveOptions();
-
-                // Perform conversion
-                Aspose.Html.Converters.Converter.ConvertMHTML(stream, saveOptions, outputPath);
+                System.IO.File.WriteAllText(inputPath, "<html><body><p>Sample content</p></body></html>");
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            System.IO.Stream stream = System.IO.File.OpenRead(inputPath);
+            Aspose.Html.Saving.DocSaveOptions saveOptions = new Aspose.Html.Saving.DocSaveOptions();
+            // Note: OpenXML strict compliance is not configurable via DocSaveOptions in the current API.
+
+            Aspose.Html.Converters.Converter.ConvertMHTML(stream, saveOptions, outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

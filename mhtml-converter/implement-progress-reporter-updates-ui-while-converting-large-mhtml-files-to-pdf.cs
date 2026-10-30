@@ -10,53 +10,51 @@ class Program
     {
         try
         {
-            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "MhtmlFiles");
+            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "MhtmlSamples");
+            // Ensure the folder exists; create a sample file if needed
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
+
+            // Create a minimal sample MHTML file if none exist
+            string[] existingFiles = Directory.GetFiles(folderPath, "*.mhtml");
+            if (existingFiles.Length == 0)
+            {
+                string samplePath = Path.Combine(folderPath, "sample.mhtml");
+                File.WriteAllText(samplePath, "<html><body><p>Sample MHTML content</p></body></html>");
+            }
+
             ConvertMhtmlFilesInFolder(folderPath);
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 
     static void ConvertMhtmlFilesInFolder(string folderPath)
     {
-        if (!Directory.Exists(folderPath))
-        {
-            Console.WriteLine($"Folder not found: {folderPath}");
-            return;
-        }
+        string[] mhtmlFiles = Directory.GetFiles(folderPath, "*.mhtml");
+        int total = mhtmlFiles.Length;
+        int processed = 0;
 
-        string[] files = Directory.GetFiles(folderPath, "*.mhtml");
-        int total = files.Length;
-        if (total == 0)
+        foreach (string mhtmlPath in mhtmlFiles)
         {
-            Console.WriteLine("No MHTML files found.");
-            return;
-        }
-
-        for (int i = 0; i < total; i++)
-        {
-            string mhtmlPath = files[i];
             string pdfPath = Path.ChangeExtension(mhtmlPath, ".pdf");
+            Console.WriteLine($"[{processed + 1}/{total}] Converting '{Path.GetFileName(mhtmlPath)}' to PDF...");
 
-            Console.WriteLine($"[{i + 1}/{total}] Converting '{Path.GetFileName(mhtmlPath)}' to PDF...");
+            ConvertMhtmlToPdfWithRetry(mhtmlPath, pdfPath, maxAttempts: 3);
 
-            try
-            {
-                ConvertMhtmlToPdfWithRetry(mhtmlPath, pdfPath, maxAttempts: 3);
-                Console.WriteLine($"Successfully converted to '{Path.GetFileName(pdfPath)}'.");
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine($"Failed to convert '{mhtmlPath}': {ex.Message}");
-            }
+            Console.WriteLine($"[{processed + 1}/{total}] Completed: '{Path.GetFileName(pdfPath)}'");
+            processed++;
         }
+
+        Console.WriteLine($"Conversion finished. {processed} file(s) processed.");
     }
 
     static void ConvertMhtmlToPdfWithRetry(string inputPath, string outputPath, int maxAttempts)
     {
         Exception lastException = null;
+
         for (int attempt = 1; attempt <= maxAttempts; attempt++)
         {
             try
@@ -66,19 +64,22 @@ class Program
                     Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
                     Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
                 }
-                return; // success
+                return; // Success
             }
             catch (IOException ioEx)
             {
                 lastException = ioEx;
+                Console.WriteLine($"IO error on attempt {attempt}: {ioEx.Message}");
             }
             catch (UnauthorizedAccessException uaEx)
             {
                 lastException = uaEx;
+                Console.WriteLine($"Access error on attempt {attempt}: {uaEx.Message}");
             }
 
-            // Wait before retrying
-            Thread.Sleep(1000);
+            // Wait before retrying, unless this was the last attempt
+            if (attempt < maxAttempts)
+                Thread.Sleep(1000);
         }
 
         // All attempts failed

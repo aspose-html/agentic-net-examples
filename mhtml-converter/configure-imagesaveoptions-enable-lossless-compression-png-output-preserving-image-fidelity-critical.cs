@@ -1,52 +1,37 @@
 // Configure ImageSaveOptions to enable lossless compression for PNG output when preserving image fidelity is critical.
 
-using System;
-using System.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Rendering.Image;
-using Aspose.Html.Converters;
-
-class Program
+namespace Example
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            // Prepare a minimal MHTML file
-            string inputPath = "sample.mhtml";
-            string mhtmlContent = @"From: <Saved by WebKit>
-Subject: 
-Date: 
-MIME-Version: 1.0
-Content-Type: multipart/related; boundary=""----=_NextPart_000_0000""
-
-------=_NextPart_000_0000
-Content-Type: text/html; charset=""utf-8""
-Content-Transfer-Encoding: quoted-printable
-
-<html><body><h1>Hello PNG</h1></body></html>
-------=_NextPart_000_0000--";
-            File.WriteAllText(inputPath, mhtmlContent);
-
-            // Open the MHTML stream
-            using (Stream stream = File.OpenRead(inputPath))
+            try
             {
-                // Configure ImageSaveOptions for PNG with lossless compression (default for PNG)
-                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Png);
-                // Optional: enable antialiasing for better quality
-                options.UseAntialiasing = true;
-
-                // Define output file path
+                string inputPath = "sample.mhtml";
                 string outputPath = "output.png";
 
-                // Perform conversion
-                Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                Console.WriteLine("Conversion completed successfully. Output saved to: " + outputPath);
+                if (!System.IO.File.Exists(inputPath))
+                {
+                    System.IO.File.WriteAllText(inputPath, "From: <test@example.com>\nSubject: Test\n\n<html><body><h1>Sample</h1></body></html>");
+                }
+
+                using (System.IO.Stream stream = System.IO.File.OpenRead(inputPath))
+                {
+                    var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+                    options.UseAntialiasing = true;
+                    options.HorizontalResolution = 300;
+                    options.VerticalResolution = 300;
+
+                    Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
+                }
+
+                System.Console.WriteLine("Conversion completed successfully. Output saved to " + outputPath);
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

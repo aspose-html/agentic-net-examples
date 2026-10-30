@@ -2,8 +2,8 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
 using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -11,27 +11,28 @@ class Program
     {
         try
         {
-            // Define paths
-            string baseDir = Path.Combine(Directory.GetCurrentDirectory(), "AsposeHtmlExample");
-            Directory.CreateDirectory(baseDir);
-            string htmlPath = Path.Combine(baseDir, "sample.html");
-            string pdfPath = Path.Combine(baseDir, "output.pdf");
-
-            // Create a minimal HTML file
+            // Prepare input HTML file
+            string inputDir = Path.Combine(Directory.GetCurrentDirectory(), "Input");
+            Directory.CreateDirectory(inputDir);
+            string inputPath = Path.Combine(inputDir, "sample.html");
             string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-            File.WriteAllText(htmlPath, htmlContent);
+            File.WriteAllText(inputPath, htmlContent);
 
-            // Open the HTML file as a stream
-            using (FileStream stream = File.OpenRead(htmlPath))
-            {
-                // Set PDF save options
-                PdfSaveOptions options = new PdfSaveOptions();
+            // Prepare output PDF path
+            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "Output");
+            Directory.CreateDirectory(outputDir);
+            string pdfPath = Path.Combine(outputDir, "sample.pdf");
 
-                // Convert HTML (MHTML) stream to PDF
-                Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, pdfPath);
-            }
+            // Load HTML document from file
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
 
-            // Verify conversion
+            // Set PDF save options
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+
+            // Convert HTML to PDF
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, pdfPath);
+
+            // Verify conversion result
             if (!File.Exists(pdfPath))
                 throw new Exception("PDF file was not created.");
 
@@ -39,10 +40,10 @@ class Program
             if (info.Length == 0)
                 throw new Exception("PDF file is empty.");
 
-            Console.WriteLine("PDF conversion succeeded. File size: " + info.Length + " bytes.");
+            Console.WriteLine("PDF conversion verification passed.");
 
             // Note about digital signature
-            Console.WriteLine("Adding a digital signature requires an external PDF signing library, which is not included in this example.");
+            Console.WriteLine("Adding a digital signature to the PDF requires an external PDF signing library, which is not included in this example.");
         }
         catch (Exception ex)
         {

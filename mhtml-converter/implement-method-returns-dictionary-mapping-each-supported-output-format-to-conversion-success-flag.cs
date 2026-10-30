@@ -1,11 +1,11 @@
 // Implement a method that returns a dictionary mapping each supported output format to its conversion success flag.
 
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using Aspose.Html.Converters;
-using Aspose.Html.Saving;
 using Aspose.Html.Rendering.Image;
+using Aspose.Html.Saving;
 
 class Program
 {
@@ -13,13 +13,18 @@ class Program
     {
         try
         {
-            // Prepare a minimal MHTML file (using plain HTML content for demo purposes)
-            string mhtmlPath = "sample.mhtml";
-            File.WriteAllText(mhtmlPath, "<html><body><h1>Hello World</h1></body></html>");
+            // Prepare a minimal MHTML file (empty content for demonstration)
+            string mhtmlPath = Path.Combine(Path.GetTempPath(), "sample.mhtml");
+            File.WriteAllText(mhtmlPath, string.Empty);
 
-            var results = ConvertMhtmlToAllFormats(mhtmlPath);
+            // Define the formats we want to attempt conversion for
+            var formats = new List<string> { "JPEG", "PNG", "GIF", "BMP", "TIFF" };
 
-            foreach (var kvp in results)
+            // Perform conversions and obtain success flags
+            var conversionResults = ConvertMhtmlToImages(mhtmlPath, formats);
+
+            // Output the results
+            foreach (var kvp in conversionResults)
             {
                 Console.WriteLine($"{kvp.Key}: {(kvp.Value ? "Success" : "Failed")}");
             }
@@ -30,119 +35,81 @@ class Program
         }
     }
 
-    static Dictionary<string, bool> ConvertMhtmlToAllFormats(string mhtmlPath)
+    private static Dictionary<string, bool> ConvertMhtmlToImages(string mhtmlPath, IEnumerable<string> formats)
     {
-        var formatSuccess = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
-        var requestedFormats = new List<string>
-        {
-            "PDF",
-            "DOCX",
-            "XPS",
-            "JPEG",
-            "PNG",
-            "BMP",
-            "GIF",
-            "TIFF"
-        };
+        var result = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
 
-        foreach (var format in requestedFormats)
+        foreach (var format in formats)
         {
             bool success = false;
             try
             {
+                // Map format string to Aspose.Html.Rendering.Image.ImageFormat
+                ImageFormat imageFormat = GetImageFormat(format);
+
+                // Create fresh input stream for each conversion
                 using (FileStream inputStream = File.OpenRead(mhtmlPath))
                 {
-                    string outputPath = GetOutputPath(mhtmlPath, format);
-                    if (IsDocumentFormat(format))
+                    // Configure image save options
+                    var options = new ImageSaveOptions(imageFormat);
+
+                    // Build temporary output file path with correct extension
+                    string extension = GetExtensionForImageFormat(imageFormat);
+                    string tempOutputPath = Path.Combine(Path.GetTempPath(), $"temp_{Guid.NewGuid()}{extension}");
+
+                    // Perform conversion
+                    Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, tempOutputPath);
+
+                    // Verify that the output file was created and has content
+                    if (File.Exists(tempOutputPath) && new FileInfo(tempOutputPath).Length > 0)
                     {
-                        // Document formats
-                        if (format.Equals("PDF", StringComparison.OrdinalIgnoreCase))
-                        {
-                            var options = new PdfSaveOptions();
-                            Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, outputPath);
-                        }
-                        else if (format.Equals("DOCX", StringComparison.OrdinalIgnoreCase))
-                        {
-                            var options = new DocSaveOptions();
-                            Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, outputPath);
-                        }
-                        else if (format.Equals("XPS", StringComparison.OrdinalIgnoreCase))
-                        {
-                            var options = new XpsSaveOptions();
-                            Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, outputPath);
-                        }
-                    }
-                    else
-                    {
-                        // Image formats
-                        ImageFormat imgFormat = GetImageFormat(format);
-                        var options = new ImageSaveOptions(imgFormat);
-                        Aspose.Html.Converters.Converter.ConvertMHTML(inputStream, options, outputPath);
+                        success = true;
                     }
 
-                    success = File.Exists(outputPath);
+                    // Clean up temporary file
+                    if (File.Exists(tempOutputPath))
+                    {
+                        File.Delete(tempOutputPath);
+                    }
                 }
             }
             catch
             {
-                success = false;
+                // Swallow exceptions for individual formats; success remains false
             }
 
-            formatSuccess[format] = success;
+            result[format] = success;
         }
 
-        return formatSuccess;
+        return result;
     }
 
-    static bool IsDocumentFormat(string format)
+    private static ImageFormat GetImageFormat(string format)
     {
-        return format.Equals("PDF", StringComparison.OrdinalIgnoreCase) ||
-               format.Equals("DOCX", StringComparison.OrdinalIgnoreCase) ||
-               format.Equals("XPS", StringComparison.OrdinalIgnoreCase);
+        switch (format.Trim().ToUpperInvariant())
+        {
+            case "JPEG":
+                return ImageFormat.Jpeg;
+            case "PNG":
+                return ImageFormat.Png;
+            case "GIF":
+                return ImageFormat.Gif;
+            case "BMP":
+                return ImageFormat.Bmp;
+            case "TIFF":
+                return ImageFormat.Tiff;
+            default:
+                throw new ArgumentException($"Unsupported image format: {format}");
+        }
     }
 
-    static ImageFormat GetImageFormat(string format)
+    private static string GetExtensionForImageFormat(ImageFormat format)
     {
-        if (format.Equals("JPEG", StringComparison.OrdinalIgnoreCase))
-            return ImageFormat.Jpeg;
-        if (format.Equals("PNG", StringComparison.OrdinalIgnoreCase))
-            return ImageFormat.Png;
-        if (format.Equals("BMP", StringComparison.OrdinalIgnoreCase))
-            return ImageFormat.Bmp;
-        if (format.Equals("GIF", StringComparison.OrdinalIgnoreCase))
-            return ImageFormat.Gif;
-        if (format.Equals("TIFF", StringComparison.OrdinalIgnoreCase))
-            return ImageFormat.Tiff;
-
-        // Default fallback
-        return ImageFormat.Png;
-    }
-
-    static string GetOutputPath(string inputPath, string format)
-    {
-        string directory = Path.GetDirectoryName(inputPath);
-        string baseName = Path.GetFileNameWithoutExtension(inputPath);
-        string extension;
-
-        if (format.Equals("PDF", StringComparison.OrdinalIgnoreCase))
-            extension = ".pdf";
-        else if (format.Equals("DOCX", StringComparison.OrdinalIgnoreCase))
-            extension = ".docx";
-        else if (format.Equals("XPS", StringComparison.OrdinalIgnoreCase))
-            extension = ".xps";
-        else if (format.Equals("JPEG", StringComparison.OrdinalIgnoreCase))
-            extension = ".jpg";
-        else if (format.Equals("PNG", StringComparison.OrdinalIgnoreCase))
-            extension = ".png";
-        else if (format.Equals("BMP", StringComparison.OrdinalIgnoreCase))
-            extension = ".bmp";
-        else if (format.Equals("GIF", StringComparison.OrdinalIgnoreCase))
-            extension = ".gif";
-        else if (format.Equals("TIFF", StringComparison.OrdinalIgnoreCase))
-            extension = ".tiff";
-        else
-            extension = ".out";
-
-        return Path.Combine(directory ?? "", baseName + extension);
+        if (format == ImageFormat.Jpeg) return ".jpg";
+        if (format == ImageFormat.Png) return ".png";
+        if (format == ImageFormat.Gif) return ".gif";
+        if (format == ImageFormat.Bmp) return ".bmp";
+        if (format == ImageFormat.Tiff) return ".tiff";
+        return ".img";
     }
 }

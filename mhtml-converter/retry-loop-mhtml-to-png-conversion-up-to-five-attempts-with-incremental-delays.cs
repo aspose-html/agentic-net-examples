@@ -3,6 +3,9 @@
 using System;
 using System.IO;
 using System.Threading;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -13,14 +16,15 @@ class Program
             string inputPath = "sample.mhtml";
             string outputPath = "output.png";
 
-            // Create a minimal sample MHTML file if it does not exist
+            // Ensure a minimal MHTML file exists
             if (!File.Exists(inputPath))
             {
-                File.WriteAllText(inputPath, "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                string minimalContent = "<html><body><h1>Sample</h1></body></html>";
+                File.WriteAllText(inputPath, minimalContent);
             }
 
             ConvertMhtmlToPngWithRetry(inputPath, outputPath, 5);
-            Console.WriteLine("Conversion succeeded. Output saved to: " + outputPath);
+            Console.WriteLine("Conversion succeeded: " + outputPath);
         }
         catch (Exception ex)
         {
@@ -31,18 +35,16 @@ class Program
     static void ConvertMhtmlToPngWithRetry(string inputPath, string outputPath, int maxAttempts)
     {
         Exception lastException = null;
-
         for (int attempt = 1; attempt <= maxAttempts; attempt++)
         {
             try
             {
                 using (Stream stream = File.OpenRead(inputPath))
                 {
-                    var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Png);
+                    ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Png);
                     Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
                 }
-
-                // Success, exit the retry loop
+                // Success, exit method
                 return;
             }
             catch (IOException ioEx)
@@ -53,17 +55,17 @@ class Program
             {
                 lastException = uaEx;
             }
-
-            if (attempt == maxAttempts)
+            catch (Exception ex)
             {
-                break;
+                lastException = ex;
             }
 
-            // Incremental delay: attempt seconds * 1000 ms
-            Thread.Sleep(attempt * 1000);
+            // Incremental delay before next attempt
+            int delayMilliseconds = attempt * 1000; // 1s, 2s, 3s, ...
+            Thread.Sleep(delayMilliseconds);
         }
 
-        // After all attempts failed, rethrow the last captured exception
+        // All attempts failed
         throw lastException ?? new Exception("Conversion failed after multiple attempts.");
     }
 }
