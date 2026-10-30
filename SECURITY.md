@@ -8,8 +8,8 @@ shipped in this repository:
 
 | Version   | Supported         |
 |-----------|-------------------|
-| 26.9    | :white_check_mark: |
-| < 26.9 | :x:                |
+| 26.10.0    | :white_check_mark: |
+| < 26.10.0 | :x:                |
 
 Only the latest published Aspose.HTML NuGet is tracked for issues that
 originate in these examples. For vulnerabilities in the Aspose.HTML for

@@ -2,8 +2,8 @@
   "product": "Aspose.HTML",
   "platform": "net",
   "framework": "net10.0",
-  "package_version": "26.9",
-  "total_examples": 1807,
+  "package_version": "26.10.0",
+  "total_examples": 1808,
   "total_categories": 18,
   "last_updated": "2026-10-30",
   "categories": [
@@ -1508,7 +1508,7 @@
     {
       "name": "save-file-from-url",
       "display_name": "Save File From Url",
-      "file_count": 27,
+      "file_count": 28,
       "all_files": [
         "append-timestamp-saved-file-name-avoid-overwrite.cs",
         "configure-basic-authentication-credentials-requestmessage-protected-resources.cs",
@@ -1519,6 +1519,7 @@
         "create-uri-object-for-target-url.cs",
         "download-multiple-files-sequentially-iterating-list-of-urls-saving-each-response-uniquely.cs",
         "extract-file-name-from-url-use-as-default-local-file-name.cs",
+        "handle-http-redirects-following-3xx-location-headers-resending-request.cs",
         "implement-asynchronous-file-download-using-document-sendasync-await-response-before-saving.cs",
         "implement-error-handling-retries-download-three-times-transient-network-errors.cs",
         "implement-retry-policy-exponential-backoff-transient-failures-downloading-large-files.cs",
