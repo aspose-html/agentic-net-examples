@@ -1,19 +1,23 @@
 // Read HTML content from a string, set base URI, and render directly to a PNG image using ImageDevice.
 
-public class Program
+using System;
+
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
-            string html = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+            string htmlContent = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
             string baseUri = "about:blank";
+            var document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+
             string outputPath = "output.png";
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, baseUri);
-            Aspose.Html.Rendering.Image.ImageRenderingOptions imgOptions = new Aspose.Html.Rendering.Image.ImageRenderingOptions();
-            Aspose.Html.Rendering.Image.ImageDevice imgDevice = new Aspose.Html.Rendering.Image.ImageDevice(imgOptions, outputPath);
-            document.RenderTo(imgDevice);
+            var renderingOptions = new Aspose.Html.Rendering.Image.ImageRenderingOptions();
+            var imageDevice = new Aspose.Html.Rendering.Image.ImageDevice(renderingOptions, outputPath);
+
+            document.RenderTo(imageDevice);
         }
         catch (System.Exception ex)
         {

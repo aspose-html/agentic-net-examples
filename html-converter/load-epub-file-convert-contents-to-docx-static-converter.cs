@@ -14,18 +14,19 @@ class Program
 
             if (!File.Exists(sourcePath))
             {
-                File.WriteAllBytes(sourcePath, new byte[0]);
+                Console.WriteLine($"Input file '{sourcePath}' not found.");
+                return;
             }
 
             Aspose.Html.Saving.DocSaveOptions options = new Aspose.Html.Saving.DocSaveOptions();
 
             Aspose.Html.Converters.Converter.ConvertEPUB(sourcePath, options, outputPath);
 
-            Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine($"EPUB converted to DOCX successfully: {outputPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

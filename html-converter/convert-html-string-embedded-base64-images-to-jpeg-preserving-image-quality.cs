@@ -9,14 +9,13 @@ class Program
     {
         try
         {
-            // HTML content with embedded base64 image
-            string htmlContent = "<html><body><h1>Sample</h1><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...\" /></body></html>";
-            string baseUri = "about:blank";
+            // Define HTML content with an embedded base64 image
+            string htmlContent = "<html><body><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+XK6cAAAAASUVORK5CYII=\" /></body></html>";
 
-            // Load HTML document from string
-            var document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
+            // Create an HTMLDocument from the inline HTML string
+            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            // Configure JPEG save options
+            // Configure image save options for JPEG
             var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
             options.HorizontalResolution = 300;
             options.VerticalResolution = 300;
@@ -26,10 +25,12 @@ class Program
 
             // Convert HTML to JPEG
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+            Console.WriteLine($"Conversion completed. JPEG saved to: {outputPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

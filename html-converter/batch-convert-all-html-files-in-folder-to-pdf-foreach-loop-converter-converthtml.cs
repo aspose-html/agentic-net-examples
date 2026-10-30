@@ -2,7 +2,7 @@
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
         try
         {
@@ -13,12 +13,13 @@ public class Program
             {
                 using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
                 {
-                    string outputPath = System.IO.Path.Combine(outputFolder, System.IO.Path.GetFileNameWithoutExtension(htmlPath) + ".pdf");
                     Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
-                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                    string pdfFileName = System.IO.Path.ChangeExtension(System.IO.Path.GetFileName(htmlPath), ".pdf");
+                    string pdfPath = System.IO.Path.Combine(outputFolder, pdfFileName);
+                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, pdfPath);
+                    System.Console.WriteLine("Converted: " + htmlPath + " -> " + pdfPath);
                 }
             }
-            System.Console.WriteLine("Batch conversion completed successfully.");
         }
         catch (System.Exception ex)
         {

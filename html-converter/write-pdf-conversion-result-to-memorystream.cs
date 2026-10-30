@@ -3,12 +3,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Aspose.Html;
-using Aspose.Html.Converters;
-using Aspose.Html.IO;
-using Aspose.Html.Saving;
 
-class CustomStreamProvider : ICreateStreamProvider, IDisposable
+class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
     public List<MemoryStream> Streams { get; } = new List<MemoryStream>();
 
@@ -36,9 +32,9 @@ class CustomStreamProvider : ICreateStreamProvider, IDisposable
 
     public void Dispose()
     {
-        foreach (var s in Streams)
+        foreach (MemoryStream ms in Streams)
         {
-            s.Dispose();
+            ms.Dispose();
         }
     }
 }
@@ -52,10 +48,10 @@ class Program
             string html = "<html><body><h1>Hello, PDF!</h1></body></html>";
             string baseUrl = "about:blank";
 
-            HTMLDocument document = new HTMLDocument(html, baseUrl);
-            PdfSaveOptions options = new PdfSaveOptions();
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, baseUrl);
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
 
-            using (CustomStreamProvider provider = new CustomStreamProvider())
+            using (MemoryStreamProvider provider = new MemoryStreamProvider())
             {
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
 
@@ -63,8 +59,10 @@ class Program
                 pdfStream.Position = 0;
                 byte[] pdfBytes = pdfStream.ToArray();
 
-                Console.WriteLine($"PDF generated in memory, size: {pdfBytes.Length} bytes.");
+                Console.WriteLine($"PDF generated, size: {pdfBytes.Length} bytes");
             }
+
+            document.Dispose();
         }
         catch (Exception ex)
         {
