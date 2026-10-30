@@ -2,12 +2,6 @@
 
 using System;
 using System.IO;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
-using Aspose.Html;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -15,38 +9,70 @@ class Program
     {
         try
         {
+            // Prepare sample HTML with inline SVG if it does not exist
             string htmlPath = "sample.html";
-            string outputPath = "output.html";
-
             if (!File.Exists(htmlPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><body><h1>Test</h1><svg width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" /></svg></body></html>";
+                string sampleHtml = @"<!DOCTYPE html>
+<html>
+<head><title>SVG Sample</title></head>
+<body>
+<h1>Inline SVG Example</h1>
+<svg width=""100"" height=""100"" xmlns=""http://www.w3.org/2000/svg"">
+  <circle cx=""50"" cy=""50"" r=""40"" stroke=""green"" stroke-width=""4"" fill=""yellow"" />
+</svg>
+<p>Another SVG:</p>
+<svg width=""120"" height=""80"" xmlns=""http://www.w3.org/2000/svg"">
+  <rect width=""120"" height=""80"" style=""fill:blue;stroke:pink;stroke-width:5;opacity:0.5"" />
+</svg>
+</body>
+</html>";
                 File.WriteAllText(htmlPath, sampleHtml);
             }
 
-            HTMLDocument document = new HTMLDocument(htmlPath);
+            // Load the HTML document
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
+
+            // Find all inline SVG elements
             Aspose.Html.Collections.NodeList svgElements = document.QuerySelectorAll("svg");
 
+            // Ensure output directory for images exists
+            string imagesDir = "images";
+            Directory.CreateDirectory(imagesDir);
+
+            // Process each SVG element
             for (int i = 0; i < svgElements.Length; i++)
             {
-                HTMLElement svgElement = (HTMLElement)svgElements[i];
+                Aspose.Html.HTMLElement svgElement = (Aspose.Html.HTMLElement)svgElements[i];
                 string svgMarkup = svgElement.OuterHTML;
-                string imagePath = $"image{i}.png";
 
-                ImageSaveOptions options = new ImageSaveOptions();
+                // Define image file path
+                string imageFileName = $"image_{i + 1}.png";
+                string imagePath = Path.Combine(imagesDir, imageFileName);
+
+                // Convert SVG markup to PNG image
+                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
                 Aspose.Html.Converters.Converter.ConvertSVG(svgMarkup, "about:blank", options, imagePath);
 
-                Element imgElement = document.CreateElement("img");
+                // Create <img> element referencing the saved image
+                Aspose.Html.Dom.Element imgElement = document.CreateElement("img");
                 imgElement.SetAttribute("src", imagePath);
 
+                // Replace the original <svg> with the new <img>
                 svgElement.ParentNode.ReplaceChild(imgElement, svgElement);
             }
 
-            document.Save(outputPath);
+            // Save the modified HTML document
+            string outputHtmlPath = "result.html";
+            document.Save(outputHtmlPath);
+
+            Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine($"Modified HTML saved to: {outputHtmlPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred:");
+            Console.WriteLine(ex.Message);
         }
     }
 }

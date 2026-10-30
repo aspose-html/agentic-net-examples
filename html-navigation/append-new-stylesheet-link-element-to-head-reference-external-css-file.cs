@@ -8,30 +8,36 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head></head><body><p>Hello World</p></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Input HTML content
+            string htmlContent = "<!DOCTYPE html><html><head></head><body></body></html>";
+            // Create HTML document from inline content
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            var head = document.QuerySelector("head") as Aspose.Html.HTMLElement;
+            // Get or create <head> element
+            Aspose.Html.HTMLElement head = document.QuerySelector("head") as Aspose.Html.HTMLElement;
             if (head == null)
             {
                 head = (Aspose.Html.HTMLElement)document.CreateElement("head");
-                var htmlElement = document.DocumentElement;
-                var body = document.Body;
-                htmlElement.InsertBefore(head, body);
+                document.DocumentElement.InsertBefore(head, document.Body);
             }
 
-            var link = (Aspose.Html.HTMLElement)document.CreateElement("link");
+            // Create <link rel=\"stylesheet\" href=\"styles.css\">
+            Aspose.Html.Dom.Element link = document.CreateElement("link");
             link.SetAttribute("rel", "stylesheet");
             link.SetAttribute("href", "styles.css");
+
+            // Append the link element to the head
             head.AppendChild(link);
 
+            // Save the modified document
             string outputPath = "output.html";
             document.Save(outputPath);
-            Console.WriteLine("Document saved to " + outputPath);
+
+            System.Console.WriteLine($"Document saved to '{outputPath}'.");
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

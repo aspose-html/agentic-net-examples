@@ -1,28 +1,32 @@
 // Extract table data from HTML tables and export each table to a separate CSV file.
 
 using System;
+using System.IO;
+using System.Text;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Sample HTML content with two tables
-            string htmlContent = "<html><body>" +
-                                 "<table>" +
-                                 "<tr><th>Name</th><th>Age</th></tr>" +
-                                 "<tr><td>Alice</td><td>30</td></tr>" +
-                                 "<tr><td>Bob</td><td>25</td></tr>" +
-                                 "</table>" +
-                                 "<table>" +
-                                 "<tr><td>Item1</td><td>10</td></tr>" +
-                                 "<tr><td>Item2</td><td>20</td></tr>" +
-                                 "</table>" +
-                                 "</body></html>";
+            // Sample HTML containing two tables
+            string htmlContent = @"
+                <html>
+                <body>
+                    <table>
+                        <tr><td>Header1</td><td>Header2</td></tr>
+                        <tr><td>Row1Col1</td><td>Row1Col2</td></tr>
+                    </table>
+                    <table>
+                        <tr><td>A</td><td>B</td></tr>
+                        <tr><td>C</td><td>D</td></tr>
+                    </table>
+                </body>
+                </html>";
 
-            // Load HTML document from string (inline content)
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Load HTML from string (inline content)
+            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
             // Get all table elements
             Aspose.Html.Collections.HTMLCollection tables = document.GetElementsByTagName("table");
@@ -32,9 +36,9 @@ class Program
             {
                 if (tableNode is Aspose.Html.HTMLTableElement table)
                 {
-                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    // Collect CSV lines for the current table
+                    var csvBuilder = new StringBuilder();
 
-                    // Get all rows in the current table
                     Aspose.Html.Collections.HTMLCollection rows = table.GetElementsByTagName("tr");
                     foreach (var rowNode in rows)
                     {
@@ -44,33 +48,33 @@ class Program
                             bool firstCell = true;
                             foreach (var cell in cells)
                             {
-                                string cellText = cell.TextContent?.Trim() ?? "";
-                                // Escape commas and double quotes for CSV
-                                if (cellText.Contains("\"") || cellText.Contains(","))
-                                {
-                                    cellText = $"\"{cellText.Replace("\"", "\"\"")}\"";
-                                }
+                                string cellText = cell.TextContent?.Trim();
+                                // Escape double quotes in CSV
+                                if (cellText != null)
+                                    cellText = cellText.Replace("\"", "\"\"");
 
                                 if (!firstCell)
-                                    sb.Append(",");
+                                    csvBuilder.Append(',');
 
-                                sb.Append(cellText);
+                                // Enclose in quotes if needed
+                                csvBuilder.Append('\"').Append(cellText ?? string.Empty).Append('\"');
                                 firstCell = false;
                             }
-                            sb.AppendLine();
+                            csvBuilder.AppendLine();
                         }
                     }
 
-                    string outputPath = $"Table_{tableIndex}.csv";
-                    System.IO.File.WriteAllText(outputPath, sb.ToString());
-                    System.Console.WriteLine($"Table {tableIndex} saved to {outputPath}");
+                    // Write CSV to file
+                    string csvFileName = $"table{tableIndex}.csv";
+                    File.WriteAllText(csvFileName, csvBuilder.ToString());
+                    Console.WriteLine($"Table {tableIndex} exported to {csvFileName}");
                     tableIndex++;
                 }
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

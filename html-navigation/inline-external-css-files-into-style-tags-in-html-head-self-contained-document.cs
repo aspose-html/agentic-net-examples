@@ -2,6 +2,10 @@
 
 using System;
 using System.IO;
+using System.Linq;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Collections;
 
 class Program
 {
@@ -9,72 +13,70 @@ class Program
     {
         try
         {
-            // Define file paths
-            string baseDirectory = Directory.GetCurrentDirectory();
-            string cssFilePath = Path.Combine(baseDirectory, "styles.css");
-            string inputHtmlPath = Path.Combine(baseDirectory, "input.html");
-            string outputHtmlPath = Path.Combine(baseDirectory, "output.html");
+            string inputHtmlPath = "input.html";
+            string cssPath = "styles.css";
+            string outputHtmlPath = "output.html";
 
-            // Create sample CSS file
-            File.WriteAllText(cssFilePath, "p { color: blue; }");
+            // Create sample CSS file if it does not exist
+            if (!File.Exists(cssPath))
+            {
+                File.WriteAllText(cssPath, "body { background-color: #f0f0f0; }");
+            }
 
-            // Create sample HTML file referencing the external CSS
-            string htmlContent = @"<html>
+            // Create sample HTML file referencing the CSS file
+            if (!File.Exists(inputHtmlPath))
+            {
+                string sampleHtml = @"<!DOCTYPE html>
+<html>
 <head>
-<link rel=""stylesheet"" href=""styles.css"">
+    <link rel=""stylesheet"" href=""styles.css"">
 </head>
 <body>
-<p>Hello, world!</p>
+    <p>Hello World</p>
 </body>
 </html>";
-            File.WriteAllText(inputHtmlPath, htmlContent);
+                File.WriteAllText(inputHtmlPath, sampleHtml);
+            }
 
             // Load the HTML document
-            var document = new Aspose.Html.HTMLDocument(inputHtmlPath);
+            HTMLDocument document = new HTMLDocument(inputHtmlPath);
 
-            // Process all <link rel=""stylesheet""> elements
-            var links = document.GetElementsByTagName("link");
+            // Get the <head> element
+            Element head = (Element)document.GetElementsByTagName("head").First();
+
+            // Get all <link> elements
+            HTMLCollection links = document.GetElementsByTagName("link");
+
+            // Iterate backwards to safely modify the DOM
             for (int i = links.Length - 1; i >= 0; i--)
             {
-                var link = (Aspose.Html.HTMLElement)links[i];
+                HTMLElement link = (HTMLElement)links[i];
                 string rel = link.GetAttribute("rel");
-                if (!string.Equals(rel, "stylesheet", StringComparison.OrdinalIgnoreCase))
-                    continue;
-
-                string href = link.GetAttribute("href");
-                if (string.IsNullOrEmpty(href))
-                    continue;
-
-                // Resolve CSS file path relative to the HTML file
-                string cssPath = Path.Combine(Path.GetDirectoryName(inputHtmlPath) ?? string.Empty, href);
-                if (!File.Exists(cssPath))
-                    continue;
-
-                // Read CSS content
-                string cssContent = File.ReadAllText(cssPath);
-
-                // Create <style> element and set its content
-                var styleElement = (Aspose.Html.HTMLElement)document.CreateElement("style");
-                styleElement.TextContent = cssContent;
-
-                // Append the <style> element to <head>
-                var head = (Aspose.Html.Dom.Element)document.GetElementsByTagName("head")[0];
-                head.AppendChild(styleElement);
-
-                // Remove the original <link> element
-                var parent = link.ParentNode;
-                if (parent != null)
+                if (string.Equals(rel, "stylesheet", StringComparison.OrdinalIgnoreCase))
                 {
-                    parent.RemoveChild(link);
+                    string href = link.GetAttribute("href");
+                    if (!string.IsNullOrEmpty(href) && File.Exists(href))
+                    {
+                        string cssContent = File.ReadAllText(href);
+
+                        // Create a <style> element with the CSS content
+                        HTMLElement style = (HTMLElement)document.CreateElement("style");
+                        style.TextContent = cssContent;
+
+                        // Replace the <link> element with the new <style> element
+                        head.ReplaceChild(style, link);
+                    }
                 }
             }
 
             // Save the modified document
             document.Save(outputHtmlPath);
+
+            Console.WriteLine($"Inlined CSS saved to '{outputHtmlPath}'.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

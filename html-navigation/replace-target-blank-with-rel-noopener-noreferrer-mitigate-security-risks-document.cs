@@ -8,25 +8,42 @@ class Program
     {
         try
         {
-            // Sample HTML content
-            string htmlContent = "<html><body><a href='https://example.com' target='_blank'>Example Link</a></body></html>";
+            string inputPath = "sample.html";
+            string outputPath = "output.html";
 
-            // Load HTML document from string using the two‑argument constructor (content, baseUri)
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
-            // Select all anchor elements with target="_blank"
-            var nodeList = document.QuerySelectorAll("a[target='_blank']");
-
-            // Iterate and set rel attribute
-            foreach (var element in nodeList)
+            // Create a minimal sample HTML file if it does not exist
+            if (!System.IO.File.Exists(inputPath))
             {
-                // element is of type Aspose.Html.Dom.Element
-                ((Aspose.Html.Dom.Element)element).SetAttribute("rel", "noopener noreferrer");
+                string sampleContent = @"<!DOCTYPE html>
+<html>
+<head><title>Sample</title></head>
+<body>
+    <a href=""https://example.com"" target=""_blank"">Example Link</a>
+    <a href=""https://example.org"">No Target Link</a>
+</body>
+</html>";
+                System.IO.File.WriteAllText(inputPath, sampleContent);
+            }
+
+            // Load the HTML document from file
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+
+            // Select all elements with target="_blank"
+            Aspose.Html.Collections.NodeList nodeList = document.QuerySelectorAll("[target=\"_blank\"]");
+
+            // Replace target="_blank" with rel="noopener noreferrer"
+            for (int i = 0; i < nodeList.Length; i++)
+            {
+                Aspose.Html.HTMLElement element = nodeList[i] as Aspose.Html.HTMLElement;
+                if (element != null)
+                {
+                    element.SetAttribute("rel", "noopener noreferrer");
+                }
             }
 
             // Save the modified document
-            string outputPath = "modified.html";
-            document.Save(outputPath);
+            Aspose.Html.Saving.HTMLSaveOptions saveOptions = new Aspose.Html.Saving.HTMLSaveOptions();
+            document.Save(outputPath, saveOptions);
 
             Console.WriteLine("Document processed and saved to: " + outputPath);
         }

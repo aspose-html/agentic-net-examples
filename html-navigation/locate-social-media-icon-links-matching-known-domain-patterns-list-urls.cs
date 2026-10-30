@@ -4,44 +4,55 @@ using System;
 using System.Collections.Generic;
 using Aspose.Html;
 using Aspose.Html.Dom;
+using Aspose.Html.Net;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
             string htmlContent = @"
                 <html>
-                <body>
-                    <a href='https://twitter.com/example'><img src='icon1.png' alt='Twitter'></a>
-                    <a href='https://www.facebook.com/example'><img src='icon2.png' alt='Facebook'></a>
-                    <a href='https://example.com/about'>About Us</a>
-                    <a href='/contact'>Contact</a>
-                    <a href='https://instagram.com/example'><img src='icon3.png' alt='Instagram'></a>
-                </body>
+                    <body>
+                        <a href='https://www.facebook.com/example'><img src='fb.png' alt='Facebook'></a>
+                        <a href='https://twitter.com/example'><img src='tw.png' alt='Twitter'></a>
+                        <a href='https://example.com/about'>About Us</a>
+                        <a href='https://www.linkedin.com/company/example'><img src='ln.png' alt='LinkedIn'></a>
+                        <a href='https://instagram.com/example'><img src='ig.png' alt='Instagram'></a>
+                    </body>
                 </html>";
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
+            using (HTMLDocument document = new HTMLDocument(htmlContent, "about:blank"))
             {
                 List<string> socialLinks = new List<string>();
+                string[] domains = new string[]
+                {
+                    "facebook.com",
+                    "twitter.com",
+                    "instagram.com",
+                    "linkedin.com",
+                    "youtube.com",
+                    "pinterest.com",
+                    "tiktok.com"
+                };
+
                 foreach (Element linkElement in document.Links)
                 {
                     string href = linkElement.GetAttribute("href");
                     if (string.IsNullOrEmpty(href))
                         continue;
 
-                    Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(href, document.BaseURI);
-                    string url = resolvedUrl.ToString();
+                    Url resolvedUrl = new Url(href, document.BaseURI);
+                    string urlString = resolvedUrl.ToString();
 
-                    if (url.Contains("facebook.com", StringComparison.OrdinalIgnoreCase) ||
-                        url.Contains("twitter.com", StringComparison.OrdinalIgnoreCase) ||
-                        url.Contains("instagram.com", StringComparison.OrdinalIgnoreCase) ||
-                        url.Contains("linkedin.com", StringComparison.OrdinalIgnoreCase) ||
-                        url.Contains("youtube.com", StringComparison.OrdinalIgnoreCase) ||
-                        url.Contains("pinterest.com", StringComparison.OrdinalIgnoreCase))
+                    foreach (string domain in domains)
                     {
-                        socialLinks.Add(url);
+                        if (urlString.IndexOf(domain, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            socialLinks.Add(urlString);
+                            break;
+                        }
                     }
                 }
 

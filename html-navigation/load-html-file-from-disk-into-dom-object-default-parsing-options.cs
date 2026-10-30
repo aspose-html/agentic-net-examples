@@ -1,30 +1,36 @@
 // Load an HTML file from disk into a DOM object using default parsing options.
 
 using System;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            string inputPath = "sample.html";
+            string inputPath = "input.html";
 
-            if (!System.IO.File.Exists(inputPath))
+            // Create a minimal HTML file if it does not exist
+            if (!File.Exists(inputPath))
             {
-                System.IO.File.WriteAllText(inputPath,
-                    "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello World</p></body></html>");
+                string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello, Aspose.HTML!</p></body></html>";
+                File.WriteAllText(inputPath, sampleHtml);
             }
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
-            {
-                string outerHtml = document.DocumentElement.OuterHTML;
-                Console.WriteLine(outerHtml);
-            }
+            // Load the HTML file into a DOM object using default parsing options
+            HTMLDocument document = new HTMLDocument(inputPath);
+
+            // Optional: output the outer HTML to verify loading
+            string outerHtml = document.DocumentElement.OuterHTML;
+            Console.WriteLine("Loaded HTML Document:");
+            Console.WriteLine(outerHtml);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

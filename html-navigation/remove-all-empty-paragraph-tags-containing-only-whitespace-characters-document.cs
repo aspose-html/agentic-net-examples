@@ -1,39 +1,62 @@
 // Remove all empty paragraph tags that contain only whitespace characters in the document.
 
 using System;
+using System.IO;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Sample HTML content with empty paragraphs
-            string htmlContent = "<html><body><p>   </p><p>Text</p><p>\n\t</p></body></html>";
+            string inputPath = "sample.html";
+            string outputPath = "output.html";
 
-            // Load document from inline HTML
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Create a sample HTML file if it does not exist
+            if (!File.Exists(inputPath))
+            {
+                string sampleHtml = @"<!DOCTYPE html>
+<html>
+<head><title>Sample</title></head>
+<body>
+<p>First paragraph.</p>
+<p>   </p>
+<p>
+    
+</p>
+<p>Second paragraph.</p>
+</body>
+</html>";
+                File.WriteAllText(inputPath, sampleHtml);
+            }
 
-            // Get all paragraph elements
+            // Load the HTML document
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+
+            // Get all <p> elements
             Aspose.Html.Collections.HTMLCollection paragraphs = document.GetElementsByTagName("p");
 
-            // Iterate backwards and remove empty paragraphs
+            // Iterate backwards and remove empty paragraphs (whitespace only)
             for (int i = paragraphs.Length - 1; i >= 0; i--)
             {
                 Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)paragraphs[i];
-                if (element.TextContent.Trim().Length == 0 && element.ParentNode != null)
+                if (string.IsNullOrWhiteSpace(element.TextContent))
                 {
-                    element.ParentNode.RemoveChild(element);
+                    if (element.ParentNode != null)
+                    {
+                        element.ParentNode.RemoveChild(element);
+                    }
                 }
             }
 
             // Save the modified document
-            string outputPath = "output.html";
             document.Save(outputPath);
+
+            Console.WriteLine("Empty paragraphs removed. Output saved to: " + outputPath);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

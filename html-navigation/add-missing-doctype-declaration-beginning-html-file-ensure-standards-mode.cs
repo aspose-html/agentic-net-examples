@@ -2,7 +2,6 @@
 
 using System;
 using System.IO;
-using System.Text;
 
 class Program
 {
@@ -17,23 +16,35 @@ class Program
             if (!File.Exists(inputPath))
             {
                 string sampleHtml = "<html><head><title>Sample</title></head><body><p>Hello, World!</p></body></html>";
-                File.WriteAllText(inputPath, sampleHtml, Encoding.UTF8);
+                File.WriteAllText(inputPath, sampleHtml);
             }
 
-            // Read the HTML content
-            string html = File.ReadAllText(inputPath, Encoding.UTF8);
+            // Load the original document
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
 
-            // Add DOCTYPE if missing
-            if (!html.TrimStart().StartsWith("<!DOCTYPE", StringComparison.OrdinalIgnoreCase))
+            // Get the original HTML content (without DOCTYPE)
+            string htmlContent = document.DocumentElement.OuterHTML;
+
+            // Read the raw file content to check for existing DOCTYPE
+            string rawContent = File.ReadAllText(inputPath);
+            string modifiedHtml;
+
+            if (rawContent.TrimStart().StartsWith("<!DOCTYPE", StringComparison.OrdinalIgnoreCase))
             {
-                html = "<!DOCTYPE html>\n" + html;
+                // DOCTYPE already present, keep original content
+                modifiedHtml = rawContent;
+            }
+            else
+            {
+                // Prepend standard HTML5 DOCTYPE
+                modifiedHtml = "<!DOCTYPE html>\n" + htmlContent;
             }
 
-            // Load the HTML into Aspose.HTML document
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank");
+            // Create a new document from the modified HTML string
+            Aspose.Html.HTMLDocument updatedDocument = new Aspose.Html.HTMLDocument(modifiedHtml, "about:blank");
 
             // Save the updated document
-            document.Save(outputPath);
+            updatedDocument.Save(outputPath);
         }
         catch (Exception ex)
         {

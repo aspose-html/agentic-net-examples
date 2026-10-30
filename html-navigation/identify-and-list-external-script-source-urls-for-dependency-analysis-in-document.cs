@@ -4,16 +4,15 @@ using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            string inputPath = "sample.html";
-
+            string inputPath = System.IO.Path.Combine(System.Environment.CurrentDirectory, "sample.html");
             if (!System.IO.File.Exists(inputPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><head><script src=\"https://example.com/lib.js\"></script></head><body></body></html>";
-                System.IO.File.WriteAllText(inputPath, sampleHtml);
+                string htmlContent = "<!DOCTYPE html><html><head><script src=\"https://cdn.example.com/lib.js\"></script><script>console.log('inline');</script></head><body><script src=\"/scripts/app.js\"></script></body></html>";
+                System.IO.File.WriteAllText(inputPath, htmlContent);
             }
 
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
@@ -25,13 +24,13 @@ class Program
                 string src = scriptElement.GetAttribute("src");
                 if (!string.IsNullOrEmpty(src))
                 {
-                    Console.WriteLine(src);
+                    System.Console.WriteLine(src);
                 }
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

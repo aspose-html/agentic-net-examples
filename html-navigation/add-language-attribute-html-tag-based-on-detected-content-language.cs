@@ -1,28 +1,40 @@
 // Add a language attribute to the html tag based on detected content language.
 
+using System;
+
 class Program
 {
     static void Main()
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body>Hello world!</body></html>";
-            // Simple language detection based on content
-            string languageCode = htmlContent.Contains("Bonjour") ? "fr" : "en";
+            string htmlContent = "<html><head><title>Sample</title></head><body>Hello world! Bonjour le monde!</body></html>";
+            string baseUri = "about:blank";
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
 
-            Aspose.Html.HTMLElement htmlElement = (Aspose.Html.HTMLElement)document.DocumentElement;
-            htmlElement.SetAttribute("lang", languageCode);
+            // Simple language detection
+            string lang = "en";
+            if (htmlContent.Contains("Bonjour"))
+            {
+                lang = "fr";
+            }
+
+            Aspose.Html.Collections.HTMLCollection htmlElements = document.GetElementsByTagName("html");
+            if (htmlElements.Length > 0)
+            {
+                Aspose.Html.Dom.Element htmlElement = (Aspose.Html.Dom.Element)htmlElements[0];
+                htmlElement.SetAttribute("lang", lang);
+            }
 
             string outputPath = "output.html";
             document.Save(outputPath);
 
-            System.Console.WriteLine("HTML saved to " + outputPath + " with lang='" + languageCode + "'.");
+            Console.WriteLine($"HTML saved to '{outputPath}' with lang attribute set to '{lang}'.");
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 }

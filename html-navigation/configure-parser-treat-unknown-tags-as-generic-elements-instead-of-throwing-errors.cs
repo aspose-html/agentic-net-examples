@@ -2,24 +2,33 @@
 
 using System;
 
-class Program
+namespace AsposeHtmlExample
 {
-    static void Main()
+    class Program
     {
-        try
+        static void Main()
         {
-            string htmlContent = "<html><body><custom-tag>Test</custom-tag></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            Aspose.Html.Collections.HTMLCollection elements = document.GetElementsByTagName("custom-tag");
-            for (int i = 0; i < elements.Length; i++)
+            try
             {
-                Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)elements[i];
-                System.Console.WriteLine(element.TagName);
+                // Sample HTML containing an unknown/custom tag.
+                string htmlContent = "<html><body><custom-tag>Hello</custom-tag></body></html>";
+
+                // Load the HTML content. The parser treats unknown tags as generic elements by default.
+                // Note: Aspose.Html.Configuration does not expose a setting to change unknown tag handling.
+                Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+                // Retrieve all elements (including unknown tags) and print their tag names.
+                Aspose.Html.Collections.HTMLCollection elements = document.GetElementsByTagName("*");
+                for (int i = 0; i < elements.Length; i++)
+                {
+                    Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)elements[i];
+                    Console.WriteLine(element.TagName);
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            System.Console.Error.WriteLine($"Error: {ex.Message}");
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

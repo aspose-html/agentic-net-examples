@@ -1,34 +1,41 @@
 // Identify and extract all data‑attribute values for custom JavaScript data binding in the document.
 
+using System;
+
 class Program
 {
     static void Main()
     {
         try
         {
-            string inputPath = "sample.html";
-            if (!System.IO.File.Exists(inputPath))
-            {
-                System.IO.File.WriteAllText(inputPath,
-                    "<html><body><div data-id='123' data-name='Test'>Hello</div><span data-info='abc'></span></body></html>");
-            }
+            // Sample HTML content with data- attributes
+            string htmlContent = "<html><body>" +
+                                 "<div data-id='123' data-name='test'></div>" +
+                                 "<span data-value='abc'></span>" +
+                                 "<p>No data attribute here</p>" +
+                                 "</body></html>";
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            // Load document from inline HTML (use two‑argument constructor)
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            var elements = document.QuerySelectorAll("*");
-            for (int i = 0; i < elements.Length; i++)
+            // Get all elements in the document
+            Aspose.Html.Collections.HTMLCollection allElements = document.GetElementsByTagName("*");
+
+            // Iterate over each element
+            for (int i = 0; i < allElements.Length; i++)
             {
-                Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)elements[i];
-                var attributeNames = element.GetAttributeNames();
-                foreach (var name in attributeNames)
+                Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)allElements[i];
+                // Get the attribute collection of the element
+                var attributes = element.Attributes;
+
+                // Iterate over attributes
+                for (int j = 0; j < attributes.Length; j++)
                 {
-                    if (name.StartsWith("data-"))
+                    Aspose.Html.Dom.Attr attribute = (Aspose.Html.Dom.Attr)attributes[j];
+                    string name = attribute.Name;
+                    if (name != null && name.StartsWith("data-"))
                     {
-                        string value = element.GetAttribute(name);
-                        if (!string.IsNullOrEmpty(value))
-                        {
-                            System.Console.WriteLine($"{name} = {value}");
-                        }
+                        System.Console.WriteLine(attribute.Value);
                     }
                 }
             }

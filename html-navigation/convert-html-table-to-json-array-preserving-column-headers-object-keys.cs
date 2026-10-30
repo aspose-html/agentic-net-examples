@@ -1,60 +1,94 @@
 // Convert an HTML table into a JSON array preserving column headers as object keys.
 
-public class Program
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html;
+
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
-            string htmlContent = "<html><body><table><tr><th>Name</th><th>Age</th></tr><tr><td>Alice</td><td>30</td></tr><tr><td>Bob</td><td>25</td></tr></table></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            Aspose.Html.Collections.HTMLCollection tables = document.GetElementsByTagName("table");
-            var jsonArray = new System.Collections.Generic.List<System.Collections.Generic.Dictionary<string, string>>();
+            // Sample HTML containing a table
+            string htmlContent = "<html><body>" +
+                                 "<table>" +
+                                 "<tr><th>Name</th><th>Age</th><th>City</th></tr>" +
+                                 "<tr><td>Alice</td><td>30</td><td>New York</td></tr>" +
+                                 "<tr><td>Bob</td><td>25</td><td>London</td></tr>" +
+                                 "<tr><td>Charlie</td><td>35</td><td>Sydney</td></tr>" +
+                                 "</table>" +
+                                 "</body></html>";
+
+            // Load HTML document from inline content
+            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+
+            // Get all tables in the document
+            HTMLCollection tables = document.GetElementsByTagName("table");
+
+            var allTablesData = new List<List<Dictionary<string, string>>>();
+
             foreach (var tableNode in tables)
             {
-                if (tableNode is Aspose.Html.HTMLTableElement table)
+                if (tableNode is HTMLTableElement table)
                 {
-                    Aspose.Html.Collections.HTMLCollection rows = table.GetElementsByTagName("tr");
-                    System.Collections.Generic.List<string> headers = null;
+                    // Get all rows in the current table
+                    HTMLCollection rows = table.GetElementsByTagName("tr");
+                    var headers = new List<string>();
+                    var tableData = new List<Dictionary<string, string>>();
+                    bool isFirstRow = true;
+
                     foreach (var rowNode in rows)
                     {
-                        if (rowNode is Aspose.Html.HTMLTableRowElement row)
+                        if (rowNode is HTMLTableRowElement row)
                         {
-                            Aspose.Html.Collections.HTMLCollection cells = row.Cells;
-                            if (headers == null)
+                            HTMLCollection cells = row.Cells;
+                            var cellTexts = new List<string>();
+
+                            foreach (var cell in cells)
                             {
-                                headers = new System.Collections.Generic.List<string>();
-                                foreach (var cell in cells)
-                                {
-                                    string headerText = cell.TextContent?.Trim() ?? "";
-                                    headers.Add(headerText);
-                                }
+                                string text = cell.TextContent?.Trim() ?? string.Empty;
+                                cellTexts.Add(text);
+                            }
+
+                            if (isFirstRow)
+                            {
+                                // First row assumed to be header
+                                headers.AddRange(cellTexts);
+                                isFirstRow = false;
                             }
                             else
                             {
-                                var dict = new System.Collections.Generic.Dictionary<string, string>();
-                                int index = 0;
-                                foreach (var cell in cells)
+                                var rowDict = new Dictionary<string, string>();
+                                for (int i = 0; i < headers.Count && i < cellTexts.Count; i++)
                                 {
-                                    string cellText = cell.TextContent?.Trim() ?? "";
-                                    string key = index < headers.Count ? headers[index] : $"Column{index}";
-                                    dict[key] = cellText;
-                                    index++;
+                                    rowDict[headers[i]] = cellTexts[i];
                                 }
-                                jsonArray.Add(dict);
+                                tableData.Add(rowDict);
                             }
                         }
                     }
+
+                    allTablesData.Add(tableData);
                 }
             }
-            string json = System.Text.Json.JsonSerializer.Serialize(jsonArray, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
-            string outputPath = "output.json";
-            System.IO.File.WriteAllText(outputPath, json);
-            System.Console.WriteLine($"JSON saved to {outputPath}");
+
+            // Serialize each table's data to JSON and write to separate files
+            for (int i = 0; i < allTablesData.Count; i++)
+            {
+                string json = JsonSerializer.Serialize(allTablesData[i], new JsonSerializerOptions { WriteIndented = true });
+                string outputPath = $"table_{i + 1}.json";
+                File.WriteAllText(outputPath, json);
+                Console.WriteLine($"Table {i + 1} JSON saved to: {outputPath}");
+            }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

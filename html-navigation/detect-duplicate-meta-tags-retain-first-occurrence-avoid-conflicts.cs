@@ -2,6 +2,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -9,58 +13,46 @@ class Program
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head>" +
-                "<meta name=\"description\" content=\"First\">" +
-                "<meta name=\"keywords\" content=\"sample\">" +
-                "<meta name=\"description\" content=\"Duplicate\">" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
-                "<meta http-equiv=\"Content-Type\" content=\"duplicate\">" +
-                "</head><body><p>Hello World</p></body></html>";
+            string htmlContent = "<!DOCTYPE html><html><head><meta name=\"description\" content=\"First\"><meta name=\"description\" content=\"Duplicate\"><meta name=\"keywords\" content=\"sample\"><meta name=\"keywords\" content=\"duplicate\"></head><body><p>Hello</p></body></html>";
+            string baseUri = "about:blank";
 
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
-            var metaElements = document.GetElementsByTagName("meta");
-
-            var metaList = new List<Aspose.Html.Dom.Element>();
-            for (int i = 0; i < metaElements.Length; i++)
+            using (HTMLDocument document = new HTMLDocument(htmlContent, baseUri))
             {
-                metaList.Add((Aspose.Html.Dom.Element)metaElements[i]);
-            }
+                HTMLCollection metaElements = document.GetElementsByTagName("meta");
+                HashSet<string> seenNames = new HashSet<string>();
 
-            var seenNames = new HashSet<string>();
-            var seenHttpEquiv = new HashSet<string>();
-
-            foreach (var meta in metaList)
-            {
-                string nameAttr = meta.GetAttribute("name");
-                if (!string.IsNullOrEmpty(nameAttr))
+                for (int i = metaElements.Length - 1; i >= 0; i--)
                 {
+                    HTMLElement meta = (HTMLElement)metaElements[i];
+                    string nameAttr = meta.GetAttribute("name");
+                    if (String.IsNullOrEmpty(nameAttr))
+                    {
+                        nameAttr = meta.GetAttribute("http-equiv");
+                    }
+
+                    if (String.IsNullOrEmpty(nameAttr))
+                    {
+                        continue;
+                    }
+
                     if (!seenNames.Add(nameAttr))
                     {
-                        var parent = meta.ParentNode;
-                        if (parent != null) parent.RemoveChild(meta);
+                        Node parent = meta.ParentNode;
+                        if (parent != null)
+                        {
+                            parent.RemoveChild(meta);
+                        }
                     }
-                    continue;
                 }
 
-                string httpEquivAttr = meta.GetAttribute("http-equiv");
-                if (!string.IsNullOrEmpty(httpEquivAttr))
-                {
-                    if (!seenHttpEquiv.Add(httpEquivAttr))
-                    {
-                        var parent = meta.ParentNode;
-                        if (parent != null) parent.RemoveChild(meta);
-                    }
-                }
+                string outputPath = "output.html";
+                document.Save(outputPath);
+                Console.WriteLine("Processed HTML saved to " + outputPath);
             }
-
-            string outputPath = "output.html";
-            document.Save(outputPath);
-            Console.WriteLine($"Processed HTML saved to {outputPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

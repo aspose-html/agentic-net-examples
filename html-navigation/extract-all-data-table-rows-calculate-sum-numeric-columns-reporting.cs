@@ -9,13 +9,7 @@ class Program
     {
         try
         {
-            string html = @"<html><body>
-                <table>
-                    <tr><td>10</td><td>abc</td></tr>
-                    <tr><td>20</td><td>30</td></tr>
-                </table>
-                </body></html>";
-
+            string html = @"<html><body><table><tr><td>10</td><td>20</td></tr><tr><td>5</td><td>abc</td></tr></table></body></html>";
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
             {
                 double sum = 0;
@@ -30,19 +24,21 @@ class Program
                             if (rowNode is Aspose.Html.HTMLTableRowElement row)
                             {
                                 Aspose.Html.Collections.HTMLCollection cells = row.Cells;
-                                foreach (var cell in cells)
+                                foreach (var cellNode in cells)
                                 {
-                                    string cellText = cell.TextContent?.Trim();
-                                    if (double.TryParse(cellText, NumberStyles.Any, CultureInfo.InvariantCulture, out double value))
+                                    if (cellNode is Aspose.Html.HTMLTableCellElement cell)
                                     {
-                                        sum += value;
+                                        string cellText = cell.TextContent?.Trim();
+                                        if (double.TryParse(cellText, NumberStyles.Any, CultureInfo.InvariantCulture, out double value))
+                                        {
+                                            sum += value;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-
                 Console.WriteLine(sum.ToString(CultureInfo.InvariantCulture));
             }
         }

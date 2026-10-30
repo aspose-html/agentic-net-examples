@@ -9,22 +9,21 @@ using Aspose.Html.Net;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
             string htmlContent = "<!DOCTYPE html><html><head>" +
-                                 "<link rel=\"icon\" href=\"favicon.ico\">" +
-                                 "<link rel=\"icon\" href=\"logo.png\">" +
-                                 "<link rel=\"icon\" href=\"image.jpg\">" +
+                                 "<link rel=\"icon\" href=\"https://example.com/favicon.ico\" />" +
+                                 "<link rel=\"icon\" href=\"https://example.com/favicon.png\" />" +
+                                 "<link rel=\"icon\" href=\"https://example.com/favicon.bmp\" />" + // non‑compliant example
+                                 "<link rel=\"stylesheet\" href=\"style.css\" />" +
                                  "</head><body></body></html>";
 
-            // Load HTML from string with a dummy base URI
-            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+            // Load HTML from inline content; use a dummy base URI.
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            List<string> invalidIcons = new List<string>();
-
-            foreach (Element linkElement in document.Links)
+            foreach (Aspose.Html.Dom.Element linkElement in document.Links)
             {
                 string rel = linkElement.GetAttribute("rel");
                 if (string.IsNullOrEmpty(rel) || !rel.Equals("icon", StringComparison.OrdinalIgnoreCase))
@@ -34,38 +33,27 @@ class Program
                 if (string.IsNullOrEmpty(href))
                     continue;
 
-                // Resolve the URL against the document's base URI
-                Url resolvedUrl = new Url(href, document.BaseURI);
+                // Resolve the URL against the document's base URI.
+                Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(href, document.BaseURI);
 
-                // Determine file extension
+                // Verify file format based on extension.
                 string extension = Path.GetExtension(resolvedUrl.ToString()).ToLowerInvariant();
+                bool isCompliant = extension == ".ico" || extension == ".png" || extension == ".svg" || extension == ".gif";
 
-                bool isValid = extension == ".ico" || extension == ".png" || extension == ".svg";
+                Console.WriteLine($"Icon href: {resolvedUrl} - {(isCompliant ? "Compliant" : "Non‑compliant")}");
 
-                Console.WriteLine($"Icon: {resolvedUrl} - {(isValid ? "Valid" : "Invalid")}");
-
-                if (!isValid)
+                // Optional: check that the resource can be fetched successfully.
+                Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(resolvedUrl);
+                Aspose.Html.Net.ResponseMessage response = document.Context.Network.Send(request);
+                if ((int)response.StatusCode >= 400)
                 {
-                    invalidIcons.Add(resolvedUrl.ToString());
+                    Console.WriteLine($"  Failed to load (HTTP {(int)response.StatusCode})");
                 }
-            }
-
-            if (invalidIcons.Count > 0)
-            {
-                Console.WriteLine("\nInvalid favicon links found:");
-                foreach (string url in invalidIcons)
-                {
-                    Console.WriteLine(url);
-                }
-            }
-            else
-            {
-                Console.WriteLine("\nAll favicon links are compliant.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

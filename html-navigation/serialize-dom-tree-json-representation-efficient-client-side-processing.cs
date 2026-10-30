@@ -2,6 +2,9 @@
 
 using System;
 using System.Text.Json.Nodes;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Collections;
 
 class Program
 {
@@ -9,29 +12,35 @@ class Program
     {
         try
         {
-            string html = "<html><body><div>Hello <span>World</span></div></body></html>";
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
+            string htmlContent = "<html><body><div>Hello <span>World</span></div><p>Paragraph</p></body></html>";
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                Aspose.Html.Dom.XPath.IXPathResult result = document.Evaluate("//node()", document, null, Aspose.Html.Dom.XPath.XPathResultType.Any, null);
-                JsonArray nodesArray = new JsonArray();
-
-                for (Aspose.Html.Dom.Node node; (node = result.IterateNext()) != null;)
-                {
-                    JsonObject obj = new JsonObject
-                    {
-                        ["nodeName"] = node.NodeName,
-                        ["textContent"] = node.TextContent
-                    };
-                    nodesArray.Add(obj);
-                }
-
-                string json = nodesArray.ToJsonString();
-                Console.WriteLine(json);
+                Node root = document.Body;
+                JsonObject json = ConvertNode(root);
+                string jsonString = json.ToJsonString();
+                Console.WriteLine(jsonString);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
+    }
+
+    static JsonObject ConvertNode(Node node)
+    {
+        JsonObject obj = new JsonObject();
+        obj["nodeName"] = node.NodeName;
+        obj["textContent"] = node.TextContent ?? "";
+
+        JsonArray childrenArray = new JsonArray();
+        Aspose.Html.Collections.NodeList childNodes = node.ChildNodes;
+        for (int i = 0; i < childNodes.Length; i++)
+        {
+            Node child = childNodes[i];
+            childrenArray.Add(ConvertNode(child));
+        }
+        obj["children"] = childrenArray;
+        return obj;
     }
 }

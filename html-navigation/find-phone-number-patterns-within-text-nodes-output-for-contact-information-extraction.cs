@@ -2,9 +2,6 @@
 
 using System;
 using System.Text.RegularExpressions;
-using Aspose.Html;
-using Aspose.Html.Dom;
-using Aspose.Html.Dom.XPath;
 
 class Program
 {
@@ -12,34 +9,32 @@ class Program
     {
         try
         {
-            string html = "<html><body><p>Contact us at +1 (555) 123-4567 or 555-987-6543.</p><div>Another number: 123.456.7890</div></body></html>";
+            string html = "<html><body><p>Contact us at 123-456-7890 or (555) 123 4567.</p><div>Another number: 987.654.3210</div></body></html>";
+            var document = new Aspose.Html.HTMLDocument(html, "about:blank");
 
-            using (HTMLDocument document = new HTMLDocument(html, "about:blank"))
+            var result = document.Evaluate("//text()", document, null, Aspose.Html.Dom.XPath.XPathResultType.Any, null);
+            var phoneRegex = new Regex(@"\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b");
+
+            bool anyFound = false;
+            for (Aspose.Html.Dom.Node node; (node = result.IterateNext()) != null;)
             {
-                IXPathResult result = document.Evaluate("//text()", document, null, XPathResultType.Any, null);
-                Regex phoneRegex = new Regex(@"\+?\d[\d\-\.\(\) ]{7,}\d");
-                bool anyFound = false;
-
-                for (Node node; (node = result.IterateNext()) != null;)
+                string text = node.TextContent;
+                var matches = phoneRegex.Matches(text);
+                foreach (Match match in matches)
                 {
-                    string text = node.TextContent;
-                    MatchCollection matches = phoneRegex.Matches(text);
-                    foreach (Match match in matches)
-                    {
-                        Console.WriteLine("Phone number found: " + match.Value);
-                        anyFound = true;
-                    }
+                    Console.WriteLine($"Found phone number: {match.Value}");
+                    anyFound = true;
                 }
+            }
 
-                if (!anyFound)
-                {
-                    Console.WriteLine("No phone numbers found.");
-                }
+            if (!anyFound)
+            {
+                Console.WriteLine("No phone numbers found.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

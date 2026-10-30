@@ -1,17 +1,14 @@
 // Detect the language attribute of the HTML tag and set it to “en‑US” if missing.
 
 using System;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello World</p></body></html>";
+            string htmlContent = "<!DOCTYPE html><head><title>Test</title></head><body><p>Hello</p></body></html>";
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
             Aspose.Html.Collections.HTMLCollection elements = document.GetElementsByTagName("html");
@@ -27,11 +24,11 @@ class Program
 
             string outputPath = "output.html";
             document.Save(outputPath);
-            Console.WriteLine("Processed HTML saved to: " + outputPath);
+            Console.WriteLine($"Document saved to {outputPath}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

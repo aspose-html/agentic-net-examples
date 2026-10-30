@@ -8,7 +8,7 @@ class Program
     {
         try
         {
-            string inputPath = "sample.html";
+            string inputPath = "input.html";
             string outputPath = "output.html";
 
             if (!System.IO.File.Exists(inputPath))
@@ -16,15 +16,17 @@ class Program
                 System.IO.File.WriteAllText(inputPath, "<html><body><div></div><p>Text</p><span>   </span></body></html>");
             }
 
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
+            {
+                RemoveEmptyElements(document.DocumentElement);
+                document.Save(outputPath);
+            }
 
-            RemoveEmptyElements(document.DocumentElement);
-
-            document.Save(outputPath);
+            System.Console.WriteLine("Empty elements removed and saved to " + outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 
@@ -34,15 +36,12 @@ class Program
         while (child != null)
         {
             var next = child.NextSibling;
-
-            // Recursively process child nodes first
             RemoveEmptyElements(child);
 
-            // Check if the child is an element and is empty
-            if (child is Aspose.Html.Dom.Element element)
+            if (child.NodeName != "#text" && child.NodeName != "#comment")
             {
-                bool hasNoChildren = element.FirstChild == null;
-                bool hasNoText = string.IsNullOrWhiteSpace(element.TextContent);
+                bool hasNoChildren = child.FirstChild == null;
+                bool hasNoText = string.IsNullOrWhiteSpace(child.TextContent);
                 if (hasNoChildren && hasNoText)
                 {
                     node.RemoveChild(child);

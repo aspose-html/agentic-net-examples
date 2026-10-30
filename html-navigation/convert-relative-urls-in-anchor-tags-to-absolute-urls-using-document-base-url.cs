@@ -4,12 +4,14 @@ using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            string htmlContent = "<html><head><base href=\"https://example.com/subdir/\"/></head><body><a href=\"page.html\">Link</a><a href=\"/root.html\">Root</a></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            string baseUri = "https://example.com/";
+            string htmlContent = "<html><head><base href='https://example.com/'></head><body><a href='page1.html'>Link1</a><a href='/abs/page2.html'>Link2</a><a href='https://other.com/page3.html'>Link3</a></body></html>";
+
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
 
             foreach (Aspose.Html.Dom.Element linkElement in document.Links)
             {
@@ -17,16 +19,16 @@ class Program
                 if (string.IsNullOrEmpty(href))
                     continue;
 
-                var absoluteUrl = new Aspose.Html.Url(href, document.BaseURI);
-                linkElement.SetAttribute("href", absoluteUrl.ToString());
+                Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(href, document.BaseURI);
+                linkElement.SetAttribute("href", resolvedUrl.ToString());
             }
 
             string resultHtml = document.DocumentElement.OuterHTML;
-            Console.WriteLine(resultHtml);
+            System.Console.WriteLine(resultHtml);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

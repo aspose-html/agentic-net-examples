@@ -1,32 +1,26 @@
 // Remove all comment nodes from the DOM to produce a clean HTML output.
 
 using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
             string inputPath = "input.html";
             string outputPath = "output.html";
 
-            if (!File.Exists(inputPath))
+            if (!System.IO.File.Exists(inputPath))
             {
-                string sampleHtml = "<!DOCTYPE html><html><!--Comment--><head><title>Sample</title></head><body><!--Another comment--><p>Hello World</p></body></html>";
-                File.WriteAllText(inputPath, sampleHtml);
+                string sample = "<!DOCTYPE html><html><head><!-- head comment --><title>Test</title></head><body><!-- body comment --><p>Hello World</p><!-- another comment --></body></html>";
+                System.IO.File.WriteAllText(inputPath, sample);
             }
 
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
-
             RemoveComments(document.DocumentElement);
-
             document.Save(outputPath);
-
-            Console.WriteLine("Clean HTML saved to " + outputPath);
+            Console.WriteLine("Comments removed and saved to " + outputPath);
         }
         catch (Exception ex)
         {
@@ -36,11 +30,10 @@ class Program
 
     static void RemoveComments(Aspose.Html.Dom.Node node)
     {
-        var child = node.FirstChild;
+        Aspose.Html.Dom.Node child = node.FirstChild;
         while (child != null)
         {
-            var next = child.NextSibling;
-
+            Aspose.Html.Dom.Node next = child.NextSibling;
             if (child.NodeName == "#comment")
             {
                 node.RemoveChild(child);
@@ -49,7 +42,6 @@ class Program
             {
                 RemoveComments(child);
             }
-
             child = next;
         }
     }
