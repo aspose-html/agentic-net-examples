@@ -5,11 +5,22 @@ using System.IO;
 using System.Diagnostics;
 using System.Text.Json;
 using Aspose.Html;
-using Aspose.Html.Rendering.Pdf;
+using Aspose.Html.Net;
 
-public sealed class Program
+public sealed class LoggingMessageHandler : Aspose.Html.Net.MessageHandler
 {
-    public static void Main()
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    {
+        System.Diagnostics.Stopwatch requestTimer = System.Diagnostics.Stopwatch.StartNew();
+        Next(context);
+        requestTimer.Stop();
+        System.Console.WriteLine("Request: " + context.Request.RequestUri + " | " + requestTimer.ElapsedMilliseconds + " ms");
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
     {
         try
         {
@@ -19,39 +30,46 @@ public sealed class Program
             string jsonPath = "conversion_log.json";
 
             // Ensure sample HTML exists
-            if (!File.Exists(sourcePath))
+            if (!System.IO.File.Exists(sourcePath))
             {
                 string sampleHtml = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-                File.WriteAllText(sourcePath, sampleHtml);
+                System.IO.File.WriteAllText(sourcePath, sampleHtml);
             }
 
-            // Perform conversion and measure duration
-            Stopwatch conversionTimer = Stopwatch.StartNew();
-            using (HTMLDocument document = new HTMLDocument(sourcePath))
-            using (PdfDevice device = new PdfDevice(outputPdfPath))
+            // Configure Aspose.HTML
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            networkService.MessageHandlers.Add(new LoggingMessageHandler());
+
+            // Conversion timer
+            System.Diagnostics.Stopwatch conversionTimer = System.Diagnostics.Stopwatch.StartNew();
+
+            // Load HTML document and render to PDF
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(sourcePath, configuration))
+            using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPdfPath))
             {
                 document.RenderTo(device);
             }
+
             conversionTimer.Stop();
 
-            // Prepare log data
+            // Log conversion parameters to JSON
             var log = new
             {
-                sourcePath = sourcePath,
-                targetFormat = "pdf",
-                durationSeconds = conversionTimer.Elapsed.TotalSeconds
+                SourcePath = System.IO.Path.GetFullPath(sourcePath),
+                TargetFormat = "PDF",
+                DurationSeconds = conversionTimer.Elapsed.TotalSeconds
             };
 
-            // Serialize to JSON and write to file
-            string jsonContent = JsonSerializer.Serialize(log, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(jsonPath, jsonContent);
+            string json = System.Text.Json.JsonSerializer.Serialize(log, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+            System.IO.File.WriteAllText(jsonPath, json);
 
-            Console.WriteLine("Conversion completed in " + conversionTimer.Elapsed.TotalSeconds.ToString("F2") + " seconds.");
-            Console.WriteLine("Log written to " + jsonPath);
+            System.Console.WriteLine("Conversion completed in " + conversionTimer.Elapsed.TotalSeconds.ToString("F2") + " seconds.");
+            System.Console.WriteLine("Log written to " + jsonPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.Error.WriteLine("Error: " + ex.Message);
         }
     }
 }

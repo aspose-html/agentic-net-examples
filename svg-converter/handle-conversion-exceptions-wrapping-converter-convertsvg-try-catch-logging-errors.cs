@@ -3,6 +3,9 @@
 using System;
 using System.IO;
 using System.Threading;
+using Aspose.Html.Converters;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
 
 class Program
 {
@@ -10,14 +13,26 @@ class Program
     {
         try
         {
-            ConvertSvgExample();
+            // Sample MHTML to PDF conversion with retry
+            string mhtmlInput = "sample.mhtml";
+            string pdfOutput = "output.pdf";
+            // Ensure sample MHTML file exists (create minimal placeholder if needed)
+            if (!File.Exists(mhtmlInput))
+            {
+                File.WriteAllText(mhtmlInput, "<!DOCTYPE html><html><body><p>Sample MHTML content</p></body></html>");
+            }
+            ConvertMhtmlToPdfWithRetry(mhtmlInput, pdfOutput, 3);
+            Console.WriteLine($"MHTML to PDF conversion succeeded: {pdfOutput}");
 
-            // Prepare a minimal MHTML file
-            string mhtmlPath = "sample.mhtml";
-            string mhtmlContent = "From: <Saved by WebKit>\nSubject: \nDate: \nMIME-Version: 1.0\nContent-Type: multipart/related; boundary=\"----=_NextPart_000_0000\"\n\n------=_NextPart_000_0000\nContent-Type: text/html; charset=\"utf-8\"\nContent-Transfer-Encoding: quoted-printable\n\n<html><body><h1>Hello MHTML</h1></body></html>\n------=_NextPart_000_0000--";
-            File.WriteAllText(mhtmlPath, mhtmlContent);
-
-            ConvertMhtmlToPdfWithRetry(mhtmlPath, "output_mhtml.pdf", 3);
+            // Sample SVG to PNG conversion with exception handling
+            string svgInput = "sample.svg";
+            string pngOutput = "output.png";
+            // Ensure sample SVG file exists
+            if (!File.Exists(svgInput))
+            {
+                File.WriteAllText(svgInput, "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><rect width=\"100\" height=\"100\" fill=\"red\"/></svg>");
+            }
+            ConvertSvgToPng(svgInput, pngOutput);
         }
         catch (Exception ex)
         {
@@ -25,54 +40,49 @@ class Program
         }
     }
 
-    static void ConvertSvgExample()
-    {
-        string svgContent = "<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='red'/></svg>";
-        string baseUri = "about:blank";
-        string outputPath = "output_svg.pdf";
-        var options = new Aspose.Html.Saving.PdfSaveOptions();
-
-        try
-        {
-            Aspose.Html.Converters.Converter.ConvertSVG(svgContent, baseUri, options, outputPath);
-            Console.WriteLine("SVG converted to PDF successfully.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"SVG conversion failed: {ex.Message}");
-        }
-    }
-
     static void ConvertMhtmlToPdfWithRetry(string inputPath, string outputPath, int maxAttempts)
     {
         Exception lastException = null;
-
         for (int attempt = 1; attempt <= maxAttempts; attempt++)
         {
             try
             {
-                using (FileStream stream = File.OpenRead(inputPath))
+                using (Stream stream = File.OpenRead(inputPath))
                 {
-                    var options = new Aspose.Html.Saving.PdfSaveOptions();
+                    PdfSaveOptions options = new PdfSaveOptions();
                     Aspose.Html.Converters.Converter.ConvertMHTML(stream, options, outputPath);
-                    Console.WriteLine($"MHTML conversion succeeded on attempt {attempt}.");
-                    return;
                 }
+                // Success, exit the method
+                return;
             }
-            catch (IOException ex)
+            catch (IOException ioEx)
             {
-                lastException = ex;
-                Console.WriteLine($"Attempt {attempt} failed with I/O error: {ex.Message}");
+                lastException = ioEx;
+                Console.WriteLine($"Attempt {attempt} failed with I/O error: {ioEx.Message}");
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException uaEx)
             {
-                lastException = ex;
-                Console.WriteLine($"Attempt {attempt} failed with access error: {ex.Message}");
+                lastException = uaEx;
+                Console.WriteLine($"Attempt {attempt} failed with access error: {uaEx.Message}");
             }
-
+            // Wait before next retry
             Thread.Sleep(1000);
         }
+        // All attempts failed
+        throw lastException ?? new Exception("Conversion failed after retries.");
+    }
 
-        throw lastException ?? new Exception("MHTML conversion failed after all attempts.");
+    static void ConvertSvgToPng(string svgPath, string pngPath)
+    {
+        try
+        {
+            ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Png);
+            Aspose.Html.Converters.Converter.ConvertSVG(svgPath, options, pngPath);
+            Console.WriteLine($"SVG to PNG conversion succeeded: {pngPath}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error converting SVG to PNG: {ex.Message}");
+        }
     }
 }

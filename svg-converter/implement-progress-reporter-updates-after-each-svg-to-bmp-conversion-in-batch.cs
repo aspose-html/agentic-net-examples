@@ -2,10 +2,6 @@
 
 using System;
 using System.IO;
-using System.Drawing;
-using Aspose.Html.Dom.Svg;
-using Aspose.Html.Saving;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -13,23 +9,23 @@ class Program
     {
         try
         {
-            string inputFolder = "SvgInput";
-            string outputFolder = "BmpOutput";
+            string inputFolder = "InputSvgs";
+            string outputFolder = "OutputBmps";
 
-            if (!Directory.Exists(outputFolder))
-                Directory.CreateDirectory(outputFolder);
             if (!Directory.Exists(inputFolder))
                 Directory.CreateDirectory(inputFolder);
+            if (!Directory.Exists(outputFolder))
+                Directory.CreateDirectory(outputFolder);
 
-            // Create a sample SVG file if none exist
-            string[] existingSvgFiles = Directory.GetFiles(inputFolder, "*.svg");
-            if (existingSvgFiles.Length == 0)
+            // Ensure at least one SVG file exists for the demo
+            string[] existingSvgs = Directory.GetFiles(inputFolder, "*.svg");
+            if (existingSvgs.Length == 0)
             {
                 string sampleSvgPath = Path.Combine(inputFolder, "sample.svg");
-                string svgContent = @"<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'>
-  <rect width='100' height='100' fill='red' />
-</svg>";
-                File.WriteAllText(sampleSvgPath, svgContent);
+                File.WriteAllText(sampleSvgPath,
+@"<svg width=""100"" height=""100"" xmlns=""http://www.w3.org/2000/svg"">
+  <circle cx=""50"" cy=""50"" r=""40"" stroke=""green"" stroke-width=""4"" fill=""yellow"" />
+</svg>");
             }
 
             string[] svgFiles = Directory.GetFiles(inputFolder, "*.svg");
@@ -38,14 +34,15 @@ class Program
             for (int i = 0; i < total; i++)
             {
                 string svgPath = svgFiles[i];
-                string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(svgPath) + ".bmp");
+                string outputPath = Path.Combine(outputFolder,
+                    Path.GetFileNameWithoutExtension(svgPath) + ".bmp");
 
-                using (SVGDocument document = new SVGDocument(svgPath))
+                using (Aspose.Html.Dom.Svg.SVGDocument document = new Aspose.Html.Dom.Svg.SVGDocument(svgPath))
                 {
-                    ImageSaveOptions options = new ImageSaveOptions();
+                    Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions();
                     options.HorizontalResolution = 96;
                     options.VerticalResolution = 96;
-                    options.BackgroundColor = Color.White;
+                    options.BackgroundColor = System.Drawing.Color.White;
                     options.UseAntialiasing = true;
 
                     Aspose.Html.Converters.Converter.ConvertSVG(document, options, outputPath);
@@ -57,7 +54,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("An error occurred: " + ex.Message);
         }
     }
 }

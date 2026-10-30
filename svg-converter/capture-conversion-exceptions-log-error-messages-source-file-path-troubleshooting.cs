@@ -3,6 +3,10 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Threading;
+using Aspose.Html.Converters;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
 
 class Program
 {
@@ -17,41 +21,46 @@ class Program
             Directory.CreateDirectory(outputFolder);
 
             // Create a minimal sample HTML file if none exist
-            string samplePath = Path.Combine(inputFolder, "sample.html");
-            if (!File.Exists(samplePath))
+            string sampleFile = Path.Combine(inputFolder, "sample.html");
+            if (!File.Exists(sampleFile))
             {
-                File.WriteAllText(samplePath, "<html><body><h1>Hello World</h1></body></html>");
+                File.WriteAllText(sampleFile, "<!DOCTYPE html><html><body><h1>Hello, Aspose!</h1></body></html>");
             }
 
-            string[] htmlFiles = Directory.GetFiles(inputFolder, "*.html");
             HashSet<string> processedFiles = new HashSet<string>();
 
-            foreach (string htmlPath in htmlFiles)
+            for (int iteration = 0; iteration < 5; iteration++)
             {
-                if (processedFiles.Contains(htmlPath))
-                    continue;
-
-                try
+                string[] htmlFiles = Directory.GetFiles(inputFolder, "*.html");
+                foreach (string htmlPath in htmlFiles)
                 {
-                    using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
+                    if (processedFiles.Contains(htmlPath))
+                        continue;
+
+                    try
                     {
-                        Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
-                        string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".jpeg");
-                        Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
-                        Console.WriteLine($"Converted: {htmlPath} -> {outputPath}");
+                        using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
+                        {
+                            ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
+                            string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".jpg");
+                            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                            Console.WriteLine($"Converted '{htmlPath}' to '{outputPath}'.");
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error converting file '{htmlPath}': {ex.Message}");
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error converting '{htmlPath}': {ex.Message}");
+                    }
+
+                    processedFiles.Add(htmlPath);
                 }
 
-                processedFiles.Add(htmlPath);
+                Thread.Sleep(200);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Fatal error: {ex.Message}");
+            Console.WriteLine($"Unexpected error: {ex.Message}");
         }
     }
 }
