@@ -4,27 +4,56 @@ using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><link rel=\"canonical\" href=\"https://example.com/page.html\" /></head><body><p>Hello World</p></body></html>";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Sample HTML content containing a canonical link
+            string htmlContent = @"<!DOCTYPE html>
+<html>
+<head>
+    <link rel=""canonical"" href=""https://example.com/page"" />
+    <title>Sample Page</title>
+</head>
+<body>
+    <p>Hello, world!</p>
+</body>
+</html>";
+
+            // Load the HTML document from the string (using a dummy base URI)
+            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+            // Retrieve all <link> elements
             Aspose.Html.Collections.HTMLCollection linkElements = document.GetElementsByTagName("link");
+
+            string canonicalHref = null;
+
             for (int i = 0; i < linkElements.Length; i++)
             {
-                Aspose.Html.Dom.Element link = linkElements[i];
+                Aspose.Html.HTMLElement link = linkElements[i] as Aspose.Html.HTMLElement;
+                if (link == null)
+                    continue;
+
                 string rel = link.GetAttribute("rel");
-                if (!string.IsNullOrEmpty(rel) && rel.Equals("canonical", StringComparison.OrdinalIgnoreCase))
+                if (rel != null && rel.Equals("canonical", StringComparison.OrdinalIgnoreCase))
                 {
-                    string href = link.GetAttribute("href");
-                    Console.WriteLine($"Canonical href: {href}");
+                    canonicalHref = link.GetAttribute("href");
+                    break;
                 }
+            }
+
+            if (!string.IsNullOrEmpty(canonicalHref))
+            {
+                Console.WriteLine("Canonical href: " + canonicalHref);
+            }
+            else
+            {
+                Console.WriteLine("No canonical link found.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

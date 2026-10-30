@@ -1,55 +1,40 @@
 // Extract all meta viewport values and verify they contain width=device‑width for responsive design.
 
 using System;
-using Aspose.Html;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            // Sample HTML content with meta viewport tags
-            string htmlContent = @"
-                <html>
-                    <head>
-                        <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
-                        <meta name=""viewport"" content=""height=800"">
-                        <meta charset=""utf-8"">
-                    </head>
-                    <body>
-                        <p>Hello, world!</p>
-                    </body>
-                </html>";
+            string html = "<!DOCTYPE html><html><head>" +
+                          "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" +
+                          "<meta name=\"description\" content=\"test\">" +
+                          "<meta name=\"viewport\" content=\"initial-scale=1\">" +
+                          "</head><body></body></html>";
 
-            // Load HTML document from string (inline content)
-            using (HTMLDocument document = new HTMLDocument(htmlContent, "about:blank"))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
             {
-                // Get all <meta> elements
-                Aspose.Html.Collections.HTMLCollection elements = document.GetElementsByTagName("meta");
+                Aspose.Html.Collections.HTMLCollection metas = document.GetElementsByTagName("meta");
+                bool anyViewport = false;
 
-                bool viewportFound = false;
-
-                for (int i = 0; i < elements.Length; i++)
+                for (int i = 0; i < metas.Length; i++)
                 {
-                    Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)elements[i];
-                    string nameAttr = element.GetAttribute("name");
-                    if (!string.IsNullOrEmpty(nameAttr) && 
-                        string.Equals(nameAttr, "viewport", StringComparison.OrdinalIgnoreCase))
+                    Aspose.Html.HTMLElement meta = (Aspose.Html.HTMLElement)metas[i];
+                    string name = meta.GetAttribute("name");
+                    if (!string.IsNullOrEmpty(name) && name.Equals("viewport", StringComparison.OrdinalIgnoreCase))
                     {
-                        viewportFound = true;
-                        string contentAttr = element.GetAttribute("content") ?? string.Empty;
-                        bool hasWidthDeviceWidth = contentAttr
-                            .IndexOf("width=device-width", StringComparison.OrdinalIgnoreCase) >= 0;
-
-                        Console.WriteLine($"Viewport meta tag content: \"{contentAttr}\"");
-                        Console.WriteLine($"Contains width=device-width: {hasWidthDeviceWidth}");
+                        anyViewport = true;
+                        string content = meta.GetAttribute("content");
+                        bool hasWidth = !string.IsNullOrEmpty(content) && content.Contains("width=device-width");
+                        Console.WriteLine($"Viewport meta content: \"{content}\" - Contains width=device-width: {hasWidth}");
                     }
                 }
 
-                if (!viewportFound)
+                if (!anyViewport)
                 {
-                    Console.WriteLine("No meta viewport tags were found in the document.");
+                    Console.WriteLine("No viewport meta tags found.");
                 }
             }
         }

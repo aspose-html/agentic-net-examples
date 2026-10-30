@@ -8,49 +8,32 @@ class Program
     {
         try
         {
-            // Sample HTML with a base tag and relative image sources
-            string htmlContent = @"<!DOCTYPE html>
-<html>
-<head>
-    <base href='https://example.com/assets/' />
-</head>
-<body>
-    <h1>Sample Page</h1>
-    <img src='images/pic1.jpg' alt='Picture 1' />
-    <img src='https://external.com/img.png' alt='External Image' />
-    <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUg...' alt='Embedded Image' />
-</body>
-</html>";
+            // Sample HTML with a base tag and relative image URLs
+            string htmlContent = "<html><head><base href='https://example.com/subdir/'></head><body>" +
+                                 "<img src='images/pic.png'/>" +
+                                 "<img src='https://already.com/img.jpg'/>" +
+                                 "</body></html>";
 
-            // Load the document (inline content) with a placeholder base URI
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Load the document with a base URI (required for relative URL resolution)
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "https://example.com/subdir/");
 
             // Get all <img> elements
             Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
 
-            // Iterate through the collection
-            foreach (Aspose.Html.Dom.Element imageElement in images)
+            // Convert each image's src to an absolute URL
+            for (int i = 0; i < images.Length; i++)
             {
-                string src = imageElement.GetAttribute("src");
-                if (string.IsNullOrEmpty(src))
-                    continue;
-
-                // Skip already absolute URLs and data URIs
-                if (src.StartsWith("http", StringComparison.OrdinalIgnoreCase) ||
-                    src.StartsWith("data:", StringComparison.OrdinalIgnoreCase))
-                {
-                    continue;
-                }
-
-                // Resolve relative URL against the document's base URI
-                Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(src, document.BaseURI);
-                imageElement.SetAttribute("src", resolvedUrl.ToString());
+                Aspose.Html.Dom.Element imgElement = images[i];
+                string src = imgElement.GetAttribute("src");
+                Aspose.Html.Url absoluteUrl = new Aspose.Html.Url(src, document.BaseURI);
+                imgElement.SetAttribute("src", absoluteUrl.ToString());
             }
 
-            // Save the modified document
+            // Save the modified HTML to a file
             string outputPath = "output.html";
             document.Save(outputPath);
-            Console.WriteLine("Document saved to: " + outputPath);
+
+            Console.WriteLine("Processed HTML saved to: " + outputPath);
         }
         catch (Exception ex)
         {

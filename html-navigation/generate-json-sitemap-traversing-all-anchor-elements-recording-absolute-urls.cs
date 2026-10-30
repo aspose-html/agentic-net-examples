@@ -4,9 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
-using Aspose.Html.Net;
 
 class Program
 {
@@ -14,27 +11,35 @@ class Program
     {
         try
         {
-            string html = "<html><body><a href=\"page1.html\">Page 1</a><a href=\"https://example.com/page2\">Page 2</a></body></html>";
-            using (HTMLDocument document = new HTMLDocument(html, "http://localhost/"))
+            string htmlContent = "<html><body>" +
+                                 "<a href=\"https://example.com/page1\">Page1</a>" +
+                                 "<a href=\"/page2\">Page2</a>" +
+                                 "<a href=\"page3.html\">Page3</a>" +
+                                 "</body></html>";
+
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                HTMLCollection anchors = document.GetElementsByTagName("a");
-                List<string> urlList = new List<string>();
-                for (int i = 0; i < anchors.Length; i++)
+                Aspose.Html.Collections.HTMLCollection anchorCollection = document.GetElementsByTagName("a");
+                List<string> absoluteUrls = new List<string>();
+
+                for (int i = 0; i < anchorCollection.Length; i++)
                 {
-                    Element link = anchors[i] as Element;
-                    if (link == null) continue;
-                    string href = link.GetAttribute("href");
-                    if (string.IsNullOrEmpty(href)) continue;
-                    Url absoluteUrl = new Url(href, document.BaseURI);
-                    urlList.Add(absoluteUrl.ToString());
+                    Aspose.Html.Dom.Element anchor = anchorCollection[i];
+                    string href = anchor.GetAttribute("href");
+                    if (string.IsNullOrEmpty(href))
+                        continue;
+
+                    Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(href, document.BaseURI);
+                    absoluteUrls.Add(resolvedUrl.ToString());
                 }
-                string json = JsonSerializer.Serialize(urlList, new JsonSerializerOptions { WriteIndented = true });
-                Console.WriteLine(json);
+
+                string jsonSitemap = JsonSerializer.Serialize(absoluteUrls, new JsonSerializerOptions { WriteIndented = true });
+                Console.WriteLine(jsonSitemap);
             }
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

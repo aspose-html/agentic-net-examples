@@ -1,7 +1,6 @@
 // Remove duplicate ID attributes by appending numeric suffixes to ensure uniqueness throughout the document.
 
 using System;
-using System.Collections.Generic;
 
 class Program
 {
@@ -9,35 +8,65 @@ class Program
     {
         try
         {
-            string htmlContent = "<html><body><div id='item'>First</div><p id='item'>Second</p><span id='unique'>Third</span></body></html>";
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            Aspose.Html.Collections.HTMLCollection allElements = document.GetElementsByTagName("*");
-            var seenIds = new HashSet<string>();
-            for (int i = 0; i < allElements.Length; i++)
+            // Sample HTML with duplicate IDs
+            string htmlContent = "<html><body>" +
+                                 "<div id=\"item\">A</div>" +
+                                 "<p id=\"item\">B</p>" +
+                                 "<span id=\"unique\">C</span>" +
+                                 "<div id=\"item\">D</div>" +
+                                 "</body></html>";
+
+            // Load HTML document from string
+            Aspose.Html.HTMLDocument doc = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+
+            // Select all elements that have an id attribute
+            Aspose.Html.Collections.NodeList elementsWithId = doc.QuerySelectorAll("[id]");
+
+            // Track seen IDs and their next suffix
+            System.Collections.Generic.Dictionary<string, int> idCounts = new System.Collections.Generic.Dictionary<string, int>(System.StringComparer.Ordinal);
+
+            for (int i = 0; i < elementsWithId.Length; i++)
             {
-                var element = (Aspose.Html.HTMLElement)allElements[i];
-                string id = element.GetAttribute("id");
-                if (string.IsNullOrEmpty(id))
+                Aspose.Html.Dom.Element element = elementsWithId[i] as Aspose.Html.Dom.Element;
+                if (element == null)
                     continue;
-                if (!seenIds.Add(id))
+
+                string currentId = element.GetAttribute("id");
+                if (string.IsNullOrEmpty(currentId))
+                    continue;
+
+                if (!idCounts.ContainsKey(currentId))
                 {
-                    int suffix = 1;
+                    // First occurrence of this ID
+                    idCounts[currentId] = 1;
+                }
+                else
+                {
+                    // Duplicate ID found, generate a unique one
+                    int suffix = idCounts[currentId];
                     string newId;
                     do
                     {
-                        newId = id + "_" + suffix;
+                        newId = currentId + "_" + suffix;
                         suffix++;
-                    } while (!seenIds.Add(newId));
+                    } while (idCounts.ContainsKey(newId));
+
                     element.SetAttribute("id", newId);
+                    // Update counters
+                    idCounts[currentId] = suffix;
+                    idCounts[newId] = 1;
                 }
             }
+
+            // Save the modified document
             string outputPath = "output.html";
-            document.Save(outputPath);
-            Console.WriteLine("Processed document saved to " + outputPath);
+            doc.Save(outputPath);
+
+            System.Console.WriteLine("Document saved to: " + outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

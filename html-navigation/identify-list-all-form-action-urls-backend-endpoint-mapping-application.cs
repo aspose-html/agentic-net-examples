@@ -8,24 +8,31 @@ class Program
     {
         try
         {
-            string html = @"<html><body>" +
-                          "<form action='https://example.com/api/submit1' method='post'></form>" +
-                          "<form action='/local/submit2'></form>" +
-                          "<form></form>" +
-                          "</body></html>";
+            string htmlContent = "<html><body>" +
+                                 "<form action='https://example.com/submit1'></form>" +
+                                 "<form action='https://example.com/submit2'></form>" +
+                                 "<form></form>" + // form without action
+                                 "</body></html>";
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
+            // Load HTML from string with a dummy base URI
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                Aspose.Html.Collections.HTMLCollection forms = document.Forms;
+                // Get all <form> elements
+                Aspose.Html.Collections.HTMLCollection forms = document.GetElementsByTagName("form");
+
                 for (int i = 0; i < forms.Length; i++)
                 {
-                    Aspose.Html.HTMLFormElement form = forms[i] as Aspose.Html.HTMLFormElement;
-                    if (form != null)
+                    Aspose.Html.HTMLElement formElement = forms[i] as Aspose.Html.HTMLElement;
+                    if (formElement != null)
                     {
-                        string action = form.Action;
-                        if (!string.IsNullOrEmpty(action))
+                        string actionUrl = formElement.GetAttribute("action");
+                        if (!string.IsNullOrEmpty(actionUrl))
                         {
-                            Console.WriteLine(action);
+                            Console.WriteLine(actionUrl);
+                        }
+                        else
+                        {
+                            Console.WriteLine("[No action attribute]");
                         }
                     }
                 }

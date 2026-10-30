@@ -14,7 +14,7 @@ class Program
             string htmlContent = "<html><body><h1>Title</h1><p>First line.<br/>Second line.</p></body></html>";
             string baseUri = "about:blank";
 
-            MarkdownSaveOptions options = new MarkdownSaveOptions();
+            TextSaveOptions options = new TextSaveOptions();
 
             string tempPath = Path.GetTempFileName();
 

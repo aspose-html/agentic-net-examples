@@ -2,7 +2,6 @@
 
 using System;
 using System.Text;
-using System.Text.RegularExpressions;
 using Aspose.Html;
 
 class Program
@@ -12,19 +11,19 @@ class Program
         try
         {
             // Sample HTML content
-            string htmlContent = "<html><head><title>Sample</title></head><body><h1>Hello World</h1><p>This is a paragraph.</p></body></html>";
+            string htmlContent = "<html><head><title>Sample</title></head><body><h1>Hello</h1><p>World</p></body></html>";
 
-            // Load HTML document using two‑argument constructor (content, baseUri)
+            // Load HTML content into Aspose.HTML document
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                // Get the outer HTML of the document
+                // Get the raw HTML from the document
                 string rawHtml = document.DocumentElement.OuterHTML;
 
-                // Pretty‑print with two‑space indentation
-                string formattedHtml = PrettyPrintHtml(rawHtml);
+                // Pretty‑print the HTML with two‑space indentation
+                string prettyHtml = PrettyPrintHtml(rawHtml);
 
                 // Output the formatted HTML
-                Console.WriteLine(formattedHtml);
+                Console.WriteLine(prettyHtml);
             }
         }
         catch (Exception ex)
@@ -37,48 +36,61 @@ class Program
     {
         var sb = new StringBuilder();
         int indent = 0;
-        string[] tokens = Regex.Split(html, "(<[^>]+>)");
-
-        foreach (string token in tokens)
+        int i = 0;
+        while (i < html.Length)
         {
-            if (string.IsNullOrWhiteSpace(token))
-                continue;
-
-            if (token.StartsWith("<"))
+            if (html[i] == '<')
             {
-                if (token.StartsWith("</"))
+                // Find the end of the tag
+                int tagEnd = html.IndexOf('>', i);
+                if (tagEnd == -1) break;
+
+                string tag = html.Substring(i, tagEnd - i + 1);
+                bool isClosingTag = tag.StartsWith("</");
+                bool isSelfClosing = tag.EndsWith("/>") || tag.StartsWith("<!") || tag.StartsWith("<?");
+
+                if (isClosingTag)
                 {
-                    indent = Math.Max(indent - 1, 0);
-                    sb.AppendLine();
-                    sb.Append(new string(' ', indent * 2));
-                    sb.Append(token);
+                    indent = Math.Max(indent - 2, 0);
+                    AppendNewLineAndIndent(sb, indent);
+                    sb.Append(tag);
                 }
-                else if (token.EndsWith("/>"))
+                else if (isSelfClosing)
                 {
-                    sb.AppendLine();
-                    sb.Append(new string(' ', indent * 2));
-                    sb.Append(token);
+                    AppendNewLineAndIndent(sb, indent);
+                    sb.Append(tag);
                 }
                 else
                 {
-                    sb.AppendLine();
-                    sb.Append(new string(' ', indent * 2));
-                    sb.Append(token);
-                    indent++;
+                    AppendNewLineAndIndent(sb, indent);
+                    sb.Append(tag);
+                    indent += 2;
                 }
+
+                i = tagEnd + 1;
             }
             else
             {
-                string text = token.Trim();
+                // Text content
+                int textStart = i;
+                while (i < html.Length && html[i] != '<')
+                    i++;
+
+                string text = html.Substring(textStart, i - textStart).Trim();
                 if (!string.IsNullOrEmpty(text))
                 {
-                    sb.AppendLine();
-                    sb.Append(new string(' ', indent * 2));
+                    AppendNewLineAndIndent(sb, indent);
                     sb.Append(text);
                 }
             }
         }
 
-        return sb.ToString().Trim();
+        return sb.ToString();
+    }
+
+    static void AppendNewLineAndIndent(StringBuilder sb, int indent)
+    {
+        sb.AppendLine();
+        sb.Append(new string(' ', indent));
     }
 }

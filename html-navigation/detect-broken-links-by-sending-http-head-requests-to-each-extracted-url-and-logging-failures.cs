@@ -2,6 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Net;
 
 class Program
 {
@@ -9,61 +12,46 @@ class Program
     {
         try
         {
-            // Sample HTML content with links
             string htmlContent = "<html><body>" +
                                  "<a href='https://example.com'>Valid Link</a>" +
-                                 "<a href='https://nonexistent.example/404'>Broken Link</a>" +
+                                 "<a href='https://nonexistent.example.invalid'>Broken Link</a>" +
                                  "</body></html>";
 
-            // Load HTML document from string (using a dummy base URI)
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
+            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
             List<string> brokenLinks = new List<string>();
 
-            foreach (Aspose.Html.Dom.Element linkElement in document.Links)
+            foreach (Element linkElement in document.Links)
             {
                 string href = linkElement.GetAttribute("href");
                 if (string.IsNullOrEmpty(href))
                     continue;
 
-                // Resolve relative URLs against the document's base URI
-                string absoluteUrl;
-                try
-                {
-                    absoluteUrl = new Uri(new Uri(document.BaseURI), href).AbsoluteUri;
-                }
-                catch
-                {
-                    // Skip malformed URLs
-                    continue;
-                }
+                Url resolvedUrl = new Url(href, document.BaseURI);
+                RequestMessage request = new RequestMessage(resolvedUrl);
+                ResponseMessage response = document.Context.Network.Send(request);
 
-                // Send HTTP HEAD request
-                Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(absoluteUrl);
-                var response = document.Context.Network.Send(request);
-
-                // Consider status codes 400 and above as failures
                 if ((int)response.StatusCode >= 400)
                 {
-                    brokenLinks.Add(absoluteUrl);
+                    brokenLinks.Add(resolvedUrl.ToString());
                 }
-            }
-
-            // Log results
-            Console.WriteLine("Broken links detected:");
-            foreach (string url in brokenLinks)
-            {
-                Console.WriteLine(url);
             }
 
             if (brokenLinks.Count == 0)
             {
                 Console.WriteLine("No broken links found.");
             }
+            else
+            {
+                Console.WriteLine("Broken links detected:");
+                foreach (string url in brokenLinks)
+                {
+                    Console.WriteLine(url);
+                }
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

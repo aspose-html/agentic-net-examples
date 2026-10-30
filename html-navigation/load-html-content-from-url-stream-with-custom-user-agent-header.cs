@@ -1,7 +1,10 @@
 // Load HTML content from a URL stream while specifying a custom user‑agent header for the request.
 
 using System;
-using System.Net;
+using System.Net.Http;
+using Aspose.Html;
+using Aspose.Html.Collections;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -10,15 +13,24 @@ class Program
         try
         {
             string url = "https://example.com";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.UserAgent = "MyCustomUserAgent/1.0";
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("MyCustomUserAgent/1.0");
+            string html = httpClient.GetStringAsync(url).Result;
 
-            using (WebResponse response = request.GetResponse())
-            using (System.IO.Stream stream = response.GetResponseStream())
+            var document = new Aspose.Html.HTMLDocument(html, url);
+
+            HTMLCollection titleCollection = document.GetElementsByTagName("title");
+            string titleText = "";
+            if (titleCollection.Length > 0)
             {
-                var document = new Aspose.Html.HTMLDocument(stream, url);
-                Console.WriteLine("HTML loaded successfully. Title: " + document.Title);
+                var titleElement = titleCollection[0] as Aspose.Html.HTMLElement;
+                if (titleElement != null)
+                {
+                    titleText = titleElement.InnerHTML;
+                }
             }
+
+            Console.WriteLine("Page title: " + titleText);
         }
         catch (Exception ex)
         {

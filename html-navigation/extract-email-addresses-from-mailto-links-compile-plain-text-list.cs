@@ -3,26 +3,35 @@
 using System;
 using System.Collections.Generic;
 using Aspose.Html;
+using Aspose.Html.Collections;
 using Aspose.Html.Dom;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string htmlContent = "<html><body>" +
-                                 "<a href=\"mailto:john@example.com\">John</a> " +
-                                 "<a href=\"mailto:jane.doe@example.org?subject=Hello\">Jane</a> " +
-                                 "<a href=\"https://example.com\">Link</a>" +
-                                 "</body></html>";
+            // Sample HTML content with mailto links
+            string htmlContent = @"
+                <html>
+                    <body>
+                        <a href=""mailto:alice@example.com"">Contact Alice</a>
+                        <a href=""mailto:bob@example.org"">Contact Bob</a>
+                        <a href=""https://example.com"">Visit Site</a>
+                        <a href=""mailto:carol@example.net"">Contact Carol</a>
+                    </body>
+                </html>";
 
-            // Load HTML from string using two-argument constructor
-            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+            // Load HTML document from inline content
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
+            // Collection to store extracted email addresses
             List<string> emailList = new List<string>();
 
-            foreach (Element linkElement in document.Links)
+            // Iterate over all link elements in the document
+            HTMLCollection links = document.Links;
+            foreach (Element linkElement in links)
             {
                 string href = linkElement.GetAttribute("href");
                 if (string.IsNullOrEmpty(href))
@@ -30,17 +39,15 @@ class Program
 
                 if (href.StartsWith("mailto:", StringComparison.OrdinalIgnoreCase))
                 {
-                    string emailPart = href.Substring(7);
-                    int queryIndex = emailPart.IndexOf('?');
-                    if (queryIndex >= 0)
-                        emailPart = emailPart.Substring(0, queryIndex);
-                    emailPart = emailPart.Trim();
-
-                    if (!string.IsNullOrEmpty(emailPart) && !emailList.Contains(emailPart))
-                        emailList.Add(emailPart);
+                    string email = href.Substring("mailto:".Length);
+                    if (!string.IsNullOrEmpty(email) && !emailList.Contains(email))
+                    {
+                        emailList.Add(email);
+                    }
                 }
             }
 
+            // Output the extracted email addresses as a plain‑text list
             Console.WriteLine("Extracted email addresses:");
             foreach (string email in emailList)
             {

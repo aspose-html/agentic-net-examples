@@ -2,9 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using Aspose.Html;
-using Aspose.Html.Collections;
-using Aspose.Html.Dom;
 
 class Program
 {
@@ -12,70 +9,52 @@ class Program
     {
         try
         {
-            // Sample HTML content
-            string htmlContent = @"
-                <html>
-                    <body>
-                        <a href='files/report.pdf'>Report</a>
-                        <a href='https://example.com/docs/manual.docx'>Manual</a>
-                        <a href='images/photo.jpg'>Photo</a>
-                        <a href='https://example.com/page.html'>Home</a>
-                        <a href='/downloads/archive.zip'>Archive</a>
-                    </body>
-                </html>";
+            string html = @"<html><body>" +
+                          "<a href='https://example.com/file.pdf'>PDF</a>" +
+                          "<a href='https://example.com/image.png'>Image</a>" +
+                          "<a href='https://example.com/page.html'>Page</a>" +
+                          "<a href='files/document.docx'>Doc</a>" +
+                          "</body></html>";
 
-            // Load HTML document from string with a base URI
-            using Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-
-            // Collection to store downloadable links
-            List<string> downloadableLinks = new List<string>();
-
-            // Common file extensions for downloadable content
-            string[] fileExtensions = new string[]
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, "about:blank"))
             {
-                ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".zip", ".rar",
-                ".txt", ".csv", ".png", ".jpg", ".jpeg", ".gif",
-                ".mp3", ".mp4", ".avi", ".mov"
-            };
-
-            // Get all anchor elements
-            HTMLCollection anchors = document.GetElementsByTagName("a");
-
-            for (int i = 0; i < anchors.Length; i++)
-            {
-                Element anchor = anchors[i] as Element;
-                if (anchor == null)
-                    continue;
-
-                string href = anchor.GetAttribute("href");
-                if (string.IsNullOrEmpty(href))
-                    continue;
-
-                // Resolve relative URLs against the document's base URI
-                Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(href, document.BaseURI);
-                string urlString = resolvedUrl.ToString();
-
-                // Check if the URL ends with any of the specified file extensions
-                foreach (string ext in fileExtensions)
+                List<string> downloadableLinks = new List<string>();
+                string[] extensions = new string[]
                 {
-                    if (urlString.EndsWith(ext, StringComparison.OrdinalIgnoreCase))
+                    ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".zip", ".rar",
+                    ".png", ".jpg", ".jpeg", ".gif", ".txt", ".csv",
+                    ".mp3", ".mp4", ".avi", ".mov"
+                };
+
+                foreach (Aspose.Html.Dom.Element linkElement in document.Links)
+                {
+                    string href = linkElement.GetAttribute("href");
+                    if (string.IsNullOrEmpty(href))
+                        continue;
+
+                    Aspose.Html.Url resolvedUrl = new Aspose.Html.Url(href, document.BaseURI);
+                    string lowerHref = resolvedUrl.ToString().ToLowerInvariant();
+
+                    foreach (string ext in extensions)
                     {
-                        downloadableLinks.Add(urlString);
-                        break;
+                        if (lowerHref.EndsWith(ext))
+                        {
+                            downloadableLinks.Add(resolvedUrl.ToString());
+                            break;
+                        }
                     }
                 }
-            }
 
-            // Output the results
-            Console.WriteLine("Downloadable file links found:");
-            foreach (string link in downloadableLinks)
-            {
-                Console.WriteLine(link);
+                Console.WriteLine("Downloadable file links:");
+                foreach (string link in downloadableLinks)
+                {
+                    Console.WriteLine(link);
+                }
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

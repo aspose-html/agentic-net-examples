@@ -1,8 +1,10 @@
 // Wrap each paragraph element inside a div with a specific CSS class for layout control.
 
 using System;
+using System.IO;
 using Aspose.Html;
 using Aspose.Html.Dom;
+using Aspose.Html;
 
 class Program
 {
@@ -11,36 +13,37 @@ class Program
         try
         {
             // Sample HTML content
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>First paragraph.</p><p>Second paragraph.</p></body></html>";
-            // Load HTML from string (base URI is not used here)
-            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
+            string htmlContent = "<html><head><title>Sample</title></head><body><p>First paragraph.</p><p>Second paragraph.</p></body></html>";
+            // Load document from string
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
             // Get all paragraph elements
-            var paragraphs = document.GetElementsByTagName("p");
-            foreach (Element paragraph in paragraphs)
+            Aspose.Html.Collections.HTMLCollection paragraphs = document.GetElementsByTagName("p");
+            // Iterate over a copy of the collection length because we will modify the DOM
+            int count = paragraphs.Length;
+            for (int i = 0; i < count; i++)
             {
-                // Create a new div element
-                Element wrapperDiv = document.CreateElement("div");
+                Aspose.Html.HTMLElement paragraph = (Aspose.Html.HTMLElement)paragraphs[i];
+
+                // Create wrapper div with specific CSS class
+                Aspose.Html.HTMLElement wrapperDiv = (Aspose.Html.HTMLElement)document.CreateElement("div");
                 wrapperDiv.SetAttribute("class", "layout-wrapper");
 
-                // Insert the div before the paragraph
-                Element parent = paragraph.ParentNode as Element;
-                if (parent != null)
-                {
-                    parent.InsertBefore(wrapperDiv, paragraph);
-                    // Move the paragraph inside the new div
-                    wrapperDiv.AppendChild(paragraph);
-                }
+                // Insert wrapper div in place of the paragraph
+                Node parent = paragraph.ParentNode;
+                parent.ReplaceChild(wrapperDiv, paragraph);
+                // Move paragraph inside the wrapper div
+                wrapperDiv.AppendChild(paragraph);
             }
 
-            // Save the modified document
-            string outputPath = "output.html";
+            // Save modified document
+            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.html");
             document.Save(outputPath);
-            Console.WriteLine($"Document saved to {outputPath}");
+            System.Console.WriteLine("Document saved to: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

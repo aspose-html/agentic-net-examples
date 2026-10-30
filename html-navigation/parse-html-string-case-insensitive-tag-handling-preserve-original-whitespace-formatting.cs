@@ -8,7 +8,7 @@ class Program
     {
         try
         {
-            string htmlContent = "<DiV>   <p>Test</p>   </DiV>";
+            string htmlContent = "<!DOCTYPE html>\n<html>\n  <body>\n    <Div>   Hello   </Div>\n  </body>\n</html>";
             string baseUri = "about:blank";
 
             Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, baseUri);
@@ -17,16 +17,15 @@ class Program
             for (int i = 0; i < elements.Length; i++)
             {
                 Aspose.Html.Dom.Element element = (Aspose.Html.Dom.Element)elements[i];
-                System.Console.WriteLine(element.TagName);
+                Console.WriteLine($"Tag: {element.TagName}");
             }
 
-            string outerHtml = document.DocumentElement.OuterHTML;
-            System.Console.WriteLine("OuterHTML:");
-            System.Console.WriteLine(outerHtml);
+            Console.WriteLine("OuterHTML with original whitespace:");
+            Console.WriteLine(document.DocumentElement.OuterHTML);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

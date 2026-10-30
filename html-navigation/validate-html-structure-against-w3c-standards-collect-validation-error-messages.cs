@@ -4,11 +4,11 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
-            string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><img src='invalid.jpg'></body></html>";
+            string htmlContent = "<html><head><title>Test</title></head><body><p>Paragraph without closing tag</body></html>";
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
                 Aspose.Html.Accessibility.WebAccessibility webAccessibility = new Aspose.Html.Accessibility.WebAccessibility();
@@ -21,15 +21,15 @@ class Program
                     {
                         if (!detail.Success)
                         {
-                            System.Console.WriteLine(detail.Rule.Code + ": " + detail.Rule.Description);
+                            Console.WriteLine(detail.Rule.Code + ": " + detail.Rule.Description);
                             foreach (Aspose.Html.Accessibility.ITechniqueResult techResult in detail.Errors)
                             {
                                 Aspose.Html.Accessibility.IError error = techResult.Error;
-                                System.Console.WriteLine(error.ErrorMessage);
+                                Console.WriteLine(error.ErrorMessage);
                                 if (error.Target.TargetType == Aspose.Html.Accessibility.TargetTypes.HTMLElement)
                                 {
                                     Aspose.Html.HTMLElement element = (Aspose.Html.HTMLElement)error.Target.Item;
-                                    System.Console.WriteLine(element.OuterHTML);
+                                    Console.WriteLine(element.OuterHTML);
                                 }
                             }
                         }
@@ -37,13 +37,13 @@ class Program
                 }
                 else
                 {
-                    System.Console.WriteLine("HTML validation succeeded. No errors found.");
+                    Console.WriteLine("HTML validation succeeded with no errors.");
                 }
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Exception: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

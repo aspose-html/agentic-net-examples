@@ -1,20 +1,18 @@
 // Set a custom timeout value when loading HTML from remote URLs to avoid long waits.
 
 using System;
-using Aspose.Html;
-using Aspose.Html.Net;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
             string url = "https://example.com";
-            RequestMessage request = new RequestMessage(url);
-            request.Timeout = TimeSpan.FromSeconds(10);
-            HTMLDocument document = new HTMLDocument(request);
-            string html = ((HTMLElement)document.DocumentElement).OuterHTML;
+            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage(url);
+            request.Timeout = System.TimeSpan.FromSeconds(10);
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request);
+            string html = ((Aspose.Html.HTMLElement)document.DocumentElement).OuterHTML;
             Console.WriteLine(html);
         }
         catch (Exception ex)

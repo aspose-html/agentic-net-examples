@@ -1,7 +1,9 @@
 // Replace deprecated <font> tags with equivalent CSS style attributes throughout the document.
 
 using System;
-using System.Collections.Generic;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html;
 
 class Program
 {
@@ -9,56 +11,55 @@ class Program
     {
         try
         {
-            // Sample HTML containing deprecated <font> tags
-            string htmlContent = "<html><body><font color=\"red\" face=\"Arial\" size=\"4\">Hello World</font></body></html>";
+            // Sample HTML containing <font> tags
+            string htmlContent = "<html><body><font color=\"red\" size=\"4\" face=\"Arial\">Hello</font> world.</body></html>";
 
-            // Load HTML from string using two‑argument constructor (content, baseUri)
-            var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Load HTML from string (inline content)
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
 
-            // Collect all <font> elements
-            var fontElements = new List<Aspose.Html.HTMLElement>();
-            foreach (var node in document.GetElementsByTagName("font"))
+            // Get all <font> elements
+            Aspose.Html.Collections.HTMLCollection fontElements = document.GetElementsByTagName("font");
+
+            // Iterate in reverse order to safely replace nodes
+            for (int i = fontElements.Length - 1; i >= 0; i--)
             {
-                if (node is Aspose.Html.HTMLElement font)
+                Aspose.Html.HTMLElement font = (Aspose.Html.HTMLElement)fontElements[i];
+
+                // Retrieve font attributes
+                string color = font.GetAttribute("color");
+                string size = font.GetAttribute("size");
+                string face = font.GetAttribute("face");
+
+                // Build equivalent CSS style
+                string style = "";
+                if (!string.IsNullOrEmpty(color))
                 {
-                    fontElements.Add(font);
+                    style += $"color:{color};";
                 }
-            }
+                if (!string.IsNullOrEmpty(size))
+                {
+                    // Simple mapping: treat size as points
+                    style += $"font-size:{size}pt;";
+                }
+                if (!string.IsNullOrEmpty(face))
+                {
+                    style += $"font-family:{face};";
+                }
 
-            // Replace each <font> with a <span> that has equivalent CSS styles
-            foreach (var font in fontElements)
-            {
-                var span = (Aspose.Html.HTMLElement)document.CreateElement("span");
+                // Create a <span> element with the same inner HTML and style
+                Aspose.Html.HTMLElement span = (Aspose.Html.HTMLElement)document.CreateElement("span");
+                span.SetAttribute("style", style);
                 span.InnerHTML = font.InnerHTML;
 
-                var style = string.Empty;
-                if (font.HasAttribute("color"))
-                {
-                    style += $"color:{font.GetAttribute("color")};";
-                }
-                if (font.HasAttribute("face"))
-                {
-                    style += $"font-family:{font.GetAttribute("face")};";
-                }
-                if (font.HasAttribute("size"))
-                {
-                    // Simple conversion: treat size value as pixel size
-                    style += $"font-size:{font.GetAttribute("size")}px;";
-                }
-
-                if (!string.IsNullOrEmpty(style))
-                {
-                    span.SetAttribute("style", style);
-                }
-
-                var parent = font.ParentNode;
-                parent.ReplaceChild(span, font);
+                // Replace the <font> element with the new <span>
+                font.ParentNode.ReplaceChild(span, font);
             }
 
             // Save the modified document
             string outputPath = "output.html";
             document.Save(outputPath);
-            Console.WriteLine($"Document saved to {outputPath}");
+
+            Console.WriteLine($"Document saved to '{outputPath}'.");
         }
         catch (Exception ex)
         {
