@@ -2,63 +2,44 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+using System.IO;
 using System.Threading.Tasks;
+using Aspose.Html.Converters;
+using Aspose.Html.Saving;
 
-class Program
+namespace Example
 {
-    static async Task Main(string[] args)
+    class Program
     {
-        try
+        static void Main(string[] args)
         {
-            string[] urls = new string[]
+            try
             {
-                "https://example.com",
-                "https://example.org",
-                "https://example.net"
-            };
-
-            Task<string>[] loadTasks = urls.Select(url => LoadHtmlAsync(url)).ToArray();
-
-            string[] results = await Task.WhenAll(loadTasks);
-
-            for (int i = 0; i < urls.Length; i++)
-            {
-                Console.WriteLine($"Content from {urls[i]}:");
-                Console.WriteLine(results[i]);
-                Console.WriteLine(new string('-', 80));
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
-    }
-
-    private static Task<string> LoadHtmlAsync(string url)
-    {
-        return Task.Run(() =>
-        {
-            using (System.Threading.AutoResetEvent resetEvent = new System.Threading.AutoResetEvent(false))
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument())
-            {
-                string htmlResult = string.Empty;
-
-                document.OnReadyStateChange += (sender, e) =>
+                string[] urls = new string[]
                 {
-                    if (document.ReadyState == "complete")
-                    {
-                        htmlResult = document.DocumentElement != null ? document.DocumentElement.TextContent : string.Empty;
-                        resetEvent.Set();
-                    }
+                    "https://example.com",
+                    "https://example.org"
                 };
 
-                document.Navigate(url);
-                resetEvent.WaitOne();
+                List<Task> tasks = new List<Task>();
 
-                return htmlResult;
+                foreach (string url in urls)
+                {
+                    tasks.Add(Task.Run(() =>
+                    {
+                        string outputPath = Path.Combine(Path.GetTempPath(), "output_" + Guid.NewGuid().ToString("N") + ".pdf");
+                        PdfSaveOptions options = new PdfSaveOptions();
+                        Aspose.Html.Converters.Converter.ConvertHTML(url, options, outputPath);
+                        Console.WriteLine($"Converted {url} to {outputPath}");
+                    }));
+                }
+
+                Task.WaitAll(tasks.ToArray());
             }
-        });
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Error: {ex.Message}");
+            }
+        }
     }
 }

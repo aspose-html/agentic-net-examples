@@ -1,27 +1,24 @@
 // Include external images as base64‑encoded data URIs within the generated HTML file.
 
 using System;
-using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Aspose.Html;
 
-class Program
+public class Program
 {
-    static async Task Main(string[] args)
+    public static async System.Threading.Tasks.Task Main(string[] args)
     {
         try
         {
             string inputPath = "input.html";
             string outputPath = "output.html";
 
-            if (!File.Exists(inputPath))
+            if (!System.IO.File.Exists(inputPath))
             {
-                File.WriteAllText(inputPath, "<html><body><img src=\"https://via.placeholder.com/150\" /></body></html>");
+                string sampleHtml = "<html><body><h1>Sample</h1><img src=\"https://via.placeholder.com/150\" alt=\"sample\"/></body></html>";
+                System.IO.File.WriteAllText(inputPath, sampleHtml);
             }
 
-            using (var document = new Aspose.Html.HTMLDocument(inputPath))
-            using (var httpClient = new HttpClient())
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath))
+            using (System.Net.Http.HttpClient httpClient = new System.Net.Http.HttpClient())
             {
                 Aspose.Html.Collections.HTMLCollection images = document.GetElementsByTagName("img");
                 for (int i = 0; i < images.Length; i++)
@@ -33,24 +30,26 @@ class Program
                         continue;
                     }
 
-                    Uri baseUri = new Uri(document.BaseURI.ToString(), UriKind.Absolute);
-                    Uri resolvedUri = new Uri(baseUri, src);
+                    System.Uri baseUri = new System.Uri(document.BaseURI.ToString(), System.UriKind.Absolute);
+                    System.Uri resolvedUri = new System.Uri(baseUri, src);
                     byte[] imageBytes = await httpClient.GetByteArrayAsync(resolvedUri.AbsoluteUri);
-                    string mimeType = GetMimeType(Path.GetExtension(resolvedUri.AbsolutePath));
-                    string dataUri = "data:" + mimeType + ";base64," + Convert.ToBase64String(imageBytes);
+                    string mimeType = GetMimeType(System.IO.Path.GetExtension(resolvedUri.AbsolutePath));
+                    string dataUri = "data:" + mimeType + ";base64," + System.Convert.ToBase64String(imageBytes);
                     imageElement.SetAttribute("src", dataUri);
                 }
 
                 document.Save(outputPath);
             }
+
+            System.Console.WriteLine("HTML saved with embedded images to: " + outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 
-    static string GetMimeType(string extension)
+    private static string GetMimeType(string extension)
     {
         switch (extension.ToLowerInvariant())
         {

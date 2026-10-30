@@ -10,45 +10,43 @@ class Program
         try
         {
             // Define file paths
-            string inputHtmlPath = "sample.html";
+            string htmlPath = "sample.html";
             string cssPath = "custom.css";
-            string outputPdfPath = "output.pdf";
+            string outputPath = "output.xps";
 
-            // Create sample HTML file
-            if (!File.Exists(inputHtmlPath))
+            // Create sample HTML file if it does not exist
+            if (!File.Exists(htmlPath))
             {
-                File.WriteAllText(inputHtmlPath, "<html><head></head><body><h1>Hello World</h1></body></html>");
+                string htmlContent = "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Hello World</h1></body></html>";
+                File.WriteAllText(htmlPath, htmlContent);
             }
 
-            // Create custom CSS file
+            // Create sample CSS file if it does not exist
             if (!File.Exists(cssPath))
             {
-                File.WriteAllText(cssPath, "h1 { color: red; }");
+                string cssContent = "h1 { color: red; }";
+                File.WriteAllText(cssPath, cssContent);
             }
 
-            // Read CSS content
-            string cssContent = File.ReadAllText(cssPath);
+            // Load custom CSS
+            string cssContentLoaded = File.ReadAllText(cssPath);
 
-            // Configure Aspose.HTML with custom stylesheet
+            // Configure Aspose.HTML with custom user stylesheet
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.IUserAgentService userAgent = (Aspose.Html.Services.IUserAgentService)configuration.GetService(typeof(Aspose.Html.Services.IUserAgentService));
-            userAgent.UserStyleSheet = cssContent;
+            userAgent.UserStyleSheet = cssContentLoaded;
 
-            // Set PDF save options
-            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+            // Set XPS save options
+            Aspose.Html.Saving.XpsSaveOptions options = new Aspose.Html.Saving.XpsSaveOptions();
 
-            // Convert HTML to PDF applying the custom CSS
-            Aspose.Html.Converters.Converter.ConvertHTML(
-                new Aspose.Html.Url(inputHtmlPath),
-                configuration,
-                options,
-                outputPdfPath);
+            // Perform conversion
+            Aspose.Html.Converters.Converter.ConvertHTML(htmlPath, configuration, options, outputPath);
 
-            Console.WriteLine("Conversion completed successfully. Output saved to: " + outputPdfPath);
+            Console.WriteLine("Conversion completed successfully. Output saved to: " + outputPath);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred: " + ex.Message);
+            Console.WriteLine("Error during conversion: " + ex.Message);
         }
     }
 }

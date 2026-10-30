@@ -13,9 +13,14 @@ class Program
 
             using (System.Threading.AutoResetEvent resetEvent = new System.Threading.AutoResetEvent(false))
             {
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument())
+                // Configure the HTML engine and set a JavaScript timeout.
+                var config = new Aspose.Html.Configuration();
+                config.GetService<Aspose.Html.Services.IRuntimeService>().JavaScriptTimeout = TimeSpan.FromSeconds(30);
+
+                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(config))
                 {
                     string htmlResult = string.Empty;
+
                     document.OnReadyStateChange += (sender, e) =>
                     {
                         if (document.ReadyState == "complete")
@@ -27,6 +32,7 @@ class Program
 
                     document.Navigate(url);
                     resetEvent.WaitOne();
+
                     System.Console.WriteLine(htmlResult);
                 }
             }
