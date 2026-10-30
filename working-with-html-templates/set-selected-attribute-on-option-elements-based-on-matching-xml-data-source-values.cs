@@ -1,7 +1,10 @@
 // Set the selected attribute on option elements based on matching values in the XML data source.
 
 using System;
-using System.IO;
+using System.Xml.Linq;
+using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Collections;
 
 class Program
 {
@@ -10,62 +13,58 @@ class Program
         try
         {
             // Sample XML data source
-            string xmlContent = @"<?xml version=""1.0"" encoding=""utf-8""?>
-<root>
-    <selectedValue>2</selectedValue>
-</root>";
-            // Load XML into HTMLDocument (as a generic document)
-            Aspose.Html.HTMLDocument xmlDoc = new Aspose.Html.HTMLDocument(xmlContent, "about:blank");
+            string xmlData = @"<Dealers>
+                                 <Dealer>
+                                   <Id>1</Id>
+                                   <SelectedOption>2</SelectedOption>
+                                 </Dealer>
+                               </Dealers>";
 
-            // Evaluate XPath to get the value to match
-            Aspose.Html.Dom.XPath.IXPathResult xpathResult = xmlDoc.Evaluate(
-                "//selectedValue",
-                xmlDoc,
-                xmlDoc.CreateNSResolver(xmlDoc),
-                Aspose.Html.Dom.XPath.XPathResultType.String,
-                null);
-            string selectedValue = xpathResult.StringValue;
+            // Sample HTML template with a select element
+            string htmlTemplate = @"<html>
+                                      <body>
+                                        <select id='mySelect'>
+                                          <option value='1'>One</option>
+                                          <option value='2'>Two</option>
+                                          <option value='3'>Three</option>
+                                        </select>
+                                      </body>
+                                    </html>";
 
-            // Sample HTML template with <option> elements
-            string htmlContent = @"<!DOCTYPE html>
-<html>
-<head><title>Sample</title></head>
-<body>
-    <select id=""mySelect"">
-        <option value=""1"">One</option>
-        <option value=""2"">Two</option>
-        <option value=""3"">Three</option>
-    </select>
-</body>
-</html>";
+            // Parse XML and get the value to match
+            XDocument xmlDoc = XDocument.Parse(xmlData);
+            string selectedValue = xmlDoc.Root.Element("Dealer")?.Element("SelectedOption")?.Value ?? string.Empty;
 
-            // Load HTML content
-            Aspose.Html.HTMLDocument htmlDoc = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Load HTML template (inline content) using two‑argument constructor
+            Aspose.Html.HTMLDocument htmlDoc = new Aspose.Html.HTMLDocument(htmlTemplate, "about:blank");
 
-            // Iterate over all <option> elements and set the selected attribute
-            var options = htmlDoc.GetElementsByTagName("option");
-            foreach (var node in options)
+            // Find the select element by its id
+            Aspose.Html.Dom.Element selectElement = htmlDoc.GetElementById("mySelect");
+            if (selectElement == null)
+                throw new InvalidOperationException("Select element not found.");
+
+            // Get all option elements within the select
+            Aspose.Html.Collections.HTMLCollection options = selectElement.GetElementsByTagName("option");
+
+            // Set the selected attribute based on the XML value
+            for (int i = 0; i < options.Length; i++)
             {
-                Aspose.Html.HTMLElement option = node as Aspose.Html.HTMLElement;
-                if (option != null)
+                Aspose.Html.Dom.Element option = (Aspose.Html.Dom.Element)options[i];
+                string optionValue = option.GetAttribute("value");
+                if (optionValue == selectedValue)
                 {
-                    string value = option.GetAttribute("value");
-                    if (value == selectedValue)
-                    {
-                        option.SetAttribute("selected", "selected");
-                    }
-                    else
-                    {
-                        option.RemoveAttribute("selected");
-                    }
+                    option.SetAttribute("selected", "selected");
+                }
+                else
+                {
+                    option.RemoveAttribute("selected");
                 }
             }
 
-            // Save the modified HTML to a file
-            string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output.html");
+            // Save the resulting HTML to a file
+            string outputPath = "output.html";
             htmlDoc.Save(outputPath);
-
-            Console.WriteLine("HTML saved to: " + outputPath);
+            Console.WriteLine($"HTML saved to {outputPath}");
         }
         catch (Exception ex)
         {
