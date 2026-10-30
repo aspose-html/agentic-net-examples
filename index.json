@@ -3,7 +3,7 @@
   "platform": "net",
   "framework": "net10.0",
   "package_version": "26.10.0",
-  "total_examples": 1803,
+  "total_examples": 1807,
   "total_categories": 18,
   "last_updated": "2026-10-30",
   "categories": [
@@ -1009,7 +1009,7 @@
     {
       "name": "markdown-converter",
       "display_name": "Markdown Converter",
-      "file_count": 78,
+      "file_count": 79,
       "all_files": [
         "add-command-line-option-custom-pdfsaveoptions-json-file-overrides-pdf-conversion-settings.cs",
         "add-configuration-flag-enable-disable-intermediate-html-generation-conversion-pipelines.cs",
@@ -1068,6 +1068,7 @@
         "produce-xps-document-from-markdown-using-xpssaveoptions-converthtml.cs",
         "real-time-markdown-stream-png-conversion-no-intermediate-files.cs",
         "save-resulting-htmldocument-pdf-with-pdfsaveoptions-converthtml.cs",
+        "set-compression-level-imagesaveoptions-when-converting-markdown-to-png-for-web-optimization.cs",
         "set-docx-document-language-property-for-localization-after-conversion.cs",
         "set-docx-page-setup-track-revisions-docsaveoptions-trackrevisions-change-tracking.cs",
         "set-image-dpi-150-image-save-options-png-output-balance-quality-file-size.cs",
@@ -1553,7 +1554,7 @@
     {
       "name": "svg-converter",
       "display_name": "Svg Converter",
-      "file_count": 104,
+      "file_count": 105,
       "all_files": [
         "add-table-of-contents-using-pdfsaveoptions-outlines-when-generating-pdf.cs",
         "adjust-image-save-options-gamma-value-improve-brightness-png-conversion.cs",
@@ -1612,6 +1613,7 @@
         "custom-icreastreamprovider-receive-pdf-output-in-memory.cs",
         "develop-rest-endpoint-receives-svg-data-returns-pdf-in-memory-conversion.cs",
         "dispose-svgdocument-all-associated-streams-after-conversion-prevent-memory-leaks.cs",
+        "embed-fonts-in-pdfsaveoptions-during-svg-to-pdf-conversion-for-consistent-text-appearance.cs",
         "enable-high-compression-in-imagesaveoptions-when-generating-bmp-for-archival-purposes.cs",
         "generate-docx-document-from-svg-image-converter-appropriate-save-options.cs",
         "handle-conversion-exceptions-wrapping-converter-convertsvg-try-catch-logging-errors.cs",
@@ -1791,13 +1793,14 @@
     {
       "name": "website-to-html",
       "display_name": "Website to Html",
-      "file_count": 29,
+      "file_count": 30,
       "all_files": [
         "allow-conversion-https-websites-ssl-certificate-validation-callbacks-security.cs",
         "apply-custom-css-stylesheet-during-conversion-to-override-default-website-styling.cs",
         "apply-custom-html-template-wrap-converted-content-consistent-page-layout.cs",
         "configure-proxy-settings-to-access-websites-behind-corporate-firewalls-securely-during-conversion.cs",
         "convert-multiple-website-urls-batch-mode-storing-each-result-separate-html-files.cs",
+        "convert-website-pages-to-html-simultaneously-generate-pdf-snapshots-for-archival.cs",
         "enable-automatic-detection-correction-broken-links-website-to-html-conversion.cs",
         "enable-compression-html-output-reduce-file-size-faster-transmission.cs",
         "enable-javascript-execution-while-loading-site-to-capture-dynamic-content-in-html-output.cs",
@@ -1839,7 +1842,7 @@
     {
       "name": "working-with-html-documents",
       "display_name": "Working With Html Documents",
-      "file_count": 331,
+      "file_count": 332,
       "all_files": [
         "add-comment-node-describing-style-changes-before-style-element-in-head-section.cs",
         "add-comment-node-to-head-section-export-document-preserving-comment.cs",
@@ -1992,6 +1995,7 @@
         "create-style-element-append-to-head-define-text-color-rule.cs",
         "create-style-element-define-css-variable-primary-color-use-multiple-rules.cs",
         "create-style-element-red-text-rule-insert-head-visual-change.cs",
+        "create-style-sheet-file-reference-html-head-verify-styles-apply-after-rendering.cs",
         "create-text-node-unicode-characters-append-div-save-document-utf8-html.cs",
         "create-utility-reads-pixel-values-from-csv-outputs-corresponding-inches-using-unit.cs",
         "define-css-variable-border-color-reference-table-border-color-rule.cs",
