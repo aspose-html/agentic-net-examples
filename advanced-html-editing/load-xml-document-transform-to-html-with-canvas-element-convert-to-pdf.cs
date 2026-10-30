@@ -2,7 +2,6 @@
 
 using System;
 using System.IO;
-using System.Xml;
 
 class Program
 {
@@ -14,19 +13,20 @@ class Program
             string xmlPath = "sample.xml";
             if (!File.Exists(xmlPath))
             {
-                File.WriteAllText(xmlPath, "<root><message>Hello Canvas</message></root>");
+                string sampleXml = "<root><message>Hello, World!</message></root>";
+                File.WriteAllText(xmlPath, sampleXml);
             }
 
-            // Load XML document
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(xmlPath);
-            string message = xmlDoc.SelectSingleNode("//message")?.InnerText ?? "Default Message";
+            // Load XML content
+            string xmlContent = File.ReadAllText(xmlPath);
 
-            // Create HTML content
-            string htmlContent = "<!DOCTYPE html><html><head><meta charset=\"utf-8\"></head><body></body></html>";
+            // Create HTML document
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument();
 
-            // Load HTML document from string
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
+            // Embed XML content into HTML for demonstration
+            Aspose.Html.HTMLElement pre = (Aspose.Html.HTMLElement)document.CreateElement("pre");
+            pre.InnerHTML = xmlContent;
+            document.Body.AppendChild(pre);
 
             // Create canvas element
             Aspose.Html.HTMLCanvasElement canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
@@ -46,8 +46,8 @@ class Program
             // Apply gradient and draw
             context.FillStyle = gradient;
             context.StrokeStyle = gradient;
-            context.FillRect(0, 0, canvas.Width, canvas.Height);
-            context.FillText(message, 10, 100, 500);
+            context.FillText("Canvas Text", 10, 90, 500);
+            context.FillRect(0, 95, 500, 100);
 
             // Convert to PDF
             string outputPath = "output.pdf";

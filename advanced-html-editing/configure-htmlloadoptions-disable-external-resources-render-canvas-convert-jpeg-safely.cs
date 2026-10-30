@@ -2,6 +2,10 @@
 
 using System;
 using System.IO;
+using Aspose.Html;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Saving;
+using Aspose.Html.Dom.Canvas;
 
 class Program
 {
@@ -14,27 +18,26 @@ class Program
             string outputPath = "output.jpg";
 
             // Create a minimal HTML file with a canvas element
-            string htmlContent = "<!DOCTYPE html><html><head><meta charset='UTF-8'></head><body><canvas id='myCanvas' width='200' height='200'></canvas></body></html>";
+            string htmlContent = "<!DOCTYPE html><html><body><canvas width=\"200\" height=\"200\"></canvas></body></html>";
             File.WriteAllText(inputPath, htmlContent);
 
-            // Load the document
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            // Load the HTML document
+            HTMLDocument document = new HTMLDocument(inputPath);
 
             // Get the canvas element
-            Aspose.Html.HTMLCanvasElement canvas = (Aspose.Html.HTMLCanvasElement)document.GetElementById("myCanvas");
+            var canvasCollection = document.GetElementsByTagName("canvas");
+            HTMLCanvasElement canvas = (HTMLCanvasElement)canvasCollection[0];
 
-            // Obtain 2D rendering context
-            Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
-
-            // Perform drawing operations
+            // Get 2D rendering context and draw
+            ICanvasRenderingContext2D context = (ICanvasRenderingContext2D)canvas.GetContext("2d");
             context.FillStyle = "#FF0000";
             context.FillRect(10, 10, 100, 100);
 
-            // Set up image save options for JPEG
-            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
+            // Configure image save options for JPEG
+            ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
 
-            // Create an image device and render the document to JPEG
-            Aspose.Html.Rendering.Image.ImageDevice device = new Aspose.Html.Rendering.Image.ImageDevice(options, outputPath);
+            // Render the document (including canvas) to JPEG
+            ImageDevice device = new ImageDevice(options, outputPath);
             document.RenderTo(device);
         }
         catch (Exception ex)

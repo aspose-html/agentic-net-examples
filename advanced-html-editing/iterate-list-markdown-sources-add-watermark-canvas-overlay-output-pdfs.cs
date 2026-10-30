@@ -1,72 +1,54 @@
 // Iterate over a list of Markdown sources, add a watermark canvas overlay, and output PDFs.
 
 using System;
-using System.IO;
-using System.Drawing;
-using Aspose.Html;
-using Aspose.Html.Converters;
-using Aspose.Html.Saving;
-using Aspose.Html.Dom;
-using Aspose.Html.Dom.Canvas;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Prepare sample markdown files
+            string outputDir = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "output");
+            System.IO.Directory.CreateDirectory(outputDir);
+
             string[] inputs = new string[] { "sample1.md", "sample2.md" };
-            for (int i = 0; i < inputs.Length; i++)
-            {
-                if (!File.Exists(inputs[i]))
-                {
-                    using (StreamWriter writer = new StreamWriter(inputs[i]))
-                    {
-                        writer.WriteLine("# Sample Document " + (i + 1));
-                        writer.WriteLine("This is a sample markdown content.");
-                    }
-                }
-            }
 
-            // Output directory
-            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
-            Directory.CreateDirectory(outputDir);
-
-            // Process each markdown source
             for (int i = 0; i < inputs.Length; i++)
             {
                 string sourcePath = inputs[i];
-                // Convert markdown to HTMLDocument
-                using (HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath))
+
+                if (!System.IO.File.Exists(sourcePath))
                 {
-                    // Create watermark canvas
-                    HTMLCanvasElement canvas = (HTMLCanvasElement)document.CreateElement("canvas");
-                    canvas.Width = 800;
-                    canvas.Height = 600;
-                    document.Body.AppendChild(canvas);
-
-                    ICanvasRenderingContext2D context = (ICanvasRenderingContext2D)canvas.GetContext("2d");
-                    context.FillStyle = "rgba(255,0,0,0.2)"; // semi-transparent red
-                    context.FillRect(0, 0, canvas.Width, canvas.Height);
-
-                    // Save as PDF
-                    string outputPath = Path.Combine(outputDir, $"output{i + 1}.pdf");
-                    PdfSaveOptions options = new PdfSaveOptions();
-                    options.HorizontalResolution = 300;
-                    options.VerticalResolution = 300;
-                    options.BackgroundColor = Color.White;
-                    options.JpegQuality = 90;
-
-                    Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+                    System.IO.File.WriteAllText(sourcePath, "# Sample Markdown\n\nThis is a sample markdown file.");
                 }
+
+                Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath);
+
+                Aspose.Html.HTMLCanvasElement canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
+                canvas.Width = 800;
+                canvas.Height = 600;
+                document.Body.AppendChild(canvas);
+
+                Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
+                context.FillStyle = "rgba(255,0,0,0.3)";
+                context.FillRect(100, 100, 600, 400);
+
+                Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+                options.HorizontalResolution = 300;
+                options.VerticalResolution = 300;
+                options.BackgroundColor = System.Drawing.Color.White;
+
+                string outputPath = System.IO.Path.Combine(outputDir, System.IO.Path.GetFileNameWithoutExtension(sourcePath) + ".pdf");
+                Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+
+                document.Dispose();
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            System.Console.WriteLine("Conversion completed. PDFs saved to: " + outputDir);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

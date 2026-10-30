@@ -1,8 +1,5 @@
 // Load an EPUB file, locate its canvas element, draw text, and export the page as PDF.
 
-using System;
-using System.IO;
-
 class Program
 {
     static void Main()
@@ -10,43 +7,35 @@ class Program
         try
         {
             string inputPath = "sample.epub";
-            string outputPath = "output.pdf";
+            string outputPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "output.pdf");
 
-            // Create a minimal EPUB file if it does not exist
-            if (!File.Exists(inputPath))
-            {
-                File.WriteAllBytes(inputPath, new byte[0]);
-            }
+            // Load EPUB file as an HTML document
+            var document = new Aspose.Html.HTMLDocument(inputPath);
 
-            // Convert EPUB to PDF
-            using (FileStream epubStream = new FileStream(inputPath, FileMode.Open, FileAccess.Read))
-            {
-                Aspose.Html.Saving.PdfSaveOptions pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
-                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, pdfOptions, outputPath);
-            }
-
-            // Create a new HTML document with a canvas, draw on it, and export to PDF
-            string canvasPdfPath = "canvas_output.pdf";
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument();
-
-            Aspose.Html.HTMLCanvasElement canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
+            // Create a canvas element
+            var canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
             canvas.Width = 600;
-            canvas.Height = 400;
+            canvas.Height = 800;
+
+            // Get 2D rendering context and draw text
+            var context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
+            context.FillText("Hello, EPUB Canvas!", 50, 100);
+
+            // Append canvas to the document body
             document.Body.AppendChild(canvas);
 
-            Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
-            context.FillStyle = "blue";
-            context.FillRect(0, 0, 600, 400);
-            context.FillStyle = "white";
-            context.Font = "30px Arial";
-            context.FillText("Hello from Canvas", 50, 200);
+            // Set up PDF save options
+            var pdfOptions = new Aspose.Html.Saving.PdfSaveOptions();
 
-            Aspose.Html.Rendering.Pdf.PdfDevice pdfDevice = new Aspose.Html.Rendering.Pdf.PdfDevice(canvasPdfPath);
+            // Create PDF device for rendering
+            var pdfDevice = new Aspose.Html.Rendering.Pdf.PdfDevice(pdfOptions, outputPath);
+
+            // Render the modified document to PDF
             document.RenderTo(pdfDevice);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

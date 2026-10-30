@@ -1,6 +1,9 @@
 // Create a CSS rule using -aspose- page‑margin to add printable margins around canvas content.
 
 using System;
+using Aspose.Html;
+using Aspose.Html.Rendering.Pdf;
+using Aspose.Html.Dom;
 
 class Program
 {
@@ -11,21 +14,24 @@ class Program
             string outputPath = "output.pdf";
 
             // Create an empty HTML document
-            var document = new Aspose.Html.HTMLDocument();
+            HTMLDocument document = new HTMLDocument();
 
-            // Create style element and add CSS rule with -aspose-page-margin
-            var styleElement = (Aspose.Html.HTMLElement)document.CreateElement("style");
-            styleElement.InnerHTML = "@page { -aspose-page-margin: 10mm; }";
-            document.Body.AppendChild(styleElement);
+            // Create style element using valid Element type
+            Element style = document.CreateElement("style");
+            ((HTMLElement)style).InnerHTML = "canvas { -aspose-page-margin: 10mm; }";
 
-            // Create canvas element
-            var canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
-            canvas.Width = 800;
-            canvas.Height = 600;
+            // Append style safely (DO NOT use document.Head)
+            document.Body.AppendChild(style);
+
+            // Create canvas
+            HTMLCanvasElement canvas = (HTMLCanvasElement)document.CreateElement("canvas");
+            canvas.Width = 600;
+            canvas.Height = 400;
+
             document.Body.AppendChild(canvas);
 
-            // Render the document to PDF
-            using (var device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
+            // Render to PDF
+            using (PdfDevice device = new PdfDevice(outputPath))
             {
                 document.RenderTo(device);
             }

@@ -9,18 +9,18 @@ class Program
         try
         {
             // Create an empty HTML document
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument();
+            var document = new Aspose.Html.HTMLDocument();
 
             // Create a canvas element
-            Aspose.Html.HTMLCanvasElement canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
+            var canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
             canvas.Width = (ulong)800;
             canvas.Height = (ulong)600;
             document.Body.AppendChild(canvas);
 
             // Get 2D rendering context
-            Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
+            var context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
 
-            // Fill background with white
+            // Fill background
             context.FillStyle = "white";
             context.FillRect(0, 0, 800, 600);
 
@@ -33,15 +33,18 @@ class Program
             context.Stroke();
 
             // Set high‑resolution JPEG options
-            Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
+            var options = new Aspose.Html.Rendering.Image.ImageRenderingOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
             options.HorizontalResolution = 300;
             options.VerticalResolution = 300;
 
-            // Save the result to a file
-            string outputPath = "bezier.jpg";
-            Aspose.Html.Converters.Converter.ConvertHTML(document, options, outputPath);
+            // Render to JPEG file
+            string outputPath = "bezier_highres.jpg";
+            var device = new Aspose.Html.Rendering.Image.ImageDevice(options, outputPath);
+            document.RenderTo(device);
+
+            System.Console.WriteLine("High‑resolution JPEG saved to " + outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
             System.Console.WriteLine("Error: " + ex.Message);
         }
