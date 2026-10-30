@@ -2,6 +2,8 @@
 
 using System;
 using Aspose.Html;
+using Aspose.Html.Dom;
+using Aspose.Html.Dom.Canvas;
 using Aspose.Html.Rendering.Pdf;
 
 class Program
@@ -10,7 +12,7 @@ class Program
     {
         try
         {
-            // Output PDF path
+            // Define output PDF path
             string outputPath = "output.pdf";
 
             // Create an empty HTML document
@@ -21,11 +23,18 @@ class Program
             style.InnerHTML = "canvas { filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5)); }";
             document.Body.AppendChild(style);
 
-            // Create a canvas element (optional, to demonstrate the style)
+            // Create a canvas element
             Aspose.Html.HTMLCanvasElement canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
-            canvas.Width = 300;
-            canvas.Height = 150;
+            canvas.Width = 200;
+            canvas.Height = 200;
             document.Body.AppendChild(canvas);
+
+            // Draw something on the canvas
+            Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
+            context.FillStyle = "lightblue";
+            context.FillRect(20, 20, 160, 160);
+            context.FillStyle = "darkblue";
+            context.FillText("Sample", 60, 110, 200);
 
             // Render the document to PDF
             using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
@@ -33,11 +42,11 @@ class Program
                 document.RenderTo(device);
             }
 
-            Console.WriteLine("PDF generated successfully at: " + outputPath);
+            Console.WriteLine("PDF generated at: " + outputPath);
         }
         catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

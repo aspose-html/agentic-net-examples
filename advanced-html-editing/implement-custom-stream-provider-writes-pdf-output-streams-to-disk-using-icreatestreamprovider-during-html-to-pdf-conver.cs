@@ -1,14 +1,15 @@
 // Implement a custom stream provider that writes PDF output streams to disk using ICreateStreamProvider during HTML to PDF conversion.
 
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using Aspose.Html;
 using Aspose.Html.IO;
 using Aspose.Html.Saving;
 using Aspose.Html.Converters;
 
-class DiskStreamProvider : ICreateStreamProvider, IDisposable
+class DiskStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
     private readonly string _outputPath;
     public List<MemoryStream> Streams { get; } = new List<MemoryStream>();
@@ -34,10 +35,7 @@ class DiskStreamProvider : ICreateStreamProvider, IDisposable
 
     public void ReleaseStream(Stream stream)
     {
-        if (stream != null)
-        {
-            stream.Flush();
-        }
+        // No action needed; streams will be flushed when written to disk.
     }
 
     public void Dispose()
@@ -48,7 +46,18 @@ class DiskStreamProvider : ICreateStreamProvider, IDisposable
         }
     }
 
-    public string OutputPath => _outputPath;
+    public void WriteToFile()
+    {
+        if (Streams.Count == 0)
+            return;
+
+        MemoryStream pdfStream = Streams[0];
+        pdfStream.Position = 0;
+        using (FileStream fileStream = new FileStream(_outputPath, FileMode.Create, FileAccess.Write))
+        {
+            pdfStream.CopyTo(fileStream);
+        }
+    }
 }
 
 class Program
@@ -62,32 +71,18 @@ class Program
 
             if (!File.Exists(inputPath))
             {
-                string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-                File.WriteAllText(inputPath, htmlContent);
+                string html = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
+                File.WriteAllText(inputPath, html, Encoding.UTF8);
             }
 
-            HTMLDocument document = new HTMLDocument(inputPath);
-            PdfSaveOptions options = new PdfSaveOptions();
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(inputPath);
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
 
             DiskStreamProvider provider = new DiskStreamProvider(outputPath);
             Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
+            provider.WriteToFile();
 
-            if (provider.Streams.Count > 0)
-            {
-                MemoryStream pdfStream = provider.Streams[0];
-                pdfStream.Position = 0;
-                using (FileStream fileStream = new FileStream(provider.OutputPath, FileMode.Create, FileAccess.Write))
-                {
-                    pdfStream.CopyTo(fileStream);
-                }
-                Console.WriteLine($"PDF saved to: {provider.OutputPath}");
-            }
-            else
-            {
-                Console.WriteLine("No PDF stream was generated.");
-            }
-
-            provider.Dispose();
+            Console.WriteLine("PDF conversion completed successfully. Output saved to: " + outputPath);
         }
         catch (Exception ex)
         {

@@ -3,10 +3,6 @@
 using System;
 using System.IO;
 using System.Drawing;
-using Aspose.Html;
-using Aspose.Html.Converters;
-using Aspose.Html.Rendering.Pdf;
-using Aspose.Html.Dom.Canvas;
 
 class Program
 {
@@ -14,32 +10,30 @@ class Program
     {
         try
         {
-            // Define input markdown and output PDF paths
+            // Input and output paths
             string sourcePath = "sample.md";
             string savePath = "output.pdf";
 
-            // Create a minimal markdown file if it does not exist
+            // Ensure the markdown source file exists
             if (!File.Exists(sourcePath))
             {
-                File.WriteAllText(sourcePath, "# Sample Document\nThis is a **markdown** file.");
+                File.WriteAllText(sourcePath, "# Sample Markdown\n\nThis is a test markdown file.");
             }
 
-            // Convert markdown to HTML document
+            // Convert Markdown to HTMLDocument
             Aspose.Html.HTMLDocument document = Aspose.Html.Converters.Converter.ConvertMarkdown(sourcePath);
 
             // Create a canvas element
             Aspose.Html.HTMLCanvasElement canvas = (Aspose.Html.HTMLCanvasElement)document.CreateElement("canvas");
-            canvas.Width = 600;
+            canvas.Width = 500;
             canvas.Height = 200;
-
-            // Append canvas to the document body
             document.Body.AppendChild(canvas);
 
             // Get 2D rendering context
-            ICanvasRenderingContext2D context = (ICanvasRenderingContext2D)canvas.GetContext("2d");
+            Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D context = (Aspose.Html.Dom.Canvas.ICanvasRenderingContext2D)canvas.GetContext("2d");
 
             // Create a linear gradient
-            ICanvasGradient gradient = context.CreateLinearGradient(0, 0, canvas.Width, 0);
+            Aspose.Html.Dom.Canvas.ICanvasGradient gradient = context.CreateLinearGradient(0, 0, canvas.Width, 0);
             gradient.AddColorStop(0, "red");
             gradient.AddColorStop(0.4, "green");
             gradient.AddColorStop(0.9, "blue");
@@ -52,9 +46,17 @@ class Program
             context.FillText("Hello Canvas", 10, 90, 500);
             context.FillRect(0, 95, 500, 100);
 
-            // Render the document (including the canvas) to PDF
-            PdfDevice device = new PdfDevice(savePath);
-            document.RenderTo(device);
+            // Set PDF save options
+            Aspose.Html.Saving.PdfSaveOptions options = new Aspose.Html.Saving.PdfSaveOptions();
+            options.HorizontalResolution = 300;
+            options.VerticalResolution = 300;
+            options.BackgroundColor = System.Drawing.Color.AliceBlue;
+            options.JpegQuality = 90;
+
+            // Convert the HTMLDocument (with canvas) to PDF
+            Aspose.Html.Converters.Converter.ConvertHTML(document, options, savePath);
+
+            Console.WriteLine("PDF successfully created at: " + Path.GetFullPath(savePath));
         }
         catch (Exception ex)
         {
