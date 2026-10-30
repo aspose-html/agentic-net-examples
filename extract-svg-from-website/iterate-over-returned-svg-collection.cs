@@ -12,33 +12,28 @@ class Program
     {
         try
         {
-            // Create a minimal HTML file with SVG elements
-            string htmlPath = "sample.html";
+            // Sample HTML containing SVG elements
             string htmlContent = "<html><body>" +
-                                 "<svg width='100' height='100'></svg>" +
-                                 "<svg></svg>" +
+                                 "<svg width='100' height='100'><circle cx='50' cy='50' r='40' stroke='green' fill='yellow'/></svg>" +
+                                 "<svg width='50' height='50'><rect width='50' height='50' style='fill:blue;'/></svg>" +
                                  "</body></html>";
-            File.WriteAllText(htmlPath, htmlContent);
 
-            // Load the HTML document
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath);
+            // Load HTML from string (use two-argument constructor)
+            HTMLDocument document = new HTMLDocument(htmlContent, "about:blank");
 
             // Get all SVG elements
-            Aspose.Html.Collections.HTMLCollection svgs = document.GetElementsByTagName("svg");
+            HTMLCollection svgs = document.GetElementsByTagName("svg");
 
-            // Iterate over the SVG collection
+            // Iterate over the collection and save each SVG to a separate file
             for (int i = 0; i < svgs.Length; i++)
             {
-                // Cast to HTMLElement to access properties
-                Aspose.Html.HTMLElement element = svgs[i] as Aspose.Html.HTMLElement;
-                if (element != null)
-                {
-                    Console.WriteLine($"SVG {i}: TagName = {element.TagName}");
-                }
-                else
-                {
-                    Console.WriteLine($"SVG {i}: Unable to cast element.");
-                }
+                // Cast the node to HTMLElement to access OuterHTML
+                HTMLElement svgElement = (HTMLElement)svgs[i];
+                string svgContent = svgElement.OuterHTML;
+
+                string fileName = $"{i}.svg";
+                File.WriteAllText(fileName, svgContent);
+                Console.WriteLine($"Saved SVG #{i} to '{fileName}'.");
             }
         }
         catch (Exception ex)

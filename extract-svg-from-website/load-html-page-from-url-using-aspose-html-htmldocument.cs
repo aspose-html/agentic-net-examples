@@ -4,20 +4,20 @@ using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            string url = "https://example.com";
+            System.String url = "https://example.com";
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url))
             {
-                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                Console.WriteLine(html);
+                System.String html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : System.String.Empty;
+                System.Console.WriteLine(html);
             }
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            System.Console.WriteLine(ex.Message);
         }
     }
 }

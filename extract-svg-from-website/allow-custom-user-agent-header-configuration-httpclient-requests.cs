@@ -2,7 +2,7 @@
 
 using System;
 
-class UserAgentHandler : Aspose.Html.Net.MessageHandler
+public class UserAgentHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
@@ -11,9 +11,9 @@ class UserAgentHandler : Aspose.Html.Net.MessageHandler
     }
 }
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         try
         {
@@ -27,7 +27,7 @@ class Program
                 Aspose.Html.Converters.Converter.ConvertHTML(document, options, "output.pdf");
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("HTML conversion to PDF completed successfully.");
         }
         catch (Exception ex)
         {

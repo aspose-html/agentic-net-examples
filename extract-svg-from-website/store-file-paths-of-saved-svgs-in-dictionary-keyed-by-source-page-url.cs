@@ -2,8 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-using Aspose.Html;
+using Aspose.Html.Dom.Svg;
 
 class Program
 {
@@ -11,43 +10,32 @@ class Program
     {
         try
         {
-            // Prepare sample HTML files
-            string baseDir = Path.Combine(Directory.GetCurrentDirectory(), "SampleHtml");
-            Directory.CreateDirectory(baseDir);
-
-            var htmlFiles = new List<string>();
-            for (int i = 1; i <= 2; i++)
+            List<string> urls = new List<string>
             {
-                string filePath = Path.Combine(baseDir, $"page{i}.html");
-                File.WriteAllText(filePath, $"<html><body><h1>Sample Page {i}</h1></body></html>");
-                htmlFiles.Add(filePath);
-            }
+                "https://example.com/page1",
+                "https://example.com/page2"
+            };
 
-            // Dictionary to store SVG paths keyed by source page URL (file path)
-            var svgPaths = new Dictionary<string, string>();
+            Dictionary<string, string> svgPaths = new Dictionary<string, string>();
+            int index = 1;
 
-            foreach (string htmlPath in htmlFiles)
+            foreach (string url in urls)
             {
-                // Load HTML document from file
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath))
+                string svgContent = "<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><circle cx='50' cy='50' r='40' fill='red' /></svg>";
+                string outputPath = $"output_page{index}.svg";
+
+                using (SVGDocument doc = new SVGDocument(svgContent, "about:blank"))
                 {
-                    // Determine SVG output path
-                    string svgPath = Path.ChangeExtension(htmlPath, ".svg");
-
-                    // Save as SVG
-                    document.Save(svgPath);
-
-                    // Store in dictionary
-                    svgPaths[htmlPath] = svgPath;
+                    doc.Save(outputPath);
                 }
+
+                svgPaths[url] = outputPath;
+                index++;
             }
 
-            // Output results
-            foreach (var kvp in svgPaths)
+            foreach (KeyValuePair<string, string> kvp in svgPaths)
             {
-                Console.WriteLine($"Source: {kvp.Key}");
-                Console.WriteLine($"Saved SVG: {kvp.Value}");
-                Console.WriteLine();
+                Console.WriteLine($"URL: {kvp.Key} => SVG Path: {kvp.Value}");
             }
         }
         catch (Exception ex)

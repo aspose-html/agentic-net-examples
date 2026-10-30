@@ -4,10 +4,6 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
-using Aspose.Html;
-using Aspose.Html.Dom;
-using Aspose.Html.Collections;
-using Aspose.Html.IO;
 
 class OutlineNode
 {
@@ -30,29 +26,37 @@ class Program
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
-            // Create a sample HTML file if none exist
+            // Create a minimal sample HTML file if none exist
             string[] existingFiles = Directory.GetFiles(inputFolder, "*.html");
             if (existingFiles.Length == 0)
             {
                 string samplePath = Path.Combine(inputFolder, "sample.html");
-                string sampleContent = "<html><body><h1>Title</h1><h2>Section</h2><h3>Subsection</h3></body></html>";
-                File.WriteAllText(samplePath, sampleContent);
+                File.WriteAllText(samplePath,
+@"<html>
+<head><title>Sample</title></head>
+<body>
+<h1>Title</h1>
+<h2>Section 1</h2>
+<h3>Subsection 1.1</h3>
+<h2>Section 2</h2>
+</body>
+</html>");
             }
 
             foreach (string htmlPath in Directory.GetFiles(inputFolder, "*.html"))
             {
-                HTMLDocument document = new HTMLDocument(htmlPath);
-                var headings = document.QuerySelectorAll("h1, h2, h3, h4, h5, h6");
+                var document = new Aspose.Html.HTMLDocument(htmlPath);
+                Aspose.Html.Collections.NodeList headings = document.QuerySelectorAll("h1, h2, h3, h4, h5, h6");
                 var root = new List<OutlineNode>();
                 var stack = new Stack<OutlineNode>();
 
                 for (int i = 0; i < headings.Length; i++)
                 {
-                    HTMLElement element = (HTMLElement)headings[i];
+                    var element = (Aspose.Html.HTMLElement)headings[i];
                     string tag = element.TagName.ToLower();
                     int level = int.Parse(tag.Substring(1));
 
-                    OutlineNode node = new OutlineNode
+                    var node = new OutlineNode
                     {
                         Text = element.TextContent.Trim(),
                         Level = level,
@@ -74,10 +78,12 @@ class Program
                 string jsonPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(htmlPath) + ".json");
                 File.WriteAllText(jsonPath, json);
             }
+
+            Console.WriteLine("Processing completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

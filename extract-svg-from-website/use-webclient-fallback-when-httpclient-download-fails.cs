@@ -1,56 +1,44 @@
 // Use WebClient as a fallback when HttpClient download fails.
 
 using System;
-using System.Net.Http;
 using System.Net;
-using System.Text;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Aspose.Html;
-using Aspose.Html.Net;
 
 class Program
 {
-    static void Main()
+    static async Task Main(string[] args)
     {
         try
         {
             string url = "https://example.com";
-            byte[] contentBytes = null;
+            string htmlContent;
 
-            // Try downloading with HttpClient
-            try
+            using (var httpClient = new HttpClient())
             {
-                using (System.Net.Http.HttpClient httpClient = new System.Net.Http.HttpClient())
+                httpClient.Timeout = TimeSpan.FromSeconds(10);
+                try
                 {
-                    System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> responseTask = httpClient.GetAsync(url);
-                    responseTask.Wait();
-                    System.Net.Http.HttpResponseMessage response = responseTask.Result;
-                    response.EnsureSuccessStatusCode();
-                    System.Threading.Tasks.Task<byte[]> readTask = response.Content.ReadAsByteArrayAsync();
-                    readTask.Wait();
-                    contentBytes = readTask.Result;
+                    htmlContent = await httpClient.GetStringAsync(url);
                 }
-            }
-            catch (Exception)
-            {
-                // Fallback to WebClient
-                using (System.Net.WebClient webClient = new System.Net.WebClient())
+                catch (Exception)
                 {
-                    contentBytes = webClient.DownloadData(url);
+                    using (var webClient = new WebClient())
+                    {
+                        webClient.Encoding = System.Text.Encoding.UTF8;
+                        htmlContent = webClient.DownloadString(url);
+                    }
                 }
             }
 
-            if (contentBytes == null || contentBytes.Length == 0)
+            using (var document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank"))
             {
-                Console.WriteLine("Failed to download content.");
-                return;
+                string outerHtml = ((Aspose.Html.HTMLElement)document.DocumentElement).OuterHTML;
+                Console.WriteLine(outerHtml);
             }
-
-            string htmlContent = System.Text.Encoding.UTF8.GetString(contentBytes);
-            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, "about:blank");
-            string outerHtml = ((Aspose.Html.HTMLElement)document.DocumentElement).OuterHTML;
-            Console.WriteLine(outerHtml);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
             Console.WriteLine("Error: " + ex.Message);
         }
