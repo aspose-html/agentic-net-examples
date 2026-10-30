@@ -5,9 +5,10 @@ using System.IO;
 using System.Collections.Generic;
 using Aspose.Html.IO;
 using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
 using Aspose.Html.Converters;
 
-class MemoryStreamProvider : ICreateStreamProvider, IDisposable
+class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
     public List<MemoryStream> Streams { get; } = new List<MemoryStream>();
 
@@ -44,44 +45,47 @@ class MemoryStreamProvider : ICreateStreamProvider, IDisposable
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
             string inputPath = "sample.epub";
-            string outputDirectory = "output";
+            string outputDir = "output";
 
-            if (!Directory.Exists(outputDirectory))
+            if (!Directory.Exists(outputDir))
             {
-                Directory.CreateDirectory(outputDirectory);
+                Directory.CreateDirectory(outputDir);
             }
 
-            // Ensure a sample EPUB exists (minimal placeholder)
             if (!File.Exists(inputPath))
             {
                 File.WriteAllBytes(inputPath, new byte[0]);
             }
 
             using (Stream epubStream = File.OpenRead(inputPath))
-            using (var provider = new MemoryStreamProvider())
             {
-                ImageSaveOptions options = new ImageSaveOptions();
+                var options = new Aspose.Html.Saving.ImageSaveOptions();
+                options.Format = Aspose.Html.Rendering.Image.ImageFormat.Png;
 
-                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
-
-                for (int i = 0; i < provider.Streams.Count; i++)
+                using (var provider = new MemoryStreamProvider())
                 {
-                    MemoryStream resultStream = provider.Streams[i];
-                    resultStream.Position = 0;
-                    string outputPath = Path.Combine(outputDirectory, $"page_{i + 1}.png");
-                    using (FileStream fileStream = File.Create(outputPath))
+                    Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+
+                    int index = 0;
+                    foreach (var ms in provider.Streams)
                     {
-                        resultStream.CopyTo(fileStream);
+                        ms.Position = 0;
+                        string outputPath = Path.Combine(outputDir, $"page_{index}.png");
+                        using (FileStream fileStream = File.Create(outputPath))
+                        {
+                            ms.CopyTo(fileStream);
+                        }
+                        index++;
                     }
                 }
             }
 
-            Console.WriteLine("EPUB conversion completed successfully.");
+            Console.WriteLine("EPUB conversion completed.");
         }
         catch (Exception ex)
         {

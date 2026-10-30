@@ -5,6 +5,7 @@ using System.IO;
 using System.Drawing;
 using Aspose.Html.Saving;
 using Aspose.Html.Rendering.Image;
+using Aspose.Html.Converters;
 
 class Program
 {
@@ -12,42 +13,36 @@ class Program
     {
         try
         {
-            string inputPath = "sample.epub";
-            string outputPath = "output.bmp";
+            string inputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sample.epub");
+            string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output.bmp");
 
             if (!File.Exists(inputPath))
             {
-                Console.WriteLine($"Input file not found: {inputPath}");
+                Console.WriteLine("Input EPUB file not found: " + inputPath);
                 return;
             }
 
-            using (Stream epubStream = File.OpenRead(inputPath))
+            using (Stream stream = File.OpenRead(inputPath))
             {
                 ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Bmp);
-                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, outputPath);
+                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
 
-            if (!File.Exists(outputPath))
+            if (File.Exists(outputPath))
             {
-                Console.WriteLine("Conversion failed: output file not created.");
-                return;
+                using (Bitmap bmp = new Bitmap(outputPath))
+                {
+                    Console.WriteLine($"Bitmap saved successfully. Width: {bmp.Width}, Height: {bmp.Height}");
+                }
             }
-
-            using (Bitmap bitmap = new Bitmap(outputPath))
+            else
             {
-                if (bitmap.Width > 0 && bitmap.Height > 0)
-                {
-                    Console.WriteLine($"Bitmap created successfully. Dimensions: {bitmap.Width}x{bitmap.Height}");
-                }
-                else
-                {
-                    Console.WriteLine("Bitmap has invalid dimensions.");
-                }
+                Console.WriteLine("Conversion failed: output file not found.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

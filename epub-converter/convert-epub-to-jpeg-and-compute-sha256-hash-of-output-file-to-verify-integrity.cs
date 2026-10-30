@@ -4,9 +4,6 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using Aspose.Html.Saving;
-using Aspose.Html.Rendering.Image;
-using Aspose.Html.Converters;
 
 class Program
 {
@@ -14,56 +11,41 @@ class Program
     {
         try
         {
-            // Prepare directories
-            string dataDir = Path.Combine(Directory.GetCurrentDirectory(), "Data");
-            string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "Output");
+            string dataDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
             Directory.CreateDirectory(dataDir);
+            string inputPath = Path.Combine(dataDir, "sample.epub");
+
+            string outputDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
             Directory.CreateDirectory(outputDir);
-
-            // Sample EPUB file path
-            string epubPath = Path.Combine(dataDir, "sample.epub");
-            if (!File.Exists(epubPath))
-            {
-                // Create a minimal placeholder EPUB file (empty zip structure)
-                using (FileStream fs = new FileStream(epubPath, FileMode.Create, FileAccess.Write))
-                {
-                    // Write minimal ZIP header to avoid immediate format errors
-                    byte[] zipHeader = new byte[] { 0x50, 0x4B, 0x05, 0x06 };
-                    fs.Write(zipHeader, 0, zipHeader.Length);
-                }
-            }
-
-            // Output JPEG path
             string outputPath = Path.Combine(outputDir, "output.jpg");
 
-            // Convert EPUB to JPEG
-            using (FileStream epubStream = File.OpenRead(epubPath))
+            if (!File.Exists(inputPath))
             {
-                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
-                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, outputPath);
+                Console.WriteLine($"Input EPUB not found at {inputPath}");
+                return;
             }
 
-            // Compute SHA256 hash of the output file
-            byte[] hashBytes;
+            using (FileStream stream = File.OpenRead(inputPath))
+            {
+                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
+                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
+            }
+
             using (FileStream outStream = File.OpenRead(outputPath))
             using (SHA256 sha256 = SHA256.Create())
             {
-                hashBytes = sha256.ComputeHash(outStream);
+                byte[] hash = sha256.ComputeHash(outStream);
+                StringBuilder sb = new StringBuilder(hash.Length * 2);
+                foreach (byte b in hash)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+                Console.WriteLine($"SHA256: {sb}");
             }
-
-            // Convert hash to hex string
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in hashBytes)
-                sb.Append(b.ToString("x2"));
-            string hashHex = sb.ToString();
-
-            Console.WriteLine("SHA256 hash of the generated JPEG:");
-            Console.WriteLine(hashHex);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred:");
-            Console.WriteLine(ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

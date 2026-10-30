@@ -47,37 +47,35 @@ public class Program
     {
         try
         {
-            // Input EPUB file (replace with a valid path if needed)
             string epubPath = "sample.epub";
-            using Stream epubStream = File.OpenRead(epubPath);
 
-            // Set image save options to JPEG
-            ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
-
-            // Create custom stream provider to capture output in memory
-            using var provider = new MemoryStreamProvider();
-
-            // Convert EPUB to JPEG images (one image per page)
-            Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
-
-            if (provider.Streams.Count > 0)
+            if (!File.Exists(epubPath))
             {
-                // Get the first generated image stream
-                MemoryStream resultStream = provider.Streams[0];
-                resultStream.Position = 0;
-
-                // Simulate HttpResponse output stream
-                using var responseStream = new MemoryStream();
-                resultStream.CopyTo(responseStream);
-
-                // For demonstration, also save to a file
-                responseStream.Position = 0;
-                using var fileStream = File.Create("output.jpg");
-                responseStream.CopyTo(fileStream);
+                File.WriteAllBytes(epubPath, new byte[0]);
             }
-            else
+
+            using (Stream epubStream = File.OpenRead(epubPath))
             {
-                Console.WriteLine("No image was generated from the EPUB.");
+                var options = new ImageSaveOptions(ImageFormat.Jpeg);
+                var provider = new MemoryStreamProvider();
+
+                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+
+                if (provider.Streams.Count > 0)
+                {
+                    var resultStream = provider.Streams[0];
+                    resultStream.Position = 0;
+
+                    using (var responseStream = new MemoryStream())
+                    {
+                        resultStream.CopyTo(responseStream);
+                        Console.WriteLine($"Image written to HttpResponse stream. Bytes: {responseStream.Length}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No image streams were generated.");
+                }
             }
         }
         catch (Exception ex)

@@ -1,85 +1,100 @@
 // Dispose of the Converter object and any open streams after completing EPUB to GIF conversion.
 
 using System;
-using System.IO;
-using System.Collections.Generic;
-using Aspose.Html.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Rendering.Image;
-using Aspose.Html.Converters;
 
-class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+class MemoryMappedStreamProvider : Aspose.Html.IO.ICreateStreamProvider, System.IDisposable
 {
-    private readonly List<MemoryStream> _streams = new List<MemoryStream>();
+    private System.Collections.Generic.List<System.IO.MemoryMappedFiles.MemoryMappedFile> files = new System.Collections.Generic.List<System.IO.MemoryMappedFiles.MemoryMappedFile>();
+    private System.Collections.Generic.List<System.IO.Stream> streams = new System.Collections.Generic.List<System.IO.Stream>();
 
-    public System.IO.Stream GetStream(string name, string extension)
+    public System.IO.Stream GetStream(string path, string extension)
     {
-        return GetStream(name, extension, 0);
+        return GetStream(path, extension, 0);
     }
 
-    public System.IO.Stream GetStream(string name, string extension, int page)
+    public System.IO.Stream GetStream(string path, string extension, int capacity)
     {
-        var ms = new MemoryStream();
-        _streams.Add(ms);
-        return ms;
+        int size = capacity > 0 ? capacity : 1024 * 1024;
+        var mmf = System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew(System.Guid.NewGuid().ToString(), size);
+        var stream = mmf.CreateViewStream();
+        files.Add(mmf);
+        streams.Add(stream);
+        return stream;
     }
 
     public void ReleaseStream(System.IO.Stream stream)
     {
-        // No action needed for in-memory streams
+        int index = streams.IndexOf(stream);
+        if (index >= 0)
+        {
+            streams[index].Dispose();
+            files[index].Dispose();
+            streams.RemoveAt(index);
+            files.RemoveAt(index);
+        }
     }
 
     public void Dispose()
     {
-        foreach (var s in _streams)
+        foreach (var s in streams)
         {
             s.Dispose();
         }
+        foreach (var f in files)
+        {
+            f.Dispose();
+        }
     }
 
-    public IReadOnlyList<MemoryStream> Streams => _streams;
+    public System.IO.Stream GetFirstStream()
+    {
+        return streams.Count > 0 ? streams[0] : null;
+    }
 }
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            string inputPath = "sample.epub";
+            string epubPath = "sample.epub";
             string outputPath = "output.gif";
 
-            // Create a minimal sample EPUB file if it does not exist
-            if (!File.Exists(inputPath))
+            // Ensure the input EPUB file exists; for demonstration, create an empty file if missing.
+            if (!System.IO.File.Exists(epubPath))
             {
-                using (var fs = File.Create(inputPath))
+                using (var empty = System.IO.File.Create(epubPath))
                 {
-                    // Write minimal content (empty file for demonstration)
+                    // No content needed for this example.
                 }
             }
 
-            using (System.IO.FileStream epubStream = System.IO.File.OpenRead(inputPath))
-            {
-                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
-                using (MemoryStreamProvider provider = new MemoryStreamProvider())
-                {
-                    Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+            System.IO.FileStream epubStream = new System.IO.FileStream(epubPath, System.IO.FileMode.Open, System.IO.FileAccess.Read);
+            var provider = new MemoryMappedStreamProvider();
+            var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
 
-                    if (provider.Streams.Count > 0)
-                    {
-                        var gifStream = provider.Streams[0];
-                        gifStream.Position = 0;
-                        using (System.IO.FileStream file = System.IO.File.Create(outputPath))
-                        {
-                            gifStream.CopyTo(file);
-                        }
-                    }
+            Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+
+            System.IO.Stream gifStream = provider.GetFirstStream();
+            if (gifStream != null)
+            {
+                gifStream.Position = 0;
+                using (var file = new System.IO.FileStream(outputPath, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                {
+                    gifStream.CopyTo(file);
                 }
             }
+
+            // Cleanup
+            provider.Dispose();
+            epubStream.Dispose();
+
+            System.Console.WriteLine("Conversion completed. GIF saved to: " + outputPath);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

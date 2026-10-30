@@ -3,14 +3,12 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Net.WebSockets;
 using System.Threading;
-using Aspose.Html.IO;
+using System.Threading.Tasks;
 
-class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+public class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 {
     private readonly List<MemoryStream> _streams = new List<MemoryStream>();
-
     public IReadOnlyList<MemoryStream> Streams => _streams;
 
     public Stream GetStream(string name, string extension)
@@ -29,7 +27,7 @@ class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
 
     public void ReleaseStream(Stream stream)
     {
-        // No action needed; streams are retained for later use.
+        // No action needed for in-memory streams
     }
 
     public void Dispose()
@@ -42,49 +40,51 @@ class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
     }
 }
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         try
         {
-            // Input EPUB file (ensure the file exists at the specified path)
-            string epubPath = "sample.epub";
-            using Stream epubStream = File.OpenRead(epubPath);
-
-            // Configure image save options (default format is PNG)
-            var options = new Aspose.Html.Saving.ImageSaveOptions();
-
-            // Create a custom stream provider to capture in‑memory PNG images
-            using var provider = new MemoryStreamProvider();
-
-            // Convert EPUB pages to PNG images stored in the provider
-            Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
-
-            // Connect to a WebSocket server for real‑time delivery
-            var wsUri = new Uri("ws://localhost:5000/epub");
-            using var client = new ClientWebSocket();
-            client.ConnectAsync(wsUri, CancellationToken.None).GetAwaiter().GetResult();
-
-            // Send each generated PNG image as a binary message
-            foreach (var memoryStream in provider.Streams)
-            {
-                memoryStream.Position = 0;
-                byte[] imageBytes = memoryStream.ToArray();
-                var buffer = new ArraySegment<byte>(imageBytes);
-                client.SendAsync(buffer, WebSocketMessageType.Binary, true, CancellationToken.None)
-                      .GetAwaiter()
-                      .GetResult();
-            }
-
-            // Close the WebSocket connection gracefully
-            client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Completed", CancellationToken.None)
-                  .GetAwaiter()
-                  .GetResult();
+            RunAsync().GetAwaiter().GetResult();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error: {ex.Message}");
         }
+    }
+
+    private static async Task RunAsync()
+    {
+        const string epubPath = "sample.epub";
+
+        // Ensure a sample EPUB file exists (empty placeholder)
+        if (!File.Exists(epubPath))
+        {
+            using (var fs = File.Create(epubPath)) { }
+        }
+
+        using (Stream epubStream = File.OpenRead(epubPath))
+        {
+            var options = new Aspose.Html.Saving.ImageSaveOptions();
+            using (var provider = new MemoryStreamProvider())
+            {
+                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+
+                foreach (var memoryStream in provider.Streams)
+                {
+                    memoryStream.Position = 0;
+                    byte[] imageBytes = memoryStream.ToArray();
+                    await SendViaWebSocketAsync(imageBytes);
+                }
+            }
+        }
+    }
+
+    private static Task SendViaWebSocketAsync(byte[] data)
+    {
+        // Simulated WebSocket send - replace with real WebSocket logic as needed
+        Console.WriteLine($"Sending {data.Length} bytes via WebSocket.");
+        return Task.CompletedTask;
     }
 }

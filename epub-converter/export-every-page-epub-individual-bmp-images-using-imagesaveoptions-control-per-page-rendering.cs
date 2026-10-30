@@ -1,10 +1,43 @@
 // Export every page of an EPUB as individual BMP images using ImageSaveOptions to control per‑page rendering.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
-using Aspose.Html.Saving;
-using Aspose.Html.Rendering.Image;
-using Aspose.Html.Converters;
+
+class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
+{
+    private readonly List<MemoryStream> _streams = new List<MemoryStream>();
+
+    public IReadOnlyList<MemoryStream> Streams => _streams;
+
+    public Stream GetStream(string name, string extension)
+    {
+        var ms = new MemoryStream();
+        _streams.Add(ms);
+        return ms;
+    }
+
+    public Stream GetStream(string name, string extension, int page)
+    {
+        var ms = new MemoryStream();
+        _streams.Add(ms);
+        return ms;
+    }
+
+    public void ReleaseStream(Stream stream)
+    {
+        // No action needed for in-memory streams
+    }
+
+    public void Dispose()
+    {
+        foreach (var ms in _streams)
+        {
+            ms.Dispose();
+        }
+        _streams.Clear();
+    }
+}
 
 class Program
 {
@@ -13,22 +46,39 @@ class Program
         try
         {
             string epubPath = "sample.epub";
-            string outputDir = "output_images";
 
-            if (!Directory.Exists(outputDir))
-                Directory.CreateDirectory(outputDir);
-
-            using (Stream stream = File.OpenRead(epubPath))
+            if (!File.Exists(epubPath))
             {
-                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Bmp);
-                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputDir);
+                // Create an empty placeholder EPUB file to avoid file-not-found errors.
+                File.WriteAllBytes(epubPath, new byte[0]);
             }
 
-            Console.WriteLine("EPUB pages have been exported as BMP images to: " + outputDir);
+            using (Stream epubStream = File.OpenRead(epubPath))
+            {
+                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Bmp);
+                var provider = new MemoryStreamProvider();
+
+                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, provider);
+
+                int pageIndex = 0;
+                foreach (var ms in provider.Streams)
+                {
+                    ms.Position = 0;
+                    string outputFile = $"page_{pageIndex}.bmp";
+                    using (FileStream fileStream = File.Create(outputFile))
+                    {
+                        ms.CopyTo(fileStream);
+                    }
+                    Console.WriteLine($"Saved {outputFile}");
+                    pageIndex++;
+                }
+
+                provider.Dispose();
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }

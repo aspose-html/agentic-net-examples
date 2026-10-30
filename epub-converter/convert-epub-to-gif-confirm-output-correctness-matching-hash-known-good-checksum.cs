@@ -3,61 +3,62 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
+using Aspose.Html.Converters;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         try
         {
-            // Define input EPUB file and output GIF file paths
+            // Input EPUB file path (replace with a valid file if needed)
             string inputPath = "sample.epub";
+            // Output GIF file path
             string outputPath = "output.gif";
 
-            // Known good SHA256 checksum of the expected GIF file
-            const string knownChecksum = "d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2";
-
-            // Verify that the input file exists
-            if (!File.Exists(inputPath))
-            {
-                Console.WriteLine($"Input file not found: {inputPath}");
-                return;
-            }
-
             // Open the EPUB file as a stream
-            using (FileStream epubStream = File.OpenRead(inputPath))
+            using (FileStream inputStream = File.OpenRead(inputPath))
             {
                 // Configure image save options for GIF format
-                var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
-
-                // Perform the conversion
-                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, outputPath);
+                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Gif);
+                // Convert EPUB to GIF
+                Aspose.Html.Converters.Converter.ConvertEPUB(inputStream, options, outputPath);
             }
 
-            // Compute SHA256 hash of the generated GIF
-            if (!File.Exists(outputPath))
+            // Verify that the output file was created
+            if (File.Exists(outputPath))
             {
-                Console.WriteLine($"Conversion failed, output file not created: {outputPath}");
-                return;
-            }
+                // Compute SHA256 hash of the generated GIF
+                byte[] fileBytes = File.ReadAllBytes(outputPath);
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] hashBytes = sha256.ComputeHash(fileBytes);
+                    StringBuilder sb = new StringBuilder();
+                    foreach (byte b in hashBytes)
+                    {
+                        sb.Append(b.ToString("x2"));
+                    }
+                    string computedHash = sb.ToString();
 
-            string computedChecksum;
-            using (FileStream gifStream = File.OpenRead(outputPath))
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] hashBytes = sha256.ComputeHash(gifStream);
-                computedChecksum = BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
-            }
+                    // Known good checksum (replace with actual value)
+                    string knownHash = "PUT_KNOWN_CHECKSUM_HERE".ToLowerInvariant();
 
-            // Compare the computed checksum with the known good checksum
-            if (computedChecksum == knownChecksum.ToLowerInvariant())
-            {
-                Console.WriteLine("Conversion successful. Checksum matches the known good value.");
+                    if (computedHash == knownHash)
+                    {
+                        Console.WriteLine("Output GIF hash matches the known checksum.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Hash mismatch. Computed: {computedHash}");
+                    }
+                }
             }
             else
             {
-                Console.WriteLine($"Checksum mismatch. Expected: {knownChecksum}");
-                Console.WriteLine($"Actual:   {computedChecksum}");
+                Console.WriteLine("Output file was not created.");
             }
         }
         catch (Exception ex)

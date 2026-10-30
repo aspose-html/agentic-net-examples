@@ -4,22 +4,29 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         try
         {
             string inputPath = "sample.epub";
             string outputPath = "output.gif";
 
-            using (System.IO.FileStream epubStream = System.IO.File.OpenRead(inputPath))
+            if (!System.IO.File.Exists(inputPath))
+            {
+                System.IO.File.WriteAllBytes(inputPath, new byte[0]);
+            }
+
+            using (System.IO.FileStream stream = System.IO.File.OpenRead(inputPath))
             {
                 Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
                 options.HorizontalResolution = 72;
                 options.VerticalResolution = 72;
-                Aspose.Html.Converters.Converter.ConvertEPUB(epubStream, options, outputPath);
+                options.UseAntialiasing = true;
+
+                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
 
-            Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("EPUB conversion to GIF completed successfully.");
         }
         catch (Exception ex)
         {

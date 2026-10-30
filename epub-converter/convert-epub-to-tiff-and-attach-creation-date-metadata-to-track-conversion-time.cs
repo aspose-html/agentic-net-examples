@@ -12,35 +12,31 @@ class Program
     {
         try
         {
-            // Define input EPUB file path and output TIFF file path
-            string inputPath = "sample.epub";
-            string outputPath = "output.tiff";
+            string dataDir = "Data";
+            string outputDir = "Output";
+            Directory.CreateDirectory(dataDir);
+            Directory.CreateDirectory(outputDir);
 
-            // Ensure the input file exists (create a placeholder if necessary)
-            if (!File.Exists(inputPath))
+            string epubPath = Path.Combine(dataDir, "sample.epub");
+            if (!File.Exists(epubPath))
             {
-                // Create an empty placeholder file (real EPUB content is required for actual conversion)
-                using (FileStream placeholder = File.Create(inputPath))
-                {
-                    // No content written
-                }
+                // Create a placeholder empty EPUB file
+                File.WriteAllBytes(epubPath, new byte[0]);
             }
 
-            // Open the EPUB file stream
-            using (FileStream stream = File.OpenRead(inputPath))
+            using (Stream stream = File.OpenRead(epubPath))
             {
-                // Configure image save options for TIFF format
                 ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Tiff);
-
-                // Perform the conversion from EPUB to TIFF
+                // Note: ImageSaveOptions does not expose a CreationDate property; metadata can be added via other means if supported.
+                string outputPath = Path.Combine(outputDir, "output.tiff");
                 Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
 
-            Console.WriteLine("Conversion completed successfully. Output saved to: " + outputPath);
+            Console.WriteLine("EPUB to TIFF conversion completed successfully.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred during conversion: " + ex.Message);
+            Console.WriteLine("Error during conversion: " + ex.Message);
         }
     }
 }

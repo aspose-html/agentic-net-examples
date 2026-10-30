@@ -10,17 +10,29 @@ class Program
     {
         try
         {
+            // Sample input EPUB files (created as empty placeholders if they do not exist)
             var epubFiles = new List<string>
             {
                 "sample1.epub",
                 "sample2.epub"
             };
 
-            string outputDir = "output";
-            Directory.CreateDirectory(outputDir);
+            foreach (var file in epubFiles)
+            {
+                if (!File.Exists(file))
+                {
+                    File.WriteAllBytes(file, new byte[0]);
+                }
+            }
 
-            ConvertEpubBatch(epubFiles, outputDir);
-            Console.WriteLine("Batch conversion completed.");
+            // Output directory for GIF files
+            string outputDir = "output_gifs";
+            if (!Directory.Exists(outputDir))
+            {
+                Directory.CreateDirectory(outputDir);
+            }
+
+            ProcessEpubBatch(epubFiles, outputDir);
         }
         catch (Exception ex)
         {
@@ -28,7 +40,7 @@ class Program
         }
     }
 
-    static void ConvertEpubBatch(IEnumerable<string> epubPaths, string outputDirectory)
+    static void ProcessEpubBatch(List<string> epubPaths, string outputDirectory)
     {
         foreach (var epubPath in epubPaths)
         {
@@ -36,10 +48,12 @@ class Program
             {
                 using (FileStream stream = File.OpenRead(epubPath))
                 {
-                    string outputFileName = Path.GetFileNameWithoutExtension(epubPath) + ".gif";
-                    string outputPath = Path.Combine(outputDirectory, outputFileName);
+                    string outputFileName = System.IO.Path.GetFileNameWithoutExtension(epubPath) + ".gif";
+                    string outputPath = System.IO.Path.Combine(outputDirectory, outputFileName);
 
-                    var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Gif);
+                    var options = new Aspose.Html.Saving.ImageSaveOptions(
+                        Aspose.Html.Rendering.Image.ImageFormat.Gif);
+
                     Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
 
                     Console.WriteLine($"Converted '{epubPath}' to '{outputPath}'.");

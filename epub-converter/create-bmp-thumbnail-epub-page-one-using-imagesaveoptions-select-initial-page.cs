@@ -1,33 +1,36 @@
 // Create a BMP thumbnail representing page one of an EPUB using ImageSaveOptions to select the initial page.
 
-namespace Example
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
+            string inputPath = "sample.epub";
+            string outputPath = "thumbnail.bmp";
+
+            // Create a placeholder EPUB file if it does not exist
+            if (!System.IO.File.Exists(inputPath))
             {
-                string inputPath = "sample.epub";
-                string outputPath = "thumbnail.bmp";
-
-                System.IO.Stream inputStream = System.IO.File.OpenRead(inputPath);
-                using (inputStream)
-                {
-                    Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Bmp);
-                    options.UseAntialiasing = true;
-                    options.HorizontalResolution = 300;
-                    options.VerticalResolution = 300;
-
-                    Aspose.Html.Converters.Converter.ConvertEPUB(inputStream, options, outputPath);
-                }
-
-                System.Console.WriteLine("Thumbnail saved to " + outputPath);
+                System.IO.File.WriteAllBytes(inputPath, new byte[0]);
             }
-            catch (System.Exception ex)
+
+            System.IO.Stream stream = System.IO.File.OpenRead(inputPath);
+            using (stream)
             {
-                System.Console.WriteLine("Error: " + ex.Message);
+                Aspose.Html.Saving.ImageSaveOptions options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Bmp);
+                // If supported, set the initial page to the first page
+                // options.PageSetup.StartPage = 1;
+                options.UseAntialiasing = true;
+
+                Aspose.Html.Converters.Converter.ConvertEPUB(stream, options, outputPath);
             }
+
+            System.Console.WriteLine("Thumbnail saved to " + outputPath);
+        }
+        catch (System.Exception ex)
+        {
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

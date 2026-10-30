@@ -1,36 +1,41 @@
 // Convert a list of EPUB file paths to DOCX using a reusable method that accepts save options.
 
-namespace Example
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        try
         {
-            try
+            var epubFiles = new List<string>
             {
-                var epubFiles = new System.Collections.Generic.List<string>
-                {
-                    "sample1.epub",
-                    "sample2.epub"
-                };
+                "sample1.epub",
+                "sample2.epub"
+            };
 
-                foreach (var sourcePath in epubFiles)
-                {
-                    string outputPath = System.IO.Path.ChangeExtension(sourcePath, ".docx");
-                    var options = new Aspose.Html.Saving.DocSaveOptions();
-                    ConvertEpubToDocx(sourcePath, outputPath, options);
-                    System.Console.WriteLine($"Converted '{sourcePath}' to '{outputPath}'.");
-                }
-            }
-            catch (System.Exception ex)
+            var options = new Aspose.Html.Saving.DocSaveOptions();
+
+            foreach (var epubPath in epubFiles)
             {
-                System.Console.Error.WriteLine($"Error: {ex.Message}");
+                string outputDirectory = Path.GetDirectoryName(epubPath) ?? string.Empty;
+                string outputFileName = Path.GetFileNameWithoutExtension(epubPath) + ".docx";
+                string outputPath = Path.Combine(outputDirectory, outputFileName);
+
+                ConvertEpubToDocx(epubPath, options, outputPath);
+                Console.WriteLine($"Converted '{epubPath}' to '{outputPath}'.");
             }
         }
-
-        static void ConvertEpubToDocx(string sourcePath, string outputPath, Aspose.Html.Saving.DocSaveOptions options)
+        catch (Exception ex)
         {
-            Aspose.Html.Converters.Converter.ConvertEPUB(sourcePath, options, outputPath);
+            Console.WriteLine($"Error: {ex.Message}");
         }
+    }
+
+    static void ConvertEpubToDocx(string sourcePath, Aspose.Html.Saving.DocSaveOptions options, string outputPath)
+    {
+        Aspose.Html.Converters.Converter.ConvertEPUB(sourcePath, options, outputPath);
     }
 }
