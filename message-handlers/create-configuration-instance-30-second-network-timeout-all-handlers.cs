@@ -1,8 +1,6 @@
 // Create a Configuration instance with a 30‑second network timeout for all handlers.
 
-using Aspose.Html;
-using Aspose.Html.Net;
-using Aspose.Html.Services;
+using System;
 
 public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
 {
@@ -23,17 +21,13 @@ public class Program
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
             networkService.MessageHandlers.Add(new TimeoutHandler());
 
-            string html = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(html, configuration))
-            {
-                string outputPath = "output.html";
-                document.Save(outputPath);
-                System.Console.WriteLine($"Document saved to {outputPath}");
-            }
+            // Example usage: load a simple document with the custom configuration
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("about:blank", configuration);
+            System.Console.WriteLine("HTMLDocument loaded with a 30‑second network timeout.");
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine($"Error: {ex.Message}");
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

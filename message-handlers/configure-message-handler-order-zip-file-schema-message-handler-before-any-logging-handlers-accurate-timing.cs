@@ -9,79 +9,94 @@ using Aspose.Html.Net;
 using Aspose.Html.Services;
 using Aspose.Html.Rendering.Pdf;
 
-public sealed class TimingHandler : Aspose.Html.Net.MessageHandler
+class Program
 {
-    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
-    {
-        System.Diagnostics.Stopwatch requestTimer = System.Diagnostics.Stopwatch.StartNew();
-        Next(context);
-        requestTimer.Stop();
-        System.Console.WriteLine("Request: " + context.Request.RequestUri + " | " + requestTimer.ElapsedMilliseconds + " ms");
-    }
-}
-
-public class LogHandler : Aspose.Html.Net.MessageHandler
-{
-    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
-    {
-        Next(context);
-        System.Console.WriteLine(context.Request.RequestUri + " | " + context.Response.StatusCode);
-    }
-}
-
-public class Program
-{
-    public static void Main()
+    static void Main()
     {
         try
         {
+            // Define paths
             string zipPath = "sample.zip";
-            string extractDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ExtractedHtml");
+            string extractDir = Path.Combine(Path.GetTempPath(), "ExtractedHtml");
             string outputPdfPath = "output.pdf";
 
-            System.IO.Directory.CreateDirectory(extractDir);
+            // Ensure extraction directory exists
+            Directory.CreateDirectory(extractDir);
 
-            using (System.IO.FileStream zipStream = System.IO.File.OpenRead(zipPath))
-            using (System.IO.Compression.ZipArchive archive = new System.IO.Compression.ZipArchive(zipStream, System.IO.Compression.ZipArchiveMode.Read))
+            // Extract HTML files from zip
+            using (FileStream zipStream = File.OpenRead(zipPath))
+            using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
             {
-                foreach (System.IO.Compression.ZipArchiveEntry entry in archive.Entries)
+                foreach (ZipArchiveEntry entry in archive.Entries)
                 {
-                    if (entry.FullName.EndsWith(".html", System.StringComparison.OrdinalIgnoreCase) ||
-                        entry.FullName.EndsWith(".htm", System.StringComparison.OrdinalIgnoreCase))
+                    if (entry.FullName.EndsWith(".html", StringComparison.OrdinalIgnoreCase) ||
+                        entry.FullName.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
                     {
-                        string entryPath = System.IO.Path.Combine(extractDir, entry.FullName);
-                        string entryFolder = System.IO.Path.GetDirectoryName(entryPath);
-                        if (!string.IsNullOrEmpty(entryFolder))
-                            System.IO.Directory.CreateDirectory(entryFolder);
-                        entry.ExtractToFile(entryPath, true);
+                        string entryPath = Path.Combine(extractDir, entry.FullName);
+                        string entryDir = Path.GetDirectoryName(entryPath);
+                        if (!string.IsNullOrEmpty(entryDir))
+                        {
+                            Directory.CreateDirectory(entryDir);
+                        }
+                        ZipFileExtensions.ExtractToFile(entry, entryPath, true);
                     }
                 }
             }
 
-            string[] htmlFiles = System.IO.Directory.GetFiles(extractDir, "*.html", System.IO.SearchOption.AllDirectories);
+            // Locate the first HTML file
+            string[] htmlFiles = Directory.GetFiles(extractDir, "*.html", SearchOption.AllDirectories);
             if (htmlFiles.Length == 0)
-                htmlFiles = System.IO.Directory.GetFiles(extractDir, "*.htm", System.IO.SearchOption.AllDirectories);
+            {
+                htmlFiles = Directory.GetFiles(extractDir, "*.htm", SearchOption.AllDirectories);
+            }
             if (htmlFiles.Length == 0)
-                throw new System.IO.FileNotFoundException("No HTML file found after ZIP extraction.");
+            {
+                throw new FileNotFoundException("No HTML file found after ZIP extraction.");
+            }
+            string htmlPath = htmlFiles[0];
 
+            // Configure Aspose.HTML
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            INetworkService network = configuration.GetService<INetworkService>();
 
-            // Insert timing handler before any logging handlers
+            // Add timing handler before logging handlers
             network.MessageHandlers.Insert(0, new TimingHandler());
             network.MessageHandlers.Add(new LogHandler());
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlFiles[0], configuration))
-            using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPdfPath))
+            // Convert HTML to PDF
+            using (HTMLDocument document = new HTMLDocument(htmlPath, configuration))
+            using (PdfDevice device = new PdfDevice(outputPdfPath))
             {
                 document.RenderTo(device);
             }
 
-            System.Console.WriteLine("Conversion completed successfully.");
+            Console.WriteLine("Conversion completed successfully.");
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
+    }
+}
+
+// Timing handler to measure request duration
+public sealed class TimingHandler : MessageHandler
+{
+    public override void Invoke(INetworkOperationContext context)
+    {
+        Stopwatch timer = Stopwatch.StartNew();
+        Next(context);
+        timer.Stop();
+        Console.WriteLine("Request: " + context.Request.RequestUri + " | " + timer.ElapsedMilliseconds + " ms");
+    }
+}
+
+// Simple logging handler
+public sealed class LogHandler : MessageHandler
+{
+    public override void Invoke(INetworkOperationContext context)
+    {
+        Next(context);
+        Console.WriteLine(context.Request.RequestUri + " | " + context.Response.StatusCode);
     }
 }

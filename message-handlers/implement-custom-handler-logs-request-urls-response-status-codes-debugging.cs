@@ -24,32 +24,24 @@ public class Program
     {
         try
         {
-            // Create configuration
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-
-            // Get network service and add custom handler
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
             LogMessageHandler handler = new LogMessageHandler();
             networkService.MessageHandlers.Add(handler);
 
-            // Sample HTML content
-            string htmlContent = "<html><body><h1>Hello World</h1></body></html>";
-
-            // Load document using inline HTML
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, configuration))
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
             {
-                // Document is loaded; any network requests (e.g., external resources) will be logged by the handler
+                // Document loaded; network operations are logged by the handler.
             }
 
-            // Output logged messages
             foreach (string message in handler.Messages)
             {
-                Console.WriteLine(message);
+                System.Console.WriteLine(message);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

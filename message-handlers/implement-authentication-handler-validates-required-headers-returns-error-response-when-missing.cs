@@ -1,39 +1,62 @@
 // Implement an authentication handler that validates required headers and returns error response when missing.
 
 using System;
+using System.Collections.Generic;
+using System.Net;
+using Aspose.Html;
+using Aspose.Html.Net;
+using Aspose.Html.Services;
 
-public class AuthHandler : Aspose.Html.Net.MessageHandler
+class AuthHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        const string headerName = "Authorization";
-        if (string.IsNullOrEmpty(context.Request.Headers[headerName]))
+        if (string.IsNullOrEmpty(context.Request.Headers["Authorization"]))
         {
-            context.Response.StatusCode = System.Net.HttpStatusCode.Unauthorized;
+            context.Response.StatusCode = HttpStatusCode.Unauthorized;
             return;
         }
         Next(context);
     }
 }
 
-public class Program
+class LogHandler : Aspose.Html.Net.MessageHandler
 {
-    public static void Main(string[] args)
+    private readonly List<string> _logs = new List<string>();
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    {
+        Next(context);
+        _logs.Add("URL: " + context.Request.RequestUri + " | Status: " + context.Response.StatusCode);
+    }
+    public IReadOnlyList<string> Logs => _logs;
+}
+
+class Program
+{
+    static void Main()
     {
         try
         {
-            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            var configuration = new Aspose.Html.Configuration();
+            var network = configuration.GetService<INetworkService>();
+
+            var logger = new LogHandler();
+            network.MessageHandlers.Add(logger);
             network.MessageHandlers.Add(new AuthHandler());
 
-            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://example.com");
-            request.Headers["Authorization"] = "Bearer dummy-token";
+            var request = new Aspose.Html.Net.RequestMessage("https://example.com");
+            // Intentionally omit the "Authorization" header to trigger the handler
 
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
+            using (var document = new Aspose.Html.HTMLDocument(request, configuration))
             {
-                string outputPath = "output.html";
+                var outputPath = "output.html";
                 document.Save(outputPath);
                 Console.WriteLine("Document saved to " + outputPath);
+            }
+
+            foreach (var entry in logger.Logs)
+            {
+                Console.WriteLine(entry);
             }
         }
         catch (Exception ex)

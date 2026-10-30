@@ -3,7 +3,6 @@
 using System;
 using System.IO;
 using System.IO.Compression;
-using System.Drawing;
 
 class Program
 {
@@ -11,30 +10,12 @@ class Program
     {
         try
         {
-            // Prepare sample HTML and ZIP
-            string tempDir = Path.Combine(Path.GetTempPath(), "AsposeHtmlExample");
-            Directory.CreateDirectory(tempDir);
-
-            string htmlContent = "<!DOCTYPE html><html><head><title>Sample</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-            string htmlFileName = "sample.html";
-            string htmlFilePath = Path.Combine(tempDir, htmlFileName);
-            File.WriteAllText(htmlFilePath, htmlContent);
-
-            string zipPath = Path.Combine(tempDir, "sample.zip");
-            using (FileStream zipStream = new FileStream(zipPath, FileMode.Create))
-            using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Create))
-            {
-                ZipArchiveEntry entry = archive.CreateEntry(htmlFileName);
-                using (Stream entryStream = entry.Open())
-                using (StreamWriter writer = new StreamWriter(entryStream))
-                {
-                    writer.Write(htmlContent);
-                }
-            }
-
-            // Extract ZIP
+            // Prepare sample ZIP file path and extraction directory
+            string zipPath = "sample.zip";
             string extractDir = Path.Combine(Path.GetTempPath(), "AsposeHtmlExtract");
             Directory.CreateDirectory(extractDir);
+
+            // Extract HTML files from the ZIP archive
             using (FileStream zipStream = File.OpenRead(zipPath))
             using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
             {
@@ -47,42 +28,51 @@ class Program
                         string entryFolder = Path.GetDirectoryName(entryPath);
                         if (!string.IsNullOrEmpty(entryFolder))
                             Directory.CreateDirectory(entryFolder);
-                        entry.ExtractToFile(entryPath, true);
+
+                        using (Stream entryStream = entry.Open())
+                        using (FileStream fileStream = File.Create(entryPath))
+                        {
+                            entryStream.CopyTo(fileStream);
+                        }
                     }
                 }
             }
 
-            // Locate HTML file
+            // Locate the first extracted HTML file
             string[] htmlFiles = Directory.GetFiles(extractDir, "*.html", SearchOption.AllDirectories);
             if (htmlFiles.Length == 0)
                 throw new FileNotFoundException("No HTML file found after ZIP extraction.");
+            string htmlPath = htmlFiles[0];
 
-            // Configure Aspose.HTML
+            // Configure Aspose.HTML with timeout, protocol filter, and logging
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            network.MessageHandlers.Insert(0, new TimeoutHandler());
-            network.MessageHandlers.Add(new ProtocolHandler());
-            network.MessageHandlers.Insert(0, new LogHandler());
 
-            // Load document and render to PDF
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlFiles[0], configuration))
+            network.MessageHandlers.Insert(0, new LogHandler());
+            network.MessageHandlers.Add(new TimeoutHandler());
+            network.MessageHandlers.Add(new ProtocolHandler());
+
+            // Load the HTML document using the configured settings
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
             {
-                string outputPath = Path.Combine(extractDir, "output.pdf");
+                // Render the document to PDF
+                string outputPath = Path.Combine(Path.GetTempPath(), "output.pdf");
                 using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
                 {
                     document.RenderTo(device);
                 }
-                Console.WriteLine("PDF generated at: " + outputPath);
+
+                Console.WriteLine($"PDF generated at: {outputPath}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }
 
-// Timeout handling
+// Timeout handling message handler
 public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
@@ -92,7 +82,7 @@ public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
     }
 }
 
-// Detailed request logging
+// Detailed request logging handler
 public sealed class LogHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
@@ -102,12 +92,12 @@ public sealed class LogHandler : Aspose.Html.Net.MessageHandler
     }
 }
 
-// Protocol filtering (allow only http and https)
+// Protocol filtering handler (e.g., allow "zip" scheme)
 public sealed class ProtocolHandler : Aspose.Html.Net.MessageHandler
 {
     public ProtocolHandler()
     {
-        Filters.Add(new Aspose.Html.Net.MessageFilters.ProtocolMessageFilter("http,https"));
+        Filters.Add(new Aspose.Html.Net.MessageFilters.ProtocolMessageFilter("zip"));
     }
 
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)

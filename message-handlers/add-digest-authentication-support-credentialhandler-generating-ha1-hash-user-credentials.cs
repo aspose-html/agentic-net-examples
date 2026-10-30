@@ -7,40 +7,47 @@ using Aspose.Html;
 using Aspose.Html.Net;
 using Aspose.Html.Services;
 
-class DigestCredentialHandler : Aspose.Html.Net.MessageHandler
+class CredentialHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        var cred = context.Request.Credentials as System.Net.NetworkCredential;
-        if (cred != null)
+        Next(context);
+        if (context.Response.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            return;
+
+        string wwwAuth = context.Response.Headers["WWW-Authenticate"];
+        if (string.IsNullOrEmpty(wwwAuth))
+            return;
+
+        string realm = string.Empty;
+        foreach (string part in wwwAuth.Split(','))
         {
-            // Placeholder realm and nonce for demonstration
-            string realm = "exampleRealm";
-            string nonce = "exampleNonce";
-
-            string ha1 = ComputeMD5($"{cred.UserName}:{realm}:{cred.Password}");
-            string method = "GET";
-            string uri = context.Request.RequestUri != null ? context.Request.RequestUri.ToString() : "/";
-            string ha2 = ComputeMD5($"{method}:{uri}");
-            string response = ComputeMD5($"{ha1}:{nonce}:{ha2}");
-
-            string authHeader = $"Digest username=\"{cred.UserName}\", realm=\"{realm}\", nonce=\"{nonce}\", uri=\"{uri}\", response=\"{response}\"";
-            context.Request.Headers["Authorization"] = authHeader;
+            string trimmed = part.Trim();
+            if (trimmed.StartsWith("realm=\"", StringComparison.OrdinalIgnoreCase))
+            {
+                int firstQuote = trimmed.IndexOf('\"');
+                int lastQuote = trimmed.LastIndexOf('\"');
+                if (firstQuote >= 0 && lastQuote > firstQuote)
+                {
+                    realm = trimmed.Substring(firstQuote + 1, lastQuote - firstQuote - 1);
+                }
+                break;
+            }
         }
 
-        Next(context);
-    }
+        if (string.IsNullOrEmpty(realm))
+            return;
 
-    private static string ComputeMD5(string input)
-    {
+        var cred = context.Request.Credentials as System.Net.NetworkCredential;
+        if (cred == null)
+            return;
+
+        string ha1Input = $"{cred.UserName}:{realm}:{cred.Password}";
         using (MD5 md5 = MD5.Create())
         {
-            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-            byte[] hashBytes = md5.ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in hashBytes)
-                sb.Append(b.ToString("x2"));
-            return sb.ToString();
+            byte[] hash = md5.ComputeHash(Encoding.UTF8.GetBytes(ha1Input));
+            string ha1 = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            Console.WriteLine("HA1 hash: " + ha1);
         }
     }
 }
@@ -53,20 +60,20 @@ class Program
         {
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            network.MessageHandlers.Add(new DigestCredentialHandler());
+            network.MessageHandlers.Add(new CredentialHandler());
 
-            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("http://example.com/protected");
-            request.Credentials = new System.Net.NetworkCredential("user", "password");
+            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://httpbin.org/digest-auth/auth/user/passwd");
+            request.Credentials = new System.Net.NetworkCredential("user", "passwd");
             request.PreAuthenticate = true;
 
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
             {
-                System.Console.WriteLine("Document title: " + document.Title);
+                Console.WriteLine("Document title: " + document.Title);
             }
         }
         catch (Exception ex)
         {
-            System.Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

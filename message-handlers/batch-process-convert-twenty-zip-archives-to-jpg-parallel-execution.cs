@@ -5,41 +5,9 @@ using System.IO;
 using System.IO.Compression;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-class MemoryStreamProvider : Aspose.Html.IO.ICreateStreamProvider, IDisposable
-{
-    private readonly List<MemoryStream> _streams = new List<MemoryStream>();
-
-    public System.IO.Stream GetStream(string name, string extension)
-    {
-        var ms = new MemoryStream();
-        _streams.Add(ms);
-        return ms;
-    }
-
-    public System.IO.Stream GetStream(string name, string extension, int page)
-    {
-        var ms = new MemoryStream();
-        _streams.Add(ms);
-        return ms;
-    }
-
-    public void ReleaseStream(System.IO.Stream stream)
-    {
-        // No action needed; streams are kept for later use.
-    }
-
-    public void Dispose()
-    {
-        foreach (var ms in _streams)
-        {
-            ms.Dispose();
-        }
-        _streams.Clear();
-    }
-
-    public IReadOnlyList<MemoryStream> Streams => _streams;
-}
+using Aspose.Html.Converters;
+using Aspose.Html.Saving;
+using Aspose.Html.Rendering.Image;
 
 class Program
 {
@@ -47,85 +15,71 @@ class Program
     {
         try
         {
-            var inputZips = new List<string>();
+            // Prepare sample ZIP files (20 archives, each containing a simple HTML file)
+            string inputFolder = Path.Combine(Directory.GetCurrentDirectory(), "input_zips");
+            string outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "output_images");
+            Directory.CreateDirectory(inputFolder);
+            Directory.CreateDirectory(outputFolder);
+
+            List<string> zipPaths = new List<string>();
             for (int i = 1; i <= 20; i++)
             {
-                string zipPath = $"input{i}.zip";
-                inputZips.Add(zipPath);
-                if (!File.Exists(zipPath))
+                string zipPath = Path.Combine(inputFolder, $"sample{i}.zip");
+                using (FileStream zipToCreate = new FileStream(zipPath, FileMode.Create))
+                using (ZipArchive archive = new ZipArchive(zipToCreate, ZipArchiveMode.Update))
                 {
-                    using (var zipToCreate = new FileStream(zipPath, FileMode.Create))
-                    using (var archive = new ZipArchive(zipToCreate, ZipArchiveMode.Create))
+                    ZipArchiveEntry htmlEntry = archive.CreateEntry("page.html");
+                    using (StreamWriter writer = new StreamWriter(htmlEntry.Open()))
                     {
-                        var htmlEntry = archive.CreateEntry("document.html");
-                        using (var entryStream = htmlEntry.Open())
-                        using (var writer = new StreamWriter(entryStream))
-                        {
-                            writer.Write("<!DOCTYPE html><html><body><h1>Sample Document " + i + "</h1></body></html>");
-                        }
+                        writer.Write("<!DOCTYPE html><html><body><h1>Sample Document " + i + "</h1></body></html>");
                     }
                 }
+                zipPaths.Add(zipPath);
             }
 
-            Parallel.ForEach(inputZips, new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount }, inputZip =>
+            // Parallel processing of ZIP archives
+            Parallel.ForEach(zipPaths, zipPath =>
             {
                 try
                 {
-                    using (var inputArchive = ZipFile.OpenRead(inputZip))
+                    using (FileStream zipStream = new FileStream(zipPath, FileMode.Open, FileAccess.Read))
+                    using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
                     {
-                        ZipArchiveEntry htmlEntry = null;
-                        foreach (var entry in inputArchive.Entries)
+                        foreach (ZipArchiveEntry entry in archive.Entries)
                         {
                             if (entry.FullName.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
                             {
-                                htmlEntry = entry;
-                                break;
-                            }
-                        }
-
-                        if (htmlEntry == null)
-                        {
-                            Console.WriteLine($"No HTML file found in {inputZip}");
-                            return;
-                        }
-
-                        using (var htmlStream = htmlEntry.Open())
-                        {
-                            var options = new Aspose.Html.Saving.ImageSaveOptions(Aspose.Html.Rendering.Image.ImageFormat.Jpeg);
-
-                            using (var provider = new MemoryStreamProvider())
-                            {
-                                var document = new Aspose.Html.HTMLDocument(htmlStream, "about:blank");
-                                Aspose.Html.Converters.Converter.ConvertHTML(document, options, provider);
-
-                                string outputZipPath = Path.ChangeExtension(inputZip, ".out.zip");
-
-                                using (var outputZipStream = new FileStream(outputZipPath, FileMode.Create))
-                                using (var outputArchive = new ZipArchive(outputZipStream, ZipArchiveMode.Create))
+                                // Extract HTML entry to a temporary file
+                                string tempHtmlPath = Path.GetTempFileName();
+                                using (FileStream tempFile = new FileStream(tempHtmlPath, FileMode.Create, FileAccess.Write))
+                                using (Stream entryStream = entry.Open())
                                 {
-                                    int pageIndex = 0;
-                                    foreach (var ms in provider.Streams)
-                                    {
-                                        ms.Position = 0;
-                                        var entry = outputArchive.CreateEntry($"page{pageIndex}.jpg");
-                                        using (var entryStream = entry.Open())
-                                        {
-                                            ms.CopyTo(entryStream);
-                                        }
-                                        pageIndex++;
-                                    }
+                                    entryStream.CopyTo(tempFile);
                                 }
 
-                                Console.WriteLine($"Converted {inputZip} to {outputZipPath}");
+                                // Prepare output JPG path
+                                string jpgFileName = Path.GetFileNameWithoutExtension(zipPath) + "_" + Path.GetFileNameWithoutExtension(entry.FullName) + ".jpg";
+                                string jpgOutputPath = Path.Combine(outputFolder, jpgFileName);
+
+                                // Set image save options for JPEG
+                                ImageSaveOptions options = new ImageSaveOptions(ImageFormat.Jpeg);
+
+                                // Convert HTML to JPEG
+                                Aspose.Html.Converters.Converter.ConvertHTML(tempHtmlPath, options, jpgOutputPath);
+
+                                // Clean up temporary HTML file
+                                File.Delete(tempHtmlPath);
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error processing {inputZip}: {ex.Message}");
+                    Console.WriteLine($"Error processing ZIP '{zipPath}': {ex.Message}");
                 }
             });
+
+            Console.WriteLine("Batch conversion completed successfully.");
         }
         catch (Exception ex)
         {

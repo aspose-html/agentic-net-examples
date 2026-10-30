@@ -2,54 +2,34 @@
 
 using System;
 
-namespace AsposeHtmlNtlmExample
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
+        try
         {
-            try
+            // Create configuration
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+
+            // Obtain network service (optional, shown for completeness)
+            Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
+
+            // Create request with NTLM credentials
+            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("http://example.com/protected");
+            request.Credentials = new System.Net.NetworkCredential("username", "password", "DOMAIN");
+            request.PreAuthenticate = true;
+
+            // Load the protected HTML document
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
             {
-                // Create configuration and obtain network service
-                Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-                Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-
-                // Add a message handler that injects NTLM credentials
-                network.MessageHandlers.Add(new CredentialHandler(new System.Net.NetworkCredential("username", "password", "DOMAIN")));
-
-                // Prepare request with pre-authentication
-                Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("http://example.com/protected.html");
-                request.PreAuthenticate = true;
-                request.Credentials = new System.Net.NetworkCredential("username", "password", "DOMAIN");
-
-                // Load the protected HTML document
-                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request, configuration))
-                {
-                    string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                    System.Console.WriteLine("Loaded HTML length: " + html.Length);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine("Error: " + ex.Message);
+                System.Console.WriteLine("Document title: " + document.Title);
+                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                System.Console.WriteLine("HTML length: " + html.Length);
             }
         }
-    }
-
-    // Message handler that sets credentials for each request
-    public class CredentialHandler : Aspose.Html.Net.MessageHandler
-    {
-        private readonly System.Net.ICredentials _credentials;
-
-        public CredentialHandler(System.Net.ICredentials credentials)
+        catch (Exception ex)
         {
-            _credentials = credentials;
-        }
-
-        public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
-        {
-            context.Request.Credentials = _credentials;
-            Next(context);
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

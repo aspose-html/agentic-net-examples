@@ -1,53 +1,50 @@
 // Create a configuration that disables all network requests except those required for loading local resources.
 
 using System;
-using System.IO;
-using Aspose.Html;
-using Aspose.Html.Net;
-using Aspose.Html.Net.MessageFilters;
-using Aspose.Html.Services;
-using Aspose.Html.Net;
 
-public sealed class LocalOnlyHandler : Aspose.Html.Net.MessageHandler
+namespace AsposeHtmlNetworkExample
 {
-    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+    public sealed class LocalOnlyHandler : Aspose.Html.Net.MessageHandler
     {
-        string requestUri = context.Request.RequestUri == null ? string.Empty : context.Request.RequestUri.ToString();
-        if (!string.IsNullOrEmpty(requestUri) && !requestUri.StartsWith("file:", System.StringComparison.OrdinalIgnoreCase))
+        public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
         {
-            throw new System.InvalidOperationException("Only local file resources are allowed.");
+            string requestUri = context.Request.RequestUri == null ? string.Empty : context.Request.RequestUri.ToString();
+            if (!string.IsNullOrEmpty(requestUri) && !requestUri.StartsWith("file:", System.StringComparison.OrdinalIgnoreCase))
+                throw new System.InvalidOperationException("Only local file resources are allowed.");
+            Next(context);
         }
-        Next(context);
     }
-}
 
-public class Program
-{
-    public static void Main()
+    public class Program
     {
-        try
+        public static void Main()
         {
-            // Create a minimal local HTML file
-            string htmlPath = "sample.html";
-            if (!File.Exists(htmlPath))
+            try
             {
-                File.WriteAllText(htmlPath, "<!DOCTYPE html><html><head><title>Sample</title></head><body><p>Hello, Aspose.HTML!</p></body></html>");
+                // Create a minimal local HTML file
+                string htmlPath = "sample.html";
+                if (!System.IO.File.Exists(htmlPath))
+                {
+                    System.IO.File.WriteAllText(htmlPath,
+                        "<!DOCTYPE html><html><head><title>Test Document</title></head><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                }
+
+                // Configure Aspose.HTML to allow only local resources
+                Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+                Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
+                networkService.MessageHandlers.Insert(0, new LocalOnlyHandler());
+
+                // Load the local HTML document using the custom configuration
+                using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
+                {
+                    // Output the document title to verify successful loading
+                    Console.WriteLine("Document title: " + document.Title);
+                }
             }
-
-            // Configure Aspose.HTML to block non‑file network requests
-            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Add(new LocalOnlyHandler());
-
-            // Load the local HTML document using the custom configuration
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
+            catch (Exception ex)
             {
-                Console.WriteLine("Document loaded successfully. Title: " + document.Title);
+                Console.WriteLine("Error: " + ex.Message);
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }

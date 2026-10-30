@@ -4,11 +4,11 @@ using System;
 
 public class CredentialHandler : Aspose.Html.Net.MessageHandler
 {
-    private readonly System.Net.NetworkCredential credential = new System.Net.NetworkCredential("user", "password");
+    private readonly System.Net.NetworkCredential _credential = new System.Net.NetworkCredential("user", "password");
 
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        context.Request.Credentials = credential;
+        context.Request.Credentials = _credential;
         Next(context);
     }
 }
@@ -23,13 +23,11 @@ public class Program
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
             network.MessageHandlers.Insert(0, new CredentialHandler());
 
-            string url = "https://example.com";
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(url, configuration))
-            {
-                string outputPath = "output.html";
-                document.Save(outputPath);
-                Console.WriteLine("Document saved to " + outputPath);
-            }
+            Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration);
+            string outputPath = "output.html";
+            document.Save(outputPath);
+
+            Console.WriteLine("Document saved to " + outputPath);
         }
         catch (Exception ex)
         {

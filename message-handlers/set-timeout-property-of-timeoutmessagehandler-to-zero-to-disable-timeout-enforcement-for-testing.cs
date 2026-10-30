@@ -1,52 +1,40 @@
 // Set the Timeout property of TimeoutMessageHandler to zero to disable timeout enforcement for testing.
 
 using System;
-using Aspose.Html;
-using Aspose.Html.Net;
-using Aspose.Html.Services;
 
-namespace Example
+class Program
 {
-    public sealed class ZeroTimeoutHandler : Aspose.Html.Net.MessageHandler
+    static void Main()
     {
-        public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
+        try
         {
-            context.Request.Timeout = System.TimeSpan.Zero;
-            Next(context);
+            Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
+            Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
+            networkService.MessageHandlers.Add(new TimeoutMessageHandler());
+
+            Aspose.Html.Net.RequestMessage request = new Aspose.Html.Net.RequestMessage("https://example.com");
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(request))
+            {
+                string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
+                System.Console.WriteLine(html);
+            }
+        }
+        catch (System.TimeoutException)
+        {
+            System.Console.WriteLine("The request timed out.");
+        }
+        catch (System.Exception ex)
+        {
+            System.Console.WriteLine("Error: " + ex.Message);
         }
     }
+}
 
-    class Program
+public sealed class TimeoutMessageHandler : Aspose.Html.Net.MessageHandler
+{
+    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        static void Main()
-        {
-            try
-            {
-                // Create configuration and obtain network service
-                Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-                INetworkService networkService = configuration.GetService<INetworkService>();
-
-                // Add the custom handler that disables timeout
-                networkService.MessageHandlers.Add(new ZeroTimeoutHandler());
-
-                // Create a request message (example URL)
-                RequestMessage request = new RequestMessage("https://example.com");
-
-                // Load the document using the request
-                using (HTMLDocument document = new HTMLDocument(request))
-                {
-                    string html = document.DocumentElement != null ? document.DocumentElement.OuterHTML : string.Empty;
-                    System.Console.WriteLine(html);
-                }
-            }
-            catch (TimeoutException)
-            {
-                System.Console.WriteLine("The request timed out.");
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine("Error: " + ex.Message);
-            }
-        }
+        context.Request.Timeout = System.TimeSpan.Zero;
+        Next(context);
     }
 }

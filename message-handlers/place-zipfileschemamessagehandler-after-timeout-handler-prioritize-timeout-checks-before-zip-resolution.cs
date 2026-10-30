@@ -3,12 +3,12 @@
 using System;
 using System.IO;
 using System.IO.Compression;
-using Aspose.Html;
 using Aspose.Html.Net;
 using Aspose.Html.Services;
+using Aspose.Html;
 using Aspose.Html.Rendering.Pdf;
 
-public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
+class TimeoutHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
@@ -17,66 +17,53 @@ public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
     }
 }
 
-public sealed class ZipFileSchemaMessageHandler : Aspose.Html.Net.MessageHandler
+class ZipFileSchemaMessageHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        // Custom ZIP schema handling logic could be placed here.
+        // Placeholder for ZIP schema handling logic
         Next(context);
     }
 }
 
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         try
         {
-            // Define paths
             string zipPath = "sample.zip";
-            string extractDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "Extracted");
+            string extractDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ExtractedHtml");
             System.IO.Directory.CreateDirectory(extractDir);
 
-            // Extract HTML files from ZIP
-            using (FileStream zipStream = System.IO.File.OpenRead(zipPath))
-            using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
+            using (System.IO.FileStream zipStream = System.IO.File.OpenRead(zipPath))
+            using (System.IO.Compression.ZipArchive archive = new System.IO.Compression.ZipArchive(zipStream, System.IO.Compression.ZipArchiveMode.Read))
             {
-                foreach (ZipArchiveEntry entry in archive.Entries)
+                foreach (System.IO.Compression.ZipArchiveEntry entry in archive.Entries)
                 {
-                    if (entry.FullName.EndsWith(".html", StringComparison.OrdinalIgnoreCase) ||
-                        entry.FullName.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
+                    if (entry.FullName.EndsWith(".html", System.StringComparison.OrdinalIgnoreCase) ||
+                        entry.FullName.EndsWith(".htm", System.StringComparison.OrdinalIgnoreCase))
                     {
                         string entryPath = System.IO.Path.Combine(extractDir, entry.FullName);
                         string entryFolder = System.IO.Path.GetDirectoryName(entryPath);
                         if (!string.IsNullOrEmpty(entryFolder))
-                        {
                             System.IO.Directory.CreateDirectory(entryFolder);
-                        }
                         entry.ExtractToFile(entryPath, true);
                     }
                 }
             }
 
-            // Locate the first HTML file
-            string[] htmlFiles = System.IO.Directory.GetFiles(extractDir, "*.html", SearchOption.AllDirectories);
+            string[] htmlFiles = System.IO.Directory.GetFiles(extractDir, "*.html", System.IO.SearchOption.AllDirectories);
             if (htmlFiles.Length == 0)
-            {
-                htmlFiles = System.IO.Directory.GetFiles(extractDir, "*.htm", SearchOption.AllDirectories);
-            }
+                htmlFiles = System.IO.Directory.GetFiles(extractDir, "*.htm", System.IO.SearchOption.AllDirectories);
             if (htmlFiles.Length == 0)
-            {
-                throw new FileNotFoundException("No HTML file found after ZIP extraction.");
-            }
+                throw new System.IO.FileNotFoundException("No HTML file found after ZIP extraction.");
 
-            // Configure Aspose.HTML
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
-
-            // Add handlers: timeout first, then ZIP schema handler
             network.MessageHandlers.Add(new TimeoutHandler());
             network.MessageHandlers.Add(new ZipFileSchemaMessageHandler());
 
-            // Load document and render to PDF
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlFiles[0], configuration))
             using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice("output.pdf"))
             {

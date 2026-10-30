@@ -12,50 +12,75 @@ class Program
         {
             // Define paths
             string zipPath = "sample.zip";
-            string extractDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "HTMLExtract");
-            System.IO.Directory.CreateDirectory(extractDir);
+            string extractDir = Path.Combine(Path.GetTempPath(), "HTMLZipExtract");
+            string outputPath = "output.pdf";
+
+            // Ensure a sample zip exists
+            if (!File.Exists(zipPath))
+            {
+                string tempHtmlPath = Path.Combine(Path.GetTempPath(), "sample.html");
+                File.WriteAllText(tempHtmlPath, "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>");
+                using (FileStream zipStream = new FileStream(zipPath, FileMode.Create, FileAccess.Write))
+                using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Create))
+                {
+                    ZipArchiveEntry entry = archive.CreateEntry("sample.html");
+                    using (Stream entryStream = entry.Open())
+                    using (StreamReader reader = new StreamReader(tempHtmlPath))
+                    using (StreamWriter writer = new StreamWriter(entryStream))
+                    {
+                        writer.Write(reader.ReadToEnd());
+                    }
+                }
+                File.Delete(tempHtmlPath);
+            }
+
+            // Ensure extraction directory exists
+            Directory.CreateDirectory(extractDir);
 
             // Extract HTML files from the zip archive
-            using (FileStream zipStream = System.IO.File.OpenRead(zipPath))
+            using (FileStream zipStream = File.OpenRead(zipPath))
             using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
             {
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
-                    if (entry.FullName.EndsWith(".html", StringComparison.OrdinalIgnoreCase) ||
-                        entry.FullName.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
+                    if (entry.FullName.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
                     {
-                        string entryPath = System.IO.Path.Combine(extractDir, entry.FullName);
-                        System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(entryPath));
-                        entry.ExtractToFile(entryPath, true);
+                        string entryPath = Path.Combine(extractDir, entry.FullName);
+                        Directory.CreateDirectory(Path.GetDirectoryName(entryPath));
+                        using (Stream entryStream = entry.Open())
+                        using (FileStream fileStream = new FileStream(entryPath, FileMode.Create, FileAccess.Write))
+                        {
+                            entryStream.CopyTo(fileStream);
+                        }
                     }
                 }
             }
+
+            // Locate the extracted HTML file
+            string[] htmlFiles = Directory.GetFiles(extractDir, "*.html", SearchOption.AllDirectories);
+            if (htmlFiles.Length == 0)
+                throw new FileNotFoundException("No HTML files found in the extracted archive.");
+
+            string htmlPath = htmlFiles[0];
 
             // Configure Aspose.HTML
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
             Aspose.Html.Services.INetworkService network = configuration.GetService<Aspose.Html.Services.INetworkService>();
 
-            // Add timeout handler
-            network.MessageHandlers.Add(new TimeoutHandler());
+            // Insert custom message handler (optional)
+            network.MessageHandlers.Insert(0, new ZipArchiveMessageHandler());
 
-            // Add logging handler
-            network.MessageHandlers.Insert(0, new LogHandler());
-
-            // Locate the extracted HTML file
-            string htmlPath = System.IO.Directory.GetFiles(extractDir, "*.html", System.IO.SearchOption.AllDirectories)[0];
-
-            // Load the document
+            // Load the HTML document
             using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlPath, configuration))
             {
                 // Render to PDF
-                string outputPath = "output.pdf";
                 using (Aspose.Html.Rendering.Pdf.PdfDevice device = new Aspose.Html.Rendering.Pdf.PdfDevice(outputPath))
                 {
                     document.RenderTo(device);
                 }
             }
 
-            Console.WriteLine("PDF generated successfully.");
+            Console.WriteLine("PDF generated successfully at: " + Path.GetFullPath(outputPath));
         }
         catch (Exception ex)
         {
@@ -64,22 +89,12 @@ class Program
     }
 }
 
-// Timeout handler implementation
-class TimeoutHandler : Aspose.Html.Net.MessageHandler
+// Custom message handler to work with resources from the extracted zip
+class ZipArchiveMessageHandler : Aspose.Html.Net.MessageHandler
 {
     public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
     {
-        context.Request.Timeout = System.TimeSpan.FromSeconds(30);
+        // Pass the request to the next handler without modification.
         Next(context);
-    }
-}
-
-// Logging handler implementation
-class LogHandler : Aspose.Html.Net.MessageHandler
-{
-    public override void Invoke(Aspose.Html.Net.INetworkOperationContext context)
-    {
-        Next(context);
-        Console.WriteLine($"{context.Request.RequestUri} | {context.Response.StatusCode}");
     }
 }

@@ -1,6 +1,10 @@
 // Configure network timeout values in a Configuration object and apply to all message handlers.
 
 using System;
+using Aspose.Html;
+using Aspose.Html.Net;
+using Aspose.Html.Services;
+using Aspose.Html.Saving;
 
 public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
 {
@@ -13,24 +17,19 @@ public sealed class TimeoutHandler : Aspose.Html.Net.MessageHandler
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
         try
         {
-            // Create configuration
+            // Create configuration and add the timeout handler to all network operations
             Aspose.Html.Configuration configuration = new Aspose.Html.Configuration();
-
-            // Get network service and add the timeout handler
             Aspose.Html.Services.INetworkService networkService = configuration.GetService<Aspose.Html.Services.INetworkService>();
-            networkService.MessageHandlers.Insert(0, new TimeoutHandler());
+            networkService.MessageHandlers.Add(new TimeoutHandler());
 
-            // Sample HTML content
-            string htmlContent = "<html><body><h1>Hello, Aspose.HTML!</h1></body></html>";
-
-            // Load document with configuration
-            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument(htmlContent, configuration))
+            // Load a sample HTML document using the configured timeout
+            using (Aspose.Html.HTMLDocument document = new Aspose.Html.HTMLDocument("https://example.com", configuration))
             {
-                // Convert to PDF
+                // Convert the document to PDF to demonstrate that the configuration is applied
                 Aspose.Html.Converters.Converter.ConvertHTML(document, new Aspose.Html.Saving.PdfSaveOptions(), "output.pdf");
             }
 
